@@ -112,7 +112,7 @@ export function LotCard({
         </dl>
 
         <details className="group/spec border-t border-line pt-4">
-          <summary className="t-meta flex cursor-pointer list-none items-center justify-between gap-4 text-ink-soft transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ink [&::-webkit-details-marker]:hidden">
+          <summary className="tap t-meta flex min-h-[2.75rem] cursor-pointer list-none items-center justify-between gap-4 text-ink-soft transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ink [&::-webkit-details-marker]:hidden">
             {copy.detailsLabel}
             <span
               aria-hidden="true"
@@ -137,7 +137,7 @@ export function LotCard({
         <a
           href={requestHref}
           data-lot={lot.id}
-          className="mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-[0.875rem] font-medium text-ink transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-accent hover:bg-accent hover:text-on-accent active:scale-[0.985]"
+          className="tap mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-[0.875rem] font-medium text-ink transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-accent hover:bg-accent hover:text-on-accent active:scale-[0.985]"
         >
           {copy.requestLotLabel}
           <span aria-hidden="true">→</span>

@@ -37,7 +37,7 @@ export function ThemeToggle({ surface = 'light' }: { surface?: 'light' | 'dark' 
     <button
       type="button"
       onClick={toggle}
-      className={`inline-flex h-9 w-9 items-center justify-center rounded-full border transition-[color,border-color,background-color,transform] duration-200 [transition-timing-function:var(--ease)] active:scale-[0.94] ${tone}`}
+      className={`tap inline-flex h-10 w-10 items-center justify-center rounded-full border transition-[color,border-color,background-color,transform] duration-200 [transition-timing-function:var(--ease)] active:scale-[0.94] ${tone}`}
     >
       {/* Only one of these is ever rendered to the accessibility tree, because
           the other is display:none — so the button's name is right in both

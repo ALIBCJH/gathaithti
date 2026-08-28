@@ -206,7 +206,38 @@ bottom edge, which left a void above the type and a sliver of the next section
 showing below. It is now exactly one viewport tall, with the type centred in
 the space under the header and the scroll cue at the foot of the frame.
 
-## 7. Decisions worth flagging in the morning
+## 7. Mobile
+
+The mobile menu was rebuilt. It was a list of five links floating in a mostly
+empty black screen, with no indication of where you were, no animation, and a
+close control the size of a word. It now has:
+
+- rows 72px tall with hairline dividers, the current page marked in ochre,
+- an entrance — the sheet fades up and the rows follow 45ms apart, disabled
+  under `prefers-reduced-motion`,
+- a 44px circular close button,
+- the cherry price, one tap from anywhere, because that is what members open
+  this site for,
+- the theme switch and the sample request together at the foot,
+- `env(safe-area-inset-bottom)` padding, so the last row clears the home
+  indicator on an iPhone.
+
+Two real defects came out of auditing the small screens:
+
+- **The image placeholders overflowed their frames** on phones. A 21:9 slot is
+  only ~195px tall at 390px wide, and the art-direction note ran straight out
+  of the box. The note now hides itself in a small slot using a container
+  query rather than a viewport one — a small card on a wide screen has exactly
+  the same problem, and a media query only catches one of the two cases.
+- **“Co-operative” broke across lines** mid-word in the hero. It now carries a
+  non-breaking hyphen.
+
+Tap targets were swept at 320 and 390px with touch emulation. Everything
+interactive now reaches 40px or more; the small-caps links get there through a
+`.tap` pseudo-element that grows the hit area without moving anything on the
+page, and only on coarse pointers.
+
+## 8. Decisions worth flagging in the morning
 
 
 

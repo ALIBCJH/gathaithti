@@ -24,7 +24,10 @@ export function Placeholder({
 
   return (
     <div
-      className={`relative h-full w-full overflow-hidden ${dark ? 'bg-inverse' : 'bg-parchment-2'}`}
+      /* @container: the note is hidden when the SLOT is small, not when the
+         window is — a 21:9 hero on a phone and a small card on a desktop have
+         the same problem, and a viewport media query only catches one of them. */
+      className={`@container relative h-full w-full overflow-hidden ${dark ? 'bg-inverse' : 'bg-parchment-2'}`}
       role="img"
       aria-label={`Photograph to come: ${slot.alt}`}
     >
@@ -45,7 +48,7 @@ export function Placeholder({
       </div>
 
       <div
-        className={`relative flex h-full w-full flex-col justify-between gap-4 ${compact ? 'p-4' : 'p-6 sm:p-8'}`}
+        className={`relative flex h-full w-full flex-col justify-between gap-3 overflow-hidden ${compact ? 'p-4' : 'p-5 @[26rem]:p-6 @[34rem]:p-8'}`}
       >
         <p className={`t-meta ${dark ? 'text-ochre-light' : 'text-ochre-ink'}`}>Photograph to come</p>
 
@@ -60,7 +63,7 @@ export function Placeholder({
           </p>
           {!compact && (
             <p
-              className={`t-body max-w-[46ch] text-[0.875rem] leading-relaxed ${dark ? 'text-on-inverse/70' : 'text-ink-soft'}`}
+              className={`t-body hidden max-w-[46ch] text-[0.875rem] leading-relaxed @[26rem]:line-clamp-4 @[26rem]:block @[34rem]:line-clamp-none ${dark ? 'text-on-inverse/70' : 'text-ink-soft'}`}
             >
               {slot.direction}
             </p>
