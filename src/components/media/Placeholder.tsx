@@ -24,13 +24,13 @@ export function Placeholder({
 
   return (
     <div
-      className={`relative h-full w-full overflow-hidden ${dark ? 'bg-ink' : 'bg-parchment-2'}`}
+      className={`relative h-full w-full overflow-hidden ${dark ? 'bg-inverse' : 'bg-parchment-2'}`}
       role="img"
       aria-label={`Photograph to come: ${slot.alt}`}
     >
       {/* hairline frame, inset so it reads as a mount rather than a border */}
       <div
-        className={`pointer-events-none absolute inset-2 border ${dark ? 'border-parchment/25' : 'border-ochre/45'}`}
+        className={`pointer-events-none absolute inset-2 border ${dark ? 'border-on-inverse/25' : 'border-ochre/45'}`}
         aria-hidden="true"
       />
       <div className="pointer-events-none absolute inset-2" aria-hidden="true">
@@ -38,7 +38,7 @@ export function Placeholder({
           (position) => (
             <span
               key={position}
-              className={`absolute h-3 w-3 ${position} ${dark ? 'border-parchment/60' : 'border-ochre'}`}
+              className={`absolute h-3 w-3 ${position} ${dark ? 'border-on-inverse/60' : 'border-ochre'}`}
             />
           ),
         )}
@@ -51,16 +51,16 @@ export function Placeholder({
 
         <div className="flex flex-col gap-2">
           <p
-            className={`font-mono text-[0.75rem] leading-relaxed tracking-tight break-all ${dark ? 'text-parchment' : 'text-ink'}`}
+            className={`font-mono text-[0.75rem] leading-relaxed tracking-tight break-all ${dark ? 'text-on-inverse' : 'text-ink'}`}
           >
             {slot.file}
           </p>
-          <p className={`t-meta tnum ${dark ? 'text-parchment/60' : 'text-ink-soft'}`}>
+          <p className={`t-meta tnum ${dark ? 'text-on-inverse/60' : 'text-ink-soft'}`}>
             {slot.ratio.replace('/', ' : ')} · min {slot.minWidth}×{slot.minHeight}
           </p>
           {!compact && (
             <p
-              className={`t-body max-w-[46ch] text-[0.875rem] leading-relaxed ${dark ? 'text-parchment/70' : 'text-ink-soft'}`}
+              className={`t-body max-w-[46ch] text-[0.875rem] leading-relaxed ${dark ? 'text-on-inverse/70' : 'text-ink-soft'}`}
             >
               {slot.direction}
             </p>

@@ -7,6 +7,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { RevealScript } from '@/components/ui/Reveal';
+import { THEME_SCRIPT } from '@/components/layout/ThemeToggle';
 import { getDictionary, isLocale, locales } from '@/lib/i18n';
 import { localeTags, site, siteUrl } from '@content/site';
 
@@ -54,8 +55,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#FAF6EF',
-  colorScheme: 'light',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
+    { media: '(prefers-color-scheme: dark)', color: '#241611' },
+  ],
+  colorScheme: 'light dark',
   width: 'device-width',
   initialScale: 1,
 };
@@ -80,7 +84,14 @@ export default async function LocaleLayout({
     <html
       lang={localeTags[locale] ?? 'en-KE'}
       className={`${fraunces.variable} ${inter.variable}`}
+      /* data-theme is written by the script below before React sees the page. */
+      suppressHydrationWarning
     >
+      <head>
+        {/* Ahead of everything, including the stylesheet: no flash of the
+            wrong theme on a dark-mode device. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
       <body className="min-h-screen antialiased">
         <SkipLink label={dict.common.actions.skipToContent} />
         <Header locale={locale} common={dict.common} />

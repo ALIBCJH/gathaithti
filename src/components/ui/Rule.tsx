@@ -2,7 +2,7 @@
 export function Rule({ className = '', tone = 'light' }: { className?: string; tone?: 'light' | 'dark' }) {
   return (
     <hr
-      className={`border-0 h-px ${tone === 'dark' ? 'bg-parchment/20' : 'bg-line'} ${className}`}
+      className={`border-0 h-px ${tone === 'dark' ? 'bg-on-inverse/20' : 'bg-line'} ${className}`}
     />
   );
 }

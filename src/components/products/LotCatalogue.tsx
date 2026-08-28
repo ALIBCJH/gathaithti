@@ -75,7 +75,7 @@ export function LotCatalogue({
 
   const chip =
     'rounded-full border px-4 py-2 text-[0.875rem] transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] active:scale-[0.98]';
-  const chipOn = 'border-ochre-ink bg-ochre-ink text-parchment';
+  const chipOn = 'border-accent bg-accent text-on-accent';
   const chipOff = 'border-line text-ink-soft hover:border-ink/40 hover:text-ink';
 
   return (

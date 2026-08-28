@@ -297,13 +297,13 @@ export function SampleRequestForm({
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex items-center justify-center gap-3 rounded-full bg-ochre-ink px-8 py-4 text-[0.9375rem] font-medium text-parchment transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-ochre-deep active:scale-[0.985] disabled:pointer-events-none disabled:opacity-60"
+          className="inline-flex items-center justify-center gap-3 rounded-full bg-accent px-8 py-4 text-[0.9375rem] font-medium text-on-accent transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-accent-hover active:scale-[0.985] disabled:pointer-events-none disabled:opacity-60"
         >
           {status === 'sending' ? (
             <>
               <span
                 aria-hidden="true"
-                className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-parchment/40 border-t-parchment"
+                className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-on-inverse/40 border-t-parchment"
               />
               {form.sending}
             </>

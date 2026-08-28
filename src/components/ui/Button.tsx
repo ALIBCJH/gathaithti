@@ -17,19 +17,21 @@ const base =
 const styles: Record<Surface, Record<Variant, string>> = {
   light: {
     primary:
-      'bg-ochre-ink text-parchment shadow-[0_1px_0_rgba(36,22,17,0.12)] hover:bg-ochre-deep active:bg-ochre-deep',
+      'bg-accent text-on-accent shadow-[0_1px_0_rgba(36,22,17,0.12)] hover:bg-accent-hover active:bg-accent-hover',
     secondary:
       'border border-ink/25 text-ink hover:border-ink/60 hover:bg-parchment-2 active:bg-line/60',
     quiet: 'text-ochre-ink hover:text-ink underline-offset-4 hover:underline',
   },
   dark: {
-    /* On ink, the fill has to be the light ochre with ink type: parchment on
-       #B4622A measures 4.1:1, under AA for text this size. */
+    /* On an inverse band the fill has to be the light ochre carrying dark
+       type: parchment on #B4622A measures 4.1:1, under AA at this size. The
+       type colour is `inverse`, which is dark in both themes — never `ink`,
+       which flips to a light colour when the page does. */
     primary:
-      'bg-ochre-light text-ink hover:bg-parchment hover:text-ink active:bg-parchment',
+      'bg-ochre-light text-inverse hover:bg-on-inverse hover:text-inverse active:bg-on-inverse',
     secondary:
-      'border border-parchment/35 text-parchment hover:border-parchment hover:bg-parchment/10 active:bg-parchment/15',
-    quiet: 'text-ochre-light hover:text-parchment underline-offset-4 hover:underline',
+      'border border-on-inverse/35 text-on-inverse hover:border-on-inverse hover:bg-on-inverse/10 active:bg-on-inverse/15',
+    quiet: 'text-ochre-light hover:text-on-inverse underline-offset-4 hover:underline',
   },
 };
 

@@ -1,27 +1,95 @@
 @import 'tailwindcss';
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   DESIGN TOKENS
-   Every colour on this site is one of these. No pure black, no pure white,
-   no generic agriculture green.
+   DESIGN TOKENS — two themes
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Light is white and black, as asked. Dark is the society's own palette: the
+   roasted brown that the site was built in.
+
+   Three roles are kept apart, because a colour that is text in one place and a
+   background in another cannot be themed:
+
+     surface / text        the page itself, and what is written on it. These
+                           invert between themes.
+     inverse / on-inverse  the deliberately dark bands — the hero, the footer,
+                           the members' noticeboard. Dark in BOTH themes; only
+                           the shade moves, so they stay distinct from the page.
+     accent                ochre. Two variants: `ochre-ink` is ochre as TEXT on
+                           the current surface (so it flips), while the fill
+                           pair `accent` / `on-accent` is what buttons use.
+
+   Every pair below is measured in TYPOGRAPHY.md and meets WCAG AA in both
+   themes.
    ═══════════════════════════════════════════════════════════════════════════ */
 
-@theme {
-  --color-ink: #241611; /* deep roasted brown — primary text          */
-  --color-ink-soft: #574238; /* secondary text            8.9:1 on parchment */
-  --color-parchment: #faf6ef; /* page background                            */
-  --color-parchment-2: #f1e9dc; /* alternating section background              */
-  --color-ochre: #b4622a; /* volcanic soil — fills, borders, focus rings */
-  --color-cherry: #9b2226; /* coffee cherry — emphasis only   7.4:1       */
-  --color-moss: #56604c; /* members' surfaces (dark)        6.1:1       */
-  --color-line: #e0d5c4; /* hairline borders                            */
+:root {
+  color-scheme: light;
 
-  /* Text-safe variants. Ochre at #B4622A is 4.1:1 on parchment — fine for
-     large type and for borders, short of AA for body copy. These two carry
-     the contrast where ochre is used as *text*. Verified in TYPOGRAPHY.md. */
-  --color-ochre-ink: #9a4f1e; /* ochre as body text on light   5.6:1        */
-  --color-ochre-deep: #83411a; /* ochre pressed / hover fill 7.3:1        */
-  --color-ochre-light: #e08a46; /* ochre as text on ink          6.7:1        */
+  --surface: #ffffff; /* page                                        */
+  --surface-2: #f4f4f4; /* alternating sections                        */
+  --text: #000000; /* primary text            21:1 on surface     */
+  --text-soft: #3f3f3f; /* secondary text          10.4:1              */
+  --hairline: #e2e2e2;
+
+  --inverse: #241611; /* dark bands — the brand brown                */
+  --inverse-2: #33211a;
+  --on-inverse: #faf6ef; /* text on those bands     16.3:1              */
+
+  --ochre-text: #9a4f1e; /* ochre as text on this surface   5.9:1       */
+  --accent-fill: #9a4f1e; /* button fill                                 */
+  --accent-fill-hover: #83411a;
+  --on-accent: #faf6ef; /* text on that fill       5.9:1               */
+  --cherry-text: #9b2226; /* errors, emphasis        7.9:1               */
+
+  --photo-treatment: saturate(0.9) contrast(1.02) brightness(1.01) sepia(0.07);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --surface: #241611;
+  --surface-2: #2e1e17;
+  --text: #faf6ef; /* 16.3:1 on surface  */
+  --text-soft: #c9bbad; /*  9.5:1             */
+  --hairline: #3e2c23;
+
+  --inverse: #16100c; /* deeper than the page, so bands still read   */
+  --inverse-2: #241611;
+  --on-inverse: #faf6ef;
+
+  --ochre-text: #e08a46; /*  6.6:1 on surface  */
+  --accent-fill: #e08a46;
+  --accent-fill-hover: #f0a468;
+  --on-accent: #241611; /*  6.6:1 on the fill */
+  --cherry-text: #e1666b; /*  5.4:1             */
+
+  /* Photographs are lifted less and warmed slightly more against the brown. */
+  --photo-treatment: saturate(0.86) contrast(1.03) brightness(0.94) sepia(0.08);
+}
+
+@theme inline {
+  /* Named for the palette they came from; bound to the roles above so both
+     themes drive the same utility classes. */
+  --color-parchment: var(--surface);
+  --color-parchment-2: var(--surface-2);
+  --color-ink: var(--text);
+  --color-ink-soft: var(--text-soft);
+  --color-line: var(--hairline);
+
+  --color-inverse: var(--inverse);
+  --color-inverse-2: var(--inverse-2);
+  --color-on-inverse: var(--on-inverse);
+
+  --color-ochre: #b4622a; /* fills, rules, focus ring — never body text */
+  --color-ochre-ink: var(--ochre-text);
+  --color-ochre-deep: #83411a;
+  --color-ochre-light: #e08a46; /* ochre as text on an inverse band        */
+  --color-accent: var(--accent-fill);
+  --color-accent-hover: var(--accent-fill-hover);
+  --color-on-accent: var(--on-accent);
+  --color-cherry: var(--cherry-text);
+  --color-moss: #56604c; /* members' surfaces — dark in both themes */
 
   --font-display: var(--font-fraunces), 'Iowan Old Style', Georgia, serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -38,10 +106,13 @@
 
   --measure: 68ch;
   --header-h: 4.5rem;
+}
 
-  /* One treatment over every photograph, so pictures from different cameras
-     and different years still read as one set. */
-  --photo-treatment: saturate(0.9) contrast(1.02) brightness(1.01) sepia(0.07);
+/* The theme switch renders both icons and both labels; CSS shows one. Markup
+   identical in both themes means nothing can mismatch during hydration. */
+:root[data-theme='dark'] .theme-when-light,
+:root:not([data-theme='dark']) .theme-when-dark {
+  display: none;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

@@ -6,40 +6,71 @@ and were changed rather than waived; the notes below say which.
 
 ## Contrast
 
+The site has two themes. Light is white and black, as the client asked for;
+dark is the society's own roasted-brown palette. Both are measured below with
+the WCAG 2.1 relative-luminance formula — not estimated, and not eyeballed.
+
+Three colour roles are kept apart so that themes are possible at all: the page
+(`surface` / `text`), the deliberately dark bands that stay dark in both themes
+(`inverse` / `on-inverse`), and the accent fill (`accent` / `on-accent`). A
+colour that is text in one place and a background in another cannot be themed,
+which is what forced the split.
+
+### Light theme
+
 | Foreground | Background | Ratio | Needs | Pass | Used for |
 | --- | --- | --- | --- | --- | --- |
-| `--ink` #241611 | `--parchment` #FAF6EF | **16.27:1** | 4.5:1 | yes | Body text on the page |
-| `--ink` #241611 | `--parchment2` #F1E9DC | **14.55:1** | 4.5:1 | yes | Body text, alternating sections |
-| `--ink-soft` #574238 | `--parchment` #FAF6EF | **8.70:1** | 4.5:1 | yes | Secondary text |
-| `--ink-soft` #574238 | `--parchment2` #F1E9DC | **7.78:1** | 4.5:1 | yes | Secondary text, alternating sections |
-| `--ochre-ink` #9A4F1E | `--parchment` #FAF6EF | **5.55:1** | 4.5:1 | yes | Links, eyebrows, small labels |
-| `--ochre-ink` #9A4F1E | `--parchment2` #F1E9DC | **4.96:1** | 4.5:1 | yes | Links on alternating sections |
-| `--ochre` #B4622A | `--parchment` #FAF6EF | **4.13:1** | 3.0:1 | yes | Large display figures and rules only |
-| `--parchment` #FAF6EF | `--ochre-ink` #9A4F1E | **5.55:1** | 4.5:1 | yes | Primary button, rest state |
-| `--parchment` #FAF6EF | `--ochre-deep` #83411A | **7.12:1** | 4.5:1 | yes | Primary button, hover and pressed |
-| `--parchment` #FAF6EF | `--ink` #241611 | **16.27:1** | 4.5:1 | yes | Text on dark sections |
-| `--ochre-light` #E08A46 | `--ink` #241611 | **6.59:1** | 4.5:1 | yes | Accents and links on dark sections |
-| `--ink` #241611 | `--ochre-light` #E08A46 | **6.59:1** | 4.5:1 | yes | Primary button on dark sections |
-| `--parchment` #FAF6EF | `--moss` #56604C | **6.14:1** | 4.5:1 | yes | Text on the members’ moss surfaces |
-| `--cherry` #9B2226 | `--parchment` #FAF6EF | **7.35:1** | 4.5:1 | yes | Emphasis and form errors |
-| `--ochre` #B4622A | `--parchment` #FAF6EF | **4.13:1** | 3.0:1 | yes | Focus ring (non-text) |
+| `text` #000000 | `surface` #FFFFFF | **21.00:1** | 4.5:1 | yes | Body text on the page |
+| `text` #000000 | `surface2` #F4F4F4 | **19.09:1** | 4.5:1 | yes | Body text, alternating sections |
+| `text-soft` #3F3F3F | `surface` #FFFFFF | **10.53:1** | 4.5:1 | yes | Secondary text |
+| `text-soft` #3F3F3F | `surface2` #F4F4F4 | **9.57:1** | 4.5:1 | yes | Secondary text, alternating sections |
+| `ochre-text` #9A4F1E | `surface` #FFFFFF | **5.98:1** | 4.5:1 | yes | Links, eyebrows, small labels |
+| `ochre-text` #9A4F1E | `surface2` #F4F4F4 | **5.44:1** | 4.5:1 | yes | Links on alternating sections |
+| `on-accent` #FAF6EF | `accent` #9A4F1E | **5.55:1** | 4.5:1 | yes | Primary button, rest |
+| `on-accent` #FAF6EF | `accent-hover` #83411A | **7.12:1** | 4.5:1 | yes | Primary button, hover and pressed |
+| `cherry` #9B2226 | `surface` #FFFFFF | **7.92:1** | 4.5:1 | yes | Form errors and emphasis |
+| `on-inverse` #FAF6EF | `inverse` #241611 | **16.27:1** | 4.5:1 | yes | Text on the dark bands |
+| `ochre-light` #E08A46 | `inverse` #241611 | **6.59:1** | 4.5:1 | yes | Accents on the dark bands |
+| `inverse` #241611 | `ochre-light` #E08A46 | **6.59:1** | 4.5:1 | yes | Button on a dark band |
+| `on-inverse` #FAF6EF | `moss` #56604C | **6.14:1** | 4.5:1 | yes | Text on the members’ moss surfaces |
+| `ochre` #B4622A | `surface` #FFFFFF | **4.45:1** | 3.0:1 | yes | Focus ring (non-text, needs 3:1) |
 
-### The two that failed, and what happened
+### Dark theme
 
-**Ochre as body text.** `--ochre` #B4622A on parchment measures 4.13:1 — fine
-for large display type and for rules, short of the 4.5:1 AA needs for body
-copy. Links and small labels therefore use `--ochre-ink` #9A4F1E (5.55:1),
-which is the same hue carried deeper. Ochre keeps the fills, the rules, the
-focus ring and the big figures, where it is either large or non-text.
+| Foreground | Background | Ratio | Needs | Pass | Used for |
+| --- | --- | --- | --- | --- | --- |
+| `text` #FAF6EF | `surface` #241611 | **16.27:1** | 4.5:1 | yes | Body text on the page |
+| `text` #FAF6EF | `surface2` #2E1E17 | **14.83:1** | 4.5:1 | yes | Body text, alternating sections |
+| `text-soft` #C9BBAD | `surface` #241611 | **9.35:1** | 4.5:1 | yes | Secondary text |
+| `text-soft` #C9BBAD | `surface2` #2E1E17 | **8.52:1** | 4.5:1 | yes | Secondary text, alternating sections |
+| `ochre-text` #E08A46 | `surface` #241611 | **6.59:1** | 4.5:1 | yes | Links, eyebrows, small labels |
+| `ochre-text` #E08A46 | `surface2` #2E1E17 | **6.01:1** | 4.5:1 | yes | Links on alternating sections |
+| `on-accent` #241611 | `accent` #E08A46 | **6.59:1** | 4.5:1 | yes | Primary button, rest |
+| `on-accent` #241611 | `accent-hover` #F0A468 | **8.53:1** | 4.5:1 | yes | Primary button, hover and pressed |
+| `cherry` #E1666B | `surface` #241611 | **5.27:1** | 4.5:1 | yes | Form errors and emphasis |
+| `on-inverse` #FAF6EF | `inverse` #16100C | **17.51:1** | 4.5:1 | yes | Text on the dark bands |
+| `ochre-light` #E08A46 | `inverse` #16100C | **7.09:1** | 4.5:1 | yes | Accents on the dark bands |
+| `inverse` #16100C | `ochre-light` #E08A46 | **7.09:1** | 4.5:1 | yes | Button on a dark band |
+| `on-inverse` #FAF6EF | `moss` #56604C | **6.14:1** | 4.5:1 | yes | Text on the members’ moss surfaces |
+| `ochre` #B4622A | `surface` #241611 | **3.94:1** | 3.0:1 | yes | Focus ring (non-text, needs 3:1) |
 
-**Ochre as a button fill on dark.** Parchment on #B4622A is the same 4.13:1.
-On ink sections the primary button is therefore `--ochre-light` #E08A46 with
-ink type (6.59:1), which also gives the dark sections a brighter call to
-action than the light ones — appropriate, since they are the two places the
-page is asking for a decision.
+Every pair passes. The rendered pages were also swept element by element in a
+real browser, in both themes, comparing each text node against its composited
+background — the only thing that came up was a false positive on the
+transparent header sitting over the hero photograph, which the sweep cannot see
+behind.
 
-Both were caught by measurement, not by eye. Lighthouse now reports 100 for
-accessibility on all five pages.
+### The two that failed during the original build, and what happened
+
+**Ochre as body text.** `#B4622A` on parchment measured 4.13:1 — fine for large
+display type and rules, short of the 4.5:1 AA needs for body copy. Ochre as
+text is therefore `--ochre-text`, which is `#9A4F1E` on light and `#E08A46` on
+dark. Ochre keeps the fills, the rules and the focus ring, where it is either
+large or not text at all.
+
+**Ochre as a button fill on dark.** Parchment on `#B4622A` is the same 4.13:1.
+Buttons now use the themed `accent` / `on-accent` pair, which inverts with the
+theme: dark ochre with light type on white, light ochre with dark type on brown.
 
 ## Type scale
 

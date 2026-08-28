@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { routes, type Locale } from '@content/site';
 import type { Common } from '@content/types';
+import { ThemeToggle } from './ThemeToggle';
 
 /**
  * Transparent over the hero, an opaque parchment bar with a hairline once the
@@ -33,28 +34,45 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
-  /* transparent → solid, watching a 1px sentinel at the foot of the hero.
-     Pages without a hero never create an observer. */
+  /* transparent → solid.
+     The sentinel is re-queried on every measurement rather than captured once:
+     if React ever re-renders the tree underneath us (a hydration recovery, a
+     route change) a captured node goes stale, the measurement silently stops,
+     and the bar sits transparent over a white page — invisible. Re-reading the
+     DOM each time costs one layout read per animation frame while scrolling,
+     which is nothing, and cannot go stale. */
   useEffect(() => {
-    const sentinel = document.getElementById('hero-sentinel');
-    if (!sentinel) return;
+    if (!isHome) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) =>
-        setHeroState({
-          path: pathname,
-          /* Direction matters. A sentinel that is not intersecting is either
-             above the viewport (we have scrolled past the hero) or below it
-             (the hero is taller than the window — which happens on Kiswahili
-             pages, where the translation notice pushes it down). Only the
-             first should turn the bar solid. */
-          past: !entry.isIntersecting && entry.boundingClientRect.top < 0,
-        }),
-      { rootMargin: '-64px 0px 0px 0px', threshold: 0 },
-    );
-    observer.observe(sentinel);
-    return () => observer.disconnect();
-  }, [pathname]);
+    let frame = 0;
+
+    const measure = () => {
+      frame = 0;
+      const sentinel = document.getElementById('hero-sentinel');
+      /* No hero on this page: the bar is solid, which is also the fallback if
+         the element ever disappears. */
+      const past = !sentinel || sentinel.getBoundingClientRect().top < 64;
+      setHeroState({ path: pathname, past });
+    };
+
+    const schedule = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(measure);
+    };
+
+    /* Deferred, not called inline: the first measurement belongs after paint,
+       and a reload part-way down the page needs it. */
+    schedule();
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [pathname, isHome]);
 
   /* mobile panel: lock scroll, escape to close, keep focus inside */
   useEffect(() => {
@@ -126,11 +144,11 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
         <Link
           href={`/${locale}`}
           className={`t-meta transition-colors duration-200 [transition-timing-function:var(--ease)] ${
-            solid ? 'text-ink hover:text-ochre-ink' : 'text-parchment hover:text-ochre-light'
+            solid ? 'text-ink hover:text-ochre-ink' : 'text-on-inverse hover:text-ochre-light'
           }`}
         >
           <span className="font-semibold tracking-[0.14em] whitespace-nowrap">GATHAITHI</span>
-          <span className={`ml-3 hidden sm:inline ${solid ? 'text-ink-soft' : 'text-parchment/70'}`}>
+          <span className={`ml-3 hidden sm:inline ${solid ? 'text-ink-soft' : 'text-on-inverse/70'}`}>
             F.C.S.
           </span>
         </Link>
@@ -153,8 +171,8 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
                           ? 'text-ink'
                           : 'text-ink-soft hover:text-ink'
                         : current
-                          ? 'text-parchment'
-                          : 'text-parchment/75 hover:text-parchment',
+                          ? 'text-on-inverse'
+                          : 'text-on-inverse/75 hover:text-on-inverse',
                     ].join(' ')}
                   >
                     {navLabel(route.key)}
@@ -175,18 +193,7 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
         </nav>
 
         <div className="flex shrink-0 items-center gap-4 sm:gap-6">
-          <Link
-            href={`/${locale}/products#request-a-sample`}
-            className={[
-              'hidden rounded-full px-5 py-2.5 text-[0.875rem] font-medium lg:inline-flex',
-              'transition-[background-color,color,transform] duration-200 [transition-timing-function:var(--ease)] active:scale-[0.985]',
-              solid
-                ? 'bg-ochre-ink text-parchment hover:bg-ochre-deep'
-                : 'bg-parchment/12 text-parchment ring-1 ring-parchment/35 hover:bg-parchment hover:text-ink',
-            ].join(' ')}
-          >
-            {common.actions.requestSample}
-          </Link>
+          <ThemeToggle surface={solid ? 'light' : 'dark'} />
 
           <button
             ref={toggleRef}
@@ -194,13 +201,13 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className={`flex items-center gap-3 py-2 lg:hidden ${solid ? 'text-ink' : 'text-parchment'}`}
+            className={`flex items-center gap-3 py-2 lg:hidden ${solid ? 'text-ink' : 'text-on-inverse'}`}
           >
             <span className="t-meta">{common.actions.menu}</span>
             <span aria-hidden="true" className="flex h-3 w-5 flex-col justify-between">
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-parchment'}`} />
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-parchment'}`} />
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-parchment'}`} />
+              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
+              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
+              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
             </span>
           </button>
         </div>
@@ -214,7 +221,7 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
           role="dialog"
           aria-modal="true"
           aria-label={common.actions.menu}
-          className="fixed inset-0 z-50 flex flex-col bg-ink text-parchment on-ink lg:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-inverse text-on-inverse on-ink lg:hidden"
         >
           <div
             className="flex items-center justify-between px-6 sm:px-10"
@@ -237,7 +244,7 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
                     href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
                     aria-current={isCurrent(route.path) ? 'page' : undefined}
                     onClick={() => setOpen(false)}
-                    className="t-page-title block py-2 text-parchment transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ochre-light"
+                    className="t-page-title block py-2 text-on-inverse transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ochre-light"
                     style={{ fontSize: 'clamp(2rem, 9vw, 3.25rem)' }}
                   >
                     <span className="t-meta mr-4 align-middle text-ochre-light">
@@ -250,8 +257,8 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
             </ul>
           </nav>
 
-          <div className="flex items-center justify-between gap-6 border-t border-parchment/20 px-6 py-8 sm:px-10">
-            <span className="t-meta max-w-[16ch] text-parchment/60">{common.brand.tagline}</span>
+          <div className="flex items-center justify-between gap-6 border-t border-on-inverse/20 px-6 py-8 sm:px-10">
+            <span className="t-meta max-w-[16ch] text-on-inverse/60">{common.brand.tagline}</span>
             <Link
               href={`/${locale}/products#request-a-sample`}
               onClick={() => setOpen(false)}
