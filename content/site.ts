@@ -27,10 +27,54 @@ export const defaultLocale: Locale = 'en';
 export const localeTags: Record<string, string> = { en: 'en-KE', sw: 'sw-KE' };
 export const localeOgTags: Record<string, string> = { en: 'en_KE', sw: 'sw_KE' };
 
-/** Set NEXT_PUBLIC_SITE_URL on Vercel. Used for canonicals, OG and the sitemap. */
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://gathaithicoffee.co.ke'
-).replace(/\/$/, '');
+/** Where the site lives, if nothing else says otherwise. */
+const FALLBACK_SITE_URL = 'https://gathaithicoffee.co.ke';
+
+/**
+ * The canonical origin, used for <link rel="canonical">, OpenGraph URLs,
+ * JSON-LD, robots.txt and the sitemap.
+ *
+ * Resolved defensively, because getting this wrong breaks the build rather
+ * than one page: `new URL('')` throws, and an env var that exists but is empty
+ * is not caught by `??`. That is exactly what an empty NEXT_PUBLIC_SITE_URL in
+ * the Vercel dashboard produces.
+ *
+ * In order of preference:
+ *   1. NEXT_PUBLIC_SITE_URL          the real domain, once it is set
+ *   2. VERCEL_PROJECT_PRODUCTION_URL the production domain Vercel assigns
+ *   3. VERCEL_URL                    this specific deployment (previews)
+ *   4. the fallback above
+ *
+ * Anything unusable — blank, whitespace, or not a URL — is skipped rather than
+ * thrown, so a mistyped variable degrades to the next candidate instead of
+ * failing the deployment.
+ */
+function resolveSiteUrl(): string {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+    FALLBACK_SITE_URL,
+  ];
+
+  for (const candidate of candidates) {
+    const trimmed = candidate?.trim();
+    if (!trimmed) continue;
+
+    /* Vercel supplies bare hostnames; a hand-typed value may omit the scheme. */
+    const withScheme = /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+
+    try {
+      return new URL(withScheme).origin;
+    } catch {
+      /* not a URL — try the next candidate */
+    }
+  }
+
+  return FALLBACK_SITE_URL;
+}
+
+export const siteUrl = resolveSiteUrl();
 
 /** A phone number or address. `value` is the machine form (tel:, mailto:). */
 export interface ContactDetail {

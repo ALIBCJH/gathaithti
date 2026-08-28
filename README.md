@@ -123,8 +123,14 @@ The site is a static build with one dynamic route (the form endpoint).
 2. Import the repository at [vercel.com/new](https://vercel.com/new). Vercel
    detects Next.js; no build configuration is needed.
 3. Set the environment variables from [`.env.example`](.env.example) in
-   **Project → Settings → Environment Variables**. At minimum
-   `NEXT_PUBLIC_SITE_URL`.
+   **Project → Settings → Environment Variables**.
+
+   `NEXT_PUBLIC_SITE_URL` is the only one that affects the build. Either give
+   it a real value or leave it out — **adding the variable with an empty value
+   is the one thing that breaks the deployment**, and it used to fail with a
+   bare `TypeError: Invalid URL`. The site now falls back to the Vercel
+   deployment URL and then to the domain in `content/site.ts`, and it accepts a
+   value with or without `https://` and with or without a trailing slash.
 4. Add the domain under **Settings → Domains**, and point the DNS at Vercel.
 5. Submit `https://<domain>/sitemap.xml` in Google Search Console.
 
