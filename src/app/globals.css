@@ -1,0 +1,314 @@
+@import 'tailwindcss';
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   Every colour on this site is one of these. No pure black, no pure white,
+   no generic agriculture green.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  --color-ink: #241611; /* deep roasted brown — primary text          */
+  --color-ink-soft: #574238; /* secondary text            8.9:1 on parchment */
+  --color-parchment: #faf6ef; /* page background                            */
+  --color-parchment-2: #f1e9dc; /* alternating section background              */
+  --color-ochre: #b4622a; /* volcanic soil — fills, borders, focus rings */
+  --color-cherry: #9b2226; /* coffee cherry — emphasis only   7.4:1       */
+  --color-moss: #56604c; /* members' surfaces (dark)        6.1:1       */
+  --color-line: #e0d5c4; /* hairline borders                            */
+
+  /* Text-safe variants. Ochre at #B4622A is 4.1:1 on parchment — fine for
+     large type and for borders, short of AA for body copy. These two carry
+     the contrast where ochre is used as *text*. Verified in TYPOGRAPHY.md. */
+  --color-ochre-ink: #9a4f1e; /* ochre as body text on light   5.6:1        */
+  --color-ochre-deep: #83411a; /* ochre pressed / hover fill 7.3:1        */
+  --color-ochre-light: #e08a46; /* ochre as text on ink          6.7:1        */
+
+  --font-display: var(--font-fraunces), 'Iowan Old Style', Georgia, serif;
+  --font-body: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --ease-brand: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* One easing curve, three durations. Nothing else. */
+:root {
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-state: 200ms; /* hover, focus, press          */
+  --dur-enter: 500ms; /* entrances                    */
+  --stagger: 60ms; /* between siblings             */
+
+  --measure: 68ch;
+  --header-h: 4.5rem;
+
+  /* One treatment over every photograph, so pictures from different cameras
+     and different years still read as one set. */
+  --photo-treatment: saturate(0.9) contrast(1.02) brightness(1.01) sepia(0.07);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 1.5rem);
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-ochre);
+  color: var(--color-parchment);
+}
+
+/* A designed focus ring, everywhere, on everything. */
+:focus-visible {
+  outline: 2px solid var(--color-ochre);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.on-ink :focus-visible,
+.on-moss :focus-visible {
+  outline-color: var(--color-ochre-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPE SCALE — fluid, never fixed px for headings
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.t-hero {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6.75rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.t-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.t-section {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* Large, quiet statements: display face at low weight. */
+.t-quiet {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.t-lead {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.t-body {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.t-meta {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+/* Figures are the emotional payload of this site: display type, not data. */
+.t-figure {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.t-figure-sm {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Every number on the site aligns. */
+.tnum {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+/* Optical margin alignment: a big opening quote hangs into the margin. */
+.pull-quote {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-indent: -0.42em;
+  text-wrap: balance;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LINKS — an underline that moves, never a colour swap
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.link {
+  color: var(--color-ochre-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: color-mix(in oklab, var(--color-ochre) 45%, transparent);
+  transition:
+    text-decoration-thickness var(--dur-state) var(--ease),
+    text-decoration-color var(--dur-state) var(--ease),
+    color var(--dur-state) var(--ease);
+}
+.link:hover {
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-ochre);
+  color: var(--color-ink);
+}
+.link:active {
+  color: var(--color-cherry);
+}
+.on-ink .link,
+.on-moss .link {
+  color: var(--color-ochre-light);
+}
+.on-ink .link:hover,
+.on-moss .link:hover {
+  color: var(--color-parchment);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOTION — entrances only, once, and never for people who asked us not to
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  [data-reveal][data-revealed] {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity var(--dur-enter) var(--ease),
+      transform var(--dur-enter) var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PHOTOGRAPHY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.photo {
+  filter: var(--photo-treatment);
+}
+
+/* Card hover: the image moves, the card does not. */
+.photo-zoom {
+  transition: transform 600ms var(--ease);
+  will-change: transform;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .group\/card:hover .photo-zoom {
+    transform: scale(1.04);
+  }
+}
+
+/* Slow connections and data-saver: drop the treatment and the zoom, keep the
+   photograph. Richness must never be the reason a page stutters. */
+@media (prefers-reduced-data: reduce) {
+  .photo {
+    filter: none;
+  }
+  .photo-zoom {
+    transition: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UNVERIFIED FIGURES
+   NEXT_PUBLIC_SHOW_UNVERIFIED=1 marks every unconfirmed statistic on screen.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+[data-verified='false'][data-mark='on'] {
+  text-decoration: underline dotted var(--color-cherry);
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 2px;
+}
+
+/* Print: the noticeboard gets pinned to the wall of the society office, and
+   the lot catalogue goes into a buyer's folder. Entrance states must not
+   survive into print — an unrevealed section prints as a blank page. */
+@media print {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  header[class*='fixed'] {
+    position: static !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+}

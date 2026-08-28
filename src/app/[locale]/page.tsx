@@ -1,0 +1,42 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+
+import { Hero } from '@/components/home/Hero';
+import { ProofBand } from '@/components/home/ProofBand';
+import { SeasonPanel } from '@/components/home/SeasonPanel';
+import { StoryTeaser } from '@/components/home/StoryTeaser';
+import { NoticeboardPreview } from '@/components/home/NoticeboardPreview';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { getDictionary, isLocale } from '@/lib/i18n';
+import { buildMetadata, localBusinessLd, organizationLd } from '@/lib/seo';
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return buildMetadata({ locale, path: '', meta: getDictionary(locale).home.meta });
+}
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+
+  const dict = getDictionary(locale);
+  const { home, farmers } = dict;
+
+  return (
+    <>
+      <JsonLd data={[organizationLd(locale), localBusinessLd(locale)]} />
+      <Hero locale={locale} content={home.hero} />
+      <ProofBand content={home.proof} />
+      <SeasonPanel locale={locale} content={home.season} />
+      <StoryTeaser locale={locale} content={home.story} />
+      <NoticeboardPreview
+        locale={locale}
+        content={home.noticeboard}
+        noticeboard={farmers.noticeboard}
+      />
+    </>
+  );
+}

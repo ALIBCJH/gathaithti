@@ -1,0 +1,72 @@
+import type { ResolvedImage } from '@/lib/images';
+
+/**
+ * What stands in for a photograph that has not been taken yet.
+ *
+ * It is a designed object, not a broken image: a warm parchment field, a thin
+ * ochre rule, the filename the photograph must have, its aspect ratio and
+ * minimum size, and the art direction. The site can be shown on a projector
+ * before a single frame exists and every empty slot reads as
+ * “photograph goes here”.
+ */
+export function Placeholder({
+  slot,
+  tone = 'light',
+  compact = false,
+}: {
+  slot: ResolvedImage;
+  /** `dark` sits inside ink sections — the hero, the footer, the noticeboard. */
+  tone?: 'light' | 'dark';
+  /** Drops the art-direction note where the slot is physically small. */
+  compact?: boolean;
+}) {
+  const dark = tone === 'dark';
+
+  return (
+    <div
+      className={`relative h-full w-full overflow-hidden ${dark ? 'bg-ink' : 'bg-parchment-2'}`}
+      role="img"
+      aria-label={`Photograph to come: ${slot.alt}`}
+    >
+      {/* hairline frame, inset so it reads as a mount rather than a border */}
+      <div
+        className={`pointer-events-none absolute inset-2 border ${dark ? 'border-parchment/25' : 'border-ochre/45'}`}
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-2" aria-hidden="true">
+        {['left-0 top-0 border-l border-t', 'right-0 top-0 border-r border-t', 'bottom-0 left-0 border-b border-l', 'bottom-0 right-0 border-b border-r'].map(
+          (position) => (
+            <span
+              key={position}
+              className={`absolute h-3 w-3 ${position} ${dark ? 'border-parchment/60' : 'border-ochre'}`}
+            />
+          ),
+        )}
+      </div>
+
+      <div
+        className={`relative flex h-full w-full flex-col justify-between gap-4 ${compact ? 'p-4' : 'p-6 sm:p-8'}`}
+      >
+        <p className={`t-meta ${dark ? 'text-ochre-light' : 'text-ochre-ink'}`}>Photograph to come</p>
+
+        <div className="flex flex-col gap-2">
+          <p
+            className={`font-mono text-[0.75rem] leading-relaxed tracking-tight break-all ${dark ? 'text-parchment' : 'text-ink'}`}
+          >
+            {slot.file}
+          </p>
+          <p className={`t-meta tnum ${dark ? 'text-parchment/60' : 'text-ink-soft'}`}>
+            {slot.ratio.replace('/', ' : ')} · min {slot.minWidth}×{slot.minHeight}
+          </p>
+          {!compact && (
+            <p
+              className={`t-body max-w-[46ch] text-[0.875rem] leading-relaxed ${dark ? 'text-parchment/70' : 'text-ink-soft'}`}
+            >
+              {slot.direction}
+            </p>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
