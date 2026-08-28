@@ -9,6 +9,7 @@ import { SkipLink } from '@/components/layout/SkipLink';
 import { RevealScript } from '@/components/ui/Reveal';
 import { THEME_SCRIPT } from '@/components/layout/ThemeToggle';
 import { getDictionary, isLocale, locales } from '@/lib/i18n';
+import { getFact } from '@/lib/facts';
 import { localeTags, site, siteUrl } from '@content/site';
 
 /**
@@ -80,6 +81,15 @@ export default async function LocaleLayout({
 
   const dict = getDictionary(locale);
 
+  /* Prepared here so the mobile panel — a client component — needs no access
+     to the facts file, and none of it ends up in the browser bundle. */
+  const price = getFact('cherryPriceCurrent');
+  const memberPrice = {
+    label: dict.farmers.noticeboard.priceLabel,
+    value: price?.display ?? '',
+    unit: price?.unit ?? '',
+  };
+
   return (
     <html
       lang={localeTags[locale] ?? 'en-KE'}
@@ -94,7 +104,7 @@ export default async function LocaleLayout({
       </head>
       <body className="min-h-screen antialiased">
         <SkipLink label={dict.common.actions.skipToContent} />
-        <Header locale={locale} common={dict.common} />
+        <Header locale={locale} common={dict.common} memberPrice={memberPrice} />
         {/* English only. If Kiswahili is switched back on in content/site.ts,
             the translation-in-progress notice goes here:
             <div style={{ paddingTop: 'var(--header-h)' }}>

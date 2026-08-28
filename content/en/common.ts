@@ -10,7 +10,7 @@ import type { Common } from '../types';
 
 export const common: Common = {
   brand: {
-    name: 'Gathaithi Farmers’ Co-operative Society',
+    name: 'Gathaithi Farmers’ Co‑operative Society',
     short: 'Gathaithi',
     tagline: 'Farmer-owned coffee from Tetu, Nyeri',
   },
@@ -44,7 +44,7 @@ export const common: Common = {
 
   footer: {
     blurb:
-      'Gathaithi Farmers’ Co-operative Society Ltd is owned by the {{members}} smallholder farmers who grow its coffee. One wet mill, one village, one crop taken seriously.',
+      'Gathaithi Farmers’ Co‑operative Society Ltd is owned by the {{members}} smallholder farmers who grow its coffee. One wet mill, one village, one crop taken seriously.',
     sections: { explore: 'Explore', contact: 'Contact', members: 'Members' },
     registration: 'Registered co-operative society, Nyeri County, Kenya',
     rights: 'All rights reserved.',

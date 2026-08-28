@@ -288,6 +288,14 @@ Two caveats worth knowing before you re-run it:
 Re-run after adding photographs — that is the change most likely to cost real
 points rather than measurement noise.
 
+**Mobile.** Checked at 320, 360 and 390px on every page, in both themes, with
+touch emulation on: no horizontal overflow, no clipped content, and every
+interactive element at 40px or more. Small-caps links reach that through a
+`.tap` pseudo-element that grows the hit area without shifting the layout, and
+only on touch devices. The menu is a full-screen panel with the current page
+marked, the cherry price one tap from anywhere, and a staggered entrance that
+respects `prefers-reduced-motion`.
+
 **Accessibility.** Every text/background pair was checked against WCAG AA and
 the failures fixed (see `TYPOGRAPHY.md` for the measured ratios). Keyboard
 navigable throughout, a designed 2px focus ring rather than the browser

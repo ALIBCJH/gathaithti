@@ -4,13 +4,13 @@ export const home: HomeContent = {
   meta: {
     title: 'Gathaithi Coffee — farmer-owned washed Kenya coffee, Tetu, Nyeri',
     description:
-      'Gathaithi Farmers’ Co-operative Society: {{members}} smallholder members, one wet mill in Tetu, Nyeri County. Washed SL28, SL34, Ruiru 11 and Batian. Request a sample direct from the society that grows it.',
+      'Gathaithi Farmers’ Co‑operative Society: {{members}} smallholder members, one wet mill in Tetu, Nyeri County. Washed SL28, SL34, Ruiru 11 and Batian. Request a sample direct from the society that grows it.',
     ogLine: 'Farmer-owned washed coffee from Tetu, Nyeri County, Kenya',
   },
 
   hero: {
     eyebrow: 'Tetu Sub-County · Nyeri · Kenya',
-    title: 'Gathaithi Farmers’ Co-operative Society',
+    title: 'Gathaithi Farmers’ Co‑operative Society',
     positioning:
       'One wet mill, {{members}} farmer-owners, and a washed Kenya coffee that scored {{cuppingScore}} points. Buy it from the people who grow it.',
     primary: { label: 'Request a sample', href: 'products#request-a-sample' },

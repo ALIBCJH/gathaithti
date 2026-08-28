@@ -15,7 +15,16 @@ import { ThemeToggle } from './ThemeToggle';
  * hero renders (#hero-sentinel). Pages without a hero have no sentinel and get
  * the solid bar immediately, with no scroll listener running at all.
  */
-export function Header({ locale, common }: { locale: Locale; common: Common }) {
+export function Header({
+  locale,
+  common,
+  memberPrice,
+}: {
+  locale: Locale;
+  common: Common;
+  /** Prepared on the server so the panel needs no access to the facts file. */
+  memberPrice: { label: string; value: string; unit: string };
+}) {
   const pathname = usePathname() ?? `/${locale}`;
   /* Only the home page has a full-bleed hero to sit transparently over.
      `solid` is DERIVED from the current path rather than held in state: the
@@ -143,7 +152,7 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
       <div className="mx-auto flex h-full w-full max-w-[100rem] items-center justify-between gap-4 px-6 sm:gap-8 sm:px-10 lg:px-16">
         <Link
           href={`/${locale}`}
-          className={`t-meta transition-colors duration-200 [transition-timing-function:var(--ease)] ${
+          className={`tap -my-2 inline-flex items-center py-2 t-meta transition-colors duration-200 [transition-timing-function:var(--ease)] ${
             solid ? 'text-ink hover:text-ochre-ink' : 'text-on-inverse hover:text-ochre-light'
           }`}
         >
@@ -201,7 +210,7 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className={`flex items-center gap-3 py-2 lg:hidden ${solid ? 'text-ink' : 'text-on-inverse'}`}
+            className={`-mr-2 flex min-h-[2.75rem] items-center gap-3 px-2 lg:hidden ${solid ? 'text-ink' : 'text-on-inverse'}`}
           >
             <span className="t-meta">{common.actions.menu}</span>
             <span aria-hidden="true" className="flex h-3 w-5 flex-col justify-between">
@@ -213,7 +222,7 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
         </div>
       </div>
 
-      {/* full-screen mobile panel — a designed screen, not a dropdown */}
+      {/* Full-screen mobile panel — a designed screen, not a dropdown. */}
       {open && (
         <div
           id="mobile-menu"
@@ -221,48 +230,112 @@ export function Header({ locale, common }: { locale: Locale; common: Common }) {
           role="dialog"
           aria-modal="true"
           aria-label={common.actions.menu}
-          className="fixed inset-0 z-50 flex flex-col bg-inverse text-on-inverse on-ink lg:hidden"
+          className="panel-in fixed inset-0 z-50 flex flex-col overflow-y-auto bg-inverse text-on-inverse on-ink lg:hidden"
+          style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div
-            className="flex items-center justify-between px-6 sm:px-10"
+            className="flex shrink-0 items-center justify-between px-6 sm:px-10"
             style={{ height: 'var(--header-h)' }}
           >
             <span className="t-meta font-semibold tracking-[0.14em]">GATHAITHI</span>
-            <button type="button" onClick={() => setOpen(false)} className="t-meta py-2">
-              {common.actions.close}
-              <span aria-hidden="true" className="ml-3">
-                ✕
-              </span>
+
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-on-inverse/25 text-on-inverse transition-[border-color,background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-on-inverse/60 hover:bg-on-inverse/10 active:scale-[0.94]"
+            >
+              <span className="sr-only">{common.actions.close}</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />
+              </svg>
             </button>
           </div>
 
-          <nav aria-label="Primary" className="flex flex-1 flex-col justify-center px-6 sm:px-10">
-            <ul className="flex flex-col gap-2">
-              {routes.map((route, i) => (
-                <li key={route.key}>
-                  <Link
-                    href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
-                    aria-current={isCurrent(route.path) ? 'page' : undefined}
-                    onClick={() => setOpen(false)}
-                    className="t-page-title block py-2 text-on-inverse transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ochre-light"
-                    style={{ fontSize: 'clamp(2rem, 9vw, 3.25rem)' }}
-                  >
-                    <span className="t-meta mr-4 align-middle text-ochre-light">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                    {navLabel(route.key)}
-                  </Link>
-                </li>
-              ))}
+          <nav aria-label="Primary" className="px-6 pt-2 sm:px-10">
+            <ul className="flex flex-col">
+              {routes.map((route, i) => {
+                const current = isCurrent(route.path);
+                return (
+                  <li key={route.key} className="stagger-in" style={{ '--i': i } as React.CSSProperties}>
+                    <Link
+                      href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
+                      aria-current={current ? 'page' : undefined}
+                      onClick={() => setOpen(false)}
+                      className={[
+                        'group flex min-h-[4.5rem] items-center gap-4 border-b border-on-inverse/12 py-3',
+                        'transition-colors duration-200 [transition-timing-function:var(--ease)]',
+                        current ? 'text-ochre-light' : 'text-on-inverse hover:text-ochre-light',
+                      ].join(' ')}
+                    >
+                      <span
+                        aria-hidden="true"
+                        className={[
+                          'w-6 shrink-0 text-[0.75rem] tracking-[0.1em] tnum transition-colors duration-200',
+                          current ? 'text-ochre-light' : 'text-on-inverse/40',
+                        ].join(' ')}
+                      >
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+
+                      <span
+                        className="t-quiet flex-1 leading-none"
+                        style={{ fontSize: 'clamp(1.75rem, 7.5vw, 2.5rem)' }}
+                      >
+                        {navLabel(route.key)}
+                      </span>
+
+                      {current ? (
+                        <span className="t-meta text-[0.625rem] text-ochre-light">
+                          <span className="sr-only">Current page</span>
+                          <span aria-hidden="true">●</span>
+                        </span>
+                      ) : (
+                        <span
+                          aria-hidden="true"
+                          className="translate-x-0 text-on-inverse/30 transition-transform duration-200 [transition-timing-function:var(--ease)] group-hover:translate-x-1"
+                        >
+                          →
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
-          <div className="flex items-center justify-between gap-6 border-t border-on-inverse/20 px-6 py-8 sm:px-10">
-            <span className="t-meta max-w-[16ch] text-on-inverse/60">{common.brand.tagline}</span>
+          <p
+            className="stagger-in mt-8 px-6 text-on-inverse/45 sm:px-10"
+            style={{ '--i': 5 } as React.CSSProperties}
+          >
+            <span className="t-quiet block max-w-[22ch] text-[1.125rem] leading-snug">
+              {common.brand.tagline}
+            </span>
+          </p>
+
+          {/* What members open this site for, one tap from anywhere. */}
+          <Link
+            href={`/${locale}/farmers#noticeboard`}
+            onClick={() => setOpen(false)}
+            className="stagger-in mx-6 mt-auto flex items-center justify-between gap-4 border border-on-inverse/20 px-5 py-4 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ochre sm:mx-10"
+            style={{ '--i': 6 } as React.CSSProperties}
+          >
+            <span className="t-meta max-w-[12ch] text-on-inverse/60">{memberPrice.label}</span>
+            <span className="flex shrink-0 items-baseline gap-2 whitespace-nowrap">
+              <span className="t-figure-sm text-[1.5rem] text-on-inverse">{memberPrice.value}</span>
+              <span className="t-meta text-ochre-light">{memberPrice.unit}</span>
+            </span>
+          </Link>
+
+          <div
+            className="stagger-in mt-6 flex items-center justify-between gap-4 border-t border-on-inverse/15 px-6 py-6 sm:px-10"
+            style={{ '--i': 7 } as React.CSSProperties}
+          >
+            <ThemeToggle surface="dark" />
             <Link
               href={`/${locale}/products#request-a-sample`}
               onClick={() => setOpen(false)}
-              className="whitespace-nowrap rounded-full bg-ochre-light px-6 py-3 text-[0.9375rem] font-medium text-ink transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-parchment active:scale-[0.985]"
+              className="inline-flex min-h-[3rem] items-center whitespace-nowrap rounded-full bg-ochre-light px-6 text-[0.9375rem] font-medium text-inverse transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse active:scale-[0.985]"
             >
               {common.actions.requestSample}
             </Link>

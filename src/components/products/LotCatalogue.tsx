@@ -74,7 +74,7 @@ export function LotCatalogue({
     shown.length === 1 ? copy.resultCountOne : copy.resultCount.replace('{count}', String(shown.length));
 
   const chip =
-    'rounded-full border px-4 py-2 text-[0.875rem] transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] active:scale-[0.98]';
+    'tap inline-flex min-h-[2.75rem] items-center rounded-full border px-5 text-[0.875rem] transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] active:scale-[0.98]';
   const chipOn = 'border-accent bg-accent text-on-accent';
   const chipOff = 'border-line text-ink-soft hover:border-ink/40 hover:text-ink';
 
@@ -118,7 +118,7 @@ export function LotCatalogue({
             id="lot-sort"
             value={sort}
             onChange={(event) => setSort(event.target.value as SortId)}
-            className="border border-line bg-parchment px-4 py-2 text-[0.875rem] text-ink transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ink/40 focus:border-ochre focus:outline-none"
+            className="min-h-[2.75rem] border border-line bg-parchment px-4 py-2 text-[0.875rem] text-ink transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ink/40 focus:border-ochre focus:outline-none"
           >
             {copy.sortOptions
               .filter((option) => option.id !== 'price' || copy.showPrices)

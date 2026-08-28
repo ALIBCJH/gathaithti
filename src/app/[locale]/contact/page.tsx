@@ -70,7 +70,7 @@ export default async function ContactPage({ params }: Props) {
                   <a
                     href="#enquiry"
                     data-topic={route.id}
-                    className="t-meta w-fit text-ochre-ink underline decoration-ochre/40 underline-offset-4 transition-[text-decoration-thickness,color] duration-200 [transition-timing-function:var(--ease)] hover:text-ink hover:decoration-2"
+                    className="tap t-meta w-fit text-ochre-ink underline decoration-ochre/40 underline-offset-4 transition-[text-decoration-thickness,color] duration-200 [transition-timing-function:var(--ease)] hover:text-ink hover:decoration-2"
                   >
                     {contact.form.writeToUs}
                   </a>

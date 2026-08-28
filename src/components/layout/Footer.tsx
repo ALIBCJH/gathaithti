@@ -28,7 +28,7 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
                 <li key={route.key}>
                   <Link
                     href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
-                    className="text-[0.9375rem] text-on-inverse/80 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-on-inverse"
+                    className="tap inline-block py-1 text-[0.9375rem] text-on-inverse/80 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-on-inverse"
                   >
                     {common.nav[route.key as keyof Common['nav']]}
                   </Link>

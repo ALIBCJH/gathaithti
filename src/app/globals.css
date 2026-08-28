@@ -261,6 +261,7 @@ body {
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .link {
+  position: relative;
   color: var(--color-ochre-ink);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -288,6 +289,23 @@ body {
   color: var(--color-parchment);
 }
 
+/* Touch targets.
+   Several links on this site are set in small caps at 13px, which is right
+   typographically and fiddly under a thumb. On touch devices `.tap` grows the
+   hit area vertically with a pseudo-element, so the target reaches a
+   comfortable size without moving anything on the page. */
+@media (pointer: coarse) {
+  .tap {
+    position: relative;
+  }
+  .tap::after,
+  .link::after {
+    content: '';
+    position: absolute;
+    inset: -0.75rem 0;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    MOTION — entrances only, once, and never for people who asked us not to
    ═══════════════════════════════════════════════════════════════════════════ */
@@ -304,6 +322,34 @@ body {
       opacity var(--dur-enter) var(--ease),
       transform var(--dur-enter) var(--ease);
     transition-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+/* The mobile panel arrives rather than appearing: the sheet fades up, then the
+   rows follow it in, 45ms apart. Entry only — closing is immediate, because a
+   menu that lingers on the way out feels slow rather than considered. */
+@media (prefers-reduced-motion: no-preference) {
+  .panel-in {
+    animation: panel-in 260ms var(--ease) both;
+  }
+
+  .stagger-in {
+    animation: stagger-in 420ms var(--ease) both;
+    animation-delay: calc(var(--i, 0) * 45ms + 60ms);
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }
 
