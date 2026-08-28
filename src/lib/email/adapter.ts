@@ -16,6 +16,9 @@
  *         SAMPLE_REQUEST_TO=marketing@gathaithicoffee.co.ke
  *         SAMPLE_REQUEST_FROM="Gathaithi website <website@gathaithicoffee.co.ke>"
  *
+ *       Contact-page enquiries go to SAMPLE_REQUEST_TO as well, unless you
+ *       set CONTACT_ENQUIRY_TO to send them somewhere else.
+ *
  *    2. Add the same variables in the Vercel project settings.
  *
  *    3. Nothing else. The route handler already validates, rate-limits and
@@ -36,6 +39,20 @@ export interface SampleRequest {
   volume: string;
   /** Id of the lot the buyer clicked through from, if any. */
   lot?: string;
+  message: string;
+  locale: string;
+  submittedAt: string;
+}
+
+/** A general enquiry from the contact page. */
+export interface ContactEnquiry {
+  name: string;
+  email: string;
+  phone: string;
+  organisation: string;
+  /** Matches a contact route id: buyers | members | suppliers | other. */
+  topic: string;
+  memberNumber: string;
   message: string;
   locale: string;
   submittedAt: string;
@@ -103,6 +120,59 @@ function format(request: SampleRequest): EmailMessage {
     subject: `Sample request — ${request.company || request.name} (${request.country})`,
     text: lines.join('\n'),
   };
+}
+
+const TOPIC_LABEL: Record<string, string> = {
+  buyers: 'Buyer enquiry',
+  members: 'Member enquiry',
+  suppliers: 'Supplier or partner enquiry',
+  other: 'General enquiry',
+};
+
+/** The contact-page enquiry, as plain text. */
+function formatEnquiry(enquiry: ContactEnquiry): EmailMessage {
+  const to = process.env.CONTACT_ENQUIRY_TO ?? process.env.SAMPLE_REQUEST_TO ?? 'office@example.invalid';
+  const from = process.env.SAMPLE_REQUEST_FROM ?? 'Gathaithi website <website@example.invalid>';
+  const label = TOPIC_LABEL[enquiry.topic] ?? 'Enquiry';
+
+  const lines = [
+    `${label} from the Gathaithi website`,
+    '',
+    `Name:      ${enquiry.name}`,
+    `Email:     ${enquiry.email}`,
+    `Phone:     ${enquiry.phone || '—'}`,
+    enquiry.topic === 'members'
+      ? `Member no: ${enquiry.memberNumber || '—'}`
+      : `Company:   ${enquiry.organisation || '—'}`,
+    '',
+    'Message:',
+    enquiry.message,
+    '',
+    '—',
+    `Submitted: ${enquiry.submittedAt}`,
+    `Language:  ${enquiry.locale}`,
+  ];
+
+  return {
+    to,
+    from,
+    replyTo: enquiry.email,
+    subject: `${label} — ${enquiry.name}`,
+    text: lines.join('\n'),
+  };
+}
+
+export async function sendContactEnquiry(enquiry: ContactEnquiry): Promise<EmailResult> {
+  const { name, send } = chooseProvider();
+  try {
+    const result = await send(formatEnquiry(enquiry));
+    if (!result.ok) console.error(`[email:${name}] delivery failed: ${result.error}`);
+    return result;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown email error';
+    console.error(`[email:${name}] threw: ${message}`);
+    return { ok: false, error: message };
+  }
 }
 
 export async function sendSampleRequest(request: SampleRequest): Promise<EmailResult> {

@@ -57,6 +57,45 @@ export const contact: ContactContent = {
     },
   ],
 
+  form: {
+    eyebrow: 'Write to us',
+    heading: 'Send the society a message',
+    lead:
+      'For anything that does not need a phone call. Tell us who you are and what you need, and the message reaches the right desk in the office — buyers to marketing, members to member services, suppliers to administration.',
+    note:
+      'We answer during office hours, Monday to Saturday. Buyers asking for samples are usually better served by the sample request form, which collects the lot details we need up front.',
+    writeToUs: 'Write to us instead',
+    fields: {
+      name: 'Your name',
+      email: 'Email',
+      phone: 'Phone',
+      organisation: 'Company or organisation',
+      topic: 'What is this about?',
+      memberNumber: 'Member number',
+      message: 'Your message',
+    },
+    placeholders: {
+      name: 'Jane Wanjiku',
+      email: 'you@example.com',
+      phone: '+254 …',
+      organisation: 'Roastery, importer, supplier — if it applies',
+      message: 'Tell us what you need and we will get it to the right person.',
+    },
+    topics: [
+      { id: 'buyers', label: 'Buying coffee' },
+      { id: 'members', label: 'I am a member of the society' },
+      { id: 'suppliers', label: 'Supplying or partnering with us' },
+      { id: 'other', label: 'Something else' },
+    ],
+    memberHint: 'On your member card and your payment statement. It helps us find your record before we reply.',
+    submit: 'Send message',
+    consent:
+      'We use what you send here to answer your enquiry and nothing else. We do not sell or share it.',
+    successBody:
+      'Thank you. Your message has reached the society office, and someone will reply during office hours — usually within two working days.',
+    successAgain: 'Send another message',
+  },
+
   office: {
     heading: 'The society office',
     address: [
