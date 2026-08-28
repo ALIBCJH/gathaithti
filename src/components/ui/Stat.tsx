@@ -20,7 +20,7 @@ export function Stat({
   const fact = getFact(id);
   if (!fact) return null;
 
-  const labelTone = surface === 'dark' ? 'text-parchment/70' : 'text-ink-soft';
+  const labelTone = surface === 'dark' ? 'text-on-inverse/70' : 'text-ink-soft';
   const unitTone = surface === 'dark' ? 'text-ochre-light' : 'text-ochre-ink';
 
   return (

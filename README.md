@@ -195,6 +195,25 @@ lazy below the fold. Absent → a designed placeholder printing the filename,
 ratio and art direction. Both reserve the same space, so layout shift is zero
 either way.
 
+**Two themes.** A switch in the header, remembered per visitor in
+`localStorage`, defaulting to the reader's operating system on a first visit.
+
+- **Light** is white with black text, with the ochre accent darkened to
+  `#9A4F1E` so it still passes AA as body text.
+- **Dark** is the society's own roasted-brown palette — the colours the site
+  was designed in.
+
+The colour system is in `src/app/globals.css` and keeps three roles apart,
+which is what makes theming possible: the page (`surface` / `text`), the bands
+that are dark in *both* themes — hero, footer, members' noticeboard
+(`inverse` / `on-inverse`), and the accent fill (`accent` / `on-accent`). To
+change a colour, edit the two blocks at the top of that file; every component
+follows.
+
+The theme is set by a small inline script before the first paint, so a
+dark-mode device never sees a white flash, and the toggle renders identical
+markup in both themes so nothing can mismatch during hydration.
+
 **One language.** The site ships English only — there is no language toggle,
 `/sw` 308-redirects to `/en`, the sitemap lists English pages alone and no
 hreflang alternates are emitted.

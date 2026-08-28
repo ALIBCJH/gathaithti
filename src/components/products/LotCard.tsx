@@ -4,7 +4,7 @@ import { getFact } from '@/lib/facts';
 import type { Lot, ProductsContent } from '@content/types';
 
 const availabilityTone: Record<Lot['availability'], string> = {
-  available: 'bg-moss text-parchment',
+  available: 'bg-moss text-on-inverse',
   allocated: 'bg-ink/8 text-ink-soft',
   forward: 'bg-ochre/15 text-ochre-ink',
 };
@@ -137,7 +137,7 @@ export function LotCard({
         <a
           href={requestHref}
           data-lot={lot.id}
-          className="mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-[0.875rem] font-medium text-ink transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-ochre-ink hover:bg-ochre-ink hover:text-parchment active:scale-[0.985]"
+          className="mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-[0.875rem] font-medium text-ink transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-accent hover:bg-accent hover:text-on-accent active:scale-[0.985]"
         >
           {copy.requestLotLabel}
           <span aria-hidden="true">→</span>

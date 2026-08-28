@@ -26,9 +26,9 @@ export function LocaleToggle({
   const pathname = usePathname() ?? `/${locale}`;
   const rest = pathname.split('/').slice(2).join('/');
 
-  const idle = surface === 'dark' ? 'text-parchment/60' : 'text-ink-soft';
-  const active = surface === 'dark' ? 'text-parchment' : 'text-ink';
-  const divider = surface === 'dark' ? 'bg-parchment/30' : 'bg-line';
+  const idle = surface === 'dark' ? 'text-on-inverse/60' : 'text-ink-soft';
+  const active = surface === 'dark' ? 'text-on-inverse' : 'text-ink';
+  const divider = surface === 'dark' ? 'bg-on-inverse/30' : 'bg-line';
 
   return (
     <div className="flex items-center gap-2" role="group" aria-label={labels.label}>
@@ -43,7 +43,7 @@ export function LocaleToggle({
               aria-current={isCurrent ? 'true' : undefined}
               className={[
                 't-meta transition-colors duration-200 [transition-timing-function:var(--ease)]',
-                surface === 'dark' ? 'hover:text-parchment' : 'hover:text-ink',
+                surface === 'dark' ? 'hover:text-on-inverse' : 'hover:text-ink',
                 isCurrent ? active : idle,
               ].join(' ')}
             >

@@ -173,7 +173,40 @@ form (blur-only validation, submission, success state), the language toggle
 keeping you on the same page, the skip link and focus ring, reduced-motion,
 and cross-page anchor links landing clear of the fixed header.
 
-## 6. Decisions worth flagging in the morning
+## 6. Theme switch, and the hero fit
+
+The sample-request button has left the navigation bar; a light/dark switch sits
+in its place. The call to action is still on every page — in the hero, on each
+lot card, and as the whole of the request section — so nothing was lost by
+taking it out of the bar.
+
+Rebuilding the palette for two themes meant separating three roles that the
+original design had conflated. "Ink" was both the primary text colour *and* the
+background of the dark bands; a colour used for both cannot be themed, because
+inverting the page would have inverted the bands with it. They are now
+`surface`/`text`, `inverse`/`on-inverse` and `accent`/`on-accent`, measured in
+both themes in `TYPOGRAPHY.md`.
+
+Two bugs came out of this work and are worth recording:
+
+- **The toggle caused a hydration mismatch.** It rendered the icon for the
+  current theme, which the server cannot know. On any device set to dark, the
+  server and client disagreed, React recovered by re-rendering the tree — and
+  the re-render left the header's hero observer holding a detached node, so the
+  navigation bar stayed transparent over a white page and effectively vanished.
+  The toggle now renders the same markup in both themes and lets CSS choose the
+  icon, so there is nothing to mismatch.
+- **The header measurement was fragile by design.** It captured the sentinel
+  once. It now re-queries the DOM on each measurement and falls back to the
+  solid bar if the element is missing, which is the safe direction: a solid bar
+  is always readable, a transparent one is not.
+
+The hero was also rebuilt to fit. It was 92svh with everything pushed to the
+bottom edge, which left a void above the type and a sliver of the next section
+showing below. It is now exactly one viewport tall, with the type centred in
+the space under the header and the scroll cue at the foot of the frame.
+
+## 7. Decisions worth flagging in the morning
 
 
 

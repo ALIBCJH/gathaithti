@@ -30,29 +30,29 @@ export function NoticeboardPreview({
         <div className="grid gap-16 lg:grid-cols-12 lg:items-end lg:gap-20">
           <div className="flex flex-col gap-6 lg:col-span-5">
             <Eyebrow surface="dark">{content.eyebrow}</Eyebrow>
-            <h2 id="noticeboard-preview-heading" className="t-section text-parchment">
+            <h2 id="noticeboard-preview-heading" className="t-section text-on-inverse">
               {content.heading}
             </h2>
-            <p className="t-body measure text-parchment/70">{content.lead}</p>
+            <p className="t-body measure text-on-inverse/70">{content.lead}</p>
             <Link href={`/${locale}/${content.cta.href}`} className="link t-meta w-fit">
               {content.cta.label}
             </Link>
           </div>
 
           <Reveal className="lg:col-span-7" delay={60}>
-            <div className="grid gap-px overflow-hidden border border-parchment/20 bg-parchment/20 sm:grid-cols-2">
-              <div className="flex flex-col gap-3 bg-ink p-8 sm:p-10">
-                <p className="t-meta text-parchment/60">{noticeboard.priceLabel}</p>
-                <p className="t-figure text-parchment">
+            <div className="grid gap-px overflow-hidden border border-on-inverse/20 bg-on-inverse/20 sm:grid-cols-2">
+              <div className="flex flex-col gap-3 bg-inverse p-8 sm:p-10">
+                <p className="t-meta text-on-inverse/60">{noticeboard.priceLabel}</p>
+                <p className="t-figure text-on-inverse">
                   <Fact id="cherryPriceCurrent" />
                 </p>
                 <p className="t-meta text-ochre-light">{price?.unit ?? noticeboard.priceUnit}</p>
               </div>
 
-              <div className="flex flex-col gap-3 bg-ink p-8 sm:p-10">
-                <p className="t-meta text-parchment/60">{payment?.label}</p>
-                <p className="t-figure-sm text-parchment">{payment?.value}</p>
-                <p className="t-body text-[0.9375rem] text-parchment/70">{payment?.detail}</p>
+              <div className="flex flex-col gap-3 bg-inverse p-8 sm:p-10">
+                <p className="t-meta text-on-inverse/60">{payment?.label}</p>
+                <p className="t-figure-sm text-on-inverse">{payment?.value}</p>
+                <p className="t-body text-[0.9375rem] text-on-inverse/70">{payment?.detail}</p>
               </div>
             </div>
           </Reveal>
