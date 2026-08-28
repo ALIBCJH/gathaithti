@@ -139,11 +139,27 @@ the sensible way to show the committee a change before it is public.
 
 ---
 
-## Sending the sample request for real
+## The two forms
 
-Out of the box the form is fully working: it validates server-side,
-rate-limits, blocks bots, and prints the enquiry to the server log. It does not
-send email until you give it credentials.
+| Form | Where | Endpoint | Goes to |
+| --- | --- | --- | --- |
+| Sample request | `/products#request-a-sample` | `/api/sample-request` | `SAMPLE_REQUEST_TO` |
+| General enquiry | `/contact#enquiry` | `/api/contact` | `CONTACT_ENQUIRY_TO`, or `SAMPLE_REQUEST_TO` if that is not set |
+
+Both share one definition of what a valid enquiry is
+([`src/lib/enquiry.ts`](src/lib/enquiry.ts)), checked in the browser for
+immediate feedback and again on the server, where it counts. Both carry a
+honeypot, a minimum fill time and a per-IP rate limit, and both deliver through
+the same adapter.
+
+The contact form asks what the enquiry is about and adapts: members are asked
+for a member number, everyone else for a company. Each contact route on the
+page has a "Write to us instead" link that jumps to the form with that topic
+already chosen.
+
+Out of the box both are fully working: they validate server-side, rate-limit,
+block bots, and print the enquiry to the server log. They do not send email
+until you give them credentials.
 
 **One file to edit: [`src/lib/email/adapter.ts`](src/lib/email/adapter.ts).**
 In practice you will not even edit it — set these and restart:

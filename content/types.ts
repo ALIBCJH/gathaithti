@@ -286,10 +286,37 @@ export interface ContactRoute {
   rows: { label: string; value: string; href?: string }[];
 }
 
+export interface ContactForm {
+  eyebrow: string;
+  heading: string;
+  lead: string;
+  note: string;
+  /** Shown on each contact route, jumping to the form with that topic chosen. */
+  writeToUs: string;
+  fields: {
+    name: string;
+    email: string;
+    phone: string;
+    organisation: string;
+    topic: string;
+    memberNumber: string;
+    message: string;
+  };
+  placeholders: { name: string; email: string; phone: string; organisation: string; message: string };
+  /** `id` is matched against ContactRoute.id, so a route can preselect its topic. */
+  topics: { id: string; label: string }[];
+  memberHint: string;
+  submit: string;
+  consent: string;
+  successBody: string;
+  successAgain: string;
+}
+
 export interface ContactContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
   routes: ContactRoute[];
+  form: ContactForm;
   office: { heading: string; address: string[]; hours: { day: string; time: string }[]; registration: { label: string; value: string }[]; mapLabel: string; directions: string };
 }
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { ContactForm } from '@/components/contact/ContactForm';
 import { LocationBlock } from '@/components/about/LocationBlock';
 import { SmartImage } from '@/components/media/SmartImage';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -66,6 +67,14 @@ export default async function ContactPage({ params }: Props) {
                     </div>
                   ) : null}
 
+                  <a
+                    href="#enquiry"
+                    data-topic={route.id}
+                    className="t-meta w-fit text-ochre-ink underline decoration-ochre/40 underline-offset-4 transition-[text-decoration-thickness,color] duration-200 [transition-timing-function:var(--ease)] hover:text-ink hover:decoration-2"
+                  >
+                    {contact.form.writeToUs}
+                  </a>
+
                   <dl className="mt-auto flex flex-col">
                     {route.rows.map((row) => (
                       <div key={row.label} className="flex flex-col gap-1 border-t border-line py-4">
@@ -85,6 +94,30 @@ export default async function ContactPage({ params }: Props) {
                 </article>
               </Reveal>
             ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="parchment" size="loose" id="enquiry" ariaLabelledby="enquiry-heading">
+        <Container width="wide">
+          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+            <div className="flex flex-col gap-8 lg:col-span-4">
+              <Eyebrow>{contact.form.eyebrow}</Eyebrow>
+              <h2 id="enquiry-heading" className="t-section max-w-[13ch]">
+                {contact.form.heading}
+              </h2>
+              <p className="t-lead measure text-ink-soft">{contact.form.lead}</p>
+              <p className="t-body border-t border-line pt-6 text-[0.9375rem] text-ink-soft">
+                {contact.form.note}
+              </p>
+              <a href={`/${locale}/products#request-a-sample`} className="link t-meta w-fit">
+                {common.actions.requestSample}
+              </a>
+            </div>
+
+            <div className="lg:col-span-7 lg:col-start-6">
+              <ContactForm content={contact.form} form={common.form} locale={locale} />
+            </div>
           </div>
         </Container>
       </Section>

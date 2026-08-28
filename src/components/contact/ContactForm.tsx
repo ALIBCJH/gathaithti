@@ -3,54 +3,56 @@
 import { useEffect, useRef, useState } from 'react';
 import { Field, fieldClass } from '@/components/forms/Field';
 import { useEnquiryForm } from '@/components/forms/useEnquiryForm';
-import { sampleRules, type SampleField } from '@/lib/enquiry';
-import type { Common, Lot, ProductsContent } from '@content/types';
+import { contactRules, type ContactField } from '@/lib/enquiry';
+import type { Common, ContactForm as ContactFormContent } from '@content/types';
 
 /**
- * The primary conversion action of the entire site.
+ * The general enquiry form.
  *
- * Shares its rules, field styling and submission behaviour with the contact
- * form — see src/lib/enquiry.ts and src/components/forms. Validation runs on
- * blur, never on every keystroke; the submit button shows a real loading
- * state; and success is an arrival, replacing the form rather than announcing
- * itself over the top of it.
+ * It shares its rules, its field styling and its submission behaviour with the
+ * sample request on Our Coffee — one definition of what a valid enquiry is,
+ * checked in the browser for immediate feedback and again on the server, where
+ * it counts.
+ *
+ * The member-number field appears only for members. Asking every roaster in
+ * Melbourne for a Gathaithi member number is the sort of small thoughtlessness
+ * that makes a form feel like paperwork.
  */
-export function SampleRequestForm({
+export function ContactForm({
   content,
   form,
   locale,
-  lots,
 }: {
-  content: ProductsContent['sample'];
+  content: ContactFormContent;
   form: Common['form'];
   locale: string;
-  /** Offered in the “lot of interest” select, and set by the cards above. */
-  lots: Pick<Lot, 'id' | 'grade' | 'name'>[];
 }) {
-  const successRef = useRef<HTMLDivElement>(null);
-  const [lot, setLot] = useState('');
+  const messages = {
+    required: form.required,
+    email: form.invalidEmail,
+    short: form.tooShort,
+    long: form.tooShort,
+    invalid: form.invalidEmail,
+  };
 
-  const enquiry = useEnquiryForm<SampleField>({
-    endpoint: '/api/sample-request',
-    rules: sampleRules,
-    messages: {
-      required: form.required,
-      email: form.invalidEmail,
-      short: form.tooShort,
-      long: form.tooShort,
-      invalid: form.invalidEmail,
-    },
+  const successRef = useRef<HTMLDivElement>(null);
+
+  const enquiry = useEnquiryForm<ContactField>({
+    endpoint: '/api/contact',
+    rules: contactRules,
+    messages,
     onSuccess: () => successRef.current?.focus(),
   });
 
-  /* “Request this lot” on a card jumps to this form and pre-selects the lot.
-     Delegating from the document keeps the cards as server components — they
-     only need a data attribute, not a click handler shipped to the browser. */
+  const [topic, setTopic] = useState(content.topics[0]?.id ?? 'other');
+
+  /* “Write to us” on a contact route jumps here and picks that topic. The
+     routes stay server-rendered; they only need a data attribute. */
   useEffect(() => {
     const onClick = (event: MouseEvent) => {
-      const target = (event.target as HTMLElement | null)?.closest('[data-lot]');
-      const id = target?.getAttribute('data-lot');
-      if (id) setLot(id);
+      const target = (event.target as HTMLElement | null)?.closest('[data-topic]');
+      const id = target?.getAttribute('data-topic');
+      if (id) setTopic(id);
     };
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
@@ -65,25 +67,50 @@ export function SampleRequestForm({
       >
         <span aria-hidden="true" className="inline-block h-px w-16 bg-moss" />
         <h3 className="t-section text-[clamp(1.5rem,2.4vw,2rem)]">{form.successTitle}</h3>
-        <p className="t-body measure text-ink-soft">{form.successBody}</p>
+        <p className="t-body measure text-ink-soft">{content.successBody}</p>
         <button
           type="button"
           onClick={enquiry.reset}
           className="t-meta w-fit text-ochre-ink underline decoration-ochre/40 underline-offset-4 transition-[text-decoration-thickness,color] duration-200 [transition-timing-function:var(--ease)] hover:text-ink hover:decoration-2"
         >
-          {form.successAgain}
+          {content.successAgain}
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={(event) => enquiry.submit(event, { locale })} noValidate className="flex flex-col gap-8">
+    <form
+      id="enquiry-form"
+      onSubmit={(event) => enquiry.submit(event, { locale })}
+      noValidate
+      className="flex flex-col gap-8"
+    >
       {/* Honeypot. Real people never see it; bots fill it in. */}
       <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
+
+      <Field name="topic" label={content.fields.topic} error={enquiry.errors.topic} required>
+        <select
+          id="topic"
+          name="topic"
+          value={topic}
+          onChange={(event) => {
+            setTopic(event.target.value);
+            enquiry.clearError('topic');
+          }}
+          onBlur={enquiry.onBlur}
+          className={fieldClass}
+        >
+          {content.topics.map((option) => (
+            <option key={option.id} value={option.id}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </Field>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Field name="name" label={content.fields.name} error={enquiry.errors.name} required>
@@ -97,21 +124,6 @@ export function SampleRequestForm({
             onChange={() => enquiry.clearError('name')}
             aria-invalid={Boolean(enquiry.errors.name)}
             aria-describedby={enquiry.errors.name ? 'name-error' : undefined}
-            className={fieldClass}
-          />
-        </Field>
-
-        <Field name="company" label={content.fields.company} error={enquiry.errors.company} required>
-          <input
-            id="company"
-            name="company"
-            type="text"
-            autoComplete="organization"
-            placeholder={content.placeholders.company}
-            onBlur={enquiry.onBlur}
-            onChange={() => enquiry.clearError('company')}
-            aria-invalid={Boolean(enquiry.errors.company)}
-            aria-describedby={enquiry.errors.company ? 'company-error' : undefined}
             className={fieldClass}
           />
         </Field>
@@ -132,88 +144,66 @@ export function SampleRequestForm({
           />
         </Field>
 
-        <Field name="country" label={content.fields.country} error={enquiry.errors.country} required>
+        <Field
+          name="phone"
+          label={`${content.fields.phone} — ${form.optional}`}
+          error={enquiry.errors.phone}
+        >
           <input
-            id="country"
-            name="country"
-            type="text"
-            autoComplete="country-name"
-            placeholder={content.placeholders.country}
+            id="phone"
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            placeholder={content.placeholders.phone}
             onBlur={enquiry.onBlur}
-            onChange={() => enquiry.clearError('country')}
-            aria-invalid={Boolean(enquiry.errors.country)}
-            aria-describedby={enquiry.errors.country ? 'country-error' : undefined}
+            onChange={() => enquiry.clearError('phone')}
             className={fieldClass}
           />
         </Field>
 
-        <Field name="role" label={content.fields.role} error={enquiry.errors.role} required>
-          <select
-            id="role"
-            name="role"
-            defaultValue=""
-            onBlur={enquiry.onBlur}
-            onChange={() => enquiry.clearError('role')}
-            aria-invalid={Boolean(enquiry.errors.role)}
-            aria-describedby={enquiry.errors.role ? 'role-error' : undefined}
-            className={fieldClass}
+        {topic === 'members' ? (
+          <Field
+            name="memberNumber"
+            label={`${content.fields.memberNumber} — ${form.optional}`}
+            error={enquiry.errors.memberNumber}
+            hint={content.memberHint}
           >
-            <option value="" disabled>
-              —
-            </option>
-            {content.roles.map((role) => (
-              <option key={role} value={role}>
-                {role}
-              </option>
-            ))}
-          </select>
-        </Field>
-
-        <Field name="volume" label={content.fields.volume} error={enquiry.errors.volume} required>
-          <select
-            id="volume"
-            name="volume"
-            defaultValue=""
-            onBlur={enquiry.onBlur}
-            onChange={() => enquiry.clearError('volume')}
-            aria-invalid={Boolean(enquiry.errors.volume)}
-            aria-describedby={enquiry.errors.volume ? 'volume-error' : undefined}
-            className={fieldClass}
+            <input
+              id="memberNumber"
+              name="memberNumber"
+              type="text"
+              inputMode="numeric"
+              onBlur={enquiry.onBlur}
+              onChange={() => enquiry.clearError('memberNumber')}
+              className={fieldClass}
+            />
+          </Field>
+        ) : (
+          <Field
+            name="organisation"
+            label={`${content.fields.organisation} — ${form.optional}`}
+            error={enquiry.errors.organisation}
           >
-            <option value="" disabled>
-              —
-            </option>
-            {content.volumes.map((volume) => (
-              <option key={volume} value={volume}>
-                {volume}
-              </option>
-            ))}
-          </select>
-        </Field>
+            <input
+              id="organisation"
+              name="organisation"
+              type="text"
+              autoComplete="organization"
+              placeholder={content.placeholders.organisation}
+              onBlur={enquiry.onBlur}
+              onChange={() => enquiry.clearError('organisation')}
+              className={fieldClass}
+            />
+          </Field>
+        )}
       </div>
-
-      <Field name="lot" label={content.fields.lot} error={enquiry.errors.lot}>
-        <select
-          id="lot"
-          name="lot"
-          value={lot}
-          onChange={(event) => setLot(event.target.value)}
-          className={fieldClass}
-        >
-          <option value="">{content.lotAny}</option>
-          {lots.map((option) => (
-            <option key={option.id} value={option.id}>
-              {option.name} · {option.grade}
-            </option>
-          ))}
-        </select>
-      </Field>
 
       <Field name="message" label={content.fields.message} error={enquiry.errors.message} required>
         <textarea
           id="message"
           name="message"
-          rows={5}
+          rows={6}
           placeholder={content.placeholders.message}
           onBlur={enquiry.onBlur}
           onChange={() => enquiry.clearError('message')}

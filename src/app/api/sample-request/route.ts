@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
-import { sendSampleRequest, type SampleRequest } from '@/lib/email/adapter';
+import { sendSampleRequest } from '@/lib/email/adapter';
 import { clientKey, rateLimit } from '@/lib/rate-limit';
+import { sampleRules, serverMessage, validateAll, MIN_FILL_MS } from '@/lib/enquiry';
 
 /**
  * The sample request endpoint.
@@ -10,61 +11,17 @@ import { clientKey, rateLimit } from '@/lib/rate-limit';
  *   1. rate limit by IP          (5 requests per hour)
  *   2. honeypot field must be empty
  *   3. the form must have taken a human amount of time to fill in
- *   4. field validation
+ *   4. field validation, against the same rules the browser used
+ *      (src/lib/enquiry.ts — one definition, so the two cannot drift)
  *   5. hand off to the email adapter
  */
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-const LIMITS = { name: 120, company: 160, email: 200, country: 80, role: 60, volume: 60, message: 4000 };
-const LOT_MAX = 40;
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const MIN_FILL_MS = 2_500;
-
 type Body = Record<string, unknown>;
 
 const asString = (value: unknown): string => (typeof value === 'string' ? value.trim() : '');
-
-function validate(body: Body): { ok: true; data: SampleRequest } | { ok: false; error: string } {
-  const fields = {
-    name: asString(body.name),
-    company: asString(body.company),
-    email: asString(body.email),
-    country: asString(body.country),
-    role: asString(body.role),
-    volume: asString(body.volume),
-    message: asString(body.message),
-  };
-
-  for (const [key, value] of Object.entries(fields)) {
-    if (!value) return { ok: false, error: `Missing required field: ${key}.` };
-    if (value.length > LIMITS[key as keyof typeof LIMITS]) {
-      return { ok: false, error: `That ${key} is longer than we can accept.` };
-    }
-  }
-
-  if (!EMAIL.test(fields.email)) return { ok: false, error: 'That email address does not look right.' };
-  if (fields.message.length < 12) return { ok: false, error: 'Please tell us a little more.' };
-
-  /* Header injection guard — these values end up in a mail header. */
-  if (/[\r\n]/.test(fields.email + fields.name + fields.company)) {
-    return { ok: false, error: 'Invalid characters in your details.' };
-  }
-
-  const lot = asString(body.lot);
-  if (lot.length > LOT_MAX) return { ok: false, error: 'Unrecognised lot.' };
-
-  return {
-    ok: true,
-    data: {
-      ...fields,
-      lot,
-      locale: asString(body.locale) || 'en',
-      submittedAt: new Date().toISOString(),
-    },
-  };
-}
 
 export async function POST(request: Request) {
   let body: Body;
@@ -94,10 +51,29 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true }, { status: 200 });
   }
 
-  const result = validate(body);
-  if (!result.ok) return NextResponse.json({ error: result.error }, { status: 422 });
+  const values = {
+    name: asString(body.name),
+    company: asString(body.company),
+    email: asString(body.email),
+    country: asString(body.country),
+    role: asString(body.role),
+    volume: asString(body.volume),
+    lot: asString(body.lot),
+    message: asString(body.message),
+  };
 
-  const delivery = await sendSampleRequest(result.data);
+  const errors = validateAll(values, sampleRules);
+  const firstError = Object.entries(errors)[0];
+  if (firstError) {
+    const [field, code] = firstError as [string, keyof typeof serverMessage];
+    return NextResponse.json({ error: `${field}: ${serverMessage[code]}` }, { status: 422 });
+  }
+
+  const delivery = await sendSampleRequest({
+    ...values,
+    locale: asString(body.locale) || 'en',
+    submittedAt: new Date().toISOString(),
+  });
   if (!delivery.ok) {
     return NextResponse.json(
       { error: 'We could not send that just now. Please try again, or email the office directly.' },
