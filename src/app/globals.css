@@ -171,6 +171,64 @@ body {
   text-wrap: balance;
 }
 
+/* The hero is sized to fill one screen, and its type scale is driven by
+   viewport WIDTH — the right axis for a phone held upright. But the promise the
+   hero makes is about a SCREEN: the name, the proof, and the two routes forward,
+   all without scrolling. Width alone cannot keep that promise on a screen that
+   is SHORT — a phone turned on its side, a 640px-tall Android, a small laptop
+   window — where the headline stayed at its full size and pushed the lead and
+   both buttons past the bottom edge. The hero became a headline and nothing
+   else, which is the one thing it was designed not to be.
+
+   So on a short viewport the type answers to height as well as width, and the
+   generous spacing closes up. Height is what is scarce, so height is what
+   gives. Orientation is deliberately not tested: a short window is short
+   whichever way the device is held. */
+@media (max-height: 43rem) {
+  .hero-fit .t-hero {
+    font-size: max(1.5rem, min(clamp(3rem, 8vw, 6.75rem), 6.5vh));
+  }
+
+  .hero-fit .hero-body {
+    padding-top: calc(var(--header-h) + 1.25rem);
+    padding-bottom: 1.5rem;
+  }
+
+  /* the type stack inside it */
+  .hero-fit .hero-body > * {
+    gap: 1rem;
+  }
+}
+
+/* Shorter still. Below this a full-screen hero cannot hold its content at any
+   type size worth reading, so it stops trying to fill the screen and simply
+   fits what it holds. The scroll cue goes with it — it is redundant on a hero
+   that no longer reaches the bottom of the screen, and the section showing
+   underneath now does that job better than a line of text could. */
+@media (max-height: 37rem) {
+  .hero-fit {
+    min-height: 0;
+  }
+
+  .hero-fit .t-lead {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .hero-fit .hero-body {
+    padding-top: calc(var(--header-h) + 0.75rem);
+    padding-bottom: 1rem;
+  }
+
+  .hero-fit .hero-body > * {
+    gap: 0.75rem;
+  }
+
+  .hero-fit .hero-foot {
+    display: none;
+  }
+}
+
 .t-page-title {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -287,6 +345,26 @@ body {
 .on-ink .link:hover,
 .on-moss .link:hover {
   color: var(--color-parchment);
+}
+
+/* iOS Safari zooms the whole page in when a form control whose text is under
+   16px takes focus — and it does not zoom back out afterwards, leaving the
+   visitor stranded on a page wider than their screen, scrolling sideways to
+   read what they are typing. On a touch device no control is allowed under
+   16px for that reason.
+
+   `1em` in a font-size resolves against the PARENT, so this reads as "the size
+   the surrounding text is set in, but never below 16px" — the 17px body size
+   the forms are designed at survives untouched, and only genuinely small
+   controls are lifted. Deliberately unlayered: Tailwind's utilities live in
+   `@layer utilities`, and unlayered rules win over layered ones whatever their
+   specificity, so this holds even against a `text-[0.875rem]` on the element. */
+@media (pointer: coarse) {
+  input,
+  select,
+  textarea {
+    font-size: max(1rem, 1em);
+  }
 }
 
 /* Touch targets.

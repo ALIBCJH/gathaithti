@@ -222,7 +222,16 @@ export function Header({
         </div>
       </div>
 
-      {/* Full-screen mobile panel — a designed screen, not a dropdown. */}
+      </header>
+      {/* Full-screen mobile panel — a designed screen, not a dropdown.
+
+          Rendered as a SIBLING of the header, never inside it. The solid bar
+          carries `backdrop-blur`, and a backdrop-filter makes an element the
+          containing block for `position: fixed` descendants — so nested here
+          the panel stopped being fixed to the viewport and was clipped to the
+          4.5rem height of the bar. The menu is the only way around the site on
+          a phone, and on every page but the top of the home page it opened as
+          a 71px sliver with all five links cut off. */}
       {open && (
         <div
           id="mobile-menu"
@@ -230,7 +239,7 @@ export function Header({
           role="dialog"
           aria-modal="true"
           aria-label={common.actions.menu}
-          className="panel-in fixed inset-0 z-50 flex flex-col overflow-y-auto bg-inverse text-on-inverse on-ink lg:hidden"
+          className="panel-in fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-inverse text-on-inverse on-ink lg:hidden"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <div
@@ -342,7 +351,6 @@ export function Header({
           </div>
         </div>
       )}
-      </header>
     </>
   );
 }
