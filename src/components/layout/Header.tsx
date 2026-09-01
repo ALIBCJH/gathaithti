@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { routes, type Locale } from '@content/site';
 import type { Common } from '@content/types';
 import { ThemeToggle } from './ThemeToggle';
+import { NavIcon } from './NavIcon';
 
 /**
  * Transparent over the hero, an opaque parchment bar with a hairline once the
@@ -223,133 +224,126 @@ export function Header({
       </div>
 
       </header>
-      {/* Full-screen mobile panel — a designed screen, not a dropdown.
+      {/* The navigation drawer — Gmail's pattern: a column that slides in from
+          the left over a dimmed page, rows of icon-and-label, and a filled pill
+          marking where you already are.
 
           Rendered as a SIBLING of the header, never inside it. The solid bar
           carries `backdrop-blur`, and a backdrop-filter makes an element the
-          containing block for `position: fixed` descendants — so nested here
-          the panel stopped being fixed to the viewport and was clipped to the
-          4.5rem height of the bar. The menu is the only way around the site on
-          a phone, and on every page but the top of the home page it opened as
-          a 71px sliver with all five links cut off. */}
+          containing block for its `position: fixed` descendants — nested here
+          the drawer would not be fixed to the viewport at all, but clipped to
+          the 4.5rem height of the bar.
+
+          The scrim sits above the header rather than below it, so the bar dims
+          with the rest of the page. A drawer that left the header burning
+          bright above the dimmed page would read as a panel stuck on top of the
+          site rather than one drawn out of it. */}
       {open && (
-        <div
-          id="mobile-menu"
-          ref={panelRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label={common.actions.menu}
-          className="panel-in fixed inset-0 z-50 flex flex-col overflow-y-auto overscroll-contain bg-inverse text-on-inverse on-ink lg:hidden"
-          style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
-        >
+        <>
           <div
-            className="flex shrink-0 items-center justify-between px-6 sm:px-10"
-            style={{ height: 'var(--header-h)' }}
+            aria-hidden="true"
+            onClick={() => setOpen(false)}
+            className="scrim-in fixed inset-0 z-50 bg-black/55 lg:hidden"
+          />
+
+          <div
+            id="mobile-menu"
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label={common.actions.menu}
+            className="drawer-in fixed inset-y-0 left-0 z-[55] flex w-[min(20rem,86vw)] flex-col overflow-y-auto overscroll-contain bg-inverse text-on-inverse on-ink lg:hidden"
+            style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
           >
-            <span className="t-meta font-semibold tracking-[0.14em]">GATHAITHI</span>
-
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="-mr-2 inline-flex h-11 w-11 items-center justify-center rounded-full border border-on-inverse/25 text-on-inverse transition-[border-color,background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-on-inverse/60 hover:bg-on-inverse/10 active:scale-[0.94]"
+            <div
+              className="flex shrink-0 items-center justify-between pl-5 pr-3"
+              style={{ height: 'var(--header-h)' }}
             >
-              <span className="sr-only">{common.actions.close}</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />
-              </svg>
-            </button>
-          </div>
+              <span className="t-meta font-semibold tracking-[0.14em]">GATHAITHI</span>
 
-          <nav aria-label="Primary" className="px-6 pt-2 sm:px-10">
-            <ul className="flex flex-col">
-              {routes.map((route, i) => {
-                const current = isCurrent(route.path);
-                return (
-                  <li key={route.key} className="stagger-in" style={{ '--i': i } as React.CSSProperties}>
-                    <Link
-                      href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
-                      aria-current={current ? 'page' : undefined}
-                      onClick={() => setOpen(false)}
-                      className={[
-                        'group flex min-h-[4.5rem] items-center gap-4 border-b border-on-inverse/12 py-3',
-                        'transition-colors duration-200 [transition-timing-function:var(--ease)]',
-                        current ? 'text-ochre-light' : 'text-on-inverse hover:text-ochre-light',
-                      ].join(' ')}
-                    >
-                      <span
-                        aria-hidden="true"
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-on-inverse/70 transition-[background-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse/10 hover:text-on-inverse active:scale-[0.94]"
+              >
+                <span className="sr-only">{common.actions.close}</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />
+                </svg>
+              </button>
+            </div>
+
+            {/* The rows. 3rem tall and full-width pills, the shape a thumb
+                expects from every drawer it has ever opened. */}
+            <nav aria-label="Primary" className="px-3 pt-1">
+              <ul className="flex flex-col gap-0.5">
+                {routes.map((route, i) => {
+                  const current = isCurrent(route.path);
+                  return (
+                    <li key={route.key} className="stagger-in" style={{ '--i': i } as React.CSSProperties}>
+                      <Link
+                        href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
+                        aria-current={current ? 'page' : undefined}
+                        onClick={() => setOpen(false)}
                         className={[
-                          'w-6 shrink-0 text-[0.75rem] tracking-[0.1em] tnum transition-colors duration-200',
-                          current ? 'text-ochre-light' : 'text-on-inverse/40',
+                          'flex min-h-[3rem] items-center gap-4 rounded-full px-4 text-[0.9375rem]',
+                          'transition-colors duration-200 [transition-timing-function:var(--ease)]',
+                          current
+                            ? 'bg-ochre-light/15 font-medium text-ochre-light'
+                            : 'text-on-inverse/85 hover:bg-on-inverse/8 hover:text-on-inverse',
                         ].join(' ')}
                       >
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
+                        <NavIcon route={route.key} className="h-5 w-5 shrink-0" />
+                        <span className="truncate">{navLabel(route.key)}</span>
+                        {current ? <span className="sr-only">Current page</span> : null}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
 
-                      <span
-                        className="t-quiet flex-1 leading-none"
-                        style={{ fontSize: 'clamp(1.75rem, 7.5vw, 2.5rem)' }}
-                      >
-                        {navLabel(route.key)}
-                      </span>
-
-                      {current ? (
-                        <span className="t-meta text-[0.625rem] text-ochre-light">
-                          <span className="sr-only">Current page</span>
-                          <span aria-hidden="true">●</span>
-                        </span>
-                      ) : (
-                        <span
-                          aria-hidden="true"
-                          className="translate-x-0 text-on-inverse/30 transition-transform duration-200 [transition-timing-function:var(--ease)] group-hover:translate-x-1"
-                        >
-                          →
-                        </span>
-                      )}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-
-          <p
-            className="stagger-in mt-8 px-6 text-on-inverse/45 sm:px-10"
-            style={{ '--i': 5 } as React.CSSProperties}
-          >
-            <span className="t-quiet block max-w-[22ch] text-[1.125rem] leading-snug">
-              {common.brand.tagline}
-            </span>
-          </p>
-
-          {/* What members open this site for, one tap from anywhere. */}
-          <Link
-            href={`/${locale}/farmers#noticeboard`}
-            onClick={() => setOpen(false)}
-            className="stagger-in mx-6 mt-auto flex items-center justify-between gap-4 border border-on-inverse/20 px-5 py-4 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ochre sm:mx-10"
-            style={{ '--i': 6 } as React.CSSProperties}
-          >
-            <span className="t-meta max-w-[12ch] text-on-inverse/60">{memberPrice.label}</span>
-            <span className="flex shrink-0 items-baseline gap-2 whitespace-nowrap">
-              <span className="t-figure-sm text-[1.5rem] text-on-inverse">{memberPrice.value}</span>
-              <span className="t-meta text-ochre-light">{memberPrice.unit}</span>
-            </span>
-          </Link>
-
-          <div
-            className="stagger-in mt-6 flex items-center justify-between gap-4 border-t border-on-inverse/15 px-6 py-6 sm:px-10"
-            style={{ '--i': 7 } as React.CSSProperties}
-          >
-            <ThemeToggle surface="dark" />
-            <Link
-              href={`/${locale}/products#request-a-sample`}
-              onClick={() => setOpen(false)}
-              className="inline-flex min-h-[3rem] items-center whitespace-nowrap rounded-full bg-ochre-light px-6 text-[0.9375rem] font-medium text-inverse transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse active:scale-[0.985]"
+            <div
+              className="stagger-in mx-4 mt-4 border-t border-on-inverse/12 pt-5"
+              style={{ '--i': 5 } as React.CSSProperties}
             >
-              {common.actions.requestSample}
+              <p className="t-quiet max-w-[24ch] text-[1.0625rem] leading-snug text-on-inverse/45">
+                {common.brand.tagline}
+              </p>
+            </div>
+
+            {/* What members open this site for, one tap from anywhere. Stacked
+                rather than set in a row: at 86vw of a 320px screen there is no
+                room to put a label and a figure side by side without one of
+                them breaking. */}
+            <Link
+              href={`/${locale}/farmers#noticeboard`}
+              onClick={() => setOpen(false)}
+              className="stagger-in mx-4 mt-auto flex flex-col gap-1 rounded-lg border border-on-inverse/20 px-4 py-3 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ochre"
+              style={{ '--i': 6 } as React.CSSProperties}
+            >
+              <span className="t-meta text-on-inverse/60">{memberPrice.label}</span>
+              <span className="flex items-baseline gap-2">
+                <span className="t-figure-sm text-[1.5rem] text-on-inverse">{memberPrice.value}</span>
+                <span className="t-meta text-ochre-light">{memberPrice.unit}</span>
+              </span>
             </Link>
+
+            <div
+              className="stagger-in mt-4 flex items-center gap-3 border-t border-on-inverse/15 px-4 py-4"
+              style={{ '--i': 7 } as React.CSSProperties}
+            >
+              <ThemeToggle surface="dark" />
+              <Link
+                href={`/${locale}/products#request-a-sample`}
+                onClick={() => setOpen(false)}
+                className="inline-flex min-h-[2.75rem] flex-1 items-center justify-center rounded-full bg-ochre-light px-4 text-center text-[0.875rem] font-medium text-inverse transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse active:scale-[0.985]"
+              >
+                {common.actions.requestSample}
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );
