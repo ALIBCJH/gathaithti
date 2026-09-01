@@ -211,9 +211,13 @@ export function Header({
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className={`-mr-2 flex min-h-[2.75rem] items-center gap-3 px-2 lg:hidden ${solid ? 'text-ink' : 'text-on-inverse'}`}
+            className={`-mr-3 flex min-h-[2.75rem] min-w-[2.75rem] items-center justify-center lg:hidden ${solid ? 'text-ink' : 'text-on-inverse'}`}
           >
-            <span className="t-meta">{common.actions.menu}</span>
+            {/* The word is gone from the bar, but the name is not: the three
+                bars are decorative, so without this the button would announce
+                itself as nothing but "button". Still read aloud, still found by
+                voice control, just not drawn. */}
+            <span className="sr-only">{common.actions.menu}</span>
             <span aria-hidden="true" className="flex h-3 w-5 flex-col justify-between">
               <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
               <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
