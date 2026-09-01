@@ -118,7 +118,7 @@ export function LotCatalogue({
             id="lot-sort"
             value={sort}
             onChange={(event) => setSort(event.target.value as SortId)}
-            className="min-h-[2.75rem] border border-line bg-parchment px-4 py-2 text-[0.875rem] text-ink transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ink/40 focus:border-ochre focus:outline-none"
+            className="min-h-[2.75rem] border border-line bg-parchment px-4 py-2 text-[1rem] text-ink transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ink/40 focus:border-ochre focus:outline-none"
           >
             {copy.sortOptions
               .filter((option) => option.id !== 'price' || copy.showPrices)

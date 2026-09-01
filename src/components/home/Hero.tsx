@@ -11,6 +11,13 @@ import type { Locale } from '@content/site';
  * that the coffee is exceptional, and where to go next — so the name, the
  * proof and the two routes forward all sit above the fold, and nothing else
  * competes with them.
+ *
+ * That promise is about a SCREEN, not a width, and the type scale is driven by
+ * `vw` alone. A phone turned on its side keeps its width and loses two thirds
+ * of its height, so the headline stayed at desktop size and pushed the lead and
+ * both buttons off the bottom — the hero became a headline and nothing else.
+ * `hero-fit` / `hero-body` / `hero-foot` are the hooks the short-viewport rules
+ * in globals.css use to bring the whole thing back onto one screen.
  */
 export function Hero({ locale, content }: { locale: Locale; content: HomeContent['hero'] }) {
   const image = getImage('homeHero');
@@ -21,7 +28,7 @@ export function Hero({ locale, content }: { locale: Locale; content: HomeContent
        next section peeking below — it read as a page that had not quite fitted.
        Now the type sits centred in the space under the header, and the foot of
        the frame carries the scroll cue. */
-    <section className="relative isolate flex min-h-svh flex-col overflow-hidden bg-inverse text-on-inverse on-ink">
+    <section className="hero-fit relative isolate flex min-h-svh flex-col overflow-hidden bg-inverse text-on-inverse on-ink">
       {image.exists ? (
         <Image
           src={image.src}
@@ -48,7 +55,7 @@ export function Hero({ locale, content }: { locale: Locale; content: HomeContent
         className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-inverse/90 to-transparent"
       />
 
-      <div className="relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-center px-6 pb-10 pt-[calc(var(--header-h)+2.5rem)] sm:px-10 lg:px-16">
+      <div className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-center px-6 pb-10 pt-[calc(var(--header-h)+2.5rem)] sm:px-10 lg:px-16">
         <div className="flex max-w-[68rem] flex-col gap-6 sm:gap-8">
           <p className="t-meta text-ochre-light">{content.eyebrow}</p>
 
@@ -69,7 +76,7 @@ export function Hero({ locale, content }: { locale: Locale; content: HomeContent
         </div>
       </div>
 
-      <div className="relative mx-auto flex w-full max-w-[100rem] items-end justify-between gap-10 px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10">
+      <div className="hero-foot relative mx-auto flex w-full max-w-[100rem] items-end justify-between gap-10 px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10">
         <p className="t-meta flex items-center gap-3 text-on-inverse/45">
           <span aria-hidden="true" className="inline-block h-px w-8 bg-on-inverse/35" />
           {content.scrollHint}
