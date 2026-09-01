@@ -41,6 +41,7 @@
   --accent-fill-hover: #83411a;
   --on-accent: #faf6ef; /* text on that fill       5.9:1               */
   --cherry-text: #9b2226; /* errors, emphasis        7.9:1               */
+  --moss-surface: #56604c; /* members' surfaces — green against the white */
 
   --photo-treatment: saturate(0.9) contrast(1.02) brightness(1.01) sepia(0.07);
 }
@@ -48,15 +49,27 @@
 [data-theme='dark'] {
   color-scheme: dark;
 
-  --surface: #241611;
-  --surface-2: #2e1e17;
+  /* ONE colour, every surface. Light mode keeps its three-tone arrangement —
+     a white page, a grey alternate, and deliberately dark bands — because on
+     white those tones are what tell one section from the next. Dark mode does
+     not get that arrangement: the page is the society's brown from edge to
+     edge, top to bottom, and nothing is a shade lighter or darker than
+     anything else.
+
+     Every background below is therefore the same value. They stay as separate
+     tokens rather than collapsing into one because the LIGHT theme still needs
+     them apart, and because a band that must become distinct again later is a
+     one-line change here rather than a hunt through the components. */
+  --surface: #241611; /* page                                        */
+  --surface-2: #241611; /* alternating sections — no longer lighter    */
   --text: #faf6ef; /* 16.3:1 on surface  */
   --text-soft: #c9bbad; /*  9.5:1             */
   --hairline: #3e2c23;
 
-  --inverse: #16100c; /* deeper than the page, so bands still read   */
+  --inverse: #241611; /* hero, footer, noticeboard — no longer deeper */
   --inverse-2: #241611;
   --on-inverse: #faf6ef;
+  --moss-surface: #241611; /* members' surfaces — brown here, green on white */
 
   --ochre-text: #e08a46; /*  6.6:1 on surface  */
   --accent-fill: #e08a46;
@@ -89,7 +102,7 @@
   --color-accent-hover: var(--accent-fill-hover);
   --color-on-accent: var(--on-accent);
   --color-cherry: var(--cherry-text);
-  --color-moss: #56604c; /* members' surfaces — dark in both themes */
+  --color-moss: var(--moss-surface); /* green on white, brown in the dark */
 
   --font-display: var(--font-fraunces), 'Iowan Old Style', Georgia, serif;
   --font-body: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
