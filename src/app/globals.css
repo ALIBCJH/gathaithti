@@ -403,12 +403,21 @@ body {
   }
 }
 
-/* The mobile panel arrives rather than appearing: the sheet fades up, then the
-   rows follow it in, 45ms apart. Entry only — closing is immediate, because a
-   menu that lingers on the way out feels slow rather than considered. */
+/* The navigation drawer arrives rather than appearing: it slides out from the
+   left edge while the page behind it dims, and the rows follow it in, 45ms
+   apart. Entry only — closing is immediate, because a menu that lingers on the
+   way out feels slow rather than considered.
+
+   The drawer is pulled from the edge it is anchored to, so the movement reads
+   as the panel being drawn out of the side of the screen rather than sliding
+   across it. */
 @media (prefers-reduced-motion: no-preference) {
-  .panel-in {
-    animation: panel-in 260ms var(--ease) both;
+  .drawer-in {
+    animation: drawer-in 280ms var(--ease) both;
+  }
+
+  .scrim-in {
+    animation: scrim-in 280ms var(--ease) both;
   }
 
   .stagger-in {
@@ -417,10 +426,15 @@ body {
   }
 }
 
-@keyframes panel-in {
+@keyframes drawer-in {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrim-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
 }
 
