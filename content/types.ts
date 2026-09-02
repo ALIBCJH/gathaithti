@@ -143,7 +143,6 @@ export interface AboutContent {
     bodies: { name: string; role: string; composition: string }[];
   };
   terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; imageCaption: string; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
-  location: { heading: string; body: string; address: string[]; directions: string; mapLabel: string };
 }
 
 /* ── Products ───────────────────────────────────────────────────────────── */
@@ -324,7 +323,7 @@ export interface ContactContent {
   };
   routes: ContactRoute[];
   form: ContactForm;
-  office: { heading: string; address: string[]; hours: { day: string; time: string }[]; registration: { label: string; value: string }[]; mapLabel: string; directions: string };
+  office: { heading: string; address: string[]; hours: { day: string; time: string }[]; registration: { label: string; value: string }[] };
 }
 
 /* ── The full dictionary ────────────────────────────────────────────────── */

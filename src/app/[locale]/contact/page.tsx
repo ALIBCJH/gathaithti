@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { ContactForm } from '@/components/contact/ContactForm';
-import { LocationBlock } from '@/components/about/LocationBlock';
-import { SmartImage } from '@/components/media/SmartImage';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -195,10 +193,16 @@ export default async function ContactPage({ params }: Props) {
         </Container>
       </Section>
 
+      {/* The office, without the photograph and without the map block.
+
+          Removing the picture left the text in five columns of twelve with
+          seven empty beside it, so the three things this section actually holds
+          — where it is, when it is open, and what it is registered as — take a
+          column each instead. Nothing was cut but the images. */}
       <Section tone="parchment-2" ariaLabelledby="office-heading">
         <Container width="wide">
-          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-            <div className="flex flex-col gap-8 lg:col-span-5">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="flex flex-col gap-6 lg:col-span-4">
               <h2 id="office-heading" className="t-section max-w-[14ch]">
                 {contact.office.heading}
               </h2>
@@ -208,19 +212,23 @@ export default async function ContactPage({ params }: Props) {
                   <span key={line}>{line}</span>
                 ))}
               </address>
+            </div>
 
+            <div className="lg:col-span-4 lg:col-start-6">
               <dl className="flex flex-col">
                 {contact.office.hours.map((row) => (
                   <div
                     key={row.day}
-                    className="flex items-baseline justify-between gap-6 border-t border-line py-3"
+                    className="flex items-baseline justify-between gap-6 border-t border-line py-3 last:border-b"
                   >
                     <dt className="t-body text-ink-soft">{row.day}</dt>
                     <dd className="t-body tnum">{row.time}</dd>
                   </div>
                 ))}
               </dl>
+            </div>
 
+            <div className="lg:col-span-3 lg:col-start-10">
               <dl className="flex flex-col border-t-2 border-ochre pt-6">
                 {contact.office.registration.map((row) => (
                   <div key={row.label} className="flex flex-col gap-1 py-3">
@@ -232,18 +240,10 @@ export default async function ContactPage({ params }: Props) {
                 ))}
               </dl>
             </div>
-
-            <Reveal className="lg:col-span-6 lg:col-start-7">
-              <SmartImage slot="contactOffice" />
-            </Reveal>
           </div>
         </Container>
       </Section>
 
-      <LocationBlock
-        heading={contact.office.mapLabel}
-        directions={contact.office.directions}
-      />
     </>
   );
 }
