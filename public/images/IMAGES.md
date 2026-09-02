@@ -36,7 +36,7 @@ before the photography exists.
 | Filename | Page | Section | Ratio | Min. resolution | What the photograph shows |
 | --- | --- | --- | --- | --- | --- |
 | `gathaithi-retail-pack.jpg` | Our Coffee | Lot catalogue — stand-in for all four grades | 1:1 | 1600×1600 | The 250 g retail pack, front on. Standing in for the four green-bean flat-lays until those are shot. |
-| `gathaithi-cherry-sunrise.jpg` | Home | Hero | 2:3 | 1600×2400 | Ripe cherry on the branch at sunrise, the hills behind going gold. Shot portrait and shallow, so the branch runs on the diagonal and the sky stays open on one side — the headline sits in that open sky, so it must not be filled with detail. |
+| `gathaithi-sunrise-ridge.jpg` | Home | Hero — slide 1 | 16:9 | 2400×1350 | Sunrise over the ridge with a branch of ripe cherry in the near foreground on the right. UNDER-SIZED at 1672×941: sharp on a desktop, soft on a phone, where the portrait crop scales it up ~1.8×. |
 | `gathaithi-roasted-beans.jpg` | Home | Hero — slide 2 | 16:9 | 2400×1350 | A full frame of roasted beans, no focal point — an all-over texture, the one kind of picture that survives being cropped to any shape. |
 | `gathaithi-cherry-branch.jpg` | Home | Hero — slide 3 | 16:9 | 2400×1350 | A branch of ripening cherry, red and green together, shot shallow so the canopy falls away to bokeh. Cluster left of centre. |
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
@@ -80,7 +80,7 @@ before the photography exists.
 
 If the shoot has to be done in stages, this is the order that matters.
 
-1. `gathaithi-cherry-sunrise.jpg` — the home page hero. One photograph carries
+1. `gathaithi-sunrise-ridge.jpg` — the home page hero. One photograph carries
    the entire first impression.
 2. `member-01-portrait.jpg` … `member-06-portrait.jpg` — the member profiles.
    The site says the society is its members; without faces it is a claim.
@@ -95,7 +95,7 @@ If the shoot has to be done in stages, this is the order that matters.
 Written already, in `content/images.ts`, next to each slot. Reproduced here so
 the shot list is self-contained:
 
-- `gathaithi-cherry-sunrise.jpg` — Ripe red coffee cherry on the branch at sunrise, with the hills of Nyeri behind.
+- `gathaithi-sunrise-ridge.jpg` — Sunrise over the ridge above Gathaithi, with a branch of ripe red coffee cherry in the foreground.
 - `gathaithi-roasted-beans.jpg` — Roasted coffee beans filling the frame.
 - `gathaithi-cherry-branch.jpg` — A branch of Gathaithi coffee carrying ripe red and unripe green cherry together.
 - `gathaithi-selective-picking.jpg` — Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.

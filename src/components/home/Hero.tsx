@@ -26,14 +26,17 @@ import type { Locale } from '@content/site';
 export function Hero({ locale, content }: { locale: Locale; content: HomeContent['hero'] }) {
   const image = getImage('homeHero');
 
-  /* Three frames, three crops. The first is portrait and biased upward as the
-     screen widens so the open sky the headline sits in survives; the other two
-     are landscape and have no sky at all, so they are held near their own
-     subject instead — the beans are an even texture and take a plain centre,
-     the cherry cluster sits left of centre and is kept there. */
+  /* Three frames, three crops — and all three are landscape now, where the
+     first used to be portrait. That changes what the phone sees: a portrait
+     viewport takes a narrow vertical slice, so WHICH slice is a decision. On
+     slide one the sun and the ridge are on the left and the cherry branch is
+     on the right, and neither alone is the picture; the crop is held just
+     right of centre so the slice carries the lit ridge and the front of the
+     branch together. It opens out toward the sunrise as the screen widens and
+     there is room for both. */
   const slides: HeroSlide[] = (
     [
-      ['homeHero', 'object-[60%_45%] sm:object-[55%_38%] lg:object-[50%_28%]'],
+      ['homeHero', 'object-[58%_46%] sm:object-[54%_46%] lg:object-[46%_44%]'],
       ['homeHeroTwo', 'object-center'],
       ['homeHeroThree', 'object-[38%_50%] lg:object-[42%_50%]'],
     ] as const
@@ -44,6 +47,7 @@ export function Hero({ locale, content }: { locale: Locale; content: HomeContent
       key: slide.key,
       src: slide.src,
       alt: slide.alt,
+      sizes: slide.sizes ?? '100vw',
       position,
     }));
 

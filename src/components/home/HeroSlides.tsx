@@ -11,6 +11,8 @@ export interface HeroSlide {
   key: string;
   src: string;
   alt: string;
+  /** From the slot. Carries the height-aware rule — see content/images.ts. */
+  sizes: string;
   /** Per-slide crop. Each frame has its subject in a different place. */
   position: string;
 }
@@ -129,7 +131,7 @@ export function HeroSlides({
                 fill
                 priority={i === 0}
                 fetchPriority={i === 0 ? "high" : "low"}
-                sizes="100vw"
+                sizes={slide.sizes}
                 quality={74}
                 placeholder="blur"
                 blurDataURL={BLUR_DATA_URL}
