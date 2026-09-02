@@ -90,15 +90,15 @@ export const images = {
     sizes: '(min-width: 1024px) 45vw, 100vw',
   },
   aboutTerroir: {
-    file: 'gathaithi-soil-and-tree.jpg',
+    file: 'gathaithi-ripening-cherry.jpg',
     page: 'About',
     section: 'Terroir',
     ratio: '4/5',
     minWidth: 1600,
     minHeight: 2000,
     direction:
-      'Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil.',
-    alt: 'The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.',
+      'STAND-IN, and a borrowed one — this slot currently shows the Our Coffee hero, the only frame in hand of coffee growing rather than being handled. It is landscape in a portrait box, so it is cropped hard, and it is the same photograph on two pages: it carries the section, it should not stay. The brief: base of a mature SL28 tree, deep red volcanic soil, mulch, the trunk and a branch of green cherry, shot portrait and in shade for colour accuracy — the soil is the argument this section makes.',
+    alt: 'Coffee growing at Gathaithi on the eastern slopes below the Aberdare range.',
     sizes: '(min-width: 1024px) 35vw, 100vw',
   },
 

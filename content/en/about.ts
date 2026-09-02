@@ -86,6 +86,7 @@ export const about: AboutContent = {
     lead:
       'Gathaithi sits on the eastern slopes below the Aberdare range, on deep red volcanic soil at around {{altitude}}. Cool nights slow the cherry down; the long ripening is what puts the acidity and the blackcurrant weight into the cup.',
     factIds: ['altitude', 'rainfall', 'temperature', 'trees'],
+    imageCaption: 'The catchment, on the eastern slopes below the Aberdares.',
     varieties: {
       heading: 'What grows here',
       body:

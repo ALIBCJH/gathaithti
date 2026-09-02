@@ -11,11 +11,15 @@ export function Stat({
   caption,
   size = 'large',
   surface = 'light',
+  figureClassName = '',
 }: {
   id: string;
   caption?: string;
   size?: 'large' | 'small';
   surface?: 'light' | 'dark';
+  /** Trim the figure where a row of them needs to read as one row rather than
+   *  four separate headlines. Nothing else about the stat changes. */
+  figureClassName?: string;
 }) {
   const fact = getFact(id);
   if (!fact) return null;
@@ -25,7 +29,7 @@ export function Stat({
 
   return (
     <div className="flex flex-col gap-3">
-      <p className={size === 'large' ? 't-figure' : 't-figure-sm'}>
+      <p className={`${size === 'large' ? 't-figure' : 't-figure-sm'} ${figureClassName}`}>
         <Fact id={id} />
         {fact.unit ? (
           <span className={`block mt-3 t-meta ${unitTone}`}>{fact.unit}</span>
