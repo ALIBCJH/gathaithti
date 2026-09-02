@@ -366,10 +366,23 @@ a[href^='tel:'] {
   font-weight: 500;
 }
 
-/* Figures are the emotional payload of this site: display type, not data. */
+/* Figures are the emotional payload of this site: display type, not data.
+
+   Both figure classes read their size from `--figure-size`, defaulting to
+   their own. This is not decoration: these rules are UNLAYERED, and Tailwind's
+   utilities live in `@layer utilities`, so an unlayered rule beats them
+   whatever the specificity. A `text-[clamp(...)]` class on a `.t-figure`
+   element is therefore silently ignored — which is exactly what had happened
+   to the terroir stats row on the About page, where an override asking for
+   34px had been rendering at 48px since the day it was written.
+
+   A custom property crosses that boundary the other way round: the layered
+   utility SETS the variable, the unlayered rule READS it, and no cascade
+   conflict arises. Resize a figure with `[--figure-size:clamp(…)]`, never
+   with `text-[…]`. */
 .t-figure {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: var(--figure-size, clamp(3rem, 7vw, 5.5rem));
   line-height: 0.9;
   letter-spacing: -0.035em;
   font-weight: 600;
@@ -378,7 +391,7 @@ a[href^='tel:'] {
 
 .t-figure-sm {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--figure-size, clamp(2rem, 4vw, 3rem));
   line-height: 0.95;
   letter-spacing: -0.03em;
   font-weight: 600;

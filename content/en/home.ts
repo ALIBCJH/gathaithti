@@ -22,13 +22,28 @@ export const home: HomeContent = {
   },
 
   proof: {
-    heading: 'The record',
+    eyebrow: 'By the numbers',
+    heading: 'A coffee society built on quality, ownership and time.',
     factIds: ['cuppingScore', 'nationalRank2024', 'established', 'members'],
+    /* Set differently here from the fact's own `display`, and nowhere else.
+       `nationalRank2024` displays as the word "Second" because the About page
+       puts it inside sentences — "Second nationally on cherry payment" — where
+       a glyph would not read. On a poster the glyph is the point. Same fact,
+       same audit trail; only the setting differs. */
+    figures: {
+      nationalRank2024: '#2',
+    },
+    titles: {
+      cuppingScore: 'A cup worth noticing',
+      nationalRank2024: 'Among Kenya’s best',
+      established: 'More than five decades of coffee',
+      members: 'Farmers. One society.',
+    },
     captions: {
-      cuppingScore: 'Cupped in {{cuppingYear}} — washed lot, Nyeri.',
-      nationalRank2024: 'In Kenya on cherry payment to farmers, 2024.',
-      established: 'Under Tetu; independent since {{independentSince}}.',
-      members: 'Smallholder members, each one an owner of this society.',
+      cuppingScore: 'Points, from a washed Nyeri lot cupped in {{cuppingYear}}.',
+      nationalRank2024: 'Ranked second in Kenya on cherry payment to farmers, 2024.',
+      established: 'Our story began under Tetu; the mill has been ours since {{independentSince}}.',
+      members: 'Each one holds a stake in what the society sells.',
     },
   },
 
