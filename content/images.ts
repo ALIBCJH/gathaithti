@@ -53,17 +53,20 @@ export const images = {
 
   /* ── About ──────────────────────────────────────────────────────────── */
   aboutHero: {
-    file: 'gathaithi-mill-and-ridge.jpg',
+    file: 'gathaithi-member-at-the-tree.jpg',
     page: 'About',
     section: 'Hero',
-    ratio: '16/9',
+    /* Landscape, and cropped hard to a tall panel by the layout. The frame it
+       is cropped INTO is a column, not this ratio, so the ratio here is what
+       the file is rather than what the page shows. */
+    ratio: '3/2',
     minWidth: 2400,
-    minHeight: 1350,
+    minHeight: 1600,
     direction:
-      'PARTLY MET. The frame in place looks across the mill\u2019s raised drying beds to the hills behind, smallholdings and tin roofs scattered up them — which makes the terroir argument, and puts the society\u2019s own ground in it. Two things it is not: the vantage is the mill rather than a high point over the village, and the beds are standing empty. The brief still stands for a reshoot — Gathaithi village and the surrounding shambas from above, coffee, terracing, red soil, cloud on the Aberdares.',
-    alt: 'The raised drying beds at the Gathaithi mill, with the smallholder farms of Tetu on the hills behind.',
+      'MET, and under-sized. A member reaching up into the branch, taking ripe cherry by hand on the upper slopes, hills behind. The gesture is vertical and the crop on the page is a tall column, so the reach is what has to survive the crop — the subject must sit left of centre with room above the hands. The file in place is 1536x1024, which the panel upscales; a 2400px original of this same frame would be a straight swap.',
+    alt: 'A Gathaithi member reaching up into a coffee tree to pick ripe red cherry by hand, the hills of Tetu behind.',
     priority: true,
-    sizes: '100vw',
+    sizes: '(min-width: 1024px) 46vw, 100vw',
   },
   aboutGovernance: {
     file: 'gathaithi-committee-meeting.jpg',

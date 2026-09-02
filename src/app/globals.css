@@ -44,6 +44,15 @@
   --moss-surface: #56604c; /* members' surfaces — green against the white */
 
   --photo-treatment: saturate(0.9) contrast(1.02) brightness(1.01) sepia(0.07);
+
+  /* A second, stronger treatment, for photographs whose own colour is louder
+     than the palette they are set into. The About opening is the case it was
+     written for: dense tropical green against a parchment page, at a size that
+     makes it the first thing seen. Saturation comes down further and the sepia
+     comes up, which pulls the greens toward the site's warmth and leaves the
+     red cherry as the brightest thing in the frame — the one part of the
+     picture that should be loud. */
+  --photo-treatment-warm: saturate(0.7) contrast(1.05) brightness(1.02) sepia(0.16);
 }
 
 [data-theme='dark'] {
@@ -79,6 +88,7 @@
 
   /* Photographs are lifted less and warmed slightly more against the brown. */
   --photo-treatment: saturate(0.86) contrast(1.03) brightness(0.94) sepia(0.08);
+  --photo-treatment-warm: saturate(0.66) contrast(1.06) brightness(0.95) sepia(0.18);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -701,6 +711,10 @@ a[href^='tel:'] {
 
 .photo {
   filter: var(--photo-treatment);
+}
+
+.photo-warm {
+  filter: var(--photo-treatment-warm);
 }
 
 /* Card hover: the image moves, the card does not. */
