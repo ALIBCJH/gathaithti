@@ -21,7 +21,14 @@ export function SeasonPanel({
         <div className="grid items-start gap-16 lg:grid-cols-12 lg:gap-20">
           {/* image breaks out of the text column and sits low */}
           <Reveal className="lg:col-span-5 lg:col-start-1 lg:mt-24">
-            <SmartImage slot="homeSeason" />
+            {/* The photograph is far taller than the 4:5 the slot renders
+                into — 853x1844 against 0.8 — so `object-cover` drops about two
+                fifths of it. Centred, that crop takes the top of her headscarf
+                and keeps the basket, which is the wrong half: the picker and
+                her hands on the branch are the subject, the basket is furniture.
+                Biased up the frame, the crop keeps her face and the cherry she
+                is picking and gives away the bottom instead. */}
+            <SmartImage slot="homeSeason" imageClassName="object-[50%_20%]" />
           </Reveal>
 
           <div className="flex flex-col gap-10 lg:col-span-6 lg:col-start-7">
