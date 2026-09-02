@@ -21,23 +21,28 @@ import type { ImageSlot } from './types';
 export const images = {
   /* ── Home ───────────────────────────────────────────────────────────── */
   homeHero: {
-    file: 'gathaithi-cherry-sunrise.jpg',
+    file: 'gathaithi-sunrise-ridge.jpg',
     page: 'Home',
-    section: 'Hero',
-    /* Portrait, not the 21:9 this slot was originally specified as. The hero
-       is full-bleed and cropped by `object-cover`, so the frame it is cropped
-       INTO is the viewport, not this ratio — a tall original gives the crop
-       room to breathe on a phone held upright, which is how most of this site
-       is read. The ratio is recorded honestly for the placeholder. */
-    ratio: '2/3',
-    minWidth: 1600,
-    minHeight: 2400,
+    section: 'Hero — slide 1',
+    ratio: '16/9',
+    minWidth: 2400,
+    minHeight: 1350,
     direction:
-      'Ripe cherry on the branch at sunrise, the hills behind going gold. Shot portrait and shallow, so the branch runs on the diagonal and the sky stays open on one side — the headline sits in that open sky, so it must not be filled with detail.',
-    alt: 'Ripe red coffee cherry on the branch at sunrise, with the hills of Nyeri behind.',
+      'UNDER-SIZED, and knowingly so. Sunrise over the ridge with a branch of ripe cherry in the near foreground on the right. The frame in place is 1672x941, which is sharp on a desktop and soft on a phone — the hero fills the screen, and a portrait viewport crops this to a narrow vertical slice that has to be scaled up about 1.8x. A 2400x1350 original of the same frame is a straight swap and fixes both.',
+    alt: 'Sunrise over the ridge above Gathaithi, with a branch of ripe red coffee cherry in the foreground.',
     priority: true,
-    sizes: '100vw',
+    /* Not `100vw`, and this is the whole reason the hero looked soft on a
+       phone. `sizes` describes the image's WIDTH, and the browser picks a
+       srcset candidate from it — but a full-screen hero is cropped by HEIGHT
+       on a portrait screen. At 390x844 the browser was asking for a 1200px
+       file to fill a frame needing 2532 device pixels of height: a 3.75x
+       upscale, chosen by the browser, with the full-size file sitting unused
+       in the srcset. `178vh` is the width a 16:9 frame actually needs to cover
+       a viewport of that height, so the request matches the crop. Desktop is
+       width-bound and keeps 100vw. */
+    sizes: '(max-width: 1023px) 178vh, 100vw',
   },
+
   /* Slides two and three of the hero. Both are LANDSCAPE, where homeHero is
      portrait, so on a phone held upright `object-cover` throws away far more
      of them than it does of the first — roughly three quarters of the width at
@@ -54,7 +59,7 @@ export const images = {
     direction:
       'A full frame of roasted beans, filling the frame edge to edge with no focal point — an all-over texture, which is the one kind of picture that survives being cropped to any shape. Warm and dark enough to carry white type anywhere in the frame.',
     alt: 'Roasted coffee beans filling the frame.',
-    sizes: '100vw',
+    sizes: '(max-width: 1023px) 178vh, 100vw',
   },
   homeHeroThree: {
     file: 'gathaithi-cherry-branch.jpg',
@@ -66,7 +71,7 @@ export const images = {
     direction:
       'A branch of ripening cherry, red and green together, shot shallow so the canopy behind falls away to green bokeh. The cluster sits left of centre; the crop holds it there as the frame narrows.',
     alt: 'A branch of Gathaithi coffee carrying ripe red and unripe green cherry together.',
-    sizes: '100vw',
+    sizes: '(max-width: 1023px) 178vh, 100vw',
   },
   homeSeason: {
     file: 'gathaithi-selective-picking.jpg',
