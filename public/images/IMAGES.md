@@ -38,7 +38,7 @@ before the photography exists.
 | `gathaithi-retail-pack.jpg` | Our Coffee | Lot catalogue — stand-in for all four grades | 1:1 | 1600×1600 | The 250 g retail pack, front on. Standing in for the four green-bean flat-lays until those are shot. |
 | `gathaithi-cherry-sunrise.jpg` | Home | Hero | 2:3 | 1600×2400 | Ripe cherry on the branch at sunrise, the hills behind going gold. Shot portrait and shallow, so the branch runs on the diagonal and the sky stays open on one side — the headline sits in that open sky, so it must not be filled with detail. |
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
-| `gathaithi-mill-and-ridge.jpg` | About | Hero | 16:9 | 2400×1350 | Gathaithi village and the surrounding shambas from a high point: coffee, terracing, red soil, tin roofs, cloud on the Aberdares. Landscape as evidence of terroir. |
+| `gathaithi-member-at-the-tree.jpg` | About | Hero | 3:2 | 2400×1600 | A member reaching up into the branch, taking ripe cherry by hand on the upper slopes. Cropped to a tall column by the page, so the reach must survive the crop: subject left of centre, room above the hands. |
 | `gathaithi-committee-meeting.jpg` | About | Governance | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
 | `gathaithi-soil-and-tree.jpg` | About | Terroir | 4:5 | 1600×2000 | Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil. |
 | `gathaithi-ripening-cherry.jpg` | Our Coffee | Hero | 16:9 | 2400×1350 | Two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame. |
@@ -84,7 +84,7 @@ the shot list is self-contained:
 
 - `gathaithi-cherry-sunrise.jpg` — Ripe red coffee cherry on the branch at sunrise, with the hills of Nyeri behind.
 - `gathaithi-selective-picking.jpg` — Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.
-- `gathaithi-mill-and-ridge.jpg` — Gathaithi village and the surrounding coffee farms on the slopes of Tetu, Nyeri County.
+- `gathaithi-member-at-the-tree.jpg` — A Gathaithi member reaching up into a coffee tree to pick ripe red cherry by hand, the hills of Tetu behind.
 - `gathaithi-committee-meeting.jpg` — Members of the Gathaithi management committee in session at the society office.
 - `gathaithi-soil-and-tree.jpg` — The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.
 - `gathaithi-ripening-cherry.jpg` — Dried coffee parchment lifted from a raised bed at the Gathaithi wet mill.
