@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { Harvest } from '@/components/farmers/Harvest';
 import { MemberCard } from '@/components/farmers/MemberCard';
 import { Noticeboard } from '@/components/farmers/Noticeboard';
 import { PreFinance } from '@/components/farmers/PreFinance';
 import { Training } from '@/components/farmers/Training';
-import { SmartImage } from '@/components/media/SmartImage';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -49,11 +49,7 @@ export default async function FarmersPage({ params }: Props) {
           page for the price, and they should not have to scroll past a hero. */}
       <Noticeboard content={farmers.noticeboard} />
 
-      <div className="bg-parchment py-8">
-        <Container width="wide">
-          <SmartImage slot="farmersHero" />
-        </Container>
-      </div>
+      <Harvest content={farmers.harvest} />
 
       <Section tone="parchment" ariaLabelledby="profiles-heading">
         <Container width="wide">

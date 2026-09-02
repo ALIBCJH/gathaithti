@@ -18,9 +18,9 @@ export const farmers: FarmersContent = {
 
   hero: {
     eyebrow: 'Our farmers',
-    title: 'The society is its members',
+    title: 'Every kilo starts with somebody’s hands',
     lead:
-      '{{members}} smallholder families farm the coffee that comes through this mill. They elect the committee, they approve the accounts, and the price this page carries is the price the society pays them.',
+      '{{members}} smallholder families farm the coffee that comes through this mill — and they own it. They elect the committee, they approve the accounts, and the price on this page is the price the society pays them.',
   },
 
   noticeboard: {
@@ -84,9 +84,32 @@ export const farmers: FarmersContent = {
     },
   },
 
+  /* The harvest section: three photographs that rotate, and the argument for
+     why the picking is the part that matters. It replaced a single empty photo
+     slot sitting on the page like a slab. */
+  harvest: {
+    eyebrow: 'The harvest',
+    heading: 'Picked one cherry at a time, by people who own the result',
+    body: [
+      'A coffee tree does not ripen all at once. On the same branch, on the same morning, there is fruit that is ready and fruit that is a week away — and the difference between them is the difference between a lot that scores and a lot that does not.',
+      'So Gathaithi picks selectively. Every red cherry is taken by hand and every green one is left on the wood for the next pass. Nobody strips a branch here. Across the catchment that is thousands of individual decisions a day, made by the people whose names are on the delivery books, and it is the single largest reason this coffee cups the way it does.',
+      'It is unglamorous, it is done bent over in the sun, and it cannot be mechanised. It is also the work the society exists to pay properly for.',
+    ],
+    /* One line per slide, in slide order. */
+    captions: [
+      'Ripe taken, green left — the branch is worked again in a week.',
+      'Selecting by colour, not by handful. Nothing is stripped.',
+      'Two members, one tree. Most of the crop is family work.',
+    ],
+    slideLabel: 'Slide {{n}} of {{total}}',
+    pauseLabel: 'Pause the harvest photographs',
+    playLabel: 'Play the harvest photographs',
+    regionLabel: 'Photographs from the harvest',
+  },
+
   profiles: {
     eyebrow: 'Members',
-    heading: 'Who grows this coffee',
+    heading: 'The people behind the picking',
     lead:
       'Most members farm under a hectare, alongside food crops and a cow or two. The six profiles below are SAMPLE ENTRIES — invented names, figures and words, standing in so the page can be seen whole. The photographs and the interviews are still to be collected, and no member is published here without their agreement.',
     yearsLabel: 'Years farming',
