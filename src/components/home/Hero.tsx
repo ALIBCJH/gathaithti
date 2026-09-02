@@ -77,17 +77,6 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
 
       <div className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-end px-6 pb-6 pt-[calc(var(--header-h)+2rem)] sm:px-10 lg:px-16">
         <div className="flex max-w-[46rem] flex-col gap-4 sm:gap-5">
-          {/* Not ochre, here alone. Ochre is a mid-tone, and a photograph's
-              luminance sweeps through every value — so somewhere in the scrim
-              the ground passes straight through the ochre's own brightness and
-              the contrast collapses to nothing. Measured on the rendered
-              pixels it bottomed out near 1:1, and no scrim short of opaque
-              rescues it. Near-white is far from every mid-tone, so it holds
-              wherever the crop happens to land. The ochre keeps every other
-              eyebrow on the site, where the ground behind it is a flat colour
-              that was measured once and cannot move. */}
-          <p className="t-meta text-on-inverse/90">{content.eyebrow}</p>
-
           <h1 className="t-hero max-w-[13em] text-on-inverse">{content.title}</h1>
 
           <p className="t-lead max-w-[44ch] text-on-inverse/90">
