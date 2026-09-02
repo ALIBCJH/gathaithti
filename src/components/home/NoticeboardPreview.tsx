@@ -9,8 +9,17 @@ import type { FarmersContent, HomeContent } from '@content/types';
 import type { Locale } from '@content/site';
 
 /**
- * The members' half of the site, previewed on the home page: the cherry price
- * and the next payment date, the two things a member opens this site to check.
+ * The members' half of the site, previewed on the home page.
+ *
+ * It showed two tiles — the cherry price and the next payment date. The
+ * payment date has gone: a date and an M-Pesa instruction are for members who
+ * have already delivered, and this is the page a buyer lands on. It is still
+ * on Our Farmers, in the noticeboard, which is where a member is sent.
+ *
+ * What is left is one figure, so it is no longer laid out as a grid of tiles
+ * pretending to be a dashboard. The price stands on its own, larger, with the
+ * footnote that qualifies it — the advance rate, not the final one — which the
+ * cramped tile never had room for.
  */
 export function NoticeboardPreview({
   locale,
@@ -21,7 +30,6 @@ export function NoticeboardPreview({
   content: HomeContent['noticeboard'];
   noticeboard: FarmersContent['noticeboard'];
 }) {
-  const payment = noticeboard.notices.find((notice) => notice.kind === 'payment');
   const price = getFact('cherryPriceCurrent');
 
   return (
@@ -40,20 +48,15 @@ export function NoticeboardPreview({
           </div>
 
           <Reveal className="lg:col-span-7" delay={60}>
-            <div className="grid gap-px overflow-hidden border border-on-inverse/20 bg-on-inverse/20 sm:grid-cols-2">
-              <div className="flex flex-col gap-3 bg-inverse p-8 sm:p-10">
-                <p className="t-meta text-on-inverse/60">{noticeboard.priceLabel}</p>
-                <p className="t-figure text-on-inverse">
-                  <Fact id="cherryPriceCurrent" />
-                </p>
-                <p className="t-meta text-ochre-light">{price?.unit ?? noticeboard.priceUnit}</p>
-              </div>
-
-              <div className="flex flex-col gap-3 bg-inverse p-8 sm:p-10">
-                <p className="t-meta text-on-inverse/60">{payment?.label}</p>
-                <p className="t-figure-sm text-on-inverse">{payment?.value}</p>
-                <p className="t-body text-[0.9375rem] text-on-inverse/70">{payment?.detail}</p>
-              </div>
+            <div className="flex flex-col gap-4 border border-on-inverse/20 p-10 sm:p-14">
+              <p className="t-meta text-on-inverse/60">{noticeboard.priceLabel}</p>
+              <p className="t-figure text-on-inverse">
+                <Fact id="cherryPriceCurrent" />
+              </p>
+              <p className="t-meta text-ochre-light">{price?.unit ?? noticeboard.priceUnit}</p>
+              <p className="t-body mt-4 max-w-[46ch] text-[0.9375rem] leading-relaxed text-on-inverse/70">
+                {noticeboard.priceFootnote}
+              </p>
             </div>
           </Reveal>
         </div>
