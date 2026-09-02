@@ -47,12 +47,39 @@ export function LotCard({
   ];
 
   return (
+    /* `data-lot` sets one custom property, `--lot`, and everything coloured on
+       this card reads from it — the rule, the grade, the wash, the hover, the
+       tint over the photograph. The card never names a grade, so a fifth one
+       needs a colour in globals.css and nothing here. */
     <article
       id={`lot-${lot.id}`}
-      className="group/card flex h-full flex-col border border-line bg-parchment transition-[border-color,box-shadow] duration-200 [transition-timing-function:var(--ease)] hover:border-ochre/55 hover:shadow-[0_1px_0_rgba(36,22,17,0.06)] focus-within:border-ochre/55"
+      data-lot={lot.grade}
+      className="group/card relative flex h-full flex-col border border-line bg-parchment transition-[border-color,box-shadow] duration-200 [transition-timing-function:var(--ease)] hover:shadow-[0_1px_0_rgba(36,22,17,0.06)] hover:border-[color-mix(in_srgb,var(--lot)_55%,transparent)] focus-within:border-[color-mix(in_srgb,var(--lot)_55%,transparent)]"
+      style={{
+        /* A wash, not a fill: enough that four cards side by side are plainly
+           four different things, light enough that the type on them keeps the
+           contrast it was measured at. */
+        backgroundColor: 'color-mix(in srgb, var(--lot) 5%, var(--surface))',
+      }}
     >
+      {/* The grade's colour, stated once at the top edge. */}
+      <span aria-hidden="true" className="h-1 w-full shrink-0 bg-[var(--lot)]" />
+
       <div className="relative">
         <SmartImage slot={lot.imageSlot} zoom />
+
+        {/* One photograph stands in for all four grades until each has its own.
+            A tint in the grade's colour, held low and thrown across the corner
+            rather than laid flat over the whole frame, is what stops the row
+            reading as the same picture printed four times. */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(215deg, color-mix(in srgb, var(--lot) 34%, transparent) 0%, color-mix(in srgb, var(--lot) 8%, transparent) 46%, transparent 78%)',
+          }}
+        />
 
         {score ? (
           <p className="absolute right-4 top-4 flex flex-col items-center rounded-full bg-parchment/95 px-3 py-2 leading-none shadow-[0_1px_0_rgba(36,22,17,0.08)]">
@@ -71,7 +98,7 @@ export function LotCard({
 
         <div className="flex items-baseline justify-between gap-4 border-b border-line pb-5">
           <div className="flex flex-col gap-1">
-            <p className="t-figure-sm text-[2rem] text-ochre-ink">{lot.grade}</p>
+            <p className="t-figure-sm text-[2rem] text-[var(--lot)]">{lot.grade}</p>
             <h3 className="t-body font-medium">{lot.name}</h3>
           </div>
 
@@ -97,7 +124,7 @@ export function LotCard({
           {lot.cuppingNotes.map((note) => (
             <li
               key={note}
-              className="rounded-full border border-line px-3 py-1 text-[0.8125rem] text-ink-soft transition-colors duration-200 [transition-timing-function:var(--ease)] group-hover/card:border-ochre/30"
+              className="rounded-full border border-line px-3 py-1 text-[0.8125rem] text-ink-soft transition-colors duration-200 [transition-timing-function:var(--ease)] group-hover/card:border-[color-mix(in_srgb,var(--lot)_35%,transparent)]"
             >
               {note}
             </li>
