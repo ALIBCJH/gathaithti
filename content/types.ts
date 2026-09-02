@@ -227,7 +227,7 @@ export interface ProcessStep {
 export interface ProductsContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
-  marketNote: { heading: string; body: string[] };
+  marketNote: { eyebrow: string; heading: string; body: string[] };
   catalogue: {
     eyebrow: string;
     heading: string;
@@ -251,6 +251,14 @@ export interface ProductsContent {
     requestLotLabel: string;
   };
   lots: Lot[];
+  gem: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    cards: { title: string; body: string; imageSlot: string }[];
+    statement: string;
+    cta: Cta;
+  };
   process: { eyebrow: string; heading: string; lead: string; steps: ProcessStep[] };
   sample: {
     eyebrow: string;

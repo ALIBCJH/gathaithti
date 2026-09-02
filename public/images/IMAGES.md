@@ -63,6 +63,9 @@ before the photography exists.
 | `lot-pb-green-beans.jpg` | Our Coffee | Lot catalogue — PB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. As lot-aa-green-beans.jpg, identical setup. Peaberry — the round single seeds should be obvious. |
 | `lot-c-green-beans.jpg` | Our Coffee | Lot catalogue — C | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. As lot-aa-green-beans.jpg, identical setup. Grade C beans. |
 | `gathaithi-picking-hands.jpg` | Our Coffee | Processing — selective picking | 3:2 | 1800×1200 | Close on a picker's hands taking ripe red cherry off the branch, one at a time, with green and unripe fruit left on the wood beside it. The selectivity is the subject. |
+| `gathaithi-gem-cherry.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | The ripest cherry of the season on the branch, tight and portrait, soft light. Uniform deep red, no green in frame. |
+| `gathaithi-gem-parchment.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | Dried parchment at the point it comes off the bed — even colour and size, a hand lifting some for scale. |
+| `gathaithi-gem-cupping.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | The cupping table mid-session: bowls in a row, a spoon lifted, the score sheet in frame. |
 | `process-01-pulping.jpg` | Our Coffee | Processing — pulping | 3:2 | 1800×1200 | Cherry entering the disc pulper, water moving, skins separating. Freeze the motion; keep the machinery legible. |
 | `process-02-fermentation.jpg` | Our Coffee | Processing — fermentation | 3:2 | 1800×1200 | A fermentation tank at dusk, filled with parchment under mucilage. Overhead or high three-quarter angle. |
 | `process-03-washing.jpg` | Our Coffee | Processing — washing | 3:2 | 1800×1200 | Washing channels with parchment being graded by density, a worker with a wooden paddle. Water motion is the subject. |
@@ -144,3 +147,6 @@ the shot list is self-contained:
 - `member-06-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `gathaithi-agronomy-training.jpg` — Gathaithi members at a field day, learning pruning technique on a mature coffee tree.
 - `gathaithi-society-office.jpg` — A member completing a pre-finance application at the Gathaithi society office.
+- `gathaithi-gem-cherry.jpg` — Uniformly ripe red cherry on the branch at Gathaithi.
+- `gathaithi-gem-parchment.jpg` — Dried parchment coffee being lifted from a raised bed at the Gathaithi mill.
+- `gathaithi-gem-cupping.jpg` — A cupping session in progress at Gathaithi, bowls laid out with a score sheet.

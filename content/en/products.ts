@@ -16,6 +16,7 @@ export const products: ProductsContent = {
   },
 
   marketNote: {
+    eyebrow: 'How it is sold',
     heading: 'How to buy Gathaithi',
     body: [
       'Kenyan green coffee is sold either through the Nairobi Coffee Exchange auction or under a direct-sales licence. This page is a catalogue, not a shop — there are no prices and no checkout here, because that is not how this coffee legally moves.',
@@ -150,6 +151,45 @@ export const products: ProductsContent = {
       imageSlot: 'lotC',
     },
   ],
+
+  /* The season's standout, between the processing walkthrough and the
+     catalogue: what the mill produced this year, before the grades it was
+     sorted into.
+     ═══════════════════════════════════════════════════════════════════════
+     DRAFT. Every figure comes through a {{token}} and is therefore as
+     verified as the rest of content/facts.ts — which is to say not yet. The
+     judgement in the closing line is the society's to make, not this site's;
+     it is written the way the society would say it and needs their sign-off
+     before the page is shown to a buyer. */
+  gem: {
+    eyebrow: 'Rare gem',
+    heading: 'The best of this season',
+    lead:
+      'One catchment does not produce the same coffee twice. This is what came off the beds this year, and why the marketing office is putting it forward.',
+    cards: [
+      {
+        title: 'The cherry it started as',
+        body:
+          'A long, cool ripening at {{altitude}} and several passes through each tree. Only fully red fruit went into the buckets, which is what a density grading at the pulper can actually work with.',
+        imageSlot: 'gemOne',
+      },
+      {
+        title: 'The parchment it dried to',
+        body:
+          'Turned by hand on raised beds and taken off at even moisture. Uniform size and colour across the lot — the condition a dry mill needs before it can sort a clean AA out of it.',
+        imageSlot: 'gemTwo',
+      },
+      {
+        title: 'The cup it scored',
+        body:
+          'A washed lot from this mill cupped at {{cuppingScore}} points in {{cuppingYear}}: blackcurrant, a dense structured acidity, and a finish that holds as it cools.',
+        imageSlot: 'gemThree',
+      },
+    ],
+    statement:
+      'We believe this year’s produce is the strongest the catchment has given us in several seasons — and we would rather you judged that from a sample than from this page.',
+    cta: { label: 'Request a sample', href: '#request-a-sample' },
+  },
 
   process: {
     eyebrow: 'Processing',

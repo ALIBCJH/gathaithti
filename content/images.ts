@@ -358,6 +358,47 @@ export const images = {
     alt: 'A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.',
     sizes: '(min-width: 1024px) 30vw, 100vw',
   },
+  /* The season's three standout frames. They sit between the processing
+     walkthrough and the catalogue, so they must not repeat either: not a
+     process step, not a grade flat-lay. What is left is the crop itself at its
+     best — which is the point of the section. */
+  gemOne: {
+    file: 'gathaithi-gem-cherry.jpg',
+    page: 'Our Coffee',
+    section: 'The season',
+    ratio: '4/5',
+    minWidth: 1400,
+    minHeight: 1750,
+    direction:
+      'The ripest cherry of the season on the branch, shot tight and portrait in soft light. Uniform, deep red, no green in frame. This is the picture that has to look like the best fruit the hill produced.',
+    alt: 'Uniformly ripe red cherry on the branch at Gathaithi.',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
+  },
+  gemTwo: {
+    file: 'gathaithi-gem-parchment.jpg',
+    page: 'Our Coffee',
+    section: 'The season',
+    ratio: '4/5',
+    minWidth: 1400,
+    minHeight: 1750,
+    direction:
+      'Dried parchment on the bed at the point it comes off — even colour, even size, a hand lifting some of it so the eye has a scale. Portrait, late afternoon light.',
+    alt: 'Dried parchment coffee being lifted from a raised bed at the Gathaithi mill.',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
+  },
+  gemThree: {
+    file: 'gathaithi-gem-cupping.jpg',
+    page: 'Our Coffee',
+    section: 'The season',
+    ratio: '4/5',
+    minWidth: 1400,
+    minHeight: 1750,
+    direction:
+      'The cupping table mid-session: bowls in a row, a spoon lifted, the score sheet in frame. Portrait. This is the frame that turns a claim about the cup into something a buyer can picture.',
+    alt: 'A cupping session in progress at Gathaithi, bowls laid out with a score sheet.',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
+  },
+
   /* Step 01 of the walkthrough had no slot of its own — it borrowed the home
      page's season photograph, which meant one file doing two jobs and the only
      step in the sequence rendering 4:5 while 02–05 render 3:2. It has its own

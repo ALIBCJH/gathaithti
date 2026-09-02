@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -19,12 +19,14 @@ export function Pillars({ content }: { content: AboutContent['pillars'] }) {
   return (
     <Section tone="parchment" ariaLabelledby="pillars-heading">
       <Container width="wide">
-        <div className="flex flex-col gap-6">
-          <Eyebrow>{content.eyebrow}</Eyebrow>
-          <h2 id="pillars-heading" className="t-section max-w-[18ch]">
-            {content.heading}
-          </h2>
-        </div>
+        {/* Left, not centred: on the sketch this heading starts hard against
+            the left margin, and it opens the page rather than a subject. */}
+        <SectionHead
+          id="pillars-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          align="left"
+        />
 
         <div className="mt-16 grid gap-10 lg:mt-20 lg:grid-cols-3 lg:gap-12">
           {content.cards.map((card, i) => (

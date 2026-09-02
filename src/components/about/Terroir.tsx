@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -26,17 +26,12 @@ export function Terroir({ content }: { content: AboutContent['terroir'] }) {
   return (
     <Section tone="parchment" ariaLabelledby="terroir-heading" className="terroir">
       <Container width="wide">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div className="flex flex-col gap-6 lg:col-span-5">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-            <h2 id="terroir-heading" className="t-section max-w-[16ch]">
-              {content.heading}
-            </h2>
-          </div>
-          <p className="t-lead measure text-ink-soft lg:col-span-6 lg:col-start-7 lg:self-end">
-            <RichText text={content.lead} />
-          </p>
-        </div>
+        <SectionHead
+          id="terroir-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          lead={content.lead}
+        />
 
         {/* The four figures as one row.
 

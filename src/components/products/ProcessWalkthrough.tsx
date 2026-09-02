@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -11,17 +11,14 @@ export function ProcessWalkthrough({ content }: { content: ProductsContent['proc
   return (
     <Section tone="parchment-2" size="loose" id="processing" ariaLabelledby="process-heading">
       <Container width="wide">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="flex flex-col gap-6 lg:col-span-6">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-            <h2 id="process-heading" className="t-section max-w-[16ch]">
-              {content.heading}
-            </h2>
-          </div>
-          <p className="t-lead measure text-ink-soft lg:col-span-5 lg:col-start-8">{content.lead}</p>
-        </div>
+        <SectionHead
+          id="process-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          lead={content.lead}
+        />
 
-        <ol className="mt-24 flex flex-col gap-24 lg:mt-32 lg:gap-32">
+        <ol className="mt-20 flex flex-col gap-24 lg:mt-28 lg:gap-32">
           {content.steps.map((step, i) => (
             <li key={step.n}>
               <Reveal>
