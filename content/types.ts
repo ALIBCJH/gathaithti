@@ -156,6 +156,15 @@ export interface AboutContent {
     heading: string;
     lead: string;
     registration: { label: string; value: string }[];
+    board: {
+      eyebrow: string;
+      heading: string;
+      lead: string;
+      /** Rendered above the grid only while any member is still `pending`. */
+      pendingNote: string;
+      roleLabel: string;
+      members: BoardMember[];
+    };
     bodies: { name: string; role: string; composition: string }[];
   };
   terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; imageCaption: string; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
@@ -246,6 +255,15 @@ export interface ProductsContent {
 }
 
 /* ── Farmers ────────────────────────────────────────────────────────────── */
+
+export interface BoardMember {
+  id: string;
+  name: string;
+  role: string;
+  imageSlot: string;
+  /** True while the name is unconfirmed or absent. Drives the draft marker. */
+  pending?: boolean;
+}
 
 export interface MemberProfile {
   id: string;
