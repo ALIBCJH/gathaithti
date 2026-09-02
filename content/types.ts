@@ -276,11 +276,12 @@ export interface FarmersContent {
 
 export interface ContactRoute {
   id: string;
-  eyebrow: string;
+  /** "For buyers" — who this row is for, not what it does. */
+  label: string;
   heading: string;
   body: string;
-  person?: { name: string; role: string };
-  rows: { label: string; value: string; href?: string }[];
+  /** Which of the three direct actions this row should use. */
+  channel: 'whatsapp' | 'phone' | 'email';
 }
 
 export interface ContactForm {
@@ -312,6 +313,15 @@ export interface ContactForm {
 export interface ContactContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
+  /** The three ways to reach the society, stated once and used everywhere. */
+  direct: {
+    heading: string;
+    lead: string;
+    whatsapp: { label: string; note: string; prefill: string };
+    phone: { label: string; note: string };
+    email: { label: string; note: string };
+    memberLine: { label: string; note: string };
+  };
   routes: ContactRoute[];
   form: ContactForm;
   office: { heading: string; address: string[]; hours: { day: string; time: string }[]; registration: { label: string; value: string }[]; mapLabel: string; directions: string };

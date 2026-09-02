@@ -19,7 +19,10 @@ export function LocationBlock({
 }: {
   heading: string;
   body?: string;
-  address: readonly string[];
+  /** Omit where the page has already given the address — the Contact page
+   *  states it directly above this block, and saying it twice in adjacent
+   *  sections reads as a mistake rather than as emphasis. */
+  address?: readonly string[];
   directions: string;
   tone?: 'parchment' | 'parchment-2';
 }) {
@@ -35,11 +38,13 @@ export function LocationBlock({
             </h2>
             {body ? <p className="t-body measure text-ink-soft">{body}</p> : null}
 
-            <address className="mt-4 flex flex-col gap-1 text-[1.0625rem] not-italic leading-relaxed">
-              {address.map((line) => (
-                <span key={line}>{line}</span>
-              ))}
-            </address>
+            {address && address.length > 0 ? (
+              <address className="mt-4 flex flex-col gap-1 text-[1.0625rem] not-italic leading-relaxed">
+                {address.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </address>
+            ) : null}
 
             <a className="link w-fit text-[0.9375rem]" href={mapsUrl} rel="noopener" target="_blank">
               {directions}
