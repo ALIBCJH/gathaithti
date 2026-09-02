@@ -133,20 +133,28 @@ export function Header({
 
   return (
     <>
-      {/* Without JavaScript the observer never runs, so the bar could sit
-          transparent over the parchment sections below the hero. Pin it solid. */}
-      <noscript>
-        <style>{`.site-header{background:var(--color-parchment)!important;border-bottom:1px solid var(--color-line)!important}
-.site-header a,.site-header button{color:var(--color-ink)!important}
-.site-header button span span{background:var(--color-ink)!important}`}</style>
-      </noscript>
+      {/* The guard that used to live here is gone with the transparency it
+          guarded. Without JavaScript the observer never runs, so on the home
+          page the bar keeps its initial state the whole way down — and when
+          that state was transparent, it meant parchment type on a parchment
+          section: an invisible navigation bar. The initial state is now an
+          opaque brown band with light type on it, which is legible over the
+          hero and over every section below it, so there is nothing left to
+          pin. */}
       <header
       className={[
         'site-header fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300',
         '[transition-timing-function:var(--ease)]',
         solid
           ? 'bg-parchment/95 border-b border-line backdrop-blur-[2px]'
-          : 'bg-transparent border-b border-transparent on-ink',
+          /* Over the hero the bar used to be transparent, which made it part of
+             the photograph rather than a thing sitting on top of one — the
+             navigation floated in the sky and had to be rescued by a scrim.
+             It is the brand brown now: opaque, its own band, distinct from
+             whatever the picture is doing behind it. Light type on #241611 is
+             16.27:1 whatever the crop lands on, which is a guarantee no scrim
+             over a photograph can make. */
+          : 'bg-inverse border-b border-on-inverse/15 on-ink',
       ].join(' ')}
       style={{ height: 'var(--header-h)' }}
     >
