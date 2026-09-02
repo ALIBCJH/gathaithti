@@ -204,6 +204,26 @@ body {
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.7;
+  /* An email address is one word to a browser, and `marketing@gathaithicoffee
+     .co.ke` is 267px of it — wider than the column it sits in on a 320px phone,
+     so it pushed the whole contact grid out and the page scrolled sideways.
+     `break-word` breaks a word only when it would otherwise overflow, so
+     ordinary prose is untouched and every long token the content may grow
+     later — an address, a URL, a lot code — is caught before it does this. */
+  overflow-wrap: break-word;
+}
+
+/* `break-word` fixes the drawing but not the measuring: a grid track is sized
+   from min-content, and min-content still counts the unbroken word, so the
+   column stayed 267px wide and kept pushing. `anywhere` is the one that also
+   shrinks min-content — scoped to the elements that actually hold machine
+   strings, because applied to everything it would let ordinary prose break
+   mid-word wherever a container felt tight. */
+dd,
+address,
+a[href^='mailto:'],
+a[href^='tel:'] {
+  overflow-wrap: anywhere;
   font-synthesis-weight: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
