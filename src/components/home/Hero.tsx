@@ -77,7 +77,7 @@ export function Hero({ locale, content }: { locale: Locale; content: HomeContent
       </div>
 
       <div className="hero-foot relative mx-auto flex w-full max-w-[100rem] items-end justify-between gap-10 px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10">
-        <p className="t-meta flex items-center gap-3 text-on-inverse/45">
+        <p className="t-meta flex items-center gap-3 text-on-inverse/50">
           <span aria-hidden="true" className="inline-block h-px w-8 bg-on-inverse/35" />
           {content.scrollHint}
         </p>

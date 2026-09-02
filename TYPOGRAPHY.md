@@ -37,22 +37,34 @@ which is what forced the split.
 
 ### Dark theme
 
+Dark mode is a single colour. Where light mode separates its bands with three
+tones — a white page, a grey alternate, and deliberately dark bands — dark mode
+paints every surface `#241611`: the page, the alternating sections, the hero,
+the footer, the noticeboard and the members' surfaces alike. Structure is
+carried by the hairline, the borders already on the cards, and the space
+between sections, not by a change of shade.
+
+That collapses the table. There is one background in this theme, so every row
+below is measured against it.
+
 | Foreground | Background | Ratio | Needs | Pass | Used for |
 | --- | --- | --- | --- | --- | --- |
-| `text` #FAF6EF | `surface` #241611 | **16.27:1** | 4.5:1 | yes | Body text on the page |
-| `text` #FAF6EF | `surface2` #2E1E17 | **14.83:1** | 4.5:1 | yes | Body text, alternating sections |
+| `text` / `on-inverse` #FAF6EF | `surface` #241611 | **16.27:1** | 4.5:1 | yes | All body text, every surface |
 | `text-soft` #C9BBAD | `surface` #241611 | **9.35:1** | 4.5:1 | yes | Secondary text |
-| `text-soft` #C9BBAD | `surface2` #2E1E17 | **8.52:1** | 4.5:1 | yes | Secondary text, alternating sections |
-| `ochre-text` #E08A46 | `surface` #241611 | **6.59:1** | 4.5:1 | yes | Links, eyebrows, small labels |
-| `ochre-text` #E08A46 | `surface2` #2E1E17 | **6.01:1** | 4.5:1 | yes | Links on alternating sections |
+| `ochre-text` / `ochre-light` #E08A46 | `surface` #241611 | **6.59:1** | 4.5:1 | yes | Links, eyebrows, small labels, accents |
+| `cherry` #E1666B | `surface` #241611 | **5.27:1** | 4.5:1 | yes | Form errors and emphasis |
 | `on-accent` #241611 | `accent` #E08A46 | **6.59:1** | 4.5:1 | yes | Primary button, rest |
 | `on-accent` #241611 | `accent-hover` #F0A468 | **8.53:1** | 4.5:1 | yes | Primary button, hover and pressed |
-| `cherry` #E1666B | `surface` #241611 | **5.27:1** | 4.5:1 | yes | Form errors and emphasis |
-| `on-inverse` #FAF6EF | `inverse` #16100C | **17.51:1** | 4.5:1 | yes | Text on the dark bands |
-| `ochre-light` #E08A46 | `inverse` #16100C | **7.09:1** | 4.5:1 | yes | Accents on the dark bands |
-| `inverse` #16100C | `ochre-light` #E08A46 | **7.09:1** | 4.5:1 | yes | Button on a dark band |
-| `on-inverse` #FAF6EF | `moss` #56604C | **6.14:1** | 4.5:1 | yes | Text on the members’ moss surfaces |
 | `ochre` #B4622A | `surface` #241611 | **3.94:1** | 3.0:1 | yes | Focus ring (non-text, needs 3:1) |
+
+`surface2`, `inverse` and `moss` still exist as tokens — the light theme needs
+them apart — but in this theme all three resolve to `#241611`, so they need no
+row of their own.
+
+One value moved to keep the table honest. The hero's scroll cue was
+`on-inverse/45`, which came to 4.25:1 on this background and 4.31:1 on the
+deeper `#16100C` the dark bands used to be — under AA in both, before this
+change and after it. It is `on-inverse/50` now: **4.91:1**.
 
 Every pair passes. The rendered pages were also swept element by element in a
 real browser, in both themes, comparing each text node against its composited
