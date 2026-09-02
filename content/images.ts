@@ -127,6 +127,47 @@ export const images = {
     priority: true,
     sizes: '(min-width: 1024px) 46vw, 100vw',
   },
+  /* The three photographs beside the history text. `historyOne` adopts
+     gathaithi-mill-and-ridge.jpg, which had been orphaned since the About hero
+     was replaced — it is the mill and the ridge behind it, which is exactly
+     what this section is about, and it stops `npm run images` warning about a
+     file nothing uses. */
+  historyOne: {
+    file: 'gathaithi-mill-and-ridge.jpg',
+    page: 'About',
+    section: 'History',
+    ratio: '4/5',
+    minWidth: 1400,
+    minHeight: 1750,
+    direction:
+      'The mill and the ground it stands on. The frame in place looks across the raised drying beds to the hills of Tetu behind — landscape in a portrait box, so it is cropped hard. A portrait original of the mill buildings would suit this slot better.',
+    alt: 'The raised drying beds at the Gathaithi mill, with the hills of Tetu behind.',
+    sizes: '(min-width: 1024px) 18vw, 45vw',
+  },
+  historyTwo: {
+    file: 'gathaithi-society-store.jpg',
+    page: 'About',
+    section: 'History',
+    ratio: '4/5',
+    minWidth: 1400,
+    minHeight: 1750,
+    direction:
+      'The oldest building the society still uses — the office, the store, or the original mill shed. Shot portrait, straight on, in flat light. Age is the subject: render, doors, signwriting, whatever has been repainted over the years.',
+    alt: 'The society office and store at Gathaithi.',
+    sizes: '(min-width: 1024px) 18vw, 45vw',
+  },
+  historyThree: {
+    file: 'gathaithi-collection-evening.jpg',
+    page: 'About',
+    section: 'History',
+    ratio: '4/5',
+    minWidth: 1400,
+    minHeight: 1750,
+    direction:
+      'Members at a collection point at the end of the day, buckets full, being weighed. Portrait. The same act the society has been doing since 1967, which is why it belongs in the history rather than in the process walkthrough.',
+    alt: 'Gathaithi members delivering the day’s cherry at a village collection point in the evening.',
+    sizes: '(min-width: 1024px) 18vw, 45vw',
+  },
   aboutGovernance: {
     file: 'gathaithi-committee-meeting.jpg',
     page: 'About',

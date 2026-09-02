@@ -154,12 +154,25 @@ export interface HomeContent {
 export interface AboutContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
-  origin: { heading: string; body: string[]; timeline: { year: string; title: string; body: string }[] };
+  pillars: { eyebrow: string; heading: string; cards: { title: string; body: string }[] };
+  origin: {
+    eyebrow: string;
+    heading: string;
+    /** One per photograph beside the text, in order. */
+    captions: string[];
+    body: string[];
+    timeline: { year: string; title: string; body: string }[];
+  };
+  registration: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    rows: { label: string; value: string }[];
+  };
   governance: {
     eyebrow: string;
     heading: string;
     lead: string;
-    registration: { label: string; value: string }[];
     board: {
       eyebrow: string;
       heading: string;
@@ -171,7 +184,7 @@ export interface AboutContent {
     };
     bodies: { name: string; role: string; composition: string }[];
   };
-  terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; imageCaption: string; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
+  terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
 }
 
 /* ── Products ───────────────────────────────────────────────────────────── */

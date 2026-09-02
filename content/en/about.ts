@@ -15,8 +15,41 @@ export const about: AboutContent = {
       'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
   },
 
+  /* Three cards under the hero: what this society is, before any history or
+     governance. Everything here is structurally true and carries no unverified
+     figure of its own — the numbers come through {{tokens}} like everywhere
+     else, so a correction in content/facts.ts reaches them. */
+  pillars: {
+    eyebrow: 'About the society',
+    heading: 'A society, not a supplier',
+    cards: [
+      {
+        title: 'Owned by the people who grow it',
+        body: '{{members}} smallholder families hold the shares. The committee is elected from among them at the Annual General Meeting, and the accounts are put to the same room that elected it.',
+      },
+      {
+        title: 'One mill, one catchment',
+        body: 'A single wet mill on {{millSite}} hectares, serving the farms around it. Cherry is delivered the evening it is picked and processed within hours. Nothing is blended in from anywhere else.',
+      },
+      {
+        title: 'Independent since {{independentSince}}',
+        body: 'Gathaithi grew coffee under the wider Tetu society from {{established}}. Since {{independentSince}} it has run its own processing, its own marketing and its own payments.',
+      },
+    ],
+  },
+
   origin: {
-    heading: 'From {{established}} to independence',
+    eyebrow: 'History',
+    heading: 'History of the society',
+    /* The three photographs beside the text. Captions, not filenames — the
+       placeholder already prints what each file must be called. */
+    /* In slot order — historyOne, historyTwo, historyThree. Written the other
+       way round first, which captioned the drying beds as the office. */
+    captions: [
+      'The wet mill and the drying beds, looking across to Tetu.',
+      'The society office and store, Gathaithi village.',
+      'Members at a collection point at the end of the day.',
+    ],
     body: [
       'Coffee came to these ridges as a smallholder crop in the years around independence, and Gathaithi’s growers organised as part of the larger Tetu society in {{established}}. For three decades the village delivered its cherry into a structure it did not control.',
       'In {{independentSince}} that changed. Gathaithi registered as a society in its own right, named for the village itself, and took over the running of the wet mill on its own {{millSite}} hectares. Since then every decision about processing, marketing and payment has been taken by people who live within walking distance of the beds.',
@@ -46,12 +79,15 @@ export const about: AboutContent = {
     ],
   },
 
-  governance: {
-    eyebrow: 'Governance',
-    heading: 'How the society is run',
+  /* The registration table, lifted out of Governance into a section of its own.
+     Buyers arrive at this page looking for exactly these eight rows and should
+     not have to find them inside a wall of prose. */
+  registration: {
+    eyebrow: 'Information point',
+    heading: 'The society on paper',
     lead:
-      'Buyers audit this section, and members live by it. Gathaithi operates under the Co-operative Societies Act, with an elected management committee, an independent supervisory committee, and accounts presented to every member at the Annual General Meeting.',
-    registration: [
+      'The details an importer, an auditor or a county officer is most often looking for, in one place. Everything here is checkable against the Co-operative Societies register.',
+    rows: [
       { label: 'Registered name', value: 'Gathaithi Farmers’ Co-operative Society Ltd' },
       { label: 'Registration number', value: '{{registrationNumber}}' },
       { label: 'Registered', value: '{{independentSince}}' },
@@ -61,6 +97,13 @@ export const about: AboutContent = {
       { label: 'Wet mills operated', value: '{{wetMills}}' },
       { label: 'Membership', value: '{{members}} smallholder farmers' },
     ],
+  },
+
+  governance: {
+    eyebrow: 'Governance',
+    heading: 'How the society runs',
+    lead:
+      'Buyers audit this section, and members live by it. Gathaithi operates under the Co-operative Societies Act, with an elected management committee, an independent supervisory committee, and accounts presented to every member at the Annual General Meeting.',
     /* The nine people who sit on the management committee, as cards.
        ═══════════════════════════════════════════════════════════════════════
        DRAFT, in the same sense as the member profiles on Our Farmers: the four
@@ -113,11 +156,10 @@ export const about: AboutContent = {
 
   terroir: {
     eyebrow: 'Terroir',
-    heading: 'Why the coffee tastes the way it does',
+    heading: 'Why it tastes the way it does',
     lead:
       'Gathaithi sits on the eastern slopes below the Aberdare range, on deep red volcanic soil at around {{altitude}}. Cool nights slow the cherry down; the long ripening is what puts the acidity and the blackcurrant weight into the cup.',
     factIds: ['altitude', 'rainfall', 'temperature', 'trees'],
-    imageCaption: 'The catchment, on the eastern slopes below the Aberdares.',
     varieties: {
       heading: 'What grows here',
       body:

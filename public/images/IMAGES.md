@@ -44,6 +44,9 @@ before the photography exists.
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
 | `gathaithi-member-at-the-tree.jpg` | About | Hero | 3:2 | 2400×1600 | A member reaching up into the branch, taking ripe cherry by hand on the upper slopes. Cropped to a tall column by the page, so the reach must survive the crop: subject left of centre, room above the hands. |
 | `gathaithi-committee-meeting.jpg` | About | Governance | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
+| `gathaithi-mill-and-ridge.jpg` | About | History | 4:5 | 1400×1750 | The mill and the ground it stands on. Currently a landscape frame in a portrait box; a portrait original of the mill buildings would suit it better. |
+| `gathaithi-society-store.jpg` | About | History | 4:5 | 1400×1750 | The oldest building the society still uses. Portrait, straight on, flat light. Age is the subject. |
+| `gathaithi-collection-evening.jpg` | About | History | 4:5 | 1400×1750 | Members at a collection point at the end of the day, buckets full, being weighed. Portrait. |
 | `board-01-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | Head-and-shoulders portrait, portrait orientation, eye level, looking at the lens. Even shade, plain or softly out-of-focus background, head in the upper third. THE SAME treatment for all nine — they sit in one grid and any difference in height, crop or light shows. |
 | `board-02-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
 | `board-03-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
@@ -105,6 +108,9 @@ the shot list is self-contained:
 - `gathaithi-selective-picking.jpg` — Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.
 - `gathaithi-member-at-the-tree.jpg` — A Gathaithi member reaching up into a coffee tree to pick ripe red cherry by hand, the hills of Tetu behind.
 - `gathaithi-committee-meeting.jpg` — Members of the Gathaithi management committee in session at the society office.
+- `gathaithi-mill-and-ridge.jpg` — The raised drying beds at the Gathaithi mill, with the hills of Tetu behind.
+- `gathaithi-society-store.jpg` — The society office and store at Gathaithi.
+- `gathaithi-collection-evening.jpg` — Gathaithi members delivering the day's cherry at a village collection point in the evening.
 - `board-01-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
 - `board-02-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
 - `board-03-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
