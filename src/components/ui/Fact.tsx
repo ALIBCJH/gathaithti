@@ -12,7 +12,21 @@ const MARK = process.env.NEXT_PUBLIC_SHOW_UNVERIFIED === '1' ? 'on' : 'off';
  *
  * and seen on screen with NEXT_PUBLIC_SHOW_UNVERIFIED=1.
  */
-export function Fact({ id, className = '' }: { id: string; className?: string }) {
+export function Fact({
+  id,
+  className = '',
+  display,
+}: {
+  id: string;
+  className?: string;
+  /**
+   * Render this instead of the fact's own `display`, keeping every data
+   * attribute intact. For a place that needs the figure set differently —
+   * "#2" on a poster where a sentence elsewhere needs the word "Second" —
+   * without forking the fact and giving the audit two numbers to reconcile.
+   */
+  display?: string;
+}) {
   const fact = getFact(id);
 
   if (!fact) {
@@ -32,7 +46,7 @@ export function Fact({ id, className = '' }: { id: string; className?: string })
       data-mark={MARK}
       title={MARK === 'on' && !fact.verified ? `Unverified — ${fact.note ?? ''}` : undefined}
     >
-      {fact.display}
+      {display ?? fact.display}
     </span>
   );
 }

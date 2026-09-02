@@ -115,7 +115,15 @@ export interface HomeContent {
     readMore: Cta;
     scrollHint: string;
   };
-  proof: { heading: string; factIds: string[]; captions: Record<string, string> };
+  proof: {
+    eyebrow: string;
+    heading: string;
+    factIds: string[];
+    /** Per-fact override for how the figure is SET here. See content/en/home.ts. */
+    figures?: Record<string, string>;
+    titles: Record<string, string>;
+    captions: Record<string, string>;
+  };
   season: {
     eyebrow: string;
     heading: string;

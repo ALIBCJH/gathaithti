@@ -76,7 +76,7 @@ export function Terroir({ content }: { content: AboutContent['terroir'] }) {
                 <Stat
                   id={id}
                   size="small"
-                  figureClassName="text-[clamp(1.625rem,2.6vw,2.125rem)]"
+                  figureClassName="[--figure-size:clamp(1.625rem,2.6vw,2.125rem)]"
                 />
               </Reveal>
             ))}
