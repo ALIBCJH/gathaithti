@@ -39,6 +39,8 @@ before the photography exists.
 | `gathaithi-sunrise-ridge.jpg` | Home | Hero — slide 1 | 16:9 | 2400×1350 | Sunrise over the ridge with a branch of ripe cherry in the near foreground on the right. UNDER-SIZED at 1672×941: sharp on a desktop, soft on a phone, where the portrait crop scales it up ~1.8×. |
 | `gathaithi-roasted-beans.jpg` | Home | Hero — slide 2 | 16:9 | 2400×1350 | A full frame of roasted beans, no focal point — an all-over texture, the one kind of picture that survives being cropped to any shape. |
 | `gathaithi-cherry-branch.jpg` | Home | Hero — slide 3 | 16:9 | 2400×1350 | A branch of ripening cherry, red and green together, shot shallow so the canopy falls away to bokeh. Cluster left of centre. |
+| `gathaithi-beans-falling.jpg` | Home | Hero — slide 4 | 16:9 | 2400×1350 | Roasted beans caught mid-fall against a deep brown ground. The darkest frame in the set. |
+| `gathaithi-cherry-sunlit.jpg` | Home | Hero — slide 5 | 16:9 | 2400×1350 | Red, orange and green cherry with the sun flaring through the canopy behind. Flare top-left, type bottom-left. |
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
 | `gathaithi-member-at-the-tree.jpg` | About | Hero | 3:2 | 2400×1600 | A member reaching up into the branch, taking ripe cherry by hand on the upper slopes. Cropped to a tall column by the page, so the reach must survive the crop: subject left of centre, room above the hands. |
 | `gathaithi-committee-meeting.jpg` | About | Governance | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
@@ -98,6 +100,8 @@ the shot list is self-contained:
 - `gathaithi-sunrise-ridge.jpg` — Sunrise over the ridge above Gathaithi, with a branch of ripe red coffee cherry in the foreground.
 - `gathaithi-roasted-beans.jpg` — Roasted coffee beans filling the frame.
 - `gathaithi-cherry-branch.jpg` — A branch of Gathaithi coffee carrying ripe red and unripe green cherry together.
+- `gathaithi-beans-falling.jpg` — Roasted coffee beans falling through the air against a dark brown ground.
+- `gathaithi-cherry-sunlit.jpg` — A cluster of ripening Gathaithi cherry — red, orange and green — with sunlight flaring through the canopy behind.
 - `gathaithi-selective-picking.jpg` — Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.
 - `gathaithi-member-at-the-tree.jpg` — A Gathaithi member reaching up into a coffee tree to pick ripe red cherry by hand, the hills of Tetu behind.
 - `gathaithi-committee-meeting.jpg` — Members of the Gathaithi management committee in session at the society office.

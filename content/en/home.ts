@@ -16,8 +16,12 @@ export const home: HomeContent = {
        reads. Everything asserted below is structurally true of the society
        whatever the numbers turn out to be. The figures still have their place
        on the page: the proof band carries them directly under this. */
-    positioning: 'One hill in Nyeri. One society. Sold by the people who picked it.',
-    readMore: { label: 'Read more', href: 'about' },
+    positioning: 'Elevated Flavors from the Slopes of Nyeri.',
+    /* The button this replaced went to /about. A downward arrow at the foot of
+       a hero means "there is more below", so it scrolls rather than navigates —
+       About is a tap away in the drawer. The label is what a screen reader
+       announces; nothing draws it. */
+    scrollDown: 'Scroll to the next section',
     scrollHint: 'Scroll',
     slideLabel: 'Slide {{n}} of {{total}}',
     pauseLabel: 'Pause the hero photographs',
