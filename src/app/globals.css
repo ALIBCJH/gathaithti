@@ -81,6 +81,60 @@
   --photo-treatment: saturate(0.86) contrast(1.03) brightness(0.94) sepia(0.08);
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   LOT COLOURS
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Four grades, one photograph. Until each grade has its own flat-lay the cards
+   carry the same picture, so colour is the only thing telling them apart at a
+   glance — and it has to do that job properly rather than decoratively.
+
+   Four earthy hues, one per grade, each with a value for both themes because a
+   single colour cannot clear 4.5:1 against a white page AND against the brown.
+   Every pair is measured; see TYPOGRAPHY.md.
+
+     AA  ochre     the flagship grade, the site's own accent
+     AB  moss      foliage
+     PB  cherry    the fruit
+     C   ridge     the blue-grey of the Aberdares behind the hero
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --lot-aa: #9a4f1e;
+  --lot-ab: #46603c;
+  --lot-pb: #9b2226;
+  --lot-c: #2f5560;
+}
+
+[data-theme='dark'] {
+  --lot-aa: #e08a46;
+  --lot-ab: #9dba84;
+  --lot-pb: #e1666b;
+  --lot-c: #86b0bd;
+}
+
+/* One property per card, so the card's own rules never mention a grade.
+
+   The default comes FIRST and the grades override it: same specificity, so the
+   later rule wins. A grade added later without a colour of its own lands on the
+   site accent rather than on nothing — an unset `--lot` would take the rule and
+   the grade type with it. */
+[data-lot] {
+  --lot: var(--ochre-text);
+}
+[data-lot='AA'] {
+  --lot: var(--lot-aa);
+}
+[data-lot='AB'] {
+  --lot: var(--lot-ab);
+}
+[data-lot='PB'] {
+  --lot: var(--lot-pb);
+}
+[data-lot='C'] {
+  --lot: var(--lot-c);
+}
+
 @theme inline {
   /* Named for the palette they came from; bound to the roles above so both
      themes drive the same utility classes. */
