@@ -28,9 +28,22 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <JsonLd data={[organizationLd(locale), localBusinessLd(locale)]} />
-      <Hero content={home.hero} />
-      <ProofBand content={home.proof} />
-      <SeasonPanel locale={locale} content={home.season} />
+      <Hero locale={locale} content={home.hero} />
+
+      {/* The record and the season panel are desktop-only now.
+
+          `hidden` rather than dropped: the figures they carry — the cupping
+          score, the national rank, the year, the membership — are the whole of
+          this site's credibility, and Google indexes the mobile rendering. Kept
+          in the markup they stay indexed and stay available to a screen reader;
+          they are simply not drawn on a phone, where the ask was for a shorter
+          first scroll. Delete the wrappers and the sections come back. */}
+      <div className="hidden lg:block">
+        <ProofBand content={home.proof} />
+      </div>
+      <div className="hidden lg:block">
+        <SeasonPanel locale={locale} content={home.season} />
+      </div>
       <StoryTeaser locale={locale} content={home.story} />
       <NoticeboardPreview
         locale={locale}

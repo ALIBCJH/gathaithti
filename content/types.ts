@@ -112,6 +112,8 @@ export interface HomeContent {
   hero: {
     title: string;
     positioning: string;
+    /** Shown on small screens only, where the scroll cue is not. */
+    readMore: Cta;
     scrollHint: string;
   };
   proof: { heading: string; factIds: string[]; captions: Record<string, string> };

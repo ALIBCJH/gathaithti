@@ -38,8 +38,18 @@ export function Section({
         ? 'py-24 sm:py-32 lg:py-48'
         : 'py-20 sm:py-28 lg:py-40';
 
+  /* A hairline along the top of every section, so one band is told from the
+     next by a drawn line rather than by a change of shade. Dark mode has no
+     change of shade left to offer — every surface is the same brown — and on
+     white the alternating tones were always a quiet signal. This is the same
+     line in both themes, and it is the only thing separating the bands on a
+     phone, where the sections it divides are the whole page. */
   return (
-    <Tag id={id} aria-labelledby={ariaLabelledby} className={`${tones[tone]} ${padding} ${className}`}>
+    <Tag
+      id={id}
+      aria-labelledby={ariaLabelledby}
+      className={`border-t border-line ${tones[tone]} ${padding} ${className}`}
+    >
       {children}
     </Tag>
   );
