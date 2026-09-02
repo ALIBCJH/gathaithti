@@ -142,7 +142,7 @@ export interface AboutContent {
     registration: { label: string; value: string }[];
     bodies: { name: string; role: string; composition: string }[];
   };
-  terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
+  terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; imageCaption: string; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
   location: { heading: string; body: string; address: string[]; directions: string; mapLabel: string };
 }
 

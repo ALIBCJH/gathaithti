@@ -604,6 +604,27 @@ a[href^='tel:'] {
   }
 }
 
+/* A ground for the terroir section, and only that section.
+
+   Two washes of the accent at 3% and 2%, thrown from opposite corners — enough
+   that the band reads as its own ground rather than the same flat parchment as
+   everything above it, far too little to be seen as colour. Mixed from the
+   theme token, so it is a warm haze on the white page and a faint lift out of
+   the brown in the dark. */
+.terroir {
+  background-image:
+    radial-gradient(
+      70% 55% at 12% 0%,
+      color-mix(in srgb, var(--color-ochre) 3%, transparent) 0%,
+      transparent 62%
+    ),
+    radial-gradient(
+      60% 50% at 92% 100%,
+      color-mix(in srgb, var(--color-ochre) 2%, transparent) 0%,
+      transparent 58%
+    );
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    PHOTOGRAPHY
    ═══════════════════════════════════════════════════════════════════════════ */
