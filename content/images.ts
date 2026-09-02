@@ -47,7 +47,7 @@ export const images = {
     minHeight: 2000,
     direction:
       'Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera.',
-    alt: 'Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.',
+    alt: 'A Gathaithi member picking ripe red cherry by hand from the branch, a full basket beside her.',
     sizes: '(min-width: 1024px) 40vw, 100vw',
   },
   homeStory: {
