@@ -407,10 +407,14 @@ body {
    from the CSS. Every figure below was sampled from the rendered pixels behind
    each line of type, with the text hidden.
 
-   Three layers, each doing one job:
-     1  top-down     the header, which sits over open sky
-     2  bottom-left  the type column, over the leaves
-     3  bottom-up    grounds the frame and carries the scroll cue
+   Two layers, each doing one job:
+     1  bottom-left  the type column, over the leaves
+     2  bottom-up    grounds the frame and carries the scroll cue
+
+   There were three. The first was a top-down wash whose only job was keeping
+   the navigation legible over open sky, and the bar carries its own brown now
+   — so that layer was darkening the best part of the picture to solve a
+   problem that no longer exists. The sky is clear to the top of the frame.
 
    The weight is a radial anchored to the bottom-left rather than a wash over
    the whole frame: darkening everything to rescue one corner would cost the
@@ -419,12 +423,6 @@ body {
    site instead of looking like a stock photo with a filter on it. */
 .hero-scrim {
   background:
-    linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--inverse) 78%, transparent) 0%,
-      color-mix(in srgb, var(--inverse) 34%, transparent) 14%,
-      transparent 30%
-    ),
     radial-gradient(
       125% 88% at 0% 100%,
       color-mix(in srgb, var(--inverse) 95%, transparent) 0%,
@@ -445,12 +443,6 @@ body {
 @media (max-width: 40rem) {
   .hero-scrim {
     background:
-      linear-gradient(
-        to bottom,
-        color-mix(in srgb, var(--inverse) 78%, transparent) 0%,
-        color-mix(in srgb, var(--inverse) 34%, transparent) 14%,
-        transparent 30%
-      ),
       radial-gradient(
         170% 82% at 0% 100%,
         color-mix(in srgb, var(--inverse) 96%, transparent) 0%,
