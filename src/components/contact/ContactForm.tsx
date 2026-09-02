@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Field, fieldClass } from '@/components/forms/Field';
 import { useEnquiryForm } from '@/components/forms/useEnquiryForm';
 import { contactRules, type ContactField } from '@/lib/enquiry';
@@ -44,20 +44,6 @@ export function ContactForm({
     onSuccess: () => successRef.current?.focus(),
   });
 
-  const [topic, setTopic] = useState(content.topics[0]?.id ?? 'other');
-
-  /* “Write to us” on a contact route jumps here and picks that topic. The
-     routes stay server-rendered; they only need a data attribute. */
-  useEffect(() => {
-    const onClick = (event: MouseEvent) => {
-      const target = (event.target as HTMLElement | null)?.closest('[data-topic]');
-      const id = target?.getAttribute('data-topic');
-      if (id) setTopic(id);
-    };
-    document.addEventListener('click', onClick);
-    return () => document.removeEventListener('click', onClick);
-  }, []);
-
   if (enquiry.status === 'success') {
     return (
       <div
@@ -93,23 +79,18 @@ export function ContactForm({
       </div>
 
       <Field name="topic" label={content.fields.topic} error={enquiry.errors.topic} required>
-        <select
+        <input
           id="topic"
           name="topic"
-          value={topic}
-          onChange={(event) => {
-            setTopic(event.target.value);
-            enquiry.clearError('topic');
-          }}
+          type="text"
+          maxLength={60}
+          placeholder={content.placeholders.topic}
           onBlur={enquiry.onBlur}
+          onChange={() => enquiry.clearError('topic')}
+          aria-invalid={Boolean(enquiry.errors.topic)}
+          aria-describedby={enquiry.errors.topic ? 'topic-error' : undefined}
           className={fieldClass}
-        >
-          {content.topics.map((option) => (
-            <option key={option.id} value={option.id}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+        />
       </Field>
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -162,42 +143,45 @@ export function ContactForm({
           />
         </Field>
 
-        {topic === 'members' ? (
-          <Field
-            name="memberNumber"
-            label={`${content.fields.memberNumber} — ${form.optional}`}
-            error={enquiry.errors.memberNumber}
-            hint={content.memberHint}
-          >
-            <input
-              id="memberNumber"
-              name="memberNumber"
-              type="text"
-              inputMode="numeric"
-              onBlur={enquiry.onBlur}
-              onChange={() => enquiry.clearError('memberNumber')}
-              className={fieldClass}
-            />
-          </Field>
-        ) : (
-          <Field
+        <Field
+          name="organisation"
+          label={`${content.fields.organisation} — ${form.optional}`}
+          error={enquiry.errors.organisation}
+        >
+          <input
+            id="organisation"
             name="organisation"
-            label={`${content.fields.organisation} — ${form.optional}`}
-            error={enquiry.errors.organisation}
-          >
-            <input
-              id="organisation"
-              name="organisation"
-              type="text"
-              autoComplete="organization"
-              placeholder={content.placeholders.organisation}
-              onBlur={enquiry.onBlur}
-              onChange={() => enquiry.clearError('organisation')}
-              className={fieldClass}
-            />
-          </Field>
-        )}
+            type="text"
+            autoComplete="organization"
+            placeholder={content.placeholders.organisation}
+            onBlur={enquiry.onBlur}
+            onChange={() => enquiry.clearError('organisation')}
+            className={fieldClass}
+          />
+        </Field>
       </div>
+
+      {/* Members only, but nothing now tells us who is a member: the topic is
+          free text, so the field cannot appear on cue the way it did when the
+          topic was one of four known values. It is last, marked optional and
+          carries its own hint, which is as close to "ask only the people it
+          applies to" as a form can get without guessing at what someone typed. */}
+      <Field
+        name="memberNumber"
+        label={`${content.fields.memberNumber} — ${form.optional}`}
+        error={enquiry.errors.memberNumber}
+        hint={content.memberHint}
+      >
+        <input
+          id="memberNumber"
+          name="memberNumber"
+          type="text"
+          inputMode="numeric"
+          onBlur={enquiry.onBlur}
+          onChange={() => enquiry.clearError('memberNumber')}
+          className={fieldClass}
+        />
+      </Field>
 
       <Field name="message" label={content.fields.message} error={enquiry.errors.message} required>
         <textarea
