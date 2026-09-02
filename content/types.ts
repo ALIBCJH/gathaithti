@@ -113,8 +113,6 @@ export interface HomeContent {
     eyebrow: string;
     title: string;
     positioning: string;
-    primary: Cta;
-    secondary: Cta;
     scrollHint: string;
   };
   proof: { heading: string; factIds: string[]; captions: Record<string, string> };

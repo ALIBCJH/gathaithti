@@ -28,7 +28,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <JsonLd data={[organizationLd(locale), localBusinessLd(locale)]} />
-      <Hero locale={locale} content={home.hero} />
+      <Hero content={home.hero} />
       <ProofBand content={home.proof} />
       <SeasonPanel locale={locale} content={home.season} />
       <StoryTeaser locale={locale} content={home.story} />

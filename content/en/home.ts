@@ -13,8 +13,6 @@ export const home: HomeContent = {
     title: 'Gathaithi Farmers’ Co‑operative Society',
     positioning:
       'One wet mill, {{members}} farmer-owners, and a washed Kenya coffee that scored {{cuppingScore}} points. Buy it from the people who grow it.',
-    primary: { label: 'Request a sample', href: 'products#request-a-sample' },
-    secondary: { label: 'For our members', href: 'farmers#noticeboard' },
     scrollHint: 'Scroll',
   },
 
