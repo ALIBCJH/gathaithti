@@ -73,6 +73,30 @@ export const images = {
     alt: 'A branch of Gathaithi coffee carrying ripe red and unripe green cherry together.',
     sizes: '(max-width: 1023px) 178vh, 100vw',
   },
+  homeHeroFour: {
+    file: 'gathaithi-beans-falling.jpg',
+    page: 'Home',
+    section: 'Hero — slide 4',
+    ratio: '16/9',
+    minWidth: 2400,
+    minHeight: 1350,
+    direction:
+      'Roasted beans caught mid-fall against a deep brown ground, shallow depth of field. The darkest frame in the set, and the one the type sits most comfortably over.',
+    alt: 'Roasted coffee beans falling through the air against a dark brown ground.',
+    sizes: '(max-width: 1023px) 178vh, 100vw',
+  },
+  homeHeroFive: {
+    file: 'gathaithi-cherry-sunlit.jpg',
+    page: 'Home',
+    section: 'Hero — slide 5',
+    ratio: '16/9',
+    minWidth: 2400,
+    minHeight: 1350,
+    direction:
+      'A cluster of red, orange and green cherry on the branch with the sun flaring through the canopy behind. The flare is top-left and the type sits bottom-left, so the crop keeps the cluster right of centre and the leaves under the words.',
+    alt: 'A cluster of ripening Gathaithi cherry — red, orange and green — with sunlight flaring through the canopy behind.',
+    sizes: '(max-width: 1023px) 178vh, 100vw',
+  },
   homeSeason: {
     file: 'gathaithi-selective-picking.jpg',
     page: 'Home',

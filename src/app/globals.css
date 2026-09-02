@@ -306,11 +306,20 @@ a[href^='tel:'] {
    fits what it holds. The scroll cue goes with it — it is redundant on a hero
    that no longer reaches the bottom of the screen, and the section showing
    underneath now does that job better than a line of text could. */
-@media (max-height: 37rem) {
+/* Letting go of the full screen is a LAST resort, and it is now only ever
+   needed above `lg`, which is the only place the society's name is drawn at
+   display size. Below that the hero carries a single line of copy and a small
+   arrow — about 230px of content — so it fits a 568px screen with room to
+   spare, and collapsing it there turned an iPhone SE's hero photograph into a
+   204px strip. The photograph is the point of this section; it keeps the
+   screen. */
+@media (max-height: 37rem) and (min-width: 64rem) {
   .hero-fit {
     min-height: 0;
   }
+}
 
+@media (max-height: 37rem) {
   .hero-fit .t-lead {
     font-size: 1rem;
     line-height: 1.5;
@@ -487,6 +496,12 @@ a[href^='tel:'] {
    hit area vertically with a pseudo-element, so the target reaches a
    comfortable size without moving anything on the page. */
 @media (pointer: coarse) {
+  /* WARNING: this is an unlayered rule, and Tailwind's utilities live in
+     `@layer utilities` — so `position: relative` here beats `absolute`,
+     `fixed` or `sticky` written as a class, and it only does so on a COARSE
+     pointer. An element that is both `.tap` and positioned will look correct
+     in every desktop window and be wrong on every phone. Never put `.tap` on
+     something that is already positioned, or already big enough to hit. */
   .tap {
     position: relative;
   }

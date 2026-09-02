@@ -111,8 +111,8 @@ export interface HomeContent {
   hero: {
     title: string;
     positioning: string;
-    /** Shown on small screens only, where the scroll cue is not. */
-    readMore: Cta;
+    /** Accessible name for the small arrow at the foot of the hero on a phone. */
+    scrollDown: string;
     scrollHint: string;
     slideLabel: string;
     pauseLabel: string;

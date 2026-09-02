@@ -142,82 +142,47 @@ export function HeroSlides({
         )}
       </div>
 
-      {/* Bottom-right of the frame, opposite the scroll cue and clear of the
-          type column, which sits bottom-left.
+      {/* No visible controls. The dots and the pause button were clutter over
+          a photograph and they are gone.
 
-          The hover hold is scoped to THIS cluster, not to the whole frame as
-          it is on the harvest section. A hero fills the screen, so a pointer
-          resting anywhere on the page would be resting on it — holding on that
-          would stop the rotation more or less permanently for anyone using a
-          mouse. Resting on the controls is a deliberate act; resting on the
-          hero is just where the cursor happens to be. Positioned against the SECTION
-          rather than dropped into `hero-foot`, for two reasons: the foot is
-          `display: none` under 37rem of viewport height, and a pause control
-          is not something that may disappear on a short screen — WCAG 2.2.2
-          requires it wherever the thing it stops is moving. The inner wrapper
-          repeats the container's own max-width and padding so the controls
-          line up with the page margin at every width. */}
-      <div className="absolute inset-x-0 bottom-8 z-10 lg:bottom-10">
-        <div className="mx-auto flex w-full max-w-[100rem] justify-end px-6 sm:px-10 lg:px-16">
-          <div
-            className="pointer-events-auto flex items-center gap-4"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            onFocus={() => setHovered(true)}
-            onBlur={(event) => {
-              if (!event.currentTarget.contains(event.relatedTarget as Node))
-                setHovered(false);
+          The pause button is NOT gone — it is `sr-only` until it takes
+          keyboard focus, at which point it appears. WCAG 2.2.2 requires a
+          mechanism to stop anything that moves automatically for more than
+          five seconds, and this rotates indefinitely; deleting the mechanism
+          outright would make the hero a conformance failure rather than a
+          tidier design. Hidden-until-focused keeps the frame clean for
+          everyone looking at it and keeps the control for anyone who needs it.
+          `prefers-reduced-motion` still stops the rotation before it starts.
+
+          There is nothing left to hover, so the hover hold goes with the
+          controls; focus still holds, because focus means someone is on the
+          button and about to press it. */}
+      {!reduced && slides.length > 1 ? (
+        <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => {
+              setManual(true);
+              setPlaying((on) => !on);
             }}
+            onFocus={() => setHovered(true)}
+            onBlur={() => setHovered(false)}
+            aria-label={playing ? pauseLabel : playLabel}
+            className="pointer-events-auto sr-only focus-visible:not-sr-only focus-visible:relative focus-visible:m-4 focus-visible:flex focus-visible:h-11 focus-visible:w-11 focus-visible:items-center focus-visible:justify-center focus-visible:rounded-full focus-visible:border focus-visible:border-on-inverse/60 focus-visible:bg-inverse/80 focus-visible:text-on-inverse"
           >
-            <div className="flex items-center gap-2.5">
-              {slides.map((slide, i) => (
-                <button
-                  key={slide.key}
-                  type="button"
-                  onClick={() => setIndex(i)}
-                  aria-label={label(i)}
-                  aria-current={i === index}
-                  className={[
-                    "tap h-2.5 w-2.5 rounded-full border transition-colors duration-200",
-                    "[transition-timing-function:var(--ease)]",
-                    i === index
-                      ? "border-on-inverse bg-on-inverse"
-                      : "border-on-inverse/50 bg-transparent hover:border-on-inverse",
-                  ].join(" ")}
-                />
-              ))}
-            </div>
-
-            {!reduced && slides.length > 1 ? (
-              <button
-                type="button"
-                onClick={() => {
-                  setManual(true);
-                  setPlaying((on) => !on);
-                }}
-                aria-label={playing ? pauseLabel : playLabel}
-                className="tap flex h-9 w-9 items-center justify-center rounded-full border border-on-inverse/40 text-on-inverse transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-on-inverse"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-3.5 w-3.5"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  {playing ? (
-                    <>
-                      <rect x="7" y="5" width="3.5" height="14" rx="0.5" />
-                      <rect x="13.5" y="5" width="3.5" height="14" rx="0.5" />
-                    </>
-                  ) : (
-                    <path d="M8 5.5v13l11-6.5z" />
-                  )}
-                </svg>
-              </button>
-            ) : null}
-          </div>
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
+              {playing ? (
+                <>
+                  <rect x="7" y="5" width="3.5" height="14" rx="0.5" />
+                  <rect x="13.5" y="5" width="3.5" height="14" rx="0.5" />
+                </>
+              ) : (
+                <path d="M8 5.5v13l11-6.5z" />
+              )}
+            </svg>
+          </button>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }
