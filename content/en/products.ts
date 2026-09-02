@@ -164,7 +164,7 @@ export const products: ProductsContent = {
         body:
           'Members pick only ripe red cherry, by hand, over several passes through the season. It is delivered to the mill or a collection point the same evening, weighed, recorded against the member’s account and floated to remove floaters and underripes.',
         detail: 'Recorded to the member',
-        imageSlot: 'homeSeason',
+        imageSlot: 'processPicking',
       },
       {
         n: '02',

@@ -173,6 +173,23 @@ export const images = {
     alt: 'A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.',
     sizes: '(min-width: 1024px) 30vw, 100vw',
   },
+  /* Step 01 of the walkthrough had no slot of its own — it borrowed the home
+     page's season photograph, which meant one file doing two jobs and the only
+     step in the sequence rendering 4:5 while 02–05 render 3:2. It has its own
+     now, at the same ratio as the rest of the line. */
+  processPicking: {
+    file: 'gathaithi-picking-hands.jpg',
+    page: 'Our Coffee',
+    section: 'Processing — selective picking',
+    ratio: '3/2',
+    minWidth: 1800,
+    minHeight: 1200,
+    direction:
+      'Close on a picker’s hands taking ripe red cherry off the branch, one at a time, with green and unripe fruit left on the wood beside it. Skilled work, unhurried. The selectivity is the subject — the frame has to show what is being left behind as well as what is being taken.',
+    alt: 'A picker’s hands taking ripe red cherry from the branch, leaving the green fruit behind.',
+    sizes: '(min-width: 1024px) 45vw, 100vw',
+  },
+
   processPulping: {
     file: 'process-01-pulping.jpg',
     page: 'Our Coffee',
@@ -180,8 +197,9 @@ export const images = {
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
-    direction: 'Cherry entering the disc pulper, water moving, skins separating. Freeze the motion; keep the machinery legible.',
-    alt: 'Ripe cherry passing through the disc pulper at the Gathaithi wet mill.',
+    direction:
+      'PARTLY MET. The frame in place shows the pulper with whole red cherry on one side and freshly pulped parchment on the other — the separation reads clearly, which is the point of the step. What it does not show is the water: the brief asked for cherry entering the disc pulper with water moving and skins separating, motion frozen. Worth reshooting for that; usable until then.',
+    alt: 'A pulper at Gathaithi, whole red cherry on one side and freshly pulped parchment on the other.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
   processFermentation: {
