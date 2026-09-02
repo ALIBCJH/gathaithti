@@ -1,25 +1,27 @@
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
 import { RichText } from '@/components/ui/Fact';
 import { Placeholder } from '@/components/media/Placeholder';
 import { BLUR_DATA_URL, getImage } from '@/lib/images';
 import type { HomeContent } from '@content/types';
-import type { Locale } from '@content/site';
 
 /**
- * The first five seconds. Without scrolling a visitor must learn who this is,
- * that the coffee is exceptional, and where to go next — so the name, the
- * proof and the two routes forward all sit above the fold, and nothing else
- * competes with them.
+ * The first five seconds. Without scrolling a visitor must learn who this is
+ * and that the coffee is exceptional — the name and the proof, with nothing
+ * competing with them.
  *
- * That promise is about a SCREEN, not a width, and the type scale is driven by
- * `vw` alone. A phone turned on its side keeps its width and loses two thirds
- * of its height, so the headline stayed at desktop size and pushed the lead and
- * both buttons off the bottom — the hero became a headline and nothing else.
- * `hero-fit` / `hero-body` / `hero-foot` are the hooks the short-viewport rules
- * in globals.css use to bring the whole thing back onto one screen.
+ * There are no buttons here any more. The hero states who the society is and
+ * lets the page carry the visitor on; the routes out are the navigation, the
+ * scroll cue, and the calls to action further down the page, which is where
+ * they now live alone rather than being announced twice.
+ *
+ * The hero is still sized to a SCREEN rather than a width, and the type scale
+ * is driven by `vw`. A phone turned on its side keeps its width and loses two
+ * thirds of its height, so the headline would stay at desktop size and push the
+ * lead off the bottom. `hero-fit` / `hero-body` / `hero-foot` are the hooks the
+ * short-viewport rules in globals.css use to keep the whole thing on one
+ * screen.
  */
-export function Hero({ locale, content }: { locale: Locale; content: HomeContent['hero'] }) {
+export function Hero({ content }: { content: HomeContent['hero'] }) {
   const image = getImage('homeHero');
 
   return (
@@ -64,15 +66,6 @@ export function Hero({ locale, content }: { locale: Locale; content: HomeContent
           <p className="t-lead max-w-[46ch] text-on-inverse/85">
             <RichText text={content.positioning} />
           </p>
-
-          <div className="mt-2 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Button href={`/${locale}/${content.primary.href}`} surface="dark" variant="primary">
-              {content.primary.label}
-            </Button>
-            <Button href={`/${locale}/${content.secondary.href}`} surface="dark" variant="secondary">
-              {content.secondary.label}
-            </Button>
-          </div>
         </div>
       </div>
 

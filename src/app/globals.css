@@ -186,12 +186,12 @@ body {
 
 /* The hero is sized to fill one screen, and its type scale is driven by
    viewport WIDTH — the right axis for a phone held upright. But the promise the
-   hero makes is about a SCREEN: the name, the proof, and the two routes forward,
-   all without scrolling. Width alone cannot keep that promise on a screen that
-   is SHORT — a phone turned on its side, a 640px-tall Android, a small laptop
-   window — where the headline stayed at its full size and pushed the lead and
-   both buttons past the bottom edge. The hero became a headline and nothing
-   else, which is the one thing it was designed not to be.
+   hero makes is about a SCREEN: the name and the proof, without scrolling.
+   Width alone cannot keep that promise on a screen that is SHORT — a phone
+   turned on its side, a 640px-tall Android, a small laptop window — where the
+   headline stayed at its full size and pushed the lead past the bottom edge.
+   The hero became a headline and nothing else, which is the one thing it was
+   designed not to be.
 
    So on a short viewport the type answers to height as well as width, and the
    generous spacing closes up. Height is what is scarce, so height is what
