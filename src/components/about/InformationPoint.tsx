@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -18,16 +18,15 @@ export function InformationPoint({ content }: { content: AboutContent['registrat
   return (
     <Section tone="parchment-2" ariaLabelledby="registration-heading">
       <Container width="wide">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="flex flex-col gap-6 lg:col-span-4 lg:self-start">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-            <h2 id="registration-heading" className="t-section max-w-[14ch]">
-              {content.heading}
-            </h2>
-            <p className="t-body measure text-ink-soft">{content.lead}</p>
-          </div>
+        <SectionHead
+          id="registration-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          lead={content.lead}
+        />
 
-          <Reveal className="lg:col-span-7 lg:col-start-6">
+        <div className="mt-14 lg:mt-16">
+          <Reveal className="mx-auto w-full max-w-[64rem]">
             <dl className="border-t border-ochre/45">
               {content.rows.map((row) => (
                 <div

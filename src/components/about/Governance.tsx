@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -21,16 +21,12 @@ export function Governance({ content }: { content: AboutContent['governance'] })
   return (
     <Section tone="parchment-2" size="loose" id="governance" ariaLabelledby="governance-heading">
       <Container width="wide">
-        <div className="flex flex-col gap-6">
-          <Eyebrow>{content.eyebrow}</Eyebrow>
-          <h2 id="governance-heading" className="t-section max-w-[16ch]">
-            {content.heading}
-          </h2>
-          {/* Full width, and set as a lead rather than body copy: it is the one
-              sentence that explains the whole arrangement, and it used to be a
-              small paragraph in a narrow column beside a table. */}
-          <p className="t-lead max-w-[62ch] text-ink-soft">{content.lead}</p>
-        </div>
+        <SectionHead
+          id="governance-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          lead={content.lead}
+        />
 
         <div className="mt-8 hidden lg:block">
           <SmartImage slot="aboutGovernance" />

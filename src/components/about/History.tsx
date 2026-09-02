@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -27,11 +27,15 @@ export function History({ content }: { content: AboutContent['origin'] }) {
     <Section tone="parchment-2" ariaLabelledby="history-heading">
       <Container width="wide">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
+          {/* Left as well: the heading is the first line of the account
+              beside it, and centring would orphan it from its own prose. */}
           <div className="flex flex-col gap-6 lg:col-span-6">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-            <h2 id="history-heading" className="t-section max-w-[16ch]">
-              <RichText text={content.heading} />
-            </h2>
+            <SectionHead
+              id="history-heading"
+              eyebrow={content.eyebrow}
+              heading={content.heading}
+              align="left"
+            />
             {content.body.map((paragraph, i) => (
               <p
                 key={i}

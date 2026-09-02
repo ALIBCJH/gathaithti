@@ -23,18 +23,18 @@ export function BoardGrid({ content }: { content: AboutContent['governance']['bo
 
   return (
     <div className="mt-24 lg:mt-32">
-      <div className="flex flex-col gap-6">
+      <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-6 text-center">
         <Eyebrow>{content.eyebrow}</Eyebrow>
-        <h3 className="t-section text-[clamp(1.5rem,2.4vw,2.25rem)] max-w-[20ch]">
+        <h3 className="t-section max-w-[20ch] text-balance text-[clamp(1.5rem,2.4vw,2.25rem)]">
           {content.heading}
         </h3>
-        <p className="t-body measure text-ink-soft">{content.lead}</p>
+        <p className="t-body max-w-[56ch] text-ink-soft">{content.lead}</p>
 
         {/* Renders only while something is still a draft. Clear the `pending`
             flags in the content file and this disappears by itself, rather
             than being a note someone has to remember to delete. */}
         {anyPending ? (
-          <p className="t-body max-w-[62ch] border-l-2 border-ochre bg-ochre/6 py-3 pl-4 text-[0.9375rem] text-ink-soft">
+          <p className="t-body max-w-[62ch] border-l-2 border-ochre bg-ochre/6 py-3 pl-4 text-left text-[0.9375rem] text-ink-soft">
             {content.pendingNote}
           </p>
         ) : null}

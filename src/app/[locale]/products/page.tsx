@@ -4,11 +4,13 @@ import { notFound } from 'next/navigation';
 import { LotCard } from '@/components/products/LotCard';
 import { LotCatalogue, type CatalogueItem } from '@/components/products/LotCatalogue';
 import { ProcessWalkthrough } from '@/components/products/ProcessWalkthrough';
+import { SeasonGem } from '@/components/products/SeasonGem';
 import { SampleRequestForm } from '@/components/products/SampleRequestForm';
 import { SmartImage } from '@/components/media/SmartImage';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { getFact } from '@/lib/facts';
@@ -73,37 +75,39 @@ export default async function ProductsPage({ params }: Props) {
         </Container>
       </div>
 
+      {/* Chronological: how the coffee is made, what this season produced, how
+          it is sold, the lots themselves, then the way to ask for a sample.
+          The catalogue used to come first, which showed a stranger four grades
+          before telling them anything about how the grades come about. */}
+      <ProcessWalkthrough content={products.process} />
+
+      <SeasonGem content={products.gem} />
+
       {/* How this coffee is actually bought — said plainly, before the catalogue */}
       <Section tone="parchment" size="tight" ariaLabelledby="market-heading">
         <Container width="wide">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-20">
-            <h2 id="market-heading" className="t-section max-w-[14ch] lg:col-span-5">
-              {products.marketNote.heading}
-            </h2>
-            <div className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7">
-              {products.marketNote.body.map((paragraph, i) => (
-                <p key={i} className="t-body measure text-ink-soft">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+          <SectionHead id="market-heading" eyebrow={products.marketNote.eyebrow} heading={products.marketNote.heading} />
+
+          {/* Two columns of prose under the head, rather than one column of
+              prose beside it. */}
+          <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-2 lg:gap-16">
+            {products.marketNote.body.map((paragraph, i) => (
+              <p key={i} className="t-body text-ink-soft">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </Container>
       </Section>
 
       <Section tone="parchment-2" id="lots" ariaLabelledby="catalogue-heading">
         <Container width="wide">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <div className="flex flex-col gap-6 lg:col-span-6">
-              <Eyebrow>{products.catalogue.eyebrow}</Eyebrow>
-              <h2 id="catalogue-heading" className="t-section max-w-[14ch]">
-                {products.catalogue.heading}
-              </h2>
-            </div>
-            <p className="t-lead measure text-ink-soft lg:col-span-5 lg:col-start-8">
-              {products.catalogue.lead}
-            </p>
-          </div>
+          <SectionHead
+            id="catalogue-heading"
+            eyebrow={products.catalogue.eyebrow}
+            heading={products.catalogue.heading}
+            lead={products.catalogue.lead}
+          />
 
           <div className="mt-20 lg:mt-24">
             <LotCatalogue items={catalogueItems} copy={products.catalogue} />
@@ -111,7 +115,6 @@ export default async function ProductsPage({ params }: Props) {
         </Container>
       </Section>
 
-      <ProcessWalkthrough content={products.process} />
 
       <Section tone="parchment" size="loose" id="request-a-sample" ariaLabelledby="sample-heading">
         <Container width="wide">
