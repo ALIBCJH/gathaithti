@@ -21,15 +21,20 @@ import type { ImageSlot } from './types';
 export const images = {
   /* ── Home ───────────────────────────────────────────────────────────── */
   homeHero: {
-    file: 'gathaithi-drying-beds-wide.jpg',
+    file: 'gathaithi-cherry-sunrise.jpg',
     page: 'Home',
     section: 'Hero',
-    ratio: '21/9',
-    minWidth: 2800,
-    minHeight: 1200,
+    /* Portrait, not the 21:9 this slot was originally specified as. The hero
+       is full-bleed and cropped by `object-cover`, so the frame it is cropped
+       INTO is the viewport, not this ratio — a tall original gives the crop
+       room to breathe on a phone held upright, which is how most of this site
+       is read. The ratio is recorded honestly for the placeholder. */
+    ratio: '2/3',
+    minWidth: 1600,
+    minHeight: 2400,
     direction:
-      'Raised drying beds at golden hour, parchment spread evenly, Aberdare ridge on the horizon. No people. Shoot low and along the beds so they lead the eye.',
-    alt: 'Coffee parchment drying on raised beds at the Gathaithi wet mill, with the Aberdare ridge behind.',
+      'Ripe cherry on the branch at sunrise, the hills behind going gold. Shot portrait and shallow, so the branch runs on the diagonal and the sky stays open on one side — the headline sits in that open sky, so it must not be filled with detail.',
+    alt: 'Ripe red coffee cherry on the branch at sunrise, with the hills of Nyeri behind.',
     priority: true,
     sizes: '100vw',
   },

@@ -42,28 +42,55 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
           quality={74}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
-          className="photo object-cover"
+          /* The photograph is portrait and the viewport usually is not, so
+             `object-cover` throws away a band of it. WHICH band is a design
+             decision, not a default: centred, a wide screen keeps the cherries
+             and loses the sunrise, which is the half the headline needs to sit
+             in. Biasing the crop upward as the screen widens keeps the open sky
+             on screen exactly when there is least height to hold it. */
+          className="photo object-cover object-[60%_45%] sm:object-[55%_38%] lg:object-[50%_28%]"
         />
       ) : null}
 
-      {/* Scrim. Strong under the type, opening out to the right so the
-          photograph is still a photograph and not a dark rectangle. */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-inverse/95 via-inverse/80 to-inverse/45"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-inverse/90 to-transparent"
-      />
+      {/* Three scrims, each doing one job, each shaped rather than flat.
 
-      <div className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-center px-6 pb-10 pt-[calc(var(--header-h)+2.5rem)] sm:px-10 lg:px-16">
-        <div className="flex max-w-[68rem] flex-col gap-6 sm:gap-8">
-          <p className="t-meta text-ochre-light">{content.eyebrow}</p>
+          A photograph does not have a background colour, so none of this can be
+          reasoned about from the CSS — the numbers below come from sampling the
+          rendered pixels behind each line of type with the text hidden. Two
+          things failed a flat treatment: the navigation, sitting over the
+          brightest part of the sky at 2.6:1, and the ochre eyebrow over the
+          sunlit hillside at 2.7:1. Ochre is a mid-tone, so it needs genuinely
+          dark ground under it — no gentle wash was going to rescue it.
 
-          <h1 className="t-hero max-w-[16em] text-on-inverse">{content.title}</h1>
+          Hence the middle layer. Darkening the whole frame to fix one corner
+          would have cost the picture everything it is here to do, so the weight
+          is a radial anchored to the bottom-left, over the leaves where the
+          words already are. The cherries on the right are barely touched.
 
-          <p className="t-lead max-w-[46ch] text-on-inverse/85">
+            1  top-down     the header, over open sky
+            2  bottom-left  the type column
+            3  bottom-up    grounds the frame and carries the scroll cue
+
+          Mixed from `--inverse` rather than black, so the hero belongs to the
+          site rather than looking like a stock photo with a filter on it. */}
+      <div aria-hidden="true" className="hero-scrim absolute inset-0" />
+
+      <div className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-end px-6 pb-6 pt-[calc(var(--header-h)+2rem)] sm:px-10 lg:px-16">
+        <div className="flex max-w-[46rem] flex-col gap-4 sm:gap-5">
+          {/* Not ochre, here alone. Ochre is a mid-tone, and a photograph's
+              luminance sweeps through every value — so somewhere in the scrim
+              the ground passes straight through the ochre's own brightness and
+              the contrast collapses to nothing. Measured on the rendered
+              pixels it bottomed out near 1:1, and no scrim short of opaque
+              rescues it. Near-white is far from every mid-tone, so it holds
+              wherever the crop happens to land. The ochre keeps every other
+              eyebrow on the site, where the ground behind it is a flat colour
+              that was measured once and cannot move. */}
+          <p className="t-meta text-on-inverse/90">{content.eyebrow}</p>
+
+          <h1 className="t-hero max-w-[13em] text-on-inverse">{content.title}</h1>
+
+          <p className="t-lead max-w-[44ch] text-on-inverse/90">
             <RichText text={content.positioning} />
           </p>
         </div>
