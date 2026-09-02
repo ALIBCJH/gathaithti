@@ -50,10 +50,10 @@ export const home: HomeContent = {
 
   story: {
     eyebrow: 'The society',
-    heading: 'A village that decided to run its own factory',
+    heading: 'Every kilo has a name attached',
     body: [
       'Gathaithi has grown coffee since {{established}}, first as part of the wider Tetu society. In {{independentSince}} the farmers of this village registered their own society, took over their own wet mill, and became responsible for their own returns.',
-      'That decision is the whole story. Cherry is picked selectively by the household that grew it, delivered the same evening, and processed within hours at a single mill on {{millSite}} hectares. Nothing is blended in from elsewhere. Every kilo has a name attached to it in the books.',
+      'That decision is the whole story. Cherry is picked selectively by the household that grew it, delivered the same evening, and processed within hours at a single mill on {{millSite}} hectares. Nothing is blended in from elsewhere, and the books record which household every delivery came from.',
       'What the society sells is the work of {{members}} families on the eastern slopes above Nyeri — and what it returns to them is the reason the work stays good.',
     ],
     /* The statement card in the right-hand column, where the wet-mill
