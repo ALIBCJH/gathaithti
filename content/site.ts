@@ -94,6 +94,7 @@ const contact: {
   buyerEmail: ContactDetail;
   buyerContact: { name: string; role: string };
   memberLine: ContactDetail;
+  whatsapp: ContactDetail;
 } = {
   /* ⚠ SAMPLE DATA — none of this reaches anybody.
      The numbers are the +254 700 000 xxx block, which is patterned rather than
@@ -107,7 +108,18 @@ const contact: {
   buyerEmail: { value: 'marketing@gathaithicoffee.co.ke', display: 'marketing@gathaithicoffee.co.ke' },
   buyerContact: { name: 'Grace Wanjiru', role: 'Marketing & Sales, Gathaithi FCS' },
   memberLine: { value: '+254700000111', display: '+254 700 000 111' },
+  /* `value` is digits only, no plus and no spaces — that is the form wa.me
+     takes, and anything else silently 404s rather than erroring. */
+  whatsapp: { value: '254700000222', display: '+254 700 000 222' },
 };
+
+/** wa.me wants digits with no plus and no spaces; `text` is pre-filled for the
+ *  sender so the office knows which page the message came from. */
+export function whatsappHref(text?: string): string {
+  const n = contact.whatsapp.value;
+  if (!n) return '';
+  return `https://wa.me/${n}${text ? `?text=${encodeURIComponent(text)}` : ''}`;
+}
 
 export const site = {
   legalName: 'Gathaithi Farmers’ Co-operative Society Ltd',

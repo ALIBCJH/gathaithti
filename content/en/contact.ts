@@ -12,48 +12,51 @@ export const contact: ContactContent = {
     eyebrow: 'Contact',
     title: 'Talk to the society directly',
     lead:
-      'Three routes in, depending on who you are. Buyers reach the marketing office, members reach member services, and suppliers reach administration. All of them are in the same building next to the mill.',
+      /* Short on purpose. This sentence used to explain the three routes in
+         full — the same three the section below states as three lines — and it
+         filled the whole first screen of a phone, which pushed the WhatsApp
+         button and the phone number under the fold on the one page whose job
+         is to get somebody in touch. */
+      'One office, next to the mill. WhatsApp is answered fastest.',
+  },
+
+  /* The three ways in, stated once. Every number and address on this page
+     comes from content/site.ts — the page never writes one down itself, so
+     there is one place to change when the society's details are confirmed. */
+  direct: {
+    heading: 'Talk to the society',
+    lead: 'WhatsApp is answered fastest during office hours. Anything that needs a paper trail is better by email.',
+    whatsapp: {
+      label: 'WhatsApp',
+      note: 'Fastest, office hours',
+      prefill: 'Hello Gathaithi — I found you through the website.',
+    },
+    phone: { label: 'Call the office', note: 'Mon–Fri 8:00–17:00, Sat 8:00–13:00' },
+    email: { label: 'Email the office', note: 'Answered within two working days' },
+    memberLine: { label: 'Members’ line', note: 'Payments, statements and pre-finance' },
   },
 
   routes: [
     {
       id: 'buyers',
-      eyebrow: 'For buyers',
+      label: 'Buyers',
       heading: 'Roasters, importers and green buyers',
-      body:
-        'Sample requests, lot availability, cupping visits and direct-sale paperwork. If you are cupping Gathaithi under a roaster’s label and want to source it from the society itself, this is the way in.',
-      person: { name: 'Grace Wanjiru', role: 'Marketing & Sales' },
-      rows: [
-        { label: 'Best route', value: 'Request a sample', href: 'products#request-a-sample' },
-        { label: 'Email', value: '{{buyerEmail}}' },
-        { label: 'Response time', value: 'Within two working days' },
-        { label: 'Mill visits', value: 'Welcome during harvest, by arrangement' },
-      ],
+      body: 'Samples, lot availability, cupping visits and direct-sale paperwork.',
+      channel: 'whatsapp',
     },
     {
       id: 'members',
-      eyebrow: 'For members',
-      heading: 'Member services',
-      body:
-        'Cherry payments, statements, pre-finance applications, input credit and register updates. Come to the office with your member number, or call the member line during office hours.',
-      rows: [
-        { label: 'Member line', value: '{{memberLine}}' },
-        { label: 'Office hours', value: 'Monday – Friday, 8:00 – 17:00' },
-        { label: 'Saturday', value: '8:00 – 13:00' },
-        { label: 'Noticeboard', value: 'Cherry price & payment dates', href: 'farmers#noticeboard' },
-      ],
+      label: 'Members',
+      heading: 'Cherry payments and member services',
+      body: 'Payments, statements, pre-finance, input credit and register updates. Bring your member number.',
+      channel: 'phone',
     },
     {
       id: 'suppliers',
-      eyebrow: 'For suppliers and partners',
+      label: 'Suppliers',
       heading: 'Suppliers, agronomy and institutions',
-      body:
-        'Input suppliers, transporters, dry mills, agronomy partners, county and sector bodies. Written proposals to the society office, addressed to the Society Manager.',
-      rows: [
-        { label: 'Office email', value: '{{officeEmail}}' },
-        { label: 'Office phone', value: '{{officePhone}}' },
-        { label: 'Address to', value: 'The Society Manager' },
-      ],
+      body: 'Written proposals to the society office, addressed to the Society Manager.',
+      channel: 'email',
     },
   ],
 
