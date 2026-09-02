@@ -35,7 +35,7 @@ before the photography exists.
 
 | Filename | Page | Section | Ratio | Min. resolution | What the photograph shows |
 | --- | --- | --- | --- | --- | --- |
-| `gathaithi-drying-beds-wide.jpg` | Home | Hero | 21:9 | 2800×1200 | Raised drying beds at golden hour, parchment spread evenly, Aberdare ridge on the horizon. No people. Shoot low and along the beds so they lead the eye. |
+| `gathaithi-cherry-sunrise.jpg` | Home | Hero | 2:3 | 1600×2400 | Ripe cherry on the branch at sunrise, the hills behind going gold. Shot portrait and shallow, so the branch runs on the diagonal and the sky stays open on one side — the headline sits in that open sky, so it must not be filled with detail. |
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
 | `gathaithi-wet-mill-morning.jpg` | Home | Story teaser | 3:2 | 2400×1600 | The wet mill in early morning working light — pulper, channels, delivery bay. Wide enough to read as a working factory, not a detail shot. |
 | `gathaithi-village-ridge.jpg` | About | Hero | 16:9 | 2400×1350 | Gathaithi village and the surrounding shambas from a high point: coffee, terracing, red soil, tin roofs, cloud on the Aberdares. Landscape as evidence of terroir. |
@@ -69,7 +69,7 @@ before the photography exists.
 
 If the shoot has to be done in stages, this is the order that matters.
 
-1. `gathaithi-drying-beds-wide.jpg` — the home page hero. One photograph carries
+1. `gathaithi-cherry-sunrise.jpg` — the home page hero. One photograph carries
    the entire first impression.
 2. `member-01-portrait.jpg` … `member-06-portrait.jpg` — the member profiles.
    The site says the society is its members; without faces it is a claim.
@@ -84,7 +84,7 @@ If the shoot has to be done in stages, this is the order that matters.
 Written already, in `content/images.ts`, next to each slot. Reproduced here so
 the shot list is self-contained:
 
-- `gathaithi-drying-beds-wide.jpg` — Coffee parchment drying on raised beds at the Gathaithi wet mill, with the Aberdare ridge behind.
+- `gathaithi-cherry-sunrise.jpg` — Ripe red coffee cherry on the branch at sunrise, with the hills of Nyeri behind.
 - `gathaithi-selective-picking.jpg` — Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.
 - `gathaithi-wet-mill-morning.jpg` — The Gathaithi wet mill at first light, with pulping channels and the cherry delivery bay.
 - `gathaithi-village-ridge.jpg` — Gathaithi village and the surrounding coffee farms on the slopes of Tetu, Nyeri County.

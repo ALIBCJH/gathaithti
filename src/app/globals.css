@@ -175,9 +175,13 @@ body {
    TYPE SCALE — fluid, never fixed px for headings
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* Retuned when the hero became a photograph. At 8vw the headline reached
+   108px on a desktop and needed the full width of the frame, which left the
+   picture nothing but a strip down the right. Held to 5rem it is still the
+   loudest thing on the page and the photograph keeps its half. */
 .t-hero {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 6.75rem);
+  font-size: clamp(2.5rem, 5.6vw, 5rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
   font-weight: 600;
@@ -394,6 +398,71 @@ body {
     content: '';
     position: absolute;
     inset: -0.75rem 0;
+  }
+}
+
+/* THE HERO SCRIM
+   ---------------------------------------------------------------------------
+   A photograph has no background colour, so none of this can be reasoned about
+   from the CSS. Every figure below was sampled from the rendered pixels behind
+   each line of type, with the text hidden.
+
+   Three layers, each doing one job:
+     1  top-down     the header, which sits over open sky
+     2  bottom-left  the type column, over the leaves
+     3  bottom-up    grounds the frame and carries the scroll cue
+
+   The weight is a radial anchored to the bottom-left rather than a wash over
+   the whole frame: darkening everything to rescue one corner would cost the
+   picture the very thing it is here for. The cherries on the right are barely
+   touched. Mixed from `--inverse` rather than black so the hero belongs to the
+   site instead of looking like a stock photo with a filter on it. */
+.hero-scrim {
+  background:
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--inverse) 78%, transparent) 0%,
+      color-mix(in srgb, var(--inverse) 34%, transparent) 14%,
+      transparent 30%
+    ),
+    radial-gradient(
+      125% 88% at 0% 100%,
+      color-mix(in srgb, var(--inverse) 95%, transparent) 0%,
+      color-mix(in srgb, var(--inverse) 72%, transparent) 38%,
+      transparent 72%
+    ),
+    linear-gradient(
+      to top,
+      color-mix(in srgb, var(--inverse) 82%, transparent) 0%,
+      transparent 42%
+    );
+}
+
+/* A phone shows the picture nearly whole and wraps the headline to three
+   lines, so the type column climbs far higher up the frame than it does in a
+   wide crop — and the ground has to climb with it. Measured on an iPhone 14
+   the eyebrow sat at 2.9:1 against the layers above; these carry it past 4.5. */
+@media (max-width: 40rem) {
+  .hero-scrim {
+    background:
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--inverse) 78%, transparent) 0%,
+        color-mix(in srgb, var(--inverse) 34%, transparent) 14%,
+        transparent 30%
+      ),
+      radial-gradient(
+        170% 82% at 0% 100%,
+        color-mix(in srgb, var(--inverse) 96%, transparent) 0%,
+        color-mix(in srgb, var(--inverse) 86%, transparent) 46%,
+        transparent 92%
+      ),
+      linear-gradient(
+        to top,
+        color-mix(in srgb, var(--inverse) 90%, transparent) 0%,
+        color-mix(in srgb, var(--inverse) 45%, transparent) 46%,
+        transparent 78%
+      );
   }
 }
 

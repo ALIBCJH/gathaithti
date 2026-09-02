@@ -36,7 +36,7 @@ export interface Fact {
 
 /* ── Images ─────────────────────────────────────────────────────────────── */
 
-export type AspectRatio = '21/9' | '16/9' | '3/2' | '4/3' | '1/1' | '4/5' | '3/4';
+export type AspectRatio = '21/9' | '16/9' | '3/2' | '4/3' | '1/1' | '4/5' | '3/4' | '2/3';
 
 export interface ImageSlot {
   /** Filename inside /public/images. Drop a file with this exact name to fill the slot. */
