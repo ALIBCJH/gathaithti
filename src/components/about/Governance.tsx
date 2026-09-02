@@ -58,27 +58,6 @@ export function Governance({ content }: { content: AboutContent['governance'] })
           ))}
         </div>
 
-        <Reveal>
-          <div className="mt-24 grid gap-12 border border-ink/15 p-8 sm:p-12 lg:mt-32 lg:grid-cols-12 lg:gap-20 lg:p-16">
-            <div className="flex flex-col gap-5 lg:col-span-5">
-              <h3 className="t-section text-[clamp(1.5rem,2.4vw,2.25rem)]">{content.agm.heading}</h3>
-              <p className="t-body measure text-ink-soft">{content.agm.body}</p>
-            </div>
-            <dl className="lg:col-span-6 lg:col-start-7">
-              {content.agm.items.map((item) => (
-                <div
-                  key={item.label}
-                  className="grid grid-cols-1 gap-1 border-b border-line py-4 last:border-b-0 sm:grid-cols-[12rem_1fr] sm:gap-8"
-                >
-                  <dt className="t-meta text-ink-soft">{item.label}</dt>
-                  <dd className="t-body tnum">
-                    <RichText text={item.value} />
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </Reveal>
       </Container>
     </Section>
   );

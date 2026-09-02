@@ -78,18 +78,6 @@ export const about: AboutContent = {
         composition: 'Society Manager and office staff — names to be confirmed',
       },
     ],
-    agm: {
-      heading: 'Annual General Meeting',
-      body:
-        'The AGM is the society’s decision-making body. Audited accounts are tabled, the payment rate is explained, committee elections are held and members vote on the year ahead. Every member has one vote, regardless of how many trees they farm.',
-      items: [
-        { label: 'Cycle', value: 'Annual' },
-        { label: 'Next AGM', value: 'Date to be confirmed' },
-        { label: 'Notice period', value: 'As provided under the society by-laws' },
-        { label: 'Voting', value: 'One member, one vote' },
-        { label: 'Accounts', value: 'Audited and tabled for member approval' },
-      ],
-    },
   },
 
   terroir: {
@@ -111,31 +99,6 @@ export const about: AboutContent = {
     },
   },
 
-  welfare: {
-    eyebrow: 'Members',
-    heading: 'Pre-financing, in plain terms',
-    lead:
-      'Coffee pays once. School fees, fertiliser and emergencies do not wait for the payment schedule. The society lends against a member’s own coming crop so that the gap between harvest and payment does not force anyone to sell short.',
-    body: [
-      'A member applies at the society office. The amount available is set against their delivery record — what they have brought in, and what their trees are expected to produce. There is no outside guarantor and no land title involved.',
-      'Recovery is made from the member’s own cherry payment when it falls due. It is deducted, recorded and shown on their statement. Nothing compounds while a member waits for the crop.',
-      'This is not welfare and it is not aid. It is a co-operative doing the one thing a co-operative is for: using the collective strength of {{members}} farmers to give each of them terms no single smallholder could get alone.',
-    ],
-    schemes: [
-      {
-        name: 'School fees advance',
-        body: 'Released against the coming crop at the start of each school term, when families need it and the coffee payment has not yet arrived.',
-      },
-      {
-        name: 'Farm inputs credit',
-        body: 'Fertiliser, mulch and chemicals supplied through the society at bulk-purchase rates, recovered from the cherry payment rather than paid up front.',
-      },
-      {
-        name: 'Emergency advance',
-        body: 'Medical and funeral emergencies, assessed at the office and released quickly. The tightest constraint on a farming household is timing, not size.',
-      },
-    ],
-  },
 
   location: {
     heading: 'Where we are',
