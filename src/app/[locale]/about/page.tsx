@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { AboutHero } from '@/components/about/AboutHero';
-import { Origin } from '@/components/about/Origin';
+import { Pillars } from '@/components/about/Pillars';
+import { History } from '@/components/about/History';
 import { Governance } from '@/components/about/Governance';
+import { InformationPoint } from '@/components/about/InformationPoint';
 import { Terroir } from '@/components/about/Terroir';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
@@ -37,10 +39,15 @@ export default async function AboutPage({ params }: Props) {
         ]}
       />
 
+      {/* Hero, then five bands in the order a stranger needs them: what the
+          society is, where it came from, how it is run and by whom, the paper
+          an auditor wants, and finally why the coffee tastes as it does. */}
       <AboutHero content={about.hero} />
 
-      <Origin content={about.origin} />
+      <Pillars content={about.pillars} />
+      <History content={about.origin} />
       <Governance content={about.governance} />
+      <InformationPoint content={about.registration} />
       <Terroir content={about.terroir} />
     </>
   );

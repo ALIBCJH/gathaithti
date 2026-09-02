@@ -4,12 +4,17 @@ import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { Stat } from '@/components/ui/Stat';
-import { SmartImage } from '@/components/media/SmartImage';
 import type { AboutContent } from '@content/types';
 
 /**
  * Terroir: the section that has to argue the coffee tastes the way it does
- * because of where it grows. Four numbers and a photograph carry most of it.
+ * because of where it grows. Four numbers carry it.
+ *
+ * The photograph has gone. It was never this section's own — it borrowed the
+ * Our Coffee hero, landscape crammed into a portrait box, the same frame on
+ * two pages — and it was flagged as a stand-in that should not stay. Without
+ * it the four figures lead the band, which is what they were always the
+ * strongest thing in it.
  *
  * Restyled, not redesigned. The palette, the type scale, the two-column grid
  * and every word are the ones that were here. What changed is weight and
@@ -21,35 +26,16 @@ export function Terroir({ content }: { content: AboutContent['terroir'] }) {
   return (
     <Section tone="parchment" ariaLabelledby="terroir-heading" className="terroir">
       <Container width="wide">
-        {/* 6 + 5 with one column of gutter, rather than 7 + 4 with an empty
-            column between them. The photograph gains a whole column and the two
-            halves stop drifting apart. */}
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Centred against the photograph rather than hung from the top of
-              it. The text runs about 250px shorter than a 4:5 image in a
-              five-column slot, and top-aligned that difference collected as one
-              hole under the paragraph. Centred, the column sits with the
-              picture instead of beside a gap. */}
-          <div className="flex flex-col gap-7 lg:col-span-6 lg:self-center">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="flex flex-col gap-6 lg:col-span-5">
             <Eyebrow>{content.eyebrow}</Eyebrow>
-            <h2 id="terroir-heading" className="t-section max-w-[18ch]">
+            <h2 id="terroir-heading" className="t-section max-w-[16ch]">
               {content.heading}
             </h2>
-            <p className="t-lead measure text-ink-soft">
-              <RichText text={content.lead} />
-            </p>
           </div>
-
-          <Reveal className="lg:col-span-5 lg:col-start-8">
-            <figure className="flex flex-col gap-3">
-              <SmartImage slot="aboutTerroir" />
-              {/* A caption, not a specification. The old block printed the
-                  filename and the pixel minimum on the page. */}
-              <figcaption className="t-meta text-ink-soft">
-                {content.imageCaption}
-              </figcaption>
-            </figure>
-          </Reveal>
+          <p className="t-lead measure text-ink-soft lg:col-span-6 lg:col-start-7 lg:self-end">
+            <RichText text={content.lead} />
+          </p>
         </div>
 
         {/* The four figures as one row.
@@ -58,7 +44,7 @@ export function Terroir({ content }: { content: AboutContent['terroir'] }) {
             far enough apart to read as four unrelated headlines. One copper
             rule runs across all four now, hairlines divide them, and the
             figures come down a step so the row reads at a glance. */}
-        <div className="mt-14 border-t border-ochre/45 lg:mt-16">
+        <div className="mt-14 border-t border-ochre/45 lg:mt-20">
           <dl className="grid grid-cols-2 sm:grid-cols-4">
             {content.factIds.map((id, i) => (
               <Reveal
