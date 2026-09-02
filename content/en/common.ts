@@ -28,7 +28,6 @@ export const common: Common = {
     forMembers: 'For our members',
     readStory: 'Read our story',
     seeLots: 'See this season’s lots',
-    allNotices: 'Open the noticeboard',
     menu: 'Menu',
     close: 'Close',
     skipToContent: 'Skip to content',
@@ -45,7 +44,7 @@ export const common: Common = {
   footer: {
     blurb:
       'Gathaithi Farmers’ Co‑operative Society Ltd is owned by the {{members}} smallholder farmers who grow its coffee. One wet mill, one village, one crop taken seriously.',
-    sections: { explore: 'Explore', contact: 'Contact', members: 'Members' },
+    sections: { explore: 'Explore', contact: 'Contact' },
     registration: 'Registered co-operative society, Nyeri County, Kenya',
     rights: 'All rights reserved.',
     unverifiedNotice:

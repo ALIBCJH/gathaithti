@@ -77,7 +77,6 @@ export interface Common {
     forMembers: string;
     readStory: string;
     seeLots: string;
-    allNotices: string;
     menu: string;
     close: string;
     skipToContent: string;
@@ -85,7 +84,7 @@ export interface Common {
   locale: { label: string; en: string; sw: string; pending: string };
   footer: {
     blurb: string;
-    sections: { explore: string; contact: string; members: string };
+    sections: { explore: string; contact: string };
     registration: string;
     rights: string;
     unverifiedNotice: string;
