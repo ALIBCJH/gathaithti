@@ -307,9 +307,14 @@ export interface ContactForm {
     memberNumber: string;
     message: string;
   };
-  placeholders: { name: string; email: string; phone: string; organisation: string; message: string };
-  /** `id` is matched against ContactRoute.id, so a route can preselect its topic. */
-  topics: { id: string; label: string }[];
+  placeholders: {
+    name: string;
+    email: string;
+    phone: string;
+    organisation: string;
+    message: string;
+    topic: string;
+  };
   memberHint: string;
   submit: string;
   consent: string;

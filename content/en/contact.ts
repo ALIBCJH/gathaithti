@@ -83,13 +83,11 @@ export const contact: ContactContent = {
       phone: '+254 …',
       organisation: 'Roastery, importer, supplier — if it applies',
       message: 'Tell us what you need and we will get it to the right person.',
+      /* The four options this field used to offer, kept as guidance now that
+         it is typed rather than chosen. Without them the box gives no clue
+         what a useful answer looks like. */
+      topic: 'Buying coffee, membership, supplying us…',
     },
-    topics: [
-      { id: 'buyers', label: 'Buying coffee' },
-      { id: 'members', label: 'I am a member of the society' },
-      { id: 'suppliers', label: 'Supplying or partnering with us' },
-      { id: 'other', label: 'Something else' },
-    ],
     memberHint: 'On your member card and your payment statement. It helps us find your record before we reply.',
     submit: 'Send message',
     consent:
