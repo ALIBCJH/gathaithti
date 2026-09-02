@@ -141,10 +141,8 @@ export interface AboutContent {
     lead: string;
     registration: { label: string; value: string }[];
     bodies: { name: string; role: string; composition: string }[];
-    agm: { heading: string; body: string; items: { label: string; value: string }[] };
   };
   terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
-  welfare: { eyebrow: string; heading: string; lead: string; body: string[]; schemes: { name: string; body: string }[] };
   location: { heading: string; body: string; address: string[]; directions: string; mapLabel: string };
 }
 

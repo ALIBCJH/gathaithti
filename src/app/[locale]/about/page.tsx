@@ -4,8 +4,6 @@ import { notFound } from 'next/navigation';
 import { Origin } from '@/components/about/Origin';
 import { Governance } from '@/components/about/Governance';
 import { Terroir } from '@/components/about/Terroir';
-import { Welfare } from '@/components/about/Welfare';
-import { LocationBlock } from '@/components/about/LocationBlock';
 import { SmartImage } from '@/components/media/SmartImage';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
@@ -52,13 +50,6 @@ export default async function AboutPage({ params }: Props) {
       <Origin content={about.origin} />
       <Governance content={about.governance} />
       <Terroir content={about.terroir} />
-      <Welfare content={about.welfare} />
-      <LocationBlock
-        heading={about.location.heading}
-        body={about.location.body}
-        address={about.location.address}
-        directions={about.location.directions}
-      />
     </>
   );
 }

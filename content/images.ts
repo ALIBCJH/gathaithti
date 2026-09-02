@@ -65,15 +65,15 @@ export const images = {
 
   /* ── About ──────────────────────────────────────────────────────────── */
   aboutHero: {
-    file: 'gathaithi-village-ridge.jpg',
+    file: 'gathaithi-mill-and-ridge.jpg',
     page: 'About',
     section: 'Hero',
     ratio: '16/9',
     minWidth: 2400,
     minHeight: 1350,
     direction:
-      'Gathaithi village and the surrounding shambas from a high point: coffee, terracing, red soil, tin roofs, cloud on the Aberdares. Landscape as evidence of terroir.',
-    alt: 'Gathaithi village and the surrounding coffee farms on the slopes of Tetu, Nyeri County.',
+      'PARTLY MET. The frame in place looks across the mill\u2019s raised drying beds to the hills behind, smallholdings and tin roofs scattered up them — which makes the terroir argument, and puts the society\u2019s own ground in it. Two things it is not: the vantage is the mill rather than a high point over the village, and the beds are standing empty. The brief still stands for a reshoot — Gathaithi village and the surrounding shambas from above, coffee, terracing, red soil, cloud on the Aberdares.',
+    alt: 'The raised drying beds at the Gathaithi mill, with the smallholder farms of Tetu on the hills behind.',
     priority: true,
     sizes: '100vw',
   },
@@ -100,18 +100,6 @@ export const images = {
       'Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil.',
     alt: 'The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.',
     sizes: '(min-width: 1024px) 35vw, 100vw',
-  },
-  aboutWelfare: {
-    file: 'gathaithi-cherry-delivery.jpg',
-    page: 'About',
-    section: 'Member welfare',
-    ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
-    direction:
-      'Evening cherry delivery: weighing scale, the clerk writing the receipt, a member watching the reading. The moment the crop becomes a number in the books.',
-    alt: 'A Gathaithi member’s cherry being weighed and recorded at the mill delivery bay.',
-    sizes: '(min-width: 1024px) 50vw, 100vw',
   },
 
   /* ── Products ───────────────────────────────────────────────────────── */
