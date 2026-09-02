@@ -4,7 +4,7 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SmartImage } from '@/components/media/SmartImage';
+import { StoryCard } from '@/components/home/StoryCard';
 import type { HomeContent } from '@content/types';
 import type { Locale } from '@content/site';
 
@@ -44,7 +44,7 @@ export function StoryTeaser({
 
           <div className="flex flex-col gap-12 lg:col-span-6 lg:col-start-7">
             <Reveal>
-              <SmartImage slot="homeStory" />
+              <StoryCard content={content.card} />
             </Reveal>
 
             <Reveal delay={60}>
