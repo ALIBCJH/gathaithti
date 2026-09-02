@@ -114,6 +114,10 @@ export interface HomeContent {
     /** Shown on small screens only, where the scroll cue is not. */
     readMore: Cta;
     scrollHint: string;
+    slideLabel: string;
+    pauseLabel: string;
+    playLabel: string;
+    regionLabel: string;
   };
   proof: {
     eyebrow: string;

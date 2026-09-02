@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { RichText } from '@/components/ui/Fact';
 import { Placeholder } from '@/components/media/Placeholder';
-import { BLUR_DATA_URL, getImage } from '@/lib/images';
+import { HeroSlides, type HeroSlide } from '@/components/home/HeroSlides';
+import { getImage } from '@/lib/images';
 import type { HomeContent } from '@content/types';
 import type { Locale } from '@content/site';
 
@@ -26,31 +26,50 @@ import type { Locale } from '@content/site';
 export function Hero({ locale, content }: { locale: Locale; content: HomeContent['hero'] }) {
   const image = getImage('homeHero');
 
+  /* Three frames, three crops. The first is portrait and biased upward as the
+     screen widens so the open sky the headline sits in survives; the other two
+     are landscape and have no sky at all, so they are held near their own
+     subject instead — the beans are an even texture and take a plain centre,
+     the cherry cluster sits left of centre and is kept there. */
+  const slides: HeroSlide[] = (
+    [
+      ['homeHero', 'object-[60%_45%] sm:object-[55%_38%] lg:object-[50%_28%]'],
+      ['homeHeroTwo', 'object-center'],
+      ['homeHeroThree', 'object-[38%_50%] lg:object-[42%_50%]'],
+    ] as const
+  )
+    .map(([slot, position]) => ({ image: getImage(slot), position }))
+    .filter(({ image: slide }) => slide.exists)
+    .map(({ image: slide, position }) => ({
+      key: slide.key,
+      src: slide.src,
+      alt: slide.alt,
+      position,
+    }));
+
   return (
     /* Exactly one viewport tall. The old hero was 92svh with everything pushed
        to the bottom edge, which left a void above the type and a sliver of the
        next section peeking below — it read as a page that had not quite fitted.
        Now the type sits centred in the space under the header, and the foot of
        the frame carries the scroll cue. */
-    <section className="hero-fit relative isolate flex min-h-svh flex-col overflow-hidden bg-inverse text-on-inverse on-ink">
-      {image.exists ? (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          quality={74}
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
-          /* The photograph is portrait and the viewport usually is not, so
-             `object-cover` throws away a band of it. WHICH band is a design
-             decision, not a default: centred, a wide screen keeps the cherries
-             and loses the sunrise, which is the half the headline needs to sit
-             in. Biasing the crop upward as the screen widens keeps the open sky
-             on screen exactly when there is least height to hold it. */
-          className="photo object-cover object-[60%_45%] sm:object-[55%_38%] lg:object-[50%_28%]"
+    <section
+      /* The bottom padding is what the slideshow controls sit in. They are
+         positioned against the section, and below `lg` the hero is content-
+         height rather than a full screen — so without a reserved band they
+         landed on top of the Read more button, overlapping it by 31px at
+         320px wide. Two touch targets on the same pixels is a defect, not a
+         crowding problem. At `lg` the controls align with the scroll cue in the
+         foot and nothing is reserved. */
+      className="hero-fit relative isolate flex min-h-svh flex-col overflow-hidden bg-inverse pb-[4.5rem] text-on-inverse on-ink lg:pb-0"
+    >
+      {slides.length > 0 ? (
+        <HeroSlides
+          slides={slides}
+          slideLabel={content.slideLabel}
+          pauseLabel={content.pauseLabel}
+          playLabel={content.playLabel}
+          regionLabel={content.regionLabel}
         />
       ) : null}
 

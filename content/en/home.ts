@@ -19,6 +19,10 @@ export const home: HomeContent = {
     positioning: 'One hill in Nyeri. One society. Sold by the people who picked it.',
     readMore: { label: 'Read more', href: 'about' },
     scrollHint: 'Scroll',
+    slideLabel: 'Slide {{n}} of {{total}}',
+    pauseLabel: 'Pause the hero photographs',
+    playLabel: 'Play the hero photographs',
+    regionLabel: 'Photographs of Gathaithi coffee',
   },
 
   proof: {
