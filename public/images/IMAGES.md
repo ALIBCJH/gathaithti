@@ -43,7 +43,7 @@ before the photography exists.
 | `gathaithi-committee-meeting.jpg` | About | Governance | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
 | `gathaithi-soil-and-tree.jpg` | About | Terroir | 4:5 | 1600×2000 | Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil. |
 | `gathaithi-cherry-delivery.jpg` | About | Member welfare | 3:2 | 2000×1334 | Evening cherry delivery: weighing scale, the clerk writing the receipt, a member watching the reading. The moment the crop becomes a number in the books. |
-| `gathaithi-parchment-in-hands.jpg` | Our Coffee | Hero | 16:9 | 2400×1350 | Two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame. |
+| `gathaithi-ripening-cherry.jpg` | Our Coffee | Hero | 16:9 | 2400×1350 | Two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame. |
 | `lot-aa-green-beans.jpg` | Our Coffee | Lot catalogue — AA | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. Square flat-lay of AA green beans on parchment paper, raking side light so bean size and uniformity read clearly. Beans fill the frame, centred, with even margins. Identical setup, light, height and crop for all four grade shots — they sit side by side in a grid and any difference in framing shows. |
 | `lot-ab-green-beans.jpg` | Our Coffee | Lot catalogue — AB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. As lot-aa-green-beans.jpg, identical setup. AB beans. |
 | `lot-pb-green-beans.jpg` | Our Coffee | Lot catalogue — PB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. As lot-aa-green-beans.jpg, identical setup. Peaberry — the round single seeds should be obvious. |
@@ -92,7 +92,7 @@ the shot list is self-contained:
 - `gathaithi-committee-meeting.jpg` — Members of the Gathaithi management committee in session at the society office.
 - `gathaithi-soil-and-tree.jpg` — The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.
 - `gathaithi-cherry-delivery.jpg` — A Gathaithi member’s cherry being weighed and recorded at the mill delivery bay.
-- `gathaithi-parchment-in-hands.jpg` — Dried coffee parchment lifted from a raised bed at the Gathaithi wet mill.
+- `gathaithi-ripening-cherry.jpg` — Dried coffee parchment lifted from a raised bed at the Gathaithi wet mill.
 - `gathaithi-retail-pack.jpg` — A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.
 - `lot-aa-green-beans.jpg` — Grade AA green coffee beans from Gathaithi, screen 17 and above.
 - `lot-ab-green-beans.jpg` — Grade AB green coffee beans from Gathaithi, screen 15 to 16.
