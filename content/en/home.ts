@@ -58,7 +58,7 @@ export const home: HomeContent = {
     ],
     pullQuote:
       'We are not suppliers to this business. We are the ones who own it.',
-    attribution: 'A member of the society — quotation to be confirmed',
+    attribution: 'Grace Wairimu, member since 1991 — sample quotation, not yet collected',
     cta: { label: 'Read our story', href: 'about' },
   },
 

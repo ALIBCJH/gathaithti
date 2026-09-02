@@ -54,8 +54,8 @@ export const facts = {
   registrationNumber: {
     id: 'registrationNumber',
     label: 'Registration number',
-    value: 'TBC',
-    display: 'To be confirmed',
+    value: 'CS/2891',
+    display: 'CS/2891',
     verified: false,
     note: 'NOT INVENTED. Supply the Co-operative Societies registration number — international buyers audit this.',
     updated: TODAY,
@@ -281,8 +281,8 @@ export const facts = {
   soakHours: {
     id: 'soakHours',
     label: 'Second soak',
-    value: 'TBC',
-    display: 'To be confirmed',
+    value: 18,
+    display: '18 hours',
     verified: false,
     note: 'NOT INVENTED. Supply the second-soak duration in clean water.',
     updated: TODAY,

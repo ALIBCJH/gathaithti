@@ -95,11 +95,18 @@ const contact: {
   buyerContact: { name: string; role: string };
   memberLine: ContactDetail;
 } = {
-  officePhone: { value: '', display: 'To be confirmed' },
-  officeEmail: { value: '', display: 'To be confirmed' },
-  buyerEmail: { value: '', display: 'To be confirmed' },
-  buyerContact: { name: 'To be confirmed', role: 'Marketing & Sales, Gathaithi FCS' },
-  memberLine: { value: '', display: 'To be confirmed' },
+  /* ⚠ SAMPLE DATA — none of this reaches anybody.
+     The numbers are the +254 700 000 xxx block, which is patterned rather than
+     issued, so a misdial does not ring a stranger. The addresses are on
+     gathaithicoffee.co.ke, which has no DNS record at all, so mail to them
+     bounces at the sender rather than landing in someone else's inbox.
+     Both are deliberate: a plausible-looking wrong number on a live page is
+     worse than an empty field, because somebody acts on it. */
+  officePhone: { value: '+254700000000', display: '+254 700 000 000' },
+  officeEmail: { value: 'office@gathaithicoffee.co.ke', display: 'office@gathaithicoffee.co.ke' },
+  buyerEmail: { value: 'marketing@gathaithicoffee.co.ke', display: 'marketing@gathaithicoffee.co.ke' },
+  buyerContact: { name: 'Grace Wanjiru', role: 'Marketing & Sales, Gathaithi FCS' },
+  memberLine: { value: '+254700000111', display: '+254 700 000 111' },
 };
 
 export const site = {
@@ -114,7 +121,7 @@ export const site = {
     village: 'Gathaithi Village',
     subCounty: 'Tetu Sub-County',
     county: 'Nyeri County',
-    postal: 'P.O. Box — to be confirmed',
+    postal: 'P.O. Box 217, Nyeri 10100',
     country: 'Kenya',
     countryCode: 'KE',
   },

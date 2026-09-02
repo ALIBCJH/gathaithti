@@ -22,7 +22,7 @@ export const contact: ContactContent = {
       heading: 'Roasters, importers and green buyers',
       body:
         'Sample requests, lot availability, cupping visits and direct-sale paperwork. If you are cupping Gathaithi under a roaster’s label and want to source it from the society itself, this is the way in.',
-      person: { name: 'To be confirmed', role: 'Marketing & Sales' },
+      person: { name: 'Grace Wanjiru', role: 'Marketing & Sales' },
       rows: [
         { label: 'Best route', value: 'Request a sample', href: 'products#request-a-sample' },
         { label: 'Email', value: '{{buyerEmail}}' },

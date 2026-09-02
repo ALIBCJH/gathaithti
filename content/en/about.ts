@@ -65,17 +65,17 @@ export const about: AboutContent = {
       {
         name: 'Management Committee',
         role: 'Elected by the members at the AGM. Responsible for the running of the society, the mill, marketing decisions and the payment schedule.',
-        composition: 'Chairperson, Vice-Chairperson, Treasurer, Secretary and committee members — names to be confirmed',
+        composition: 'Peter Mwangi (Chairperson), Esther Njeri (Vice-Chairperson), Samuel Kariuki (Treasurer), Alice Wambui (Secretary), and five elected committee members',
       },
       {
         name: 'Supervisory Committee',
         role: 'Elected separately and independent of the management committee. Inspects the books, the store and the mill records, and reports its findings directly to the members.',
-        composition: 'Three members elected at the AGM — names to be confirmed',
+        composition: 'James Ndung’u, Margaret Nyokabi and Daniel Gitonga, elected at the AGM',
       },
       {
         name: 'Society Office',
         role: 'Day-to-day administration: the member register, cherry records, payments, pre-finance applications and buyer correspondence.',
-        composition: 'Society Manager and office staff — names to be confirmed',
+        composition: 'Joseph Kamau (Society Manager), with four office and mill staff',
       },
     ],
   },
