@@ -38,6 +38,36 @@ export const images = {
     priority: true,
     sizes: '100vw',
   },
+  /* Slides two and three of the hero. Both are LANDSCAPE, where homeHero is
+     portrait, so on a phone held upright `object-cover` throws away far more
+     of them than it does of the first — roughly three quarters of the width at
+     390px. Neither has an empty corner for type either, which is why the crop
+     on each is set separately below and why the scrim carries them rather than
+     the other way round. */
+  homeHeroTwo: {
+    file: 'gathaithi-roasted-beans.jpg',
+    page: 'Home',
+    section: 'Hero — slide 2',
+    ratio: '16/9',
+    minWidth: 2400,
+    minHeight: 1350,
+    direction:
+      'A full frame of roasted beans, filling the frame edge to edge with no focal point — an all-over texture, which is the one kind of picture that survives being cropped to any shape. Warm and dark enough to carry white type anywhere in the frame.',
+    alt: 'Roasted coffee beans filling the frame.',
+    sizes: '100vw',
+  },
+  homeHeroThree: {
+    file: 'gathaithi-cherry-branch.jpg',
+    page: 'Home',
+    section: 'Hero — slide 3',
+    ratio: '16/9',
+    minWidth: 2400,
+    minHeight: 1350,
+    direction:
+      'A branch of ripening cherry, red and green together, shot shallow so the canopy behind falls away to green bokeh. The cluster sits left of centre; the crop holds it there as the frame narrows.',
+    alt: 'A branch of Gathaithi coffee carrying ripe red and unripe green cherry together.',
+    sizes: '100vw',
+  },
   homeSeason: {
     file: 'gathaithi-selective-picking.jpg',
     page: 'Home',

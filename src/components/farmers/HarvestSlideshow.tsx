@@ -4,8 +4,9 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 import { BLUR_DATA_URL } from '@/lib/blur';
+import { ROTATION_INTERVAL } from '@/lib/rotation';
 
-const INTERVAL = 3000;
+
 
 /**
  * Only what the browser needs to draw a slide. Deliberately not
@@ -102,7 +103,7 @@ export function HarvestSlideshow({
     if (!running || slides.length < 2) return;
     const id = window.setTimeout(
       () => setIndex((current) => (current + 1) % slides.length),
-      INTERVAL,
+      ROTATION_INTERVAL,
     );
     return () => window.clearTimeout(id);
   }, [index, running, slides.length]);
