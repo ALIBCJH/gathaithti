@@ -203,7 +203,14 @@ export function Header({
         </nav>
 
         <div className="flex shrink-0 items-center gap-4 sm:gap-6">
-          <ThemeToggle surface={solid ? 'light' : 'dark'} />
+          {/* Desktop only. On a phone the switch lives in the drawer instead —
+              there is one of it, not two, and the bar keeps to the two things
+              it needs at that width: who this is, and the way in. The drawer
+              is `lg:hidden`, so the two are exact complements and the control
+              is never absent and never doubled. */}
+          <div className="hidden lg:block">
+            <ThemeToggle surface={solid ? 'light' : 'dark'} />
+          </div>
 
           <button
             ref={toggleRef}
