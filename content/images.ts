@@ -65,15 +65,15 @@ export const images = {
 
   /* ── About ──────────────────────────────────────────────────────────── */
   aboutHero: {
-    file: 'gathaithi-village-ridge.jpg',
+    file: 'gathaithi-mill-and-ridge.jpg',
     page: 'About',
     section: 'Hero',
     ratio: '16/9',
     minWidth: 2400,
     minHeight: 1350,
     direction:
-      'Gathaithi village and the surrounding shambas from a high point: coffee, terracing, red soil, tin roofs, cloud on the Aberdares. Landscape as evidence of terroir.',
-    alt: 'Gathaithi village and the surrounding coffee farms on the slopes of Tetu, Nyeri County.',
+      'PARTLY MET. The frame in place looks across the mill\u2019s raised drying beds to the hills behind, smallholdings and tin roofs scattered up them — which makes the terroir argument, and puts the society\u2019s own ground in it. Two things it is not: the vantage is the mill rather than a high point over the village, and the beds are standing empty. The brief still stands for a reshoot — Gathaithi village and the surrounding shambas from above, coffee, terracing, red soil, cloud on the Aberdares.',
+    alt: 'The raised drying beds at the Gathaithi mill, with the smallholder farms of Tetu on the hills behind.',
     priority: true,
     sizes: '100vw',
   },
@@ -101,30 +101,18 @@ export const images = {
     alt: 'The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.',
     sizes: '(min-width: 1024px) 35vw, 100vw',
   },
-  aboutWelfare: {
-    file: 'gathaithi-cherry-delivery.jpg',
-    page: 'About',
-    section: 'Member welfare',
-    ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
-    direction:
-      'Evening cherry delivery: weighing scale, the clerk writing the receipt, a member watching the reading. The moment the crop becomes a number in the books.',
-    alt: 'A Gathaithi member’s cherry being weighed and recorded at the mill delivery bay.',
-    sizes: '(min-width: 1024px) 50vw, 100vw',
-  },
 
   /* ── Products ───────────────────────────────────────────────────────── */
   productsHero: {
-    file: 'gathaithi-parchment-in-hands.jpg',
+    file: 'gathaithi-ripening-cherry.jpg',
     page: 'Our Coffee',
     section: 'Hero',
     ratio: '16/9',
     minWidth: 2400,
     minHeight: 1350,
     direction:
-      'Two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame.',
-    alt: 'Dried coffee parchment lifted from a raised bed at the Gathaithi wet mill.',
+      'STAND-IN. Currently a daylight frame of mixed-ripeness cherry on the branch — red, yellow and green together — which suits a page about grading and selective picking, but is not the shot this slot was written for. The brief still stands: two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame.',
+    alt: 'Ripe and ripening coffee cherry on the branch at Gathaithi — red, yellow and green together.',
     priority: true,
     sizes: '100vw',
   },
@@ -173,6 +161,23 @@ export const images = {
     alt: 'A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.',
     sizes: '(min-width: 1024px) 30vw, 100vw',
   },
+  /* Step 01 of the walkthrough had no slot of its own — it borrowed the home
+     page's season photograph, which meant one file doing two jobs and the only
+     step in the sequence rendering 4:5 while 02–05 render 3:2. It has its own
+     now, at the same ratio as the rest of the line. */
+  processPicking: {
+    file: 'gathaithi-picking-hands.jpg',
+    page: 'Our Coffee',
+    section: 'Processing — selective picking',
+    ratio: '3/2',
+    minWidth: 1800,
+    minHeight: 1200,
+    direction:
+      'Close on a picker’s hands taking ripe red cherry off the branch, one at a time, with green and unripe fruit left on the wood beside it. Skilled work, unhurried. The selectivity is the subject — the frame has to show what is being left behind as well as what is being taken.',
+    alt: 'A picker’s hands taking ripe red cherry from the branch, leaving the green fruit behind.',
+    sizes: '(min-width: 1024px) 45vw, 100vw',
+  },
+
   processPulping: {
     file: 'process-01-pulping.jpg',
     page: 'Our Coffee',
@@ -180,8 +185,9 @@ export const images = {
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
-    direction: 'Cherry entering the disc pulper, water moving, skins separating. Freeze the motion; keep the machinery legible.',
-    alt: 'Ripe cherry passing through the disc pulper at the Gathaithi wet mill.',
+    direction:
+      'PARTLY MET. The frame in place shows the pulper with whole red cherry on one side and freshly pulped parchment on the other — the separation reads clearly, which is the point of the step. What it does not show is the water: the brief asked for cherry entering the disc pulper with water moving and skins separating, motion frozen. Worth reshooting for that; usable until then.',
+    alt: 'A pulper at Gathaithi, whole red cherry on one side and freshly pulped parchment on the other.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
   processFermentation: {
