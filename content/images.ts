@@ -116,15 +116,15 @@ export const images = {
 
   /* ── Products ───────────────────────────────────────────────────────── */
   productsHero: {
-    file: 'gathaithi-parchment-in-hands.jpg',
+    file: 'gathaithi-ripening-cherry.jpg',
     page: 'Our Coffee',
     section: 'Hero',
     ratio: '16/9',
     minWidth: 2400,
     minHeight: 1350,
     direction:
-      'Two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame.',
-    alt: 'Dried coffee parchment lifted from a raised bed at the Gathaithi wet mill.',
+      'STAND-IN. Currently a daylight frame of mixed-ripeness cherry on the branch — red, yellow and green together — which suits a page about grading and selective picking, but is not the shot this slot was written for. The brief still stands: two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame.',
+    alt: 'Ripe and ripening coffee cherry on the branch at Gathaithi — red, yellow and green together.',
     priority: true,
     sizes: '100vw',
   },
