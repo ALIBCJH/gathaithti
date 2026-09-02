@@ -26,7 +26,6 @@ export const common: DeepPartial<Common> = {
     forMembers: todo('For our members'),
     readStory: todo('Read our story'),
     seeLots: todo('See this season’s lots'),
-    allNotices: todo('Open the noticeboard'),
     menu: todo('Menu'),
     close: todo('Close'),
     skipToContent: todo('Skip to content'),
@@ -50,7 +49,6 @@ export const common: DeepPartial<Common> = {
     sections: {
       explore: todo('Explore'),
       contact: todo('Contact'),
-      members: todo('Members'),
     },
     registration: todo('Registered co-operative society, Nyeri County, Kenya'),
     rights: todo('All rights reserved.'),

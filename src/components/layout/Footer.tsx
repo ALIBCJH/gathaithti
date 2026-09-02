@@ -3,7 +3,6 @@ import { routes, site, type Locale } from '@content/site';
 import type { Common } from '@content/types';
 import { Container } from '@/components/ui/Container';
 import { RichText } from '@/components/ui/Fact';
-import { Fact } from '@/components/ui/Fact';
 
 export function Footer({ locale, common }: { locale: Locale; common: Common }) {
   const year = 2026; // stamped at build; update in this one place each January
@@ -11,7 +10,11 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
   return (
     <footer className="border-t border-line bg-inverse text-on-inverse on-ink" role="contentinfo">
       <Container width="wide">
-        <div className="grid gap-16 py-24 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12 lg:py-32">
+        {/* Was four tracks at 1.4/1/1/1. With the members' column gone, three
+            tracks at the old ratio left the row stopping ~130px short of the
+            right edge — a hole exactly where the fourth column used to be.
+            Widening the brand track pushes the other two out to meet it. */}
+        <div className="grid gap-16 py-24 lg:grid-cols-[2fr_1fr_1fr] lg:gap-12 lg:py-32">
           <div className="flex max-w-[38ch] flex-col gap-6">
             <p className="t-quiet text-[1.5rem] leading-tight">
               {common.brand.name}
@@ -50,19 +53,6 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
               className="link text-[0.9375rem]"
             >
               {common.nav.contact}
-            </Link>
-          </div>
-
-          <div className="flex flex-col gap-5">
-            <h2 className="t-meta text-ochre-light">{common.footer.sections.members}</h2>
-            <div className="flex flex-col gap-1">
-              <p className="t-figure-sm text-on-inverse">
-                <Fact id="cherryPriceCurrent" />
-              </p>
-              <p className="t-meta text-on-inverse/60">Per kg cherry</p>
-            </div>
-            <Link href={`/${locale}/farmers#noticeboard`} className="link text-[0.9375rem]">
-              {common.actions.allNotices}
             </Link>
           </div>
         </div>
