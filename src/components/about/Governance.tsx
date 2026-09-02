@@ -4,6 +4,7 @@ import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { SmartImage } from '@/components/media/SmartImage';
+import { BoardGrid } from '@/components/about/BoardGrid';
 import type { AboutContent } from '@content/types';
 
 /**
@@ -58,6 +59,7 @@ export function Governance({ content }: { content: AboutContent['governance'] })
           ))}
         </div>
 
+        <BoardGrid content={content.board} />
       </Container>
     </Section>
   );

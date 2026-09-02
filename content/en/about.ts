@@ -61,6 +61,37 @@ export const about: AboutContent = {
       { label: 'Wet mills operated', value: '{{wetMills}}' },
       { label: 'Membership', value: '{{members}} smallholder farmers' },
     ],
+    /* The nine people who sit on the management committee, as cards.
+       ═══════════════════════════════════════════════════════════════════════
+       DRAFT, in the same sense as the member profiles on Our Farmers: the four
+       officers' names are carried over from the `composition` line above and
+       have never been confirmed against the register, and the five elected
+       members have no names here at all because none were supplied. Nothing on
+       this site invents a real person. Every entry below is marked so the page
+       can be seen whole while the society confirms who is on it. Replace the
+       names, delete the `pending` flags, and the notice above the grid stops
+       rendering on its own. */
+    board: {
+      eyebrow: 'The committee',
+      heading: 'Who sits on the management committee',
+      lead:
+        'Nine members, elected by the membership at the Annual General Meeting. Four hold office; five are elected to the committee without portfolio.',
+      pendingNote:
+        'Names and photographs are being confirmed by the society. Entries marked below are drafts and are not yet a published statement of who holds office.',
+      roleLabel: 'Management committee',
+      members: [
+        { id: 'b1', name: 'Peter Mwangi', role: 'Chairperson', imageSlot: 'boardOne', pending: true },
+        { id: 'b2', name: 'Esther Njeri', role: 'Vice-Chairperson', imageSlot: 'boardTwo', pending: true },
+        { id: 'b3', name: 'Samuel Kariuki', role: 'Treasurer', imageSlot: 'boardThree', pending: true },
+        { id: 'b4', name: 'Alice Wambui', role: 'Secretary', imageSlot: 'boardFour', pending: true },
+        { id: 'b5', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardFive', pending: true },
+        { id: 'b6', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardSix', pending: true },
+        { id: 'b7', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardSeven', pending: true },
+        { id: 'b8', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardEight', pending: true },
+        { id: 'b9', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardNine', pending: true },
+      ],
+    },
+
     bodies: [
       {
         name: 'Management Committee',

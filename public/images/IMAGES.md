@@ -40,6 +40,15 @@ before the photography exists.
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
 | `gathaithi-member-at-the-tree.jpg` | About | Hero | 3:2 | 2400×1600 | A member reaching up into the branch, taking ripe cherry by hand on the upper slopes. Cropped to a tall column by the page, so the reach must survive the crop: subject left of centre, room above the hands. |
 | `gathaithi-committee-meeting.jpg` | About | Governance | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
+| `board-01-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | Head-and-shoulders portrait, portrait orientation, eye level, looking at the lens. Even shade, plain or softly out-of-focus background, head in the upper third. THE SAME treatment for all nine — they sit in one grid and any difference in height, crop or light shows. |
+| `board-02-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
+| `board-03-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
+| `board-04-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
+| `board-05-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
+| `board-06-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
+| `board-07-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
+| `board-08-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
+| `board-09-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
 | `gathaithi-soil-and-tree.jpg` | About | Terroir | 4:5 | 1600×2000 | Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil. |
 | `gathaithi-ripening-cherry.jpg` | Our Coffee | Hero | 16:9 | 2400×1350 | Two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame. |
 | `lot-aa-green-beans.jpg` | Our Coffee | Lot catalogue — AA | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. Square flat-lay of AA green beans on parchment paper, raking side light so bean size and uniformity read clearly. Beans fill the frame, centred, with even margins. Identical setup, light, height and crop for all four grade shots — they sit side by side in a grid and any difference in framing shows. |
@@ -86,6 +95,15 @@ the shot list is self-contained:
 - `gathaithi-selective-picking.jpg` — Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.
 - `gathaithi-member-at-the-tree.jpg` — A Gathaithi member reaching up into a coffee tree to pick ripe red cherry by hand, the hills of Tetu behind.
 - `gathaithi-committee-meeting.jpg` — Members of the Gathaithi management committee in session at the society office.
+- `board-01-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-02-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-03-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-04-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-05-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-06-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-07-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-08-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
+- `board-09-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
 - `gathaithi-soil-and-tree.jpg` — The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.
 - `gathaithi-ripening-cherry.jpg` — Dried coffee parchment lifted from a raised bed at the Gathaithi wet mill.
 - `gathaithi-retail-pack.jpg` — A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.
