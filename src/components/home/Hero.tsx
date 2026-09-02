@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import { Button } from '@/components/ui/Button';
 import { RichText } from '@/components/ui/Fact';
 import { Placeholder } from '@/components/media/Placeholder';
 import { BLUR_DATA_URL, getImage } from '@/lib/images';
 import type { HomeContent } from '@content/types';
+import type { Locale } from '@content/site';
 
 /**
  * The first five seconds. Without scrolling a visitor must learn who this is
@@ -21,7 +23,7 @@ import type { HomeContent } from '@content/types';
  * short-viewport rules in globals.css use to keep the whole thing on one
  * screen.
  */
-export function Hero({ content }: { content: HomeContent['hero'] }) {
+export function Hero({ locale, content }: { locale: Locale; content: HomeContent['hero'] }) {
   const image = getImage('homeHero');
 
   return (
@@ -77,16 +79,33 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
 
       <div className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-end px-6 pb-6 pt-[calc(var(--header-h)+2rem)] sm:px-10 lg:px-16">
         <div className="flex max-w-[46rem] flex-col gap-4 sm:gap-5">
-          <h1 className="t-hero max-w-[13em] text-on-inverse">{content.title}</h1>
+          {/* `sr-only` below lg, not `hidden`. The name is off the small screen
+              as asked, but it is still the page's only <h1> — and Google indexes
+              the MOBILE rendering of a page, so a heading actually removed there
+              is a heading removed from the index, on the one page whose title is
+              the society's name. Screen readers and crawlers still get it; the
+              phone simply does not draw it. */}
+          <h1 className="sr-only t-hero max-w-[13em] text-on-inverse lg:not-sr-only">
+            {content.title}
+          </h1>
 
           <p className="t-lead max-w-[44ch] text-on-inverse/90">
             <RichText text={content.positioning} />
           </p>
+
+          {/* The phone's way out of the hero. It replaces the scroll cue rather
+              than joining it: a cue that says "there is more below" and a button
+              that takes you somewhere are the same job asked twice. */}
+          <div className="mt-2 flex justify-center lg:hidden">
+            <Button href={`/${locale}/${content.readMore.href}`} surface="dark" variant="secondary">
+              {content.readMore.label}
+            </Button>
+          </div>
         </div>
       </div>
 
       <div className="hero-foot relative mx-auto flex w-full max-w-[100rem] items-end justify-between gap-10 px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10">
-        <p className="t-meta flex items-center gap-3 text-on-inverse/50">
+        <p className="t-meta hidden items-center gap-3 text-on-inverse/50 lg:flex">
           <span aria-hidden="true" className="inline-block h-px w-8 bg-on-inverse/35" />
           {content.scrollHint}
         </p>

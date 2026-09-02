@@ -17,6 +17,7 @@ export const home: HomeContent = {
        whatever the numbers turn out to be. The figures still have their place
        on the page: the proof band carries them directly under this. */
     positioning: 'One hill in Nyeri. One society. Sold by the people who picked it.',
+    readMore: { label: 'Read more', href: 'about' },
     scrollHint: 'Scroll',
   },
 

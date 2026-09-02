@@ -9,7 +9,7 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
   const year = 2026; // stamped at build; update in this one place each January
 
   return (
-    <footer className="bg-inverse text-on-inverse on-ink" role="contentinfo">
+    <footer className="border-t border-line bg-inverse text-on-inverse on-ink" role="contentinfo">
       <Container width="wide">
         <div className="grid gap-16 py-24 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12 lg:py-32">
           <div className="flex max-w-[38ch] flex-col gap-6">
