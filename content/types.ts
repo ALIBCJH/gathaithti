@@ -300,6 +300,17 @@ export interface FarmersContent {
     collection: { heading: string; note: string; rows: { point: string; time: string }[] };
     help: { heading: string; body: string; phoneLabel: string };
   };
+  harvest: {
+    eyebrow: string;
+    heading: string;
+    body: string[];
+    /** One per slide, in slide order. Length defines the number of slides. */
+    captions: string[];
+    slideLabel: string;
+    pauseLabel: string;
+    playLabel: string;
+    regionLabel: string;
+  };
   profiles: { eyebrow: string; heading: string; lead: string; members: MemberProfile[]; yearsLabel: string; treesLabel: string };
   training: { eyebrow: string; heading: string; lead: string; body: string[]; programmes: { name: string; cadence: string; body: string }[] };
   prefinance: { eyebrow: string; heading: string; lead: string; body: string[]; steps: { n: string; title: string; body: string }[]; terms: { label: string; value: string }[] };

@@ -62,7 +62,9 @@ before the photography exists.
 | `process-04-second-soak.jpg` | Our Coffee | Processing — second soak | 3:2 | 1800×1200 | Clean water soak tank, parchment fully submerged, surface still enough to read the beans through it. |
 | `process-05-raised-beds.jpg` | Our Coffee | Processing — drying | 3:2 | 1800×1200 | A worker turning parchment on a raised bed, shade nets rolled back, rows receding. Late afternoon light. |
 | `gathaithi-sample-preparation.jpg` | Our Coffee | Request a sample | 4:5 | 1400×1750 | Sample bags being weighed and labelled for despatch, or a cupping table mid-session. Precision and record-keeping, not romance. |
-| `gathaithi-members-collection-point.jpg` | Our Farmers | Hero | 16:9 | 2400×1350 | Members at a collection point in the evening with full buckets, talking, queueing, being weighed. Owners of a business at work — not recipients of anything. |
+| `harvest-01-picking.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | A member picking ripe cherry by hand, close in, mid-work and clearly enjoying it. Subject right of centre, loaded branch filling the left. |
+| `harvest-02-reaching.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | As harvest-01. A member reaching up into the branch, sky behind, selecting rather than stripping. |
+| `harvest-03-two-members.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | As harvest-01. Two members working the same tree from either side — the crop is family work. |
 | `member-01-portrait.jpg` | Our Farmers | Member profiles | 4:5 | 1200×1500 | Environmental portrait on the member’s own shamba, standing, eye level, looking at the lens. Even shade. Confident, not smiling on command. Same treatment for all six portraits. |
 | `member-02-portrait.jpg` | Our Farmers | Member profiles | 4:5 | 1200×1500 | As member-01-portrait.jpg. Different member, same eye level and treatment. |
 | `member-03-portrait.jpg` | Our Farmers | Member profiles | 4:5 | 1200×1500 | As member-01-portrait.jpg. Different member, same eye level and treatment. |
@@ -117,7 +119,9 @@ the shot list is self-contained:
 - `process-04-second-soak.jpg` — Washed parchment resting under clean water during the second soak at Gathaithi.
 - `process-05-raised-beds.jpg` — Parchment being turned by hand on raised drying beds at the Gathaithi wet mill.
 - `gathaithi-sample-preparation.jpg` — Green coffee samples being weighed and labelled for despatch at Gathaithi.
-- `gathaithi-members-collection-point.jpg` — Gathaithi members delivering the day’s cherry at a village collection point.
+- `harvest-01-picking.jpg` — A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.
+- `harvest-02-reaching.jpg` — A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.
+- `harvest-03-two-members.jpg` — Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.
 - `member-01-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `member-02-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `member-03-portrait.jpg` — A Gathaithi member photographed among their coffee trees.

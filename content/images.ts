@@ -344,18 +344,46 @@ export const images = {
   },
 
   /* ── Farmers ────────────────────────────────────────────────────────── */
-  farmersHero: {
-    file: 'gathaithi-members-collection-point.jpg',
+  /* The harvest sequence, which rotates in the champion section. Three
+     frames of the same act, so they have to sit in one frame without the eye
+     jumping: all three are landscape at roughly 3:2, and in all three the
+     person is right of centre with the loaded branch to their left. That is
+     why they cross-fade rather than slide — the subject barely moves between
+     them, and a slide would throw away the one thing they have in common. */
+  harvestOne: {
+    file: 'harvest-01-picking.jpg',
     page: 'Our Farmers',
-    section: 'Hero',
-    ratio: '16/9',
-    minWidth: 2400,
-    minHeight: 1350,
+    section: 'The harvest',
+    ratio: '3/2',
+    minWidth: 2000,
+    minHeight: 1334,
     direction:
-      'Members at a collection point in the evening with full buckets, talking, queueing, being weighed. Owners of a business at work — not recipients of anything.',
-    alt: 'Gathaithi members delivering the day’s cherry at a village collection point.',
+      'A member picking ripe cherry by hand, close in, mid-work and clearly enjoying it. Subject right of centre, the loaded branch filling the left of the frame. Daylight, no flash.',
+    alt: 'A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.',
     priority: true,
-    sizes: '100vw',
+    sizes: '(min-width: 1024px) 55vw, 100vw',
+  },
+  harvestTwo: {
+    file: 'harvest-02-reaching.jpg',
+    page: 'Our Farmers',
+    section: 'The harvest',
+    ratio: '3/2',
+    minWidth: 2000,
+    minHeight: 1334,
+    direction: 'As harvest-01. A member reaching up into the branch, sky behind, selecting fruit rather than stripping it.',
+    alt: 'A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.',
+    sizes: '(min-width: 1024px) 55vw, 100vw',
+  },
+  harvestThree: {
+    file: 'harvest-03-two-members.jpg',
+    page: 'Our Farmers',
+    section: 'The harvest',
+    ratio: '3/2',
+    minWidth: 2000,
+    minHeight: 1334,
+    direction: 'As harvest-01. Two members working the same tree from either side — the crop is family work, and this is the frame that shows it.',
+    alt: 'Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.',
+    sizes: '(min-width: 1024px) 55vw, 100vw',
   },
   memberOne: {
     file: 'member-01-portrait.jpg',
