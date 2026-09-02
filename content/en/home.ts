@@ -9,10 +9,14 @@ export const home: HomeContent = {
   },
 
   hero: {
-    eyebrow: 'Tetu Sub-County · Nyeri · Kenya',
     title: 'Gathaithi Farmers’ Co‑operative Society',
-    positioning:
-      'One wet mill, {{members}} farmer-owners, and a washed Kenya coffee that scored {{cuppingScore}} points. Buy it from the people who grow it.',
+    /* No {{fact}} tokens here on purpose. Every figure in content/facts.ts is
+       still `verified: false`, and the line this replaced put two of them —
+       the membership and the cupping score — in the first sentence a visitor
+       reads. Everything asserted below is structurally true of the society
+       whatever the numbers turn out to be. The figures still have their place
+       on the page: the proof band carries them directly under this. */
+    positioning: 'One hill in Nyeri. One society. Sold by the people who picked it.',
     scrollHint: 'Scroll',
   },
 

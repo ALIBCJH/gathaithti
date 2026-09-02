@@ -110,7 +110,6 @@ export interface Common {
 export interface HomeContent {
   meta: Meta;
   hero: {
-    eyebrow: string;
     title: string;
     positioning: string;
     scrollHint: string;
