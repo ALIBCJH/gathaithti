@@ -625,6 +625,63 @@ a[href^='tel:'] {
     );
 }
 
+/* The story card on the home page.
+
+   The same two-wash idea as `.terroir`, thrown harder: this is a small panel
+   rather than a whole band, and it has to read as its own object against a
+   page that is the same brown in the dark theme. 7% and 4% of the accent, from
+   opposite corners, is the point at which the panel separates from the page
+   without becoming a colour of its own. */
+.story-card {
+  /* The quote is sized against the CARD, not the viewport — see
+     `.story-quote`. Nothing inside is fixed-positioned, so the containment
+     this establishes costs nothing. */
+  container-type: inline-size;
+  background-image:
+    radial-gradient(
+      88% 62% at 8% 0%,
+      color-mix(in srgb, var(--color-ochre) 7%, transparent) 0%,
+      transparent 66%
+    ),
+    radial-gradient(
+      70% 55% at 96% 100%,
+      color-mix(in srgb, var(--color-ochre) 4%, transparent) 0%,
+      transparent 60%
+    );
+}
+
+/* Bigger than `.pull-quote` and set tighter: on this card the sentence is the
+   only thing that has to carry, so it is allowed to run to the width of the
+   panel and it does not share the space with a photograph. */
+.story-quote {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  /* Sized in `cqi` — percent of the card’s inner width — rather than `vw`. The card
+     is a column of the grid above 1024px and the full width of the page below
+     it, so the two sizes do not track the viewport together: keyed to `vw`,
+     the quote came out at its 24px floor on a 688px-wide tablet card, three
+     short lines lost in a wide panel. Against the card it is 24px on a phone,
+     38px on a tablet, and 37px in the desktop column. */
+  font-size: clamp(1.5rem, 7.3cqi, 2.375rem);
+  /* Optical margin alignment: the opening mark hangs into the padding so the
+     first letter of the sentence lines up with the eyebrow and the rule. */
+  text-indent: -0.4em;
+}
+
+/* Quotation marks as accent punctuation. Slightly larger than the text they
+   sit against and dropped to a copper tint — visible as marks, never loud
+   enough to be read as a glyph in the sentence. `line-height: 0` keeps the
+   oversize from opening the leading of the line they fall on. */
+.story-mark {
+  color: var(--color-ochre-light);
+  opacity: 0.62;
+  font-size: 1.12em;
+  line-height: 0;
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════
    PHOTOGRAPHY
    ═══════════════════════════════════════════════════════════════════════════ */

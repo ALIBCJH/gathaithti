@@ -50,18 +50,6 @@ export const images = {
     alt: 'A Gathaithi member picking ripe red cherry by hand from the branch, a full basket beside her.',
     sizes: '(min-width: 1024px) 40vw, 100vw',
   },
-  homeStory: {
-    file: 'gathaithi-wet-mill-morning.jpg',
-    page: 'Home',
-    section: 'Story teaser',
-    ratio: '3/2',
-    minWidth: 2400,
-    minHeight: 1600,
-    direction:
-      'The wet mill in early morning working light — pulper, channels, delivery bay. Wide enough to read as a working factory, not a detail shot.',
-    alt: 'The Gathaithi wet mill at first light, with pulping channels and the cherry delivery bay.',
-    sizes: '(min-width: 1024px) 55vw, 100vw',
-  },
 
   /* ── About ──────────────────────────────────────────────────────────── */
   aboutHero: {

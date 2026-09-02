@@ -125,7 +125,16 @@ export interface HomeContent {
     rows: { label: string; value: string }[];
     cta: Cta;
   };
-  story: { eyebrow: string; heading: string; body: string[]; cta: Cta; pullQuote: string; attribution: string };
+  story: {
+    eyebrow: string;
+    heading: string;
+    body: string[];
+    cta: Cta;
+    pullQuote: string;
+    attribution: string;
+    /** The editorial statement card that balances the story column. */
+    card: { eyebrow: string; quote: string; support: string; footer: string };
+  };
   noticeboard: { eyebrow: string; heading: string; lead: string; cta: Cta };
 }
 

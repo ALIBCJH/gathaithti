@@ -38,7 +38,6 @@ before the photography exists.
 | `gathaithi-retail-pack.jpg` | Our Coffee | Lot catalogue — stand-in for all four grades | 1:1 | 1600×1600 | The 250 g retail pack, front on. Standing in for the four green-bean flat-lays until those are shot. |
 | `gathaithi-cherry-sunrise.jpg` | Home | Hero | 2:3 | 1600×2400 | Ripe cherry on the branch at sunrise, the hills behind going gold. Shot portrait and shallow, so the branch runs on the diagonal and the sky stays open on one side — the headline sits in that open sky, so it must not be filled with detail. |
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
-| `gathaithi-wet-mill-morning.jpg` | Home | Story teaser | 3:2 | 2400×1600 | The wet mill in early morning working light — pulper, channels, delivery bay. Wide enough to read as a working factory, not a detail shot. |
 | `gathaithi-mill-and-ridge.jpg` | About | Hero | 16:9 | 2400×1350 | Gathaithi village and the surrounding shambas from a high point: coffee, terracing, red soil, tin roofs, cloud on the Aberdares. Landscape as evidence of terroir. |
 | `gathaithi-committee-meeting.jpg` | About | Governance | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
 | `gathaithi-soil-and-tree.jpg` | About | Terroir | 4:5 | 1600×2000 | Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil. |
@@ -85,7 +84,6 @@ the shot list is self-contained:
 
 - `gathaithi-cherry-sunrise.jpg` — Ripe red coffee cherry on the branch at sunrise, with the hills of Nyeri behind.
 - `gathaithi-selective-picking.jpg` — Ripe red coffee cherry being picked selectively into a bucket on a Gathaithi member’s farm.
-- `gathaithi-wet-mill-morning.jpg` — The Gathaithi wet mill at first light, with pulping channels and the cherry delivery bay.
 - `gathaithi-mill-and-ridge.jpg` — Gathaithi village and the surrounding coffee farms on the slopes of Tetu, Nyeri County.
 - `gathaithi-committee-meeting.jpg` — Members of the Gathaithi management committee in session at the society office.
 - `gathaithi-soil-and-tree.jpg` — The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.

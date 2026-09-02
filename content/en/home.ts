@@ -56,6 +56,19 @@ export const home: HomeContent = {
       'That decision is the whole story. Cherry is picked selectively by the household that grew it, delivered the same evening, and processed within hours at a single mill on {{millSite}} hectares. Nothing is blended in from elsewhere. Every kilo has a name attached to it in the books.',
       'What the society sells is the work of {{members}} families on the eastern slopes above Nyeri — and what it returns to them is the reason the work stays good.',
     ],
+    /* The statement card in the right-hand column, where the wet-mill
+       photograph used to sit. The year is written out rather than taken from
+       {{independentSince}}: that fact displays as “June 2000”, and the
+       sentence is built around the bare year. If the registration date is
+       ever corrected, correct it here too. */
+    card: {
+      eyebrow: 'Our story',
+      quote:
+        'In 2000, the farmers of Gathaithi made a simple decision: to own what they had spent generations building.',
+      support:
+        'They took responsibility for their coffee, their factory, and their future. More than two decades later, that decision still shapes every cherry delivered to the mill.',
+      footer: 'Gathaithi Farmers Co-operative Society • Est. 2000',
+    },
     pullQuote:
       'We are not suppliers to this business. We are the ones who own it.',
     attribution: 'Grace Wairimu, member since 1991 — sample quotation, not yet collected',
