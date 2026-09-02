@@ -118,7 +118,5 @@ export const contact: ContactContent = {
       { label: 'Registered', value: '{{independentSince}}' },
       { label: 'County', value: 'Nyeri County, Kenya' },
     ],
-    mapLabel: 'Map of Gathaithi, Tetu Sub-County, Nyeri County',
-    directions: 'Open the location in maps',
   },
 };

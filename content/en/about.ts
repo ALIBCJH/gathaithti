@@ -101,16 +101,4 @@ export const about: AboutContent = {
   },
 
 
-  location: {
-    heading: 'Where we are',
-    body:
-      'The mill and society office stand in Gathaithi village, Tetu Sub-County, about an hour’s drive north-west of Nyeri town and around three hours from Nairobi. Buyers are welcome at the mill during harvest — write ahead so the office can arrange a cupping.',
-    address: [
-      'Gathaithi Wet Mill',
-      'Gathaithi Village, Tetu Sub-County',
-      'Nyeri County, Kenya',
-    ],
-    directions: 'Open the location in maps',
-    mapLabel: 'Map of Gathaithi, Tetu Sub-County, Nyeri County',
-  },
 };

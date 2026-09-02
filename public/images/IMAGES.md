@@ -63,8 +63,6 @@ before the photography exists.
 | `member-06-portrait.jpg` | Our Farmers | Member profiles | 4:5 | 1200×1500 | As member-01-portrait.jpg. Different member, same eye level and treatment. |
 | `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 3:2 | 2000×1334 | A field day in progress: the agronomist demonstrating pruning on a real tree, members close in around it, secateurs in hands. Teaching between equals. |
 | `gathaithi-society-office.jpg` | Our Farmers | Pre-finance | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
-| `gathaithi-office-exterior.jpg` | Contact | Hero | 3:2 | 2000×1334 | The society office and mill entrance from the approach road, signage legible. This is the “you have arrived” photograph — shoot it in flat morning light. |
-| `gathaithi-location-map.jpg` | About & Contact | Location | 4:3 | 1600×1200 | A flat, exported map still — Nyeri County with Gathaithi marked, Nyeri town and Nairobi for reference. Muted, no satellite imagery, no third-party watermark. Export at 2× for retina. |
 
 ## Priority
 
@@ -112,5 +110,3 @@ the shot list is self-contained:
 - `member-06-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `gathaithi-agronomy-training.jpg` — Gathaithi members at a field day, learning pruning technique on a mature coffee tree.
 - `gathaithi-society-office.jpg` — A member completing a pre-finance application at the Gathaithi society office.
-- `gathaithi-office-exterior.jpg` — The entrance to the Gathaithi Farmers’ Co-operative Society office and wet mill.
-- `gathaithi-location-map.jpg` — Map showing the location of Gathaithi in Tetu sub-county, Nyeri County, Kenya.

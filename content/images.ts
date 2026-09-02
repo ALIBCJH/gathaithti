@@ -353,30 +353,6 @@ export const images = {
   },
 
   /* ── Contact ────────────────────────────────────────────────────────── */
-  contactOffice: {
-    file: 'gathaithi-office-exterior.jpg',
-    page: 'Contact',
-    section: 'Hero',
-    ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
-    direction:
-      'The society office and mill entrance from the approach road, signage legible. This is the “you have arrived” photograph — shoot it in flat morning light.',
-    alt: 'The entrance to the Gathaithi Farmers’ Co-operative Society office and wet mill.',
-    sizes: '(min-width: 1024px) 50vw, 100vw',
-  },
-  locationMap: {
-    file: 'gathaithi-location-map.jpg',
-    page: 'About & Contact',
-    section: 'Location',
-    ratio: '4/3',
-    minWidth: 1600,
-    minHeight: 1200,
-    direction:
-      'A flat, exported map still — Nyeri County with Gathaithi marked, Nyeri town and Nairobi for reference. Muted, no satellite imagery, no third-party watermark. Export at 2× for retina.',
-    alt: 'Map showing the location of Gathaithi in Tetu sub-county, Nyeri County, Kenya.',
-    sizes: '(min-width: 1024px) 45vw, 100vw',
-  },
 } as const satisfies Record<string, ImageSlot>;
 
 export type ImageKey = keyof typeof images;
