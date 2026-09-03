@@ -390,7 +390,7 @@ export const images = {
     direction:
       'PARTLY MET. The frame in place shows the pulper with whole red cherry on one side and freshly pulped parchment on the other — the separation reads clearly, which is the point of the step. What it does not show is the water: the brief asked for cherry entering the disc pulper with water moving and skins separating, motion frozen. Worth reshooting for that; usable until then.',
     alt: 'A pulper at Gathaithi, whole red cherry on one side and freshly pulped parchment on the other.',
-    sizes: '(min-width: 768px) 50vw, 100vw',
+    sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processFermentation: {
     file: 'process-02-fermentation.jpg',
@@ -402,7 +402,7 @@ export const images = {
     direction:
       'MET. A tank filled with parchment under water, mucilage breaking up as foam across the surface, the catchment behind it. Shot in daylight from a low three-quarter angle rather than at dusk from above as the brief asked, which reads better anyway: the hills place the tank somewhere real. Under-sized at 1264x848.',
     alt: 'A fermentation tank at the Gathaithi wet mill, filled with parchment under water and mucilage foam, the hills of Tetu behind.',
-    sizes: '(min-width: 768px) 50vw, 100vw',
+    sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processWashing: {
     file: 'process-03-washing.jpg',
@@ -414,7 +414,7 @@ export const images = {
     direction:
       'MET, and the best frame on the page: a line of workers moving parchment along the channels with wooden paddles, drying beds waiting behind them. It shows the WORK, not just the water. Under-sized at 1264x848. NOTE: this frame also shows density grading, which is step 05 — do not reuse it there. Two adjacent cards carrying the same photograph would read as an error.',
     alt: 'Workers moving parchment along the washing channels with wooden paddles at the Gathaithi mill, raised drying beds behind them.',
-    sizes: '(min-width: 768px) 50vw, 100vw',
+    sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processGrading: {
     file: 'process-04-grading.jpg',
@@ -426,7 +426,7 @@ export const images = {
     direction:
       'MET, for the SORTING half of this step. Workers in overalls hand-picking defects out of parchment spread on a raised bed, a basin beside them for what comes out. It shows people making the judgement, which the density grading in the channels cannot show — that happens under water and looks like water. The step copy names both, and the hand-sort is stated as happening on the beds so the picture and the words agree.',
     alt: 'Workers hand-sorting defects out of parchment on a raised drying bed at Gathaithi, a basin beside them for the rejects.',
-    sizes: '(min-width: 768px) 50vw, 100vw',
+    sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processDrying: {
     file: 'process-05-raised-beds.jpg',
@@ -438,7 +438,7 @@ export const images = {
     direction:
       'PARTLY MET. Parchment spread thin on the mesh of a raised bed, shot low and close so the beans recede to the hills behind — the thin, even layer and the mesh under it are exactly what this step is about. What it does not show is the brief\u2019s worker turning the bed, which is fine here: the step before it already has people at the beds, and the copy is not contradicted by their absence. A frame with someone turning parchment in late-afternoon light would still be the better one. Under-sized at 1376x768.',
     alt: 'Parchment coffee spread in a thin layer on a raised drying bed at Gathaithi, the hills behind.',
-    sizes: '(min-width: 768px) 50vw, 100vw',
+    sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
 
   /* ── Farmers ────────────────────────────────────────────────────────── */
