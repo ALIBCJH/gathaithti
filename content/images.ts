@@ -289,26 +289,26 @@ export const images = {
 
   /* ── Products ───────────────────────────────────────────────────────── */
   lotAA: {
-    file: 'gathaithi-retail-pack.jpg',
+    file: 'gathaithi-retail-pouch.jpg',
     page: 'Our Coffee',
     section: 'Lot catalogue — AA',
     ratio: '1/1',
     minWidth: 1600,
     minHeight: 1600,
     direction:
-      'STAND-IN. One photograph currently serves both grade cards — a retail pack, not the green-bean flat-lay this slot was written for. Replace with the flat-lay described below and give each grade its own file: Square flat-lay of AA green beans on parchment paper, raking side light so bean size and uniformity read clearly. Beans fill the frame, centred, with even margins. Identical setup, light, height and crop for both grade shots — they sit side by side and any difference in framing shows.',
-    alt: 'A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.',
+      'ONE PHOTOGRAPH FOR BOTH GRADES, and a retail pouch rather than the green-bean flat-lay this slot was written for. The card beside it sells green coffee per kilo, FOB Mombasa, minimum 300kg — a roasted, ground, medium-grind retail pack is a different product at a different point in the chain. The pack is portrait and the card is square, so it is cropped top and bottom; the label survives at a centred crop. The brief still stands: a square flat-lay of green beans on parchment paper, raking side light so bean size and uniformity read, one per grade, identical setup for all of them.',
+    alt: 'A retail pouch of Gathaithi single-origin coffee, roasted and ground.',
     sizes: '(min-width: 1024px) 30vw, 100vw',
   },
   lotAB: {
-    file: 'gathaithi-retail-pack.jpg',
+    file: 'gathaithi-retail-pouch.jpg',
     page: 'Our Coffee',
     section: 'Lot catalogue — AB',
     ratio: '1/1',
     minWidth: 1600,
     minHeight: 1600,
-    direction: 'STAND-IN. One photograph currently serves both grade cards — a retail pack, not the green-bean flat-lay this slot was written for. Replace with the flat-lay described below and give each grade its own file: As the AA flat-lay, identical setup. AB beans.',
-    alt: 'A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.',
+    direction: 'As lotAA — the same pouch stands in for this grade too. Colour is the only thing telling the two cards apart until each has its own flat-lay.',
+    alt: 'A retail pouch of Gathaithi single-origin coffee, roasted and ground.',
     sizes: '(min-width: 1024px) 30vw, 100vw',
   },
   /* The season's three standout frames. They sit between the processing

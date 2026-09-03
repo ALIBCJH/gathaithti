@@ -35,7 +35,7 @@ before the photography exists.
 
 | Filename | Page | Section | Ratio | Min. resolution | What the photograph shows |
 | --- | --- | --- | --- | --- | --- |
-| `gathaithi-retail-pack.jpg` | Our Coffee | Lot catalogue — stand-in for both grades | 1:1 | 1600×1600 | The 250 g retail pack, front on. Standing in for the two green-bean flat-lays until those are shot. |
+| `gathaithi-retail-pouch.jpg` | Our Coffee | Lot catalogue — stand-in for both grades | 1:1 | 1600×1600 | The 250 g retail pack, front on. Standing in for the two green-bean flat-lays until those are shot. |
 | `gathaithi-sunrise-ridge.jpg` | Home | Hero — slide 1 | 16:9 | 2400×1350 | Sunrise over the ridge with a branch of ripe cherry in the near foreground on the right. UNDER-SIZED at 1672×941: sharp on a desktop, soft on a phone, where the portrait crop scales it up ~1.8×. |
 | `gathaithi-roasted-beans.jpg` | Home | Hero — slide 2 | 16:9 | 2400×1350 | A full frame of roasted beans, no focal point — an all-over texture, the one kind of picture that survives being cropped to any shape. |
 | `gathaithi-cherry-branch.jpg` | Home | Hero — slide 3 | 16:9 | 2400×1350 | A branch of ripening cherry, red and green together, shot shallow so the canopy falls away to bokeh. Cluster left of centre. |
@@ -57,8 +57,8 @@ before the photography exists.
 | `board-08-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
 | `board-09-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
 | `gathaithi-soil-and-tree.jpg` | About | Terroir | 4:5 | 1600×2000 | Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil. |
-| `lot-aa-green-beans.jpg` | Our Coffee | Lot catalogue — AA | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills both grade cards, tinted a different colour per grade. Replace with the two flat-lays below. Square flat-lay of AA green beans on parchment paper, raking side light so bean size and uniformity read clearly. Beans fill the frame, centred, with even margins. Identical setup, light, height and crop for both grade shots — they sit side by side and any difference in framing shows. |
-| `lot-ab-green-beans.jpg` | Our Coffee | Lot catalogue — AB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills both grade cards, tinted a different colour per grade. Replace with the two flat-lays below. As lot-aa-green-beans.jpg, identical setup. AB beans. |
+| `lot-aa-green-beans.jpg` | Our Coffee | Lot catalogue — AA | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pouch.jpg` (a retail pack) currently fills both grade cards, tinted a different colour per grade. Replace with the two flat-lays below. Square flat-lay of AA green beans on parchment paper, raking side light so bean size and uniformity read clearly. Beans fill the frame, centred, with even margins. Identical setup, light, height and crop for both grade shots — they sit side by side and any difference in framing shows. |
+| `lot-ab-green-beans.jpg` | Our Coffee | Lot catalogue — AB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pouch.jpg` (a retail pack) currently fills both grade cards, tinted a different colour per grade. Replace with the two flat-lays below. As lot-aa-green-beans.jpg, identical setup. AB beans. |
 | `gathaithi-picking-hands.jpg` | Our Coffee | Processing — selective picking | 3:2 | 1800×1200 | Close on a picker's hands taking ripe red cherry off the branch, one at a time, with green and unripe fruit left on the wood beside it. The selectivity is the subject. |
 | `gathaithi-ripening-cherry.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | **Stand-in, moved from the page hero.** Wants the ripest fruit of the season instead: tight, portrait, uniform deep red, soft light. Currently landscape in a portrait box. |
 | `gathaithi-green-sack.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | A jute sack of milled green coffee, stencilled for the society, on plain white. The only studio shot on the site — defensible because it is the product, not the process. Portrait, 896×1200. |
@@ -121,7 +121,7 @@ the shot list is self-contained:
 - `board-09-portrait.jpg` — Portrait of a member of the Gathaithi management committee.
 - `gathaithi-soil-and-tree.jpg` — The base of a mature SL28 coffee tree in deep red volcanic soil on a Gathaithi member’s farm.
 - `gathaithi-ripening-cherry.jpg` — Dried coffee parchment lifted from a raised bed at the Gathaithi wet mill.
-- `gathaithi-retail-pack.jpg` — A 250 g retail pack of Gathaithi single-origin coffee, roasted and ground.
+- `gathaithi-retail-pouch.jpg` — A retail pouch of Gathaithi single-origin coffee, roasted and ground.
 - `lot-aa-green-beans.jpg` — Grade AA green coffee beans from Gathaithi, screen 17 and above.
 - `lot-ab-green-beans.jpg` — Grade AB green coffee beans from Gathaithi, screen 15 to 16.
 - `lot-pb-green-beans.jpg` — Peaberry green coffee beans from Gathaithi.
