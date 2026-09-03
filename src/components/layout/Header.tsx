@@ -131,6 +131,15 @@ export function Header({
     return path ? pathname.startsWith(full) : pathname === full;
   };
 
+
+  /* Clicking the nav item for the page you are already on used to do nothing:
+     the App Router does not re-navigate to the current route, so there was no
+     scroll reset and the click was dead. Every OTHER nav click puts the reader
+     at the top of a page, so this one should too. */
+  const toTopIfCurrent = (current: boolean) => () => {
+    if (current) window.scrollTo({ top: 0 });
+  };
+
   return (
     <>
       {/* The guard that used to live here is gone with the transparency it
@@ -181,6 +190,7 @@ export function Header({
                   <Link
                     href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
                     aria-current={current ? 'page' : undefined}
+                    onClick={toTopIfCurrent(current)}
                     className={[
                       'group relative inline-block py-2 text-[0.9375rem] transition-colors duration-200',
                       '[transition-timing-function:var(--ease)]',
@@ -303,7 +313,10 @@ export function Header({
                       <Link
                         href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
                         aria-current={current ? 'page' : undefined}
-                        onClick={() => setOpen(false)}
+                        onClick={() => {
+                          setOpen(false);
+                          toTopIfCurrent(current)();
+                        }}
                         className={[
                           'flex min-h-[3rem] items-center gap-4 rounded-full px-4 text-[0.9375rem]',
                           'transition-colors duration-200 [transition-timing-function:var(--ease)]',

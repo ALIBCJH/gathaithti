@@ -1,4 +1,5 @@
 import { RichText } from '@/components/ui/Fact';
+import { SmoothAnchor } from '@/components/ui/SmoothAnchor';
 import { Placeholder } from '@/components/media/Placeholder';
 import { HeroSlides, type HeroSlide } from '@/components/home/HeroSlides';
 import { getImage } from '@/lib/images';
@@ -128,9 +129,9 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
           hero means "there is more below", and the button it replaced went to
           About, which would have been a downward arrow that left the page. The
           tap target is a full 44px; only the glyph inside it is small. */}
-      <a
+      <SmoothAnchor
         href="#story-heading"
-        aria-label={content.scrollDown}
+        ariaLabel={content.scrollDown}
         /* No `.tap` here. That utility exists to grow a small inline link's hit
              area on a touch screen, and it does it by forcing
              `position: relative` — an UNLAYERED rule inside
@@ -153,7 +154,7 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
           <path d="M12 5v14" />
           <path d="m6 13 6 6 6-6" />
         </svg>
-      </a>
+      </SmoothAnchor>
 
       <div className="hero-foot relative mx-auto flex w-full max-w-[100rem] items-end justify-between gap-10 px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10">
         <p className="t-meta hidden items-center gap-3 text-on-inverse/50 lg:flex">
