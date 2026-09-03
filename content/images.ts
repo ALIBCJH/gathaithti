@@ -534,13 +534,15 @@ export const images = {
     alt: 'Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
-  /* The remaining three are still portraits, and still waiting. The brief used
-     to live on member-01; that slot now carries a harvest photograph, so the
-     reference brief moved here. */
+  /* PARKED — nothing renders these three. They held the three invented sample
+     profiles, which were removed outright: the band publishes no names now,
+     only photographs of members at work. The brief is kept because it is the
+     brief for a real member portrait, and the day an interview is collected
+     the card needs both a photograph and the shape of one. */
   memberFour: {
     file: 'member-04-portrait.jpg',
     page: 'Our Farmers',
-    section: 'Member profiles',
+    section: 'Member profiles — parked',
     ratio: '4/5',
     minWidth: 1200,
     minHeight: 1500,
@@ -552,7 +554,7 @@ export const images = {
   memberFive: {
     file: 'member-05-portrait.jpg',
     page: 'Our Farmers',
-    section: 'Member profiles',
+    section: 'Member profiles — parked',
     ratio: '4/5',
     minWidth: 1200,
     minHeight: 1500,
@@ -563,7 +565,7 @@ export const images = {
   memberSix: {
     file: 'member-06-portrait.jpg',
     page: 'Our Farmers',
-    section: 'Member profiles',
+    section: 'Member profiles — parked',
     ratio: '4/5',
     minWidth: 1200,
     minHeight: 1500,

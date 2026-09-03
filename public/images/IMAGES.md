@@ -71,9 +71,9 @@ before the photography exists.
 | `harvest-01-picking.jpg` | Our Farmers | Member card 1 | 3:2 | 2000×1334 | A member picking ripe cherry by hand, close in, mid-work and clearly enjoying it. Subject right of centre, loaded branch filling the left. |
 | `harvest-02-reaching.jpg` | Our Farmers | Member card 2 | 3:2 | 2000×1334 | As harvest-01. A member reaching up into the branch, sky behind, selecting rather than stripping. |
 | `harvest-03-two-members.jpg` | Our Farmers | Member card 3 | 3:2 | 2000×1334 | As harvest-01. Two members working the same tree from either side — the crop is family work. |
-| `member-04-portrait.jpg` | Our Farmers | Member profiles | 4:5 | 1200×1500 | Environmental portrait on the member's own shamba, standing, eye level, looking at the lens. Even shade. Confident, not smiling on command. The reference for the three remaining portraits. |
-| `member-05-portrait.jpg` | Our Farmers | Member profiles | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
-| `member-06-portrait.jpg` | Our Farmers | Member profiles | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
+| `member-04-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | Environmental portrait on the member's own shamba, standing, eye level, looking at the lens. Even shade. Confident, not smiling on command. The reference for the three remaining portraits. |
+| `member-05-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
+| `member-06-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 3:2 | 2000×1334 | A field day in progress: the agronomist demonstrating pruning on a real tree, members close in around it, secateurs in hands. Teaching between equals. |
 | `gathaithi-society-office.jpg` | Our Farmers | Pre-finance | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
 
@@ -83,7 +83,7 @@ If the shoot has to be done in stages, this is the order that matters.
 
 1. `gathaithi-sunrise-ridge.jpg` — the home page hero. One photograph carries
    the entire first impression.
-2. `member-04-portrait.jpg` … `member-06-portrait.jpg` — the three member profiles still waiting. Cards 1–3 carry the harvest photographs and no identity.
+2. `member-04-portrait.jpg` … `member-06-portrait.jpg` — parked. The member band shows three photographs and publishes no names; a portrait is only wanted alongside a real interview.
    The site says the society is its members; without faces it is a claim.
 3. `process-01-pulping.jpg` … `process-05-raised-beds.jpg` — the processing
    walkthrough. Buyers read this section closely.
