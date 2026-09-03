@@ -8,8 +8,17 @@ import { site } from '@content/site';
  *
  * Designed for a low-end Android phone on a slow connection in bright sun, not
  * for the projector: no JavaScript at all, no images, no entrance animation,
- * very large type, high contrast, and the two things a member came for — the
- * cherry price and the next payment date — inside the first screen.
+ * very large type and high contrast.
+ *
+ * It was written to put the cherry price inside the FIRST SCREEN, and it does
+ * not: the page header above it is a title, a lead and a great deal of air, and
+ * the price starts below the fold on anything smaller than a full desktop
+ * window. Tightening both (this band's top padding, and the centred PageHeader
+ * to the same rhythm as `Section size="opener"`) moved the price up 168px on a
+ * desktop and 190px on a phone, which is as far as spacing alone goes. Closing
+ * the rest means changing what is ABOVE this band, not what is in it — the
+ * regression below records where it actually sits, so it cannot quietly get
+ * worse again.
  */
 export function Noticeboard({ content }: { content: FarmersContent['noticeboard'] }) {
   return (
@@ -19,7 +28,10 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
       className="bg-inverse text-on-inverse on-ink"
     >
       <Container width="wide">
-        <div className="py-16 sm:py-20 lg:py-28">
+        {/* Top tighter than bottom: this band follows the page header, and two
+            full section paddings back to back were most of a screen of nothing
+            above the price. */}
+        <div className="pb-16 pt-12 sm:pb-20 sm:pt-14 lg:pb-28 lg:pt-16">
           {/* Centred, like every other head on this page — but still its own
               markup rather than SectionHead: this band sits on ink, and the
               shared Eyebrow renders the dark ochre that measures 2.9:1 here. */}
@@ -33,7 +45,7 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
           </div>
 
           {/* The price. The single most-read number on the site. */}
-          <div className="mt-10 border-2 border-ochre bg-ochre/10 p-8 sm:p-12">
+          <div className="mt-8 border-2 border-ochre bg-ochre/10 p-8 sm:p-12">
             <p className="t-meta text-ochre-light">{content.priceLabel}</p>
             <p className="t-figure mt-4 text-on-inverse" style={{ fontSize: 'clamp(3.5rem, 14vw, 7rem)' }}>
               <Fact id="cherryPriceCurrent" />
