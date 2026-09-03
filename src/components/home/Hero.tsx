@@ -3,7 +3,6 @@ import { Placeholder } from '@/components/media/Placeholder';
 import { HeroSlides, type HeroSlide } from '@/components/home/HeroSlides';
 import { getImage } from '@/lib/images';
 import type { HomeContent } from '@content/types';
-import type { Locale } from '@content/site';
 
 /**
  * The first five seconds. Without scrolling a visitor must learn who this is
@@ -22,7 +21,7 @@ import type { Locale } from '@content/site';
  * short-viewport rules in globals.css use to keep the whole thing on one
  * screen.
  */
-export function Hero({ locale, content }: { locale: Locale; content: HomeContent['hero'] }) {
+export function Hero({ content }: { content: HomeContent['hero'] }) {
   const image = getImage('homeHero');
 
   /* Three frames, three crops — and all three are landscape now, where the

@@ -28,7 +28,7 @@ export default async function HomePage({ params }: Props) {
   return (
     <>
       <JsonLd data={[organizationLd(locale), localBusinessLd(locale)]} />
-      <Hero locale={locale} content={home.hero} />
+      <Hero content={home.hero} />
 
       {/* The record and the season panel are desktop-only now.
 
