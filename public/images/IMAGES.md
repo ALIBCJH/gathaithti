@@ -75,7 +75,7 @@ before the photography exists.
 | `member-05-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `member-06-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 3:2 | 2000×1334 | A field day in progress: the agronomist demonstrating pruning on a real tree, members close in around it, secateurs in hands. Teaching between equals. |
-| `gathaithi-society-office.jpg` | Our Farmers | Pre-finance | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
+| `gathaithi-society-office.jpg` | Our Farmers | Pre-finance — **parked, nothing renders it** | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
 
 ## Priority
 

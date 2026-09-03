@@ -585,10 +585,14 @@ export const images = {
     alt: 'Gathaithi members at a field day, learning pruning technique on a mature coffee tree.',
     sizes: '(min-width: 1024px) 50vw, 100vw',
   },
+  /* PARKED — nothing renders this. The pre-finance band had this frame beside
+     its two paragraphs and the file was never supplied, so half the band was an
+     empty box printing the name it was waiting for. The brief is kept: if the
+     photograph is taken, the band can have it back. */
   farmersPrefinance: {
     file: 'gathaithi-society-office.jpg',
     page: 'Our Farmers',
-    section: 'Pre-finance',
+    section: 'PARKED — Pre-finance',
     ratio: '3/2',
     minWidth: 2000,
     minHeight: 1334,
