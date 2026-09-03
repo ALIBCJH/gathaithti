@@ -424,8 +424,9 @@ export const images = {
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
-    direction: 'A worker turning parchment on a raised bed, shade nets rolled back, rows receding. Late afternoon light.',
-    alt: 'Parchment being turned by hand on raised drying beds at the Gathaithi wet mill.',
+    direction:
+      'PARTLY MET. Parchment spread thin on the mesh of a raised bed, shot low and close so the beans recede to the hills behind — the thin, even layer and the mesh under it are exactly what this step is about. What it does not show is the brief\u2019s worker turning the bed, which is fine here: the step before it already has people at the beds, and the copy is not contradicted by their absence. A frame with someone turning parchment in late-afternoon light would still be the better one. Under-sized at 1376x768.',
+    alt: 'Parchment coffee spread in a thin layer on a raised drying bed at Gathaithi, the hills behind.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
 
