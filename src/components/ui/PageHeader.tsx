@@ -23,8 +23,14 @@ export function PageHeader({
   align?: 'left' | 'center';
 }) {
   if (align === 'center') {
+    /* Tighter than the left variant, and deliberately the same rhythm as
+       `Section size="opener"`: clear the fixed header, add a gap, stop. The
+       loose original put 152px of empty ground under the header and 208px
+       between the lead and the next band's label, which on Our Farmers pushed
+       the cherry price — the one thing a member opens the page for, and the
+       stated design goal of the band below — off the first screen entirely. */
     return (
-      <div className="bg-parchment pb-16 pt-40 sm:pb-20 sm:pt-48 lg:pb-24 lg:pt-56">
+      <div className="bg-parchment pb-14 pt-[calc(var(--header-h)+1.5rem)] sm:pb-16 sm:pt-[calc(var(--header-h)+2rem)] lg:pb-20 lg:pt-[calc(var(--header-h)+3rem)]">
         <Container width="wide">
           <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-6 text-center">
             <Eyebrow>{eyebrow}</Eyebrow>
