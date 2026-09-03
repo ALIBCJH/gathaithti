@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { SmartImage } from '@/components/media/SmartImage';
@@ -9,17 +9,20 @@ export function PreFinance({ content }: { content: FarmersContent['prefinance'] 
   return (
     <Section tone="parchment" size="loose" id="pre-finance" ariaLabelledby="prefinance-heading">
       <Container width="wide">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+        {/* Across the top and centred, like every other head on this page. */}
+        <SectionHead
+          id="prefinance-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          lead={content.lead}
+        />
+
+        <div className="mt-16 grid gap-16 lg:mt-20 lg:grid-cols-12 lg:gap-20">
           <Reveal className="lg:col-span-5">
             <SmartImage slot="farmersPrefinance" />
           </Reveal>
 
-          <div className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-            <h2 id="prefinance-heading" className="t-section max-w-[16ch]">
-              {content.heading}
-            </h2>
-            <p className="t-lead measure text-ink-soft">{content.lead}</p>
+          <div className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7 lg:self-center">
             {content.body.map((paragraph, i) => (
               <p key={i} className="t-body measure text-ink-soft">
                 {paragraph}

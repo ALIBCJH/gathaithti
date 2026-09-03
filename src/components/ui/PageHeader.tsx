@@ -10,11 +10,34 @@ export function PageHeader({
   eyebrow,
   title,
   lead,
+  align = 'left',
 }: {
   eyebrow: string;
   title: string;
   lead: string;
+  /**
+   * `center` stacks the three lines down the middle, the way About and Our
+   * Coffee open. Left keeps the original two-column reading, where the title
+   * is a column and the lead is the column beside it.
+   */
+  align?: 'left' | 'center';
 }) {
+  if (align === 'center') {
+    return (
+      <div className="bg-parchment pb-16 pt-40 sm:pb-20 sm:pt-48 lg:pb-24 lg:pt-56">
+        <Container width="wide">
+          <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-6 text-center">
+            <Eyebrow>{eyebrow}</Eyebrow>
+            <h1 className="t-page-title max-w-[20ch] text-balance">{title}</h1>
+            <p className="t-lead max-w-[56ch] text-ink-soft">
+              <RichText text={lead} />
+            </p>
+          </div>
+        </Container>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-parchment pb-16 pt-40 sm:pb-20 sm:pt-48 lg:pb-24 lg:pt-56">
       <Container width="wide">

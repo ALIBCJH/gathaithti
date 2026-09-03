@@ -8,8 +8,8 @@ import { PreFinance } from '@/components/farmers/PreFinance';
 import { Training } from '@/components/farmers/Training';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { PageHeader } from '@/components/ui/PageHeader';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { getDictionary, isLocale } from '@/lib/i18n';
@@ -43,7 +43,14 @@ export default async function FarmersPage({ params }: Props) {
         ]}
       />
 
-      <PageHeader eyebrow={farmers.hero.eyebrow} title={farmers.hero.title} lead={farmers.hero.lead} />
+      {/* Centred, like every head on this page and like the way About and Our
+          Coffee open. Contact still uses the two-column form. */}
+      <PageHeader
+        align="center"
+        eyebrow={farmers.hero.eyebrow}
+        title={farmers.hero.title}
+        lead={farmers.hero.lead}
+      />
 
       {/* The noticeboard comes first, before any photography: members open this
           page for the price, and they should not have to scroll past a hero. */}
@@ -53,17 +60,12 @@ export default async function FarmersPage({ params }: Props) {
 
       <Section tone="parchment" ariaLabelledby="profiles-heading">
         <Container width="wide">
-          <div className="grid gap-10 lg:grid-cols-12">
-            <div className="flex flex-col gap-6 lg:col-span-6">
-              <Eyebrow>{farmers.profiles.eyebrow}</Eyebrow>
-              <h2 id="profiles-heading" className="t-section max-w-[14ch]">
-                {farmers.profiles.heading}
-              </h2>
-            </div>
-            <p className="t-lead measure text-ink-soft lg:col-span-5 lg:col-start-8">
-              {farmers.profiles.lead}
-            </p>
-          </div>
+          <SectionHead
+            id="profiles-heading"
+            eyebrow={farmers.profiles.eyebrow}
+            heading={farmers.profiles.heading}
+            lead={farmers.profiles.lead}
+          />
 
           <div className="mt-20 grid gap-12 sm:grid-cols-2 lg:mt-24 lg:grid-cols-3 lg:gap-16">
             {farmers.profiles.members.map((member, i) => (
