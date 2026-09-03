@@ -328,15 +328,15 @@ export const images = {
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   gemTwo: {
-    file: 'gathaithi-gem-parchment.jpg',
+    file: 'gathaithi-green-sack.jpg',
     page: 'Our Coffee',
     section: 'The season',
     ratio: '4/5',
     minWidth: 1400,
     minHeight: 1750,
     direction:
-      'Dried parchment on the bed at the point it comes off — even colour, even size, a hand lifting some of it so the eye has a scale. Portrait, late afternoon light.',
-    alt: 'Dried parchment coffee being lifted from a raised bed at the Gathaithi mill.',
+      'A jute sack of milled green coffee, stencilled for the society, on a plain white ground. It is the only studio shot on the site — everything else is documentary — which is defensible here because it is the PRODUCT rather than the process, and a buyer reads it as a sample bag. It replaced a brief for dried parchment on the bed; the card was retitled to match, because a sack of green is a later stage than parchment and the two must not be captioned as each other. Portrait, 896x1200.',
+    alt: 'A jute sack of milled green Gathaithi coffee, stencilled “Gathaithi Coffee, Nyeri, Kenya”.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   gemThree: {

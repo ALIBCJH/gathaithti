@@ -142,9 +142,14 @@ export const products: ProductsContent = {
         imageSlot: 'gemOne',
       },
       {
-        title: 'The parchment it dried to',
+        /* Retitled when the photograph arrived. It shows a sack of milled
+           green coffee, which is a later stage than parchment on a bed — the
+           card cannot keep a parchment title over a picture of the finished
+           product. The substance about even drying survives, because that is
+           what made a clean grade possible. */
+        title: 'The coffee it became',
         body:
-          'Turned by hand on raised beds and taken off at even moisture. Uniform size and colour across the lot — the condition a dry mill needs before it can sort a clean AA out of it.',
+          'Turned by hand on the beds and taken off at even moisture, then hulled and sorted at the dry mill. Uniform drying is what lets a mill pull a clean grade out of a lot, and this is what came back: green coffee, screened and bagged, ready to ship from Mombasa.',
         imageSlot: 'gemTwo',
       },
       {
