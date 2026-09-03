@@ -27,13 +27,16 @@ export function Placeholder({
       /* @container: the note is hidden when the SLOT is small, not when the
          window is — a 21:9 hero on a phone and a small card on a desktop have
          the same problem, and a viewport media query only catches one of them. */
-      className={`@container relative h-full w-full overflow-hidden ${dark ? 'bg-inverse' : 'bg-parchment-2'}`}
+      className={`@container relative h-full w-full overflow-hidden rounded-[inherit] ${dark ? 'bg-inverse' : 'bg-parchment-2'}`}
       role="img"
       aria-label={`Photograph to come: ${slot.alt}`}
     >
       {/* hairline frame, inset so it reads as a mount rather than a border */}
       <div
-        className={`pointer-events-none absolute inset-2 border ${dark ? 'border-on-inverse/25' : 'border-ochre/45'}`}
+        /* The mount follows the frame's curve, one step tighter because it is
+           inset by 8px inside a 12px corner. A square mount inside a rounded
+           frame has its corners clipped and reads as a mistake. */
+        className={`pointer-events-none absolute inset-2 rounded-[calc(var(--radius-photo)-0.5rem)] border ${dark ? 'border-on-inverse/25' : 'border-ochre/45'}`}
         aria-hidden="true"
       />
       <div className="pointer-events-none absolute inset-2" aria-hidden="true">

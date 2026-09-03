@@ -17,14 +17,15 @@ export function SmartImage({
   className = '',
   imageClassName = '',
   zoom = false,
-  rounded = false,
+  square = false,
 }: {
   slot: string;
   className?: string;
   imageClassName?: string;
   /** Card hover zoom. The parent needs the `group/card` class. */
   zoom?: boolean;
-  rounded?: boolean;
+  /** Opt OUT of the corner radius. For a frame that meets an edge. */
+  square?: boolean;
 }) {
   if (!isImageKey(slot)) {
     return (
@@ -34,7 +35,12 @@ export function SmartImage({
 
   const image = getImage(slot);
   const [w, h] = image.ratio.split('/');
-  const radius = rounded ? 'rounded-sm' : '';
+  /* Rounded by DEFAULT. There was a `rounded` prop here that defaulted to
+     false, and in the whole codebase nothing ever passed it — so every
+     photograph on the site had square corners against a design that rounds its
+     buttons, its pills and its focus ring. The default is inverted and the
+     radius comes from the shared token. */
+  const radius = square ? '' : 'rounded-[var(--radius-photo)]';
 
   return (
     <div
