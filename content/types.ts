@@ -158,8 +158,10 @@ export interface AboutContent {
   origin: {
     eyebrow: string;
     heading: string;
-    /** One per photograph beside the text, in order. */
-    captions: string[];
+    /** The one photograph beside the text. Was three, and two of them were
+     *  files the society never supplied — a row of two placeholders beside a
+     *  single real frame. */
+    caption: string;
     body: string[];
     timeline: { year: string; title: string; body: string }[];
   };

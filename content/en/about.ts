@@ -47,15 +47,13 @@ export const about: AboutContent = {
   origin: {
     eyebrow: 'History',
     heading: 'History of the society',
-    /* The three photographs beside the text. Captions, not filenames — the
-       placeholder already prints what each file must be called. */
-    /* In slot order — historyOne, historyTwo, historyThree. Written the other
-       way round first, which captioned the drying beds as the office. */
-    captions: [
-      'The wet mill and the drying beds, looking across to Tetu.',
-      'The society office and store, Gathaithi village.',
-      'Members at a collection point at the end of the day.',
-    ],
+    /* The one photograph beside the text. There were three frames here and
+       only one file: the other two rendered as PHOTOGRAPH TO COME placeholders
+       for as long as the society had not supplied them, which made a row that
+       was two-thirds empty box. One frame that carries the section is worth
+       more than three that mostly do not exist. The two briefs are parked in
+       content/images.ts if those photographs are ever taken. */
+    caption: 'The wet mill and the drying beds, looking across to Tetu.',
     body: [
       'Coffee came to these ridges as a smallholder crop in the years around independence, and Gathaithi’s growers organised as part of the larger Tetu society in {{established}}. For three decades the village delivered its cherry into a structure it did not control.',
       'In {{independentSince}} that changed. Gathaithi registered as a society in its own right, named for the village itself, and took over the running of the wet mill on its own {{millSite}} hectares. Since then every decision about processing, marketing and payment has been taken by people who live within walking distance of the beds.',
