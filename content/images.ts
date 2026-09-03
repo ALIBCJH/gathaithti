@@ -340,15 +340,15 @@ export const images = {
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   gemThree: {
-    file: 'gathaithi-gem-cupping.jpg',
+    file: 'gathaithi-the-cup.jpg',
     page: 'Our Coffee',
     section: 'The season',
     ratio: '4/5',
     minWidth: 1400,
     minHeight: 1750,
     direction:
-      'The cupping table mid-session: bowls in a row, a spoon lifted, the score sheet in frame. Portrait. This is the frame that turns a claim about the cup into something a buyer can picture.',
-    alt: 'A cupping session in progress at Gathaithi, bowls laid out with a score sheet.',
+      'A brewed cup on a saucer with roasted beans, lit warm and dark. NOT the cupping table the slot was briefed for — no bowls, no spoon, no score sheet — but it contradicts nothing: the card is about how the coffee tastes, and a cup is a fair picture of that. Two notes for whoever revisits it. It is the second studio shot in this row of three, so the section now leans product rather than documentary. And the society sells GREEN coffee FOB Mombasa; it does not roast or brew, so a brewed cup is the end of somebody else\u2019s chain — legitimate on a card about the cup, misleading anywhere that implies the society roasts. Portrait, 896x1200.',
+    alt: 'A cup of brewed coffee on a saucer with roasted beans beside it, steam rising.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
 
