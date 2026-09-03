@@ -11,7 +11,11 @@ export function ProcessWalkthrough({ content }: { content: ProductsContent['proc
   return (
     <Section tone="parchment-2" size="loose" id="processing" ariaLabelledby="process-heading">
       <Container width="wide">
+        {/* `h1`, not `h2`: this band opens the page now that the hero has gone,
+            and a page with no h1 is a page with no title as far as a crawler
+            or a screen reader is concerned. */}
         <SectionHead
+          as="h1"
           id="process-heading"
           eyebrow={content.eyebrow}
           heading={content.heading}
