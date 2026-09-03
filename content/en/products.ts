@@ -108,48 +108,6 @@ export const products: ProductsContent = {
         'The workhorse grade and the bulk of what Gathaithi produces. Marginally softer than the AA and, in most seasons, the better value in the cup — many of our repeat buyers take AB by preference, not by compromise.',
       imageSlot: 'lotAB',
     },
-    {
-      id: 'pb',
-      grade: 'PB',
-      name: 'Gathaithi Peaberry',
-      priceFactId: 'pricePB',
-      incoterm: 'FOB Mombasa',
-      moq: '2 bags · 120 kg',
-      screen: 'Peaberry',
-      varieties: 'SL28, SL34, Ruiru 11, Batian',
-      processing: 'Fully washed · overnight ferment · second soak · raised beds',
-      cuppingNotes: ['Redcurrant', 'Bergamot', 'Cane sugar', 'Bright, lively finish'],
-      score: 'Cupped each season — score on request',
-      harvestWindow: 'Main crop: October – January',
-      volume: 'Small — a single-figure percentage of the crop',
-      packaging: '60 kg GrainPro-lined sisal, or vacuum-packed on request',
-      availability: 'forward',
-      availabilityLabel: 'Forward — enquire',
-      description:
-        'The single round seeds separated out at the dry mill. Small volume, denser roast behaviour, and a brighter, more perfumed cup than the flat-bean grades. Usually spoken for early.',
-      imageSlot: 'lotPB',
-    },
-    {
-      id: 'c',
-      grade: 'C',
-      name: 'Gathaithi C',
-      priceFactId: 'priceC',
-      incoterm: 'FOB Mombasa',
-      moq: '10 bags · 600 kg',
-      screen: 'Screen 14 and below',
-      varieties: 'SL28, SL34, Ruiru 11, Batian',
-      processing: 'Fully washed · overnight ferment · second soak · raised beds',
-      cuppingNotes: ['Dried fruit', 'Malt', 'Soft citrus', 'Light body'],
-      score: 'Cupped each season — score on request',
-      harvestWindow: 'Main crop: October – January',
-      volume: 'Limited',
-      packaging: '60 kg GrainPro-lined sisal',
-      availability: 'allocated',
-      availabilityLabel: 'Allocated for this season',
-      description:
-        'The smaller screens from the same lots, processed identically. Honest, clean Nyeri character at a lighter weight — sensible for filter blends and for roasters who want the origin without the AA premium.',
-      imageSlot: 'lotC',
-    },
   ],
 
   /* The season's standout, between the processing walkthrough and the
@@ -259,8 +217,6 @@ export const products: ProductsContent = {
     heading: 'Request a sample',
     lead:
       'Tell us what you roast and what volume you work with. The marketing office replies with current availability, the lot details and a sample by courier — usually within two working days.',
-    note:
-      'Samples are sent free of charge. Courier costs are met by the requesting party. We ask for a cupping response in return, whether or not you buy.',
     fields: {
       name: 'Your name',
       company: 'Company',

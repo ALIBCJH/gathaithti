@@ -264,7 +264,6 @@ export interface ProductsContent {
     eyebrow: string;
     heading: string;
     lead: string;
-    note: string;
     fields: {
       name: string; company: string; email: string; country: string;
       role: string; volume: string; message: string; lot: string;
