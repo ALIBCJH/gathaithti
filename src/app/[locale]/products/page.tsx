@@ -7,7 +7,6 @@ import { ProcessWalkthrough } from '@/components/products/ProcessWalkthrough';
 import { SeasonGem } from '@/components/products/SeasonGem';
 import { SampleRequestForm } from '@/components/products/SampleRequestForm';
 import { SplitHero } from '@/components/layout/SplitHero';
-import { SmartImage } from '@/components/media/SmartImage';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -129,12 +128,6 @@ export default async function ProductsPage({ params }: Props) {
                 {products.sample.heading}
               </h2>
               <p className="t-lead measure text-ink-soft">{products.sample.lead}</p>
-              <p className="t-body border-t border-line pt-6 text-[0.9375rem] text-ink-soft">
-                {products.sample.note}
-              </p>
-              <div className="hidden lg:block">
-                <SmartImage slot="sampleForm" />
-              </div>
             </div>
 
             <div className="lg:col-span-7 lg:col-start-6">

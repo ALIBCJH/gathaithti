@@ -35,7 +35,7 @@ before the photography exists.
 
 | Filename | Page | Section | Ratio | Min. resolution | What the photograph shows |
 | --- | --- | --- | --- | --- | --- |
-| `gathaithi-retail-pack.jpg` | Our Coffee | Lot catalogue — stand-in for all four grades | 1:1 | 1600×1600 | The 250 g retail pack, front on. Standing in for the four green-bean flat-lays until those are shot. |
+| `gathaithi-retail-pack.jpg` | Our Coffee | Lot catalogue — stand-in for both grades | 1:1 | 1600×1600 | The 250 g retail pack, front on. Standing in for the two green-bean flat-lays until those are shot. |
 | `gathaithi-sunrise-ridge.jpg` | Home | Hero — slide 1 | 16:9 | 2400×1350 | Sunrise over the ridge with a branch of ripe cherry in the near foreground on the right. UNDER-SIZED at 1672×941: sharp on a desktop, soft on a phone, where the portrait crop scales it up ~1.8×. |
 | `gathaithi-roasted-beans.jpg` | Home | Hero — slide 2 | 16:9 | 2400×1350 | A full frame of roasted beans, no focal point — an all-over texture, the one kind of picture that survives being cropped to any shape. |
 | `gathaithi-cherry-branch.jpg` | Home | Hero — slide 3 | 16:9 | 2400×1350 | A branch of ripening cherry, red and green together, shot shallow so the canopy falls away to bokeh. Cluster left of centre. |
@@ -58,10 +58,8 @@ before the photography exists.
 | `board-09-portrait.jpg` | About | Governance — management committee | 4:5 | 1200×1500 | As board-01-portrait.jpg — same height, same crop, same light. |
 | `gathaithi-soil-and-tree.jpg` | About | Terroir | 4:5 | 1600×2000 | Base of a mature SL28 tree: deep red volcanic soil, mulch, the trunk and a branch of green cherry. Shot in shade for colour accuracy in the soil. |
 | `gathaithi-ripening-cherry.jpg` | Our Coffee | Hero | 16:9 | 2400×1350 | Two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame. |
-| `lot-aa-green-beans.jpg` | Our Coffee | Lot catalogue — AA | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. Square flat-lay of AA green beans on parchment paper, raking side light so bean size and uniformity read clearly. Beans fill the frame, centred, with even margins. Identical setup, light, height and crop for all four grade shots — they sit side by side in a grid and any difference in framing shows. |
-| `lot-ab-green-beans.jpg` | Our Coffee | Lot catalogue — AB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. As lot-aa-green-beans.jpg, identical setup. AB beans. |
-| `lot-pb-green-beans.jpg` | Our Coffee | Lot catalogue — PB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. As lot-aa-green-beans.jpg, identical setup. Peaberry — the round single seeds should be obvious. |
-| `lot-c-green-beans.jpg` | Our Coffee | Lot catalogue — C | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills all four grade cards, tinted a different colour per grade. Replace with the four flat-lays below. As lot-aa-green-beans.jpg, identical setup. Grade C beans. |
+| `lot-aa-green-beans.jpg` | Our Coffee | Lot catalogue — AA | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills both grade cards, tinted a different colour per grade. Replace with the two flat-lays below. Square flat-lay of AA green beans on parchment paper, raking side light so bean size and uniformity read clearly. Beans fill the frame, centred, with even margins. Identical setup, light, height and crop for both grade shots — they sit side by side and any difference in framing shows. |
+| `lot-ab-green-beans.jpg` | Our Coffee | Lot catalogue — AB | 1:1 | 1600×1600 | **Stand-in in place.** `gathaithi-retail-pack.jpg` (a retail pack) currently fills both grade cards, tinted a different colour per grade. Replace with the two flat-lays below. As lot-aa-green-beans.jpg, identical setup. AB beans. |
 | `gathaithi-picking-hands.jpg` | Our Coffee | Processing — selective picking | 3:2 | 1800×1200 | Close on a picker's hands taking ripe red cherry off the branch, one at a time, with green and unripe fruit left on the wood beside it. The selectivity is the subject. |
 | `gathaithi-gem-cherry.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | The ripest cherry of the season on the branch, tight and portrait, soft light. Uniform deep red, no green in frame. |
 | `gathaithi-gem-parchment.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | Dried parchment at the point it comes off the bed — even colour and size, a hand lifting some for scale. |
@@ -71,7 +69,6 @@ before the photography exists.
 | `process-03-washing.jpg` | Our Coffee | Processing — washing | 3:2 | 1800×1200 | Washing channels with parchment being graded by density, a worker with a wooden paddle. Water motion is the subject. |
 | `process-04-second-soak.jpg` | Our Coffee | Processing — second soak | 3:2 | 1800×1200 | Clean water soak tank, parchment fully submerged, surface still enough to read the beans through it. |
 | `process-05-raised-beds.jpg` | Our Coffee | Processing — drying | 3:2 | 1800×1200 | A worker turning parchment on a raised bed, shade nets rolled back, rows receding. Late afternoon light. |
-| `gathaithi-sample-preparation.jpg` | Our Coffee | Request a sample | 4:5 | 1400×1750 | Sample bags being weighed and labelled for despatch, or a cupping table mid-session. Precision and record-keeping, not romance. |
 | `harvest-01-picking.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | A member picking ripe cherry by hand, close in, mid-work and clearly enjoying it. Subject right of centre, loaded branch filling the left. |
 | `harvest-02-reaching.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | As harvest-01. A member reaching up into the branch, sky behind, selecting rather than stripping. |
 | `harvest-03-two-members.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | As harvest-01. Two members working the same tree from either side — the crop is family work. |
@@ -135,7 +132,6 @@ the shot list is self-contained:
 - `process-03-washing.jpg` — Parchment being washed and density-graded in the channels at Gathaithi.
 - `process-04-second-soak.jpg` — Washed parchment resting under clean water during the second soak at Gathaithi.
 - `process-05-raised-beds.jpg` — Parchment being turned by hand on raised drying beds at the Gathaithi wet mill.
-- `gathaithi-sample-preparation.jpg` — Green coffee samples being weighed and labelled for despatch at Gathaithi.
 - `harvest-01-picking.jpg` — A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.
 - `harvest-02-reaching.jpg` — A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.
 - `harvest-03-two-members.jpg` — Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.
