@@ -68,7 +68,7 @@ export function LotCard({
       <div className="relative">
         <SmartImage slot={lot.imageSlot} zoom />
 
-        {/* One photograph stands in for all four grades until each has its own.
+        {/* One photograph stands in for both grades until each has its own.
             A tint in the grade's colour, held low and thrown across the corner
             rather than laid flat over the whole frame, is what stops the row
             reading as the same picture printed four times. */}

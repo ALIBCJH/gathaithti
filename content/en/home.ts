@@ -62,7 +62,7 @@ export const home: HomeContent = {
       'The main crop runs from October, with the fly crop earlier in the year. Availability moves week to week — this panel is updated by the marketing office as lots come off the drying beds and through milling.',
     status: 'Main crop — samples available',
     rows: [
-      { label: 'Grades offered', value: 'AA · AB · PB · C' },
+      { label: 'Grades offered', value: 'AA · AB' },
       { label: 'Varieties', value: '{{varieties}}' },
       { label: 'Process', value: 'Fully washed, second soak, sun-dried on raised beds' },
       { label: 'Cherry intake this year', value: '{{cherryAnnual}} kg' },

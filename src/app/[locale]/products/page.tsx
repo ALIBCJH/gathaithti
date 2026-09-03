@@ -63,7 +63,7 @@ export default async function ProductsPage({ params }: Props) {
 
       {/* Chronological: how the coffee is made, what this season produced, how
           it is sold, the lots themselves, then the way to ask for a sample.
-          The catalogue used to come first, which showed a stranger four grades
+          The catalogue used to come first, which showed a stranger the grades
           before telling them anything about how the grades come about. */}
       <ProcessWalkthrough content={products.process} />
 

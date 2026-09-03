@@ -403,15 +403,16 @@ export const images = {
     alt: 'Parchment being washed and density-graded in the channels at Gathaithi.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
-  processSoaking: {
-    file: 'process-04-second-soak.jpg',
+  processGrading: {
+    file: 'process-04-grading.jpg',
     page: 'Our Coffee',
-    section: 'Processing — second soak',
+    section: 'Processing — grading',
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
-    direction: 'Clean water soak tank, parchment fully submerged, surface still enough to read the beans through it.',
-    alt: 'Washed parchment resting under clean water during the second soak at Gathaithi.',
+    direction:
+      'Density grading in the washing channels: the heavier parchment running one way and the lights being drawn off, ideally with a worker\u2019s paddle setting the separation. The SEPARATION is the subject — a photograph of water alone does not show grading. Replaces the second-soak frame, which is no longer a step of its own.',
+    alt: 'Parchment being density-graded in the washing channels at Gathaithi, the lighter beans separated off.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
   processDrying: {
