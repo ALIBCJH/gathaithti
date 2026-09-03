@@ -288,20 +288,6 @@ export const images = {
   },
 
   /* ── Products ───────────────────────────────────────────────────────── */
-  productsHero: {
-    file: 'gathaithi-ripening-cherry.jpg',
-    page: 'Our Coffee',
-    section: 'Hero',
-    ratio: '16/9',
-    minWidth: 2400,
-    minHeight: 1350,
-    direction:
-      'STAND-IN. Currently a daylight frame of mixed-ripeness cherry on the branch — red, yellow and green together — which suits a page about grading and selective picking, but is not the shot this slot was written for. The brief still stands: two hands lifting dried parchment from a bed, backlit so the beans separate. Tight, tactile, no branding in frame.',
-    alt: 'Ripe and ripening coffee cherry on the branch at Gathaithi — red, yellow and green together.',
-    priority: true,
-    /* The hero is a column now, not a full-width band. */
-    sizes: '(min-width: 1024px) 46vw, 100vw',
-  },
   lotAA: {
     file: 'gathaithi-retail-pack.jpg',
     page: 'Our Coffee',
@@ -330,15 +316,15 @@ export const images = {
      process step, not a grade flat-lay. What is left is the crop itself at its
      best — which is the point of the section. */
   gemOne: {
-    file: 'gathaithi-gem-cherry.jpg',
+    file: 'gathaithi-ripening-cherry.jpg',
     page: 'Our Coffee',
     section: 'The season',
     ratio: '4/5',
     minWidth: 1400,
     minHeight: 1750,
     direction:
-      'The ripest cherry of the season on the branch, shot tight and portrait in soft light. Uniform, deep red, no green in frame. This is the picture that has to look like the best fruit the hill produced.',
-    alt: 'Uniformly ripe red cherry on the branch at Gathaithi.',
+      'STAND-IN, moved here from the page hero. A daylight frame of cherry on the branch with red, yellow and green together — which is honest about a tree that does not ripen at once, but this card is called "the cherry it started as" and wants the ripest fruit of the season: tight, portrait, uniform deep red, soft light. It is also landscape at 1413x771 in a portrait box, so it is cropped hard.',
+    alt: 'Cherry on the branch at Gathaithi — red, yellow and green ripening together.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   gemTwo: {

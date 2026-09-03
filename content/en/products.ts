@@ -8,6 +8,13 @@ export const products: ProductsContent = {
     ogLine: 'AA · AB · PB · C — fully washed, second soak, raised-bed dried',
   },
 
+  /* PARKED. The page has no hero band any more — it opens on the processing
+     walkthrough, which carries the h1. Nothing renders this, and it is kept
+     rather than deleted because the lead is a real claim with nowhere else to
+     live yet: "Every lot on this page comes from one wet mill and one
+     catchment of {{members}} smallholders. Grades are separated after milling;
+     nothing is bought in, blended in, or bulked up." Re-home it or delete it,
+     but do not leave it parked indefinitely. */
   hero: {
     eyebrow: 'Our coffee',
     title: 'This season’s lots',

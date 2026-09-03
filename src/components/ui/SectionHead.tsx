@@ -24,6 +24,7 @@ export function SectionHead({
   heading,
   lead,
   align = 'center',
+  as: Tag = 'h2',
   className = '',
   children,
 }: {
@@ -32,6 +33,12 @@ export function SectionHead({
   heading: string;
   lead?: string;
   align?: 'center' | 'left';
+  /**
+   * `h1` for a page whose opening band IS its first section. Every page needs
+   * exactly one, and Google indexes it; a page that lost its hero must hand
+   * the level to whatever now comes first rather than simply going without.
+   */
+  as?: 'h1' | 'h2';
   className?: string;
   children?: ReactNode;
 }) {
@@ -47,12 +54,12 @@ export function SectionHead({
     >
       <Eyebrow>{eyebrow}</Eyebrow>
 
-      <h2
+      <Tag
         id={id}
-        className={`t-section text-balance ${centred ? 'max-w-[20ch]' : 'max-w-[16ch]'}`}
+        className={`${Tag === 'h1' ? 't-page-title' : 't-section'} text-balance ${centred ? 'max-w-[20ch]' : 'max-w-[16ch]'}`}
       >
         <RichText text={heading} />
-      </h2>
+      </Tag>
 
       {lead ? (
         <p className={`t-lead text-ink-soft ${centred ? 'max-w-[56ch]' : 'measure'}`}>
