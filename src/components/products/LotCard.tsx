@@ -10,17 +10,20 @@ const availabilityTone: Record<Lot['availability'], string> = {
 };
 
 /**
- * A lot, presented like a product and priced like green coffee.
+ * A lot, presented like a product and sold like green coffee.
  *
  * There is no cart and no checkout: Kenyan coffee moves through the Nairobi
  * Coffee Exchange or under a direct-sales licence, so the only action a card
- * can honestly offer is a sample request. The price is indicative and labelled
- * as such, and the whole price block disappears if `showPrices` is turned off
- * in content/en/products.ts.
+ * can honestly offer is a sample request.
  *
- * The specification sits behind a native <details>, which keeps the card
- * scannable, costs no JavaScript, and is keyboard- and screen-reader-correct
- * without any work from us.
+ * The face is deliberately bare — the photograph, the availability, the grade,
+ * the name, and the way to ask. Everything a buyer weighs sits one disclosure
+ * below it, including the price and the minimum, which used to be on the face.
+ * `showPrices: false` in content/en/products.ts still removes every price on
+ * the page; it now removes a row rather than a block.
+ *
+ * The specification is a native <details>: scannable, no JavaScript, and
+ * keyboard- and screen-reader-correct without any work from us.
  */
 export function LotCard({
   lot,
@@ -35,11 +38,22 @@ export function LotCard({
   const showPrice = copy.showPrices && !!price;
   const score = lot.scoreValue ? getFact('cuppingScore') : undefined;
 
+  /* The face of the card carries the grade, the name and the way to ask. The
+     price, the minimum and the cupping notes used to sit on it and now sit
+     here, one disclosure away — MOVED rather than deleted, because a green
+     coffee catalogue that states no price and no minimum anywhere stops being
+     a catalogue. The description is the one thing that is gone outright; it is
+     still in the structured data for machines. */
   const spec = [
+    ...(showPrice
+      ? [{ label: 'Price', value: `{{${lot.priceFactId}}} · ${copy.priceCaption} (${copy.indicativeLabel.toLowerCase()})` }]
+      : []),
+    { label: copy.moqLabel, value: lot.moq },
     { label: 'Screen', value: lot.screen },
     { label: 'Varieties', value: lot.varieties },
     { label: 'Process', value: lot.processing },
     { label: 'Score', value: lot.score },
+    { label: 'Cupping notes', value: lot.cuppingNotes.join(' · ') },
     { label: 'Harvest', value: lot.harvestWindow },
     { label: 'Volume', value: lot.volume },
     { label: 'Packaging', value: lot.packaging },
@@ -96,47 +110,10 @@ export function LotCard({
           {lot.availabilityLabel}
         </p>
 
-        <div className="flex items-baseline justify-between gap-4 border-b border-line pb-5">
-          <div className="flex flex-col gap-1">
-            <p className="t-figure-sm text-[2rem] text-[var(--lot)]">{lot.grade}</p>
-            <h3 className="t-body font-medium">{lot.name}</h3>
-          </div>
-
-          {showPrice ? (
-            <div className="flex flex-col items-end gap-1 text-right">
-              <p className="t-figure-sm text-[1.75rem] text-ink">
-                <Fact id={price.id} />
-              </p>
-              <p className="t-meta text-ink-soft">
-                <span className="text-ochre-ink">{copy.indicativeLabel}</span>
-                <span aria-hidden="true"> · </span>
-                {copy.priceCaption}
-              </p>
-            </div>
-          ) : null}
+        <div className="flex flex-col gap-1 border-b border-line pb-5">
+          <p className="t-figure-sm text-[2rem] text-[var(--lot)]">{lot.grade}</p>
+          <h3 className="t-body font-medium">{lot.name}</h3>
         </div>
-
-        <p className="t-body text-[0.9375rem] text-ink-soft">
-          <RichText text={lot.description} />
-        </p>
-
-        <ul className="flex flex-wrap gap-2" aria-label={`Cupping notes, ${lot.name}`}>
-          {lot.cuppingNotes.map((note) => (
-            <li
-              key={note}
-              className="rounded-full border border-line px-3 py-1 text-[0.8125rem] text-ink-soft transition-colors duration-200 [transition-timing-function:var(--ease)] group-hover/card:border-[color-mix(in_srgb,var(--lot)_35%,transparent)]"
-            >
-              {note}
-            </li>
-          ))}
-        </ul>
-
-        <dl className="flex flex-wrap gap-x-8 gap-y-2 text-[0.8125rem]">
-          <div className="flex gap-2">
-            <dt className="t-meta text-ink-soft">{copy.moqLabel}</dt>
-            <dd className="tnum">{lot.moq}</dd>
-          </div>
-        </dl>
 
         <details className="group/spec border-t border-line pt-4">
           <summary className="tap t-meta flex min-h-[2.75rem] cursor-pointer list-none items-center justify-between gap-4 text-ink-soft transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ink [&::-webkit-details-marker]:hidden">
