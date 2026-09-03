@@ -6,12 +6,12 @@ import { LotCatalogue, type CatalogueItem } from '@/components/products/LotCatal
 import { ProcessWalkthrough } from '@/components/products/ProcessWalkthrough';
 import { SeasonGem } from '@/components/products/SeasonGem';
 import { SampleRequestForm } from '@/components/products/SampleRequestForm';
+import { SplitHero } from '@/components/layout/SplitHero';
 import { SmartImage } from '@/components/media/SmartImage';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { SectionHead } from '@/components/ui/SectionHead';
-import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { getFact } from '@/lib/facts';
 import { getDictionary, isLocale } from '@/lib/i18n';
@@ -63,17 +63,21 @@ export default async function ProductsPage({ params }: Props) {
         ]}
       />
 
-      <PageHeader
+      {/* Was a PageHeader with the photograph laid full-width underneath it.
+          At that size a frame of mixed-ripeness cherry — red, yellow and green
+          against sunlit leaves — was the loudest thing on a page whose job is
+          to be read carefully, and it sat in a band doing nothing but being
+          large. Beside the sentence it illustrates it is a quarter of the
+          area, and it is evidence rather than decoration. */}
+      <SplitHero
+        slot="productsHero"
         eyebrow={products.hero.eyebrow}
         title={products.hero.title}
         lead={products.hero.lead}
+        /* The densest, most evenly ripe part of this frame is right of centre;
+           the left third is shadowed leaf. The crop holds the fruit. */
+        objectPosition="object-[58%_45%] lg:object-[54%_42%]"
       />
-
-      <div className="bg-parchment pb-8">
-        <Container width="wide">
-          <SmartImage slot="productsHero" />
-        </Container>
-      </div>
 
       {/* Chronological: how the coffee is made, what this season produced, how
           it is sold, the lots themselves, then the way to ask for a sample.
