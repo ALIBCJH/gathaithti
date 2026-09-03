@@ -25,18 +25,26 @@ export function Section({
 }: {
   children: ReactNode;
   tone?: Tone;
-  size?: 'default' | 'tight' | 'loose';
+  size?: 'default' | 'tight' | 'loose' | 'opener';
   id?: string;
   as?: ElementType;
   className?: string;
   ariaLabelledby?: string;
 }) {
+  /* `opener` is for the first section on a page that has no hero. The header
+     is FIXED, so a page's first band starts at y=0 underneath it and its own
+     top padding is the only thing holding the content clear. A normal section
+     padding is written for a band in the middle of a page and leaves far too
+     much air there — 192px on a desktop, most of it dead. This clears the
+     header and adds a deliberate gap, nothing more. The bottom stays loose. */
   const padding =
     size === 'tight'
       ? 'py-16 sm:py-20 lg:py-24'
       : size === 'loose'
         ? 'py-24 sm:py-32 lg:py-48'
-        : 'py-20 sm:py-28 lg:py-40';
+        : size === 'opener'
+          ? 'pb-24 pt-[calc(var(--header-h)+1.5rem)] sm:pb-32 sm:pt-[calc(var(--header-h)+2rem)] lg:pb-48 lg:pt-[calc(var(--header-h)+3rem)]'
+          : 'py-20 sm:py-28 lg:py-40';
 
   /* A hairline along the top of every section, so one band is told from the
      next by a drawn line rather than by a change of shade. Dark mode has no

@@ -8,8 +8,11 @@ import type { ProductsContent } from '@content/types';
 
 /** Six steps, alternating side to side, each one a photograph and a paragraph. */
 export function ProcessWalkthrough({ content }: { content: ProductsContent['process'] }) {
+  /* `opener`, because this band is the top of the page now that the hero has
+     gone — a loose section padding left 192px of dead air under a fixed header
+     on a desktop. */
   return (
-    <Section tone="parchment-2" size="loose" id="processing" ariaLabelledby="process-heading">
+    <Section tone="parchment-2" size="opener" id="processing" ariaLabelledby="process-heading">
       <Container width="wide">
         {/* `h1`, not `h2`: this band opens the page now that the hero has gone,
             and a page with no h1 is a page with no title as far as a crawler
