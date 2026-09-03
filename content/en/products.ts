@@ -11,12 +11,16 @@ export const products: ProductsContent = {
     ogLine: 'AA · AB — fully washed, second soak, raised-bed dried',
   },
 
-  /* The page's own opening — no longer parked, and no longer a hero band.
-     Between #40 and now the page began on PROCESSING / step 01, so clicking
-     "Our Coffee" landed you on something that read as the middle of a page:
-     nothing at the top named the page or said what every lot on it has in
-     common. These three lines are rendered at the top of the first band, above
-     the processing head, by ProcessWalkthrough. */
+  /* PARKED, and parked by a decision rather than by accident. #52 rendered
+     these three lines as a masthead above the processing head, because the
+     page's h1 was otherwise a chapter title ("From cherry to parchment") and
+     the page named itself nowhere. The user saw it and asked for it removed:
+     Our Coffee opens on the processing band, and the first thing under the
+     header is the work. Do not re-render this without being asked.
+
+     The lead is still a real claim with no home — "Every lot on this page
+     comes from one wet mill and one catchment of {{members}} smallholders" —
+     and the catalogue band is where it would sit if it is ever wanted. */
   hero: {
     eyebrow: 'Our coffee',
     title: 'This season’s lots',

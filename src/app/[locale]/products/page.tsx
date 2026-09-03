@@ -66,11 +66,10 @@ export default async function ProductsPage({ params }: Props) {
           The catalogue used to come first, which showed a stranger the grades
           before telling them anything about how the grades come about.
 
-          There is no hero band. The page's own title and lead are handed to
-          the first band, which is why ProcessWalkthrough takes `products.hero`
-          as well as its own steps — without it the page opened on a chapter
-          head and named itself nowhere. */}
-      <ProcessWalkthrough content={products.process} opening={products.hero} />
+          There is no hero band and no masthead. #52 put the page's own title
+          above the processing head and the user asked for it off, so the page
+          opens on the work: PROCESSING / From cherry to parchment. */}
+      <ProcessWalkthrough content={products.process} />
 
       <SeasonGem content={products.gem} />
 
