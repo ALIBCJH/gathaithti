@@ -2,10 +2,13 @@ import type { ProductsContent } from '../types';
 
 export const products: ProductsContent = {
   meta: {
-    title: 'Our Coffee — Gathaithi AA, AB, PB & C washed Kenya lots',
+    /* Says AA and AB because the catalogue is AA and AB. It still advertised
+       PB and C after those lots were withdrawn — a search result promising two
+       grades the page does not carry. */
+    title: 'Our Coffee — Gathaithi AA & AB washed Kenya lots',
     description:
-      'Washed Kenya lots from Gathaithi: AA, AB, PB and C. SL28, SL34, Ruiru 11 and Batian, fermented overnight, second-soaked and dried {{dryingDays}} on raised beds. Request a sample from the society.',
-    ogLine: 'AA · AB · PB · C — fully washed, second soak, raised-bed dried',
+      'Washed Kenya lots from Gathaithi: AA and AB. SL28, SL34, Ruiru 11 and Batian, fermented overnight, second-soaked and dried {{dryingDays}} on raised beds. Request a sample from the society.',
+    ogLine: 'AA · AB — fully washed, second soak, raised-bed dried',
   },
 
   /* PARKED. The page has no hero band any more — it opens on the processing
@@ -191,21 +194,26 @@ export const products: ProductsContent = {
       },
       {
         n: '04',
-        title: 'Washing and grading',
+        title: 'Washing',
         duration: 'On completion of ferment',
+        /* The second soak used to be a step of its own and was replaced by
+           grading. Its substance is folded in here rather than dropped: it is
+           the same parchment in the same water, it happens at this point, and
+           "the step most origins skip" is a real differentiator to a buyer —
+           not something to lose in a reshuffle. */
         body:
-          'The parchment is washed through channels in clean water, and graded again by density as it moves. Lighter beans are separated out. Water is used deliberately and returned through soak pits rather than into the river.',
-        detail: 'Second density grading',
+          'The parchment is washed through channels in clean water, then held under clean water a second time for {{soakHours}}. That second soak is the step most origins skip. It settles and stabilises the coffee before drying, and it is the signature of Kenyan washed processing — the reason for the clarity and the acidity that follows. Water is used deliberately and returned through soak pits rather than into the river.',
+        detail: 'Clean water, fully submerged',
         imageSlot: 'processWashing',
       },
       {
         n: '05',
-        title: 'Second soak',
-        duration: '{{soakHours}}',
+        title: 'Grading',
+        duration: 'In the channels, as it moves',
         body:
-          'The washed parchment is then held under clean water a second time. This is the step most origins skip. It settles and stabilises the coffee before drying and it is the signature of Kenyan washed processing — the reason for the clarity and the acidity that follows.',
-        detail: 'Clean water, fully submerged',
-        imageSlot: 'processSoaking',
+          'The parchment is graded by density in the washing channels — the heavier, denser beans travel differently from the light ones, and the lights are separated out and kept apart. This is the second density grading of the process; the first happened at the pulper. Grading by screen size and bean form comes later, at the dry mill, after the parchment has left us.',
+        detail: 'Second density grading',
+        imageSlot: 'processGrading',
       },
       {
         n: '06',

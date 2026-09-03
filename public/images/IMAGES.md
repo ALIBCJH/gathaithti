@@ -66,7 +66,7 @@ before the photography exists.
 | `process-01-pulping.jpg` | Our Coffee | Processing — pulping | 3:2 | 1800×1200 | Cherry entering the disc pulper, water moving, skins separating. Freeze the motion; keep the machinery legible. |
 | `process-02-fermentation.jpg` | Our Coffee | Processing — fermentation | 3:2 | 1800×1200 | A fermentation tank at dusk, filled with parchment under mucilage. Overhead or high three-quarter angle. |
 | `process-03-washing.jpg` | Our Coffee | Processing — washing | 3:2 | 1800×1200 | Washing channels with parchment being graded by density, a worker with a wooden paddle. Water motion is the subject. |
-| `process-04-second-soak.jpg` | Our Coffee | Processing — second soak | 3:2 | 1800×1200 | Clean water soak tank, parchment fully submerged, surface still enough to read the beans through it. |
+| `process-04-grading.jpg` | Our Coffee | Processing — grading | 3:2 | 1800×1200 | Density grading in the washing channels: heavier parchment running one way, the lights drawn off, a paddle setting the separation. The separation is the subject. |
 | `process-05-raised-beds.jpg` | Our Coffee | Processing — drying | 3:2 | 1800×1200 | A worker turning parchment on a raised bed, shade nets rolled back, rows receding. Late afternoon light. |
 | `harvest-01-picking.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | A member picking ripe cherry by hand, close in, mid-work and clearly enjoying it. Subject right of centre, loaded branch filling the left. |
 | `harvest-02-reaching.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | As harvest-01. A member reaching up into the branch, sky behind, selecting rather than stripping. |
@@ -129,7 +129,7 @@ the shot list is self-contained:
 - `process-01-pulping.jpg` — Ripe cherry passing through the disc pulper at the Gathaithi wet mill.
 - `process-02-fermentation.jpg` — Parchment coffee fermenting overnight in a tank at the Gathaithi wet mill.
 - `process-03-washing.jpg` — Parchment being washed and density-graded in the channels at Gathaithi.
-- `process-04-second-soak.jpg` — Washed parchment resting under clean water during the second soak at Gathaithi.
+- `process-04-grading.jpg` — Parchment being density-graded in the washing channels at Gathaithi, the lighter beans separated off.
 - `process-05-raised-beds.jpg` — Parchment being turned by hand on raised drying beds at the Gathaithi wet mill.
 - `harvest-01-picking.jpg` — A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.
 - `harvest-02-reaching.jpg` — A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.
