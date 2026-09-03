@@ -408,13 +408,13 @@ export const images = {
   processGrading: {
     file: 'process-04-grading.jpg',
     page: 'Our Coffee',
-    section: 'Processing — grading',
+    section: 'Processing — grading and sorting',
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
     direction:
-      'Density grading in the washing channels: the heavier parchment running one way and the lights being drawn off, ideally with a worker\u2019s paddle setting the separation. The SEPARATION is the subject — a photograph of water alone does not show grading. Replaces the second-soak frame, which is no longer a step of its own.',
-    alt: 'Parchment being density-graded in the washing channels at Gathaithi, the lighter beans separated off.',
+      'MET, for the SORTING half of this step. Workers in overalls hand-picking defects out of parchment spread on a raised bed, a basin beside them for what comes out. It shows people making the judgement, which the density grading in the channels cannot show — that happens under water and looks like water. The step copy names both, and the hand-sort is stated as happening on the beds so the picture and the words agree.',
+    alt: 'Workers hand-sorting defects out of parchment on a raised drying bed at Gathaithi, a basin beside them for the rejects.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
   processDrying: {

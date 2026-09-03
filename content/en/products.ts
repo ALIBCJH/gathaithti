@@ -208,11 +208,16 @@ export const products: ProductsContent = {
       },
       {
         n: '05',
-        title: 'Grading',
-        duration: 'In the channels, as it moves',
+        title: 'Grading and sorting',
+        /* Two separations, not one, and they happen at different points — so
+           the copy says which is which rather than letting the photograph
+           imply that all of it happens in the water. The frame shows the
+           hand-sort on the beds, because density grading happens under water
+           and photographs as water. */
+        duration: 'In the channels, then by hand',
         body:
-          'The parchment is graded by density in the washing channels — the heavier, denser beans travel differently from the light ones, and the lights are separated out and kept apart. This is the second density grading of the process; the first happened at the pulper. Grading by screen size and bean form comes later, at the dry mill, after the parchment has left us.',
-        detail: 'Second density grading',
+          'The parchment is graded by density in the washing channels — the heavier, denser beans travel differently from the light ones, and the lights are separated out and kept apart. That is the second density grading of the process; the first happened at the pulper. Then, as the parchment dries on the beds, it is gone through by hand: defects, discoloured beans and anything broken are picked out and set aside. Grading by screen size and bean form comes later still, at the dry mill, after the parchment has left us.',
+        detail: 'By density, then by hand',
         imageSlot: 'processGrading',
       },
       {
