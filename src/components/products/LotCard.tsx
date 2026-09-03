@@ -4,7 +4,7 @@ import { getFact } from '@/lib/facts';
 import type { Lot, ProductsContent } from '@content/types';
 
 const availabilityTone: Record<Lot['availability'], string> = {
-  available: 'bg-moss text-on-inverse',
+  available: 'bg-moss text-on-moss',
   allocated: 'bg-ink/8 text-ink-soft',
   forward: 'bg-ochre/15 text-ochre-ink',
 };

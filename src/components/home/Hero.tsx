@@ -66,7 +66,7 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
          `lg` the hero is content-height rather than a full screen, so without
          a reserved band an element positioned against the section lands on top
          of the copy. */
-      className="hero-fit relative isolate flex min-h-svh flex-col overflow-hidden bg-inverse pb-14 text-on-inverse on-ink lg:pb-0"
+      className="hero-fit relative isolate flex min-h-svh flex-col overflow-hidden bg-ink-fixed pb-14 text-on-ink-fixed on-ink-fixed lg:pb-0"
     >
       {slides.length > 0 ? (
         <HeroSlides
@@ -109,11 +109,11 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
               is a heading removed from the index, on the one page whose title is
               the society's name. Screen readers and crawlers still get it; the
               phone simply does not draw it. */}
-          <h1 className="sr-only t-hero max-w-[13em] text-on-inverse lg:not-sr-only">
+          <h1 className="sr-only t-hero max-w-[13em] text-on-ink-fixed lg:not-sr-only">
             {content.title}
           </h1>
 
-          <p className="t-lead max-w-[44ch] text-on-inverse/90">
+          <p className="t-lead max-w-[44ch] text-on-ink-fixed/90">
             <RichText text={content.positioning} />
           </p>
 
@@ -139,7 +139,7 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
              `absolute`. On a real phone the arrow stopped being positioned at
              all and sat 104px above the bottom edge, in flow. It is already a
              44px target, so it never needed `.tap`. */
-        className="absolute inset-x-0 bottom-4 z-10 mx-auto flex h-11 w-11 items-center justify-center text-on-inverse/70 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-on-inverse lg:hidden"
+        className="absolute inset-x-0 bottom-4 z-10 mx-auto flex h-11 w-11 items-center justify-center text-on-ink-fixed/70 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-on-ink-fixed lg:hidden"
       >
         <svg
           viewBox="0 0 24 24"
@@ -157,7 +157,7 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
       </SmoothAnchor>
 
       <div className="hero-foot relative mx-auto flex w-full max-w-[100rem] items-end justify-between gap-10 px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10">
-        <p className="t-meta hidden items-center gap-3 text-on-inverse/50 lg:flex">
+        <p className="t-meta hidden items-center gap-3 text-on-ink-fixed/50 lg:flex">
           <span aria-hidden="true" className="inline-block h-px w-8 bg-on-inverse/35" />
           {content.scrollHint}
         </p>

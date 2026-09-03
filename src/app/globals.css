@@ -32,9 +32,46 @@
   --text-soft: #3f3f3f; /* secondary text          10.4:1              */
   --hairline: #e2e2e2;
 
-  --inverse: #241611; /* dark bands — the brand brown                */
-  --inverse-2: #33211a;
-  --on-inverse: #faf6ef; /* text on those bands     16.3:1              */
+  /* The "inverse" bands — footer, noticeboard, story card, the sample-request
+     callout — are LIGHT in the light theme. They used to stay brown whatever
+     the toggle said, which is why toggling to light left dark cards stranded
+     in the middle of a white page.
+
+     Deeper than surface-2 so a band still reads as a band; the hairline along
+     every section's top edge does the rest. Black on #ebebeb is 17.6:1. */
+  --inverse: #ebebeb; /* was #241611 — bands follow the theme now    */
+  --inverse-2: #e0e0e0;
+  --on-inverse: #000000; /* text on those bands            17.6:1       */
+
+  /* Ochre as a label on an inverse band. The light ochre exists for a DARK
+     ground and measures about 2.2:1 on this one, so on a light band the label
+     takes the dark ochre instead. One token, so Eyebrow does not have to know
+     which theme it is in. */
+  --ochre-on-inverse: #9a4f1e; /* 5.9:1 on #ebebeb */
+
+  /* THE ONE SURFACE THAT NEVER FOLLOWS THE THEME.
+
+     The hero is a photograph with scrims mixed from this colour, and the
+     navigation sits on that photograph. There is no light value that works:
+     lighten the scrim and the white headline over it disappears. So the hero
+     and the bar over it keep the brand brown in both themes, and everything
+     else is free to follow the toggle. */
+  --ink-fixed: #241611;
+  --on-ink-fixed: #faf6ef; /* 16.3:1 on the above */
+  --ochre-on-ink-fixed: #e08a46;
+
+  /* Moss is a mid-dark green in this theme and stays dark in the other, so
+     text on it is light in BOTH. It used to borrow `--on-inverse`, which was
+     fine while that was always light and became black-on-green the moment the
+     inverse bands started following the theme. */
+  --on-moss: #faf6ef;
+
+  /* A button on an inverse band. Two tokens rather than one because the band
+     it sits on changes colour with the theme: here it is a light band, so the
+     button is the same dark ochre carrying pale type that the rest of the
+     light theme uses. */
+  --btn-inverse-fill: #9a4f1e;
+  --btn-inverse-text: #faf6ef; /* 5.9:1 */
 
   --ochre-text: #9a4f1e; /* ochre as text on this surface   5.9:1       */
   --accent-fill: #9a4f1e; /* button fill                                 */
@@ -78,6 +115,19 @@
   --inverse: #241611; /* hero, footer, noticeboard — no longer deeper */
   --inverse-2: #241611;
   --on-inverse: #faf6ef;
+
+  /* Here an inverse band IS dark, so the label takes the light ochre. */
+  --ochre-on-inverse: #e08a46;
+
+  --ink-fixed: #241611;
+  --on-ink-fixed: #faf6ef;
+  --ochre-on-ink-fixed: #e08a46;
+  --on-moss: #faf6ef;
+
+  /* On a genuinely dark band the fill has to be the LIGHT ochre carrying dark
+     type: pale text on #b4622a measures 4.1:1, under AA at button size. */
+  --btn-inverse-fill: #e08a46;
+  --btn-inverse-text: #241611; /* 8.9:1 */
   --moss-surface: #241611; /* members' surfaces — brown here, green on white */
 
   --ochre-text: #e08a46; /*  6.6:1 on surface  */
@@ -161,6 +211,15 @@
   --color-inverse: var(--inverse);
   --color-inverse-2: var(--inverse-2);
   --color-on-inverse: var(--on-inverse);
+
+  /* The hero and the bar over it. Constant in both themes — see --ink-fixed. */
+  --color-ink-fixed: var(--ink-fixed);
+  --color-on-ink-fixed: var(--on-ink-fixed);
+  --color-ochre-on-ink-fixed: var(--ochre-on-ink-fixed);
+  --color-ochre-on-inverse: var(--ochre-on-inverse);
+  --color-on-moss: var(--on-moss);
+  --color-btn-inverse-fill: var(--btn-inverse-fill);
+  --color-btn-inverse-text: var(--btn-inverse-text);
 
   --color-ochre: #b4622a; /* fills, rules, focus ring — never body text */
   --color-ochre-ink: var(--ochre-text);
@@ -277,8 +336,13 @@ a[href^='tel:'] {
   border-radius: 2px;
 }
 .on-ink :focus-visible,
-.on-moss :focus-visible {
+.on-moss :focus-visible,
+.on-ink-fixed :focus-visible {
   outline-color: var(--color-ochre-light);
+}
+/* A light band takes the ring the rest of the light theme uses. */
+:root:not([data-theme='dark']) .on-ink :focus-visible {
+  outline-color: var(--color-ochre);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
@@ -487,13 +551,26 @@ a[href^='tel:'] {
 .link:active {
   color: var(--color-cherry);
 }
+/* `.on-ink` marks a band that is dark IN THE DARK THEME and light in the light
+   one, so its link colour has to follow the theme rather than assume a dark
+   ground. `.on-ink-fixed` marks the two surfaces that are dark in BOTH — the
+   hero and the bar over it — and keeps the original treatment unconditionally. */
 .on-ink .link,
-.on-moss .link {
+.on-moss .link,
+.on-ink-fixed .link {
   color: var(--color-ochre-light);
 }
 .on-ink .link:hover,
-.on-moss .link:hover {
+.on-moss .link:hover,
+.on-ink-fixed .link:hover {
   color: var(--color-parchment);
+}
+
+:root:not([data-theme='dark']) .on-ink .link {
+  color: var(--ochre-text);
+}
+:root:not([data-theme='dark']) .on-ink .link:hover {
+  color: var(--accent-fill-hover);
 }
 
 /* iOS Safari zooms the whole page in when a form control whose text is under
@@ -563,13 +640,13 @@ a[href^='tel:'] {
   background:
     radial-gradient(
       125% 88% at 0% 100%,
-      color-mix(in srgb, var(--inverse) 95%, transparent) 0%,
-      color-mix(in srgb, var(--inverse) 72%, transparent) 38%,
+      color-mix(in srgb, var(--ink-fixed) 95%, transparent) 0%,
+      color-mix(in srgb, var(--ink-fixed) 72%, transparent) 38%,
       transparent 72%
     ),
     linear-gradient(
       to top,
-      color-mix(in srgb, var(--inverse) 82%, transparent) 0%,
+      color-mix(in srgb, var(--ink-fixed) 82%, transparent) 0%,
       transparent 42%
     );
 }
@@ -583,14 +660,14 @@ a[href^='tel:'] {
     background:
       radial-gradient(
         170% 82% at 0% 100%,
-        color-mix(in srgb, var(--inverse) 96%, transparent) 0%,
-        color-mix(in srgb, var(--inverse) 86%, transparent) 46%,
+        color-mix(in srgb, var(--ink-fixed) 96%, transparent) 0%,
+        color-mix(in srgb, var(--ink-fixed) 86%, transparent) 46%,
         transparent 92%
       ),
       linear-gradient(
         to top,
-        color-mix(in srgb, var(--inverse) 90%, transparent) 0%,
-        color-mix(in srgb, var(--inverse) 45%, transparent) 46%,
+        color-mix(in srgb, var(--ink-fixed) 90%, transparent) 0%,
+        color-mix(in srgb, var(--ink-fixed) 45%, transparent) 46%,
         transparent 78%
       );
   }

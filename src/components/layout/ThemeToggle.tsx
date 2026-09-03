@@ -16,7 +16,7 @@
  * transparent over a white page and effectively disappeared. Markup that does
  * not depend on the theme cannot mismatch.
  */
-export function ThemeToggle({ surface = 'light' }: { surface?: 'light' | 'dark' }) {
+export function ThemeToggle({ surface = 'light' }: { surface?: 'light' | 'dark' | 'fixed-dark' }) {
   function toggle() {
     const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     const next = current === 'dark' ? 'light' : 'dark';
@@ -28,10 +28,16 @@ export function ThemeToggle({ surface = 'light' }: { surface?: 'light' | 'dark' 
     }
   }
 
+  /* Three surfaces, not two. `dark` is a band that is dark in the dark theme
+     and LIGHT in the light one, so it reads the themed tokens. `fixed-dark` is
+     the bar over the hero photograph, which is brown in both themes and needs
+     the colours that never move. */
   const tone =
-    surface === 'dark'
-      ? 'border-on-inverse/25 text-on-inverse/75 hover:border-on-inverse/50 hover:text-on-inverse'
-      : 'border-line text-ink-soft hover:border-ink/40 hover:text-ink';
+    surface === 'fixed-dark'
+      ? 'border-on-ink-fixed/25 text-on-ink-fixed/75 hover:border-on-ink-fixed/50 hover:text-on-ink-fixed'
+      : surface === 'dark'
+        ? 'border-on-inverse/25 text-on-inverse/75 hover:border-on-inverse/50 hover:text-on-inverse'
+        : 'border-line text-ink-soft hover:border-ink/40 hover:text-ink';
 
   return (
     <button

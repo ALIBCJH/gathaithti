@@ -53,7 +53,7 @@ export function NoticeboardPreview({
               <p className="t-figure text-on-inverse">
                 <Fact id="cherryPriceCurrent" />
               </p>
-              <p className="t-meta text-ochre-light">{price?.unit ?? noticeboard.priceUnit}</p>
+              <p className="t-meta text-ochre-on-inverse">{price?.unit ?? noticeboard.priceUnit}</p>
               <p className="t-body mt-4 max-w-[46ch] text-[0.9375rem] leading-relaxed text-on-inverse/70">
                 {noticeboard.priceFootnote}
               </p>

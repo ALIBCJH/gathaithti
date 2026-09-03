@@ -53,7 +53,7 @@ export function Placeholder({
       <div
         className={`relative flex h-full w-full flex-col justify-between gap-3 overflow-hidden ${compact ? 'p-4' : 'p-5 @[26rem]:p-6 @[34rem]:p-8'}`}
       >
-        <p className={`t-meta ${dark ? 'text-ochre-light' : 'text-ochre-ink'}`}>Photograph to come</p>
+        <p className={`t-meta ${dark ? 'text-ochre-on-inverse' : 'text-ochre-ink'}`}>Photograph to come</p>
 
         <div className="flex flex-col gap-2">
           <p
