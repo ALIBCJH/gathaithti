@@ -388,8 +388,9 @@ export const images = {
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
-    direction: 'A fermentation tank at dusk, filled with parchment under mucilage. Overhead or high three-quarter angle.',
-    alt: 'Parchment coffee fermenting overnight in a tank at the Gathaithi wet mill.',
+    direction:
+      'MET. A tank filled with parchment under water, mucilage breaking up as foam across the surface, the catchment behind it. Shot in daylight from a low three-quarter angle rather than at dusk from above as the brief asked, which reads better anyway: the hills place the tank somewhere real. Under-sized at 1264x848.',
+    alt: 'A fermentation tank at the Gathaithi wet mill, filled with parchment under water and mucilage foam, the hills of Tetu behind.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
   processWashing: {
@@ -399,8 +400,9 @@ export const images = {
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
-    direction: 'Washing channels with parchment being graded by density, a worker with a wooden paddle. Water motion is the subject.',
-    alt: 'Parchment being washed and density-graded in the channels at Gathaithi.',
+    direction:
+      'MET, and the best frame on the page: a line of workers moving parchment along the channels with wooden paddles, drying beds waiting behind them. It shows the WORK, not just the water. Under-sized at 1264x848. NOTE: this frame also shows density grading, which is step 05 — do not reuse it there. Two adjacent cards carrying the same photograph would read as an error.',
+    alt: 'Workers moving parchment along the washing channels with wooden paddles at the Gathaithi mill, raised drying beds behind them.',
     sizes: '(min-width: 768px) 50vw, 100vw',
   },
   processGrading: {

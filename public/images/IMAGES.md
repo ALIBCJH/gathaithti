@@ -64,8 +64,8 @@ before the photography exists.
 | `gathaithi-gem-parchment.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | Dried parchment at the point it comes off the bed — even colour and size, a hand lifting some for scale. |
 | `gathaithi-gem-cupping.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | The cupping table mid-session: bowls in a row, a spoon lifted, the score sheet in frame. |
 | `process-01-pulping.jpg` | Our Coffee | Processing — pulping | 3:2 | 1800×1200 | Cherry entering the disc pulper, water moving, skins separating. Freeze the motion; keep the machinery legible. |
-| `process-02-fermentation.jpg` | Our Coffee | Processing — fermentation | 3:2 | 1800×1200 | A fermentation tank at dusk, filled with parchment under mucilage. Overhead or high three-quarter angle. |
-| `process-03-washing.jpg` | Our Coffee | Processing — washing | 3:2 | 1800×1200 | Washing channels with parchment being graded by density, a worker with a wooden paddle. Water motion is the subject. |
+| `process-02-fermentation.jpg` | Our Coffee | Processing — fermentation | 3:2 | 1800×1200 | **Met.** Tank of parchment under water, mucilage foaming across the surface, hills behind. Under-sized at 1264×848. |
+| `process-03-washing.jpg` | Our Coffee | Processing — washing | 3:2 | 1800×1200 | **Met.** Workers moving parchment along the channels with wooden paddles, drying beds behind. Under-sized at 1264×848. Do not reuse for step 05. |
 | `process-04-grading.jpg` | Our Coffee | Processing — grading | 3:2 | 1800×1200 | Density grading in the washing channels: heavier parchment running one way, the lights drawn off, a paddle setting the separation. The separation is the subject. |
 | `process-05-raised-beds.jpg` | Our Coffee | Processing — drying | 3:2 | 1800×1200 | A worker turning parchment on a raised bed, shade nets rolled back, rows receding. Late afternoon light. |
 | `harvest-01-picking.jpg` | Our Farmers | The harvest | 3:2 | 2000×1334 | A member picking ripe cherry by hand, close in, mid-work and clearly enjoying it. Subject right of centre, loaded branch filling the left. |
@@ -127,8 +127,8 @@ the shot list is self-contained:
 - `lot-pb-green-beans.jpg` — Peaberry green coffee beans from Gathaithi.
 - `lot-c-green-beans.jpg` — Grade C green coffee beans from Gathaithi.
 - `process-01-pulping.jpg` — Ripe cherry passing through the disc pulper at the Gathaithi wet mill.
-- `process-02-fermentation.jpg` — Parchment coffee fermenting overnight in a tank at the Gathaithi wet mill.
-- `process-03-washing.jpg` — Parchment being washed and density-graded in the channels at Gathaithi.
+- `process-02-fermentation.jpg` — A fermentation tank at the Gathaithi wet mill, filled with parchment under water and mucilage foam, the hills of Tetu behind.
+- `process-03-washing.jpg` — Workers moving parchment along the washing channels with wooden paddles at the Gathaithi mill, raised drying beds behind them.
 - `process-04-grading.jpg` — Parchment being density-graded in the washing channels at Gathaithi, the lighter beans separated off.
 - `process-05-raised-beds.jpg` — Parchment being turned by hand on raised drying beds at the Gathaithi wet mill.
 - `harvest-01-picking.jpg` — A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.
