@@ -448,6 +448,12 @@ export const images = {
      person is right of centre with the loaded branch to their left. That is
      why they cross-fade rather than slide — the subject barely moves between
      them, and a slide would throw away the one thing they have in common. */
+  /* PARKED — nothing renders these three. The harvest band is gone; the SAME
+     three files are carried by memberOne/Two/Three, which is where they are
+     served from now, at that section's ratio and sizes. Kept rather than
+     deleted so the brief for each frame survives, but do not add a second
+     slot for a file that already has one — it would fetch at two different
+     sizes on one page. */
   harvestOne: {
     file: 'harvest-01-picking.jpg',
     page: 'Our Farmers',

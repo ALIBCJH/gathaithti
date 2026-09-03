@@ -89,9 +89,16 @@ export const farmers: FarmersContent = {
     },
   },
 
-  /* The harvest section: three photographs that rotate, and the argument for
-     why the picking is the part that matters. It replaced a single empty photo
-     slot sitting on the page like a slab. */
+  /* PARKED — nothing renders this. The harvest band was a rotating slideshow of
+     harvest-01..03 with the argument for selective picking beside it. Those
+     three photographs moved into the first three member cards in #55, which
+     left the page showing them twice; the user asked for the band to go.
+
+     The three captions here are duplicated verbatim on those cards. The three
+     paragraphs of argument are NOT anywhere else on the site — if the picking
+     is worth arguing for again, the words are here rather than needing to be
+     written a second time. The slideshow component is deleted; the home hero
+     still has its own. */
   harvest: {
     eyebrow: 'The harvest',
     heading: 'Picked one cherry at a time, by people who own the result',

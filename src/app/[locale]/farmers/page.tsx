@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Harvest } from '@/components/farmers/Harvest';
 import { MemberCard } from '@/components/farmers/MemberCard';
 import { Noticeboard } from '@/components/farmers/Noticeboard';
 import { PreFinance } from '@/components/farmers/PreFinance';
@@ -55,8 +54,6 @@ export default async function FarmersPage({ params }: Props) {
       {/* The noticeboard comes first, before any photography: members open this
           page for the price, and they should not have to scroll past a hero. */}
       <Noticeboard content={farmers.noticeboard} />
-
-      <Harvest content={farmers.harvest} />
 
       <Section tone="parchment" ariaLabelledby="profiles-heading">
         <Container width="wide">
