@@ -6,16 +6,21 @@ import { Section } from '@/components/ui/Section';
 import { SmartImage } from '@/components/media/SmartImage';
 import type { AboutContent } from '@content/types';
 
-const SLOTS = ['historyOne', 'historyTwo', 'historyThree'] as const;
-
 /**
- * The history: the account on the left, three photographs on the right, and
- * the dated spine underneath.
+ * The history: the account on the left, one photograph on the right, and the
+ * dated spine underneath.
  *
- * The three frames are a row of tall portraits rather than one wide plate,
- * because the section is about a span of time and three pictures read as a
- * sequence where one reads as an illustration. They are deliberately small —
- * the argument is the text; the photographs are evidence beside it.
+ * It was three tall frames, on the argument that a section about a span of
+ * time reads better as a sequence than as a single illustration. That was true
+ * of three photographs and false of one photograph and two empty boxes, which
+ * is what it actually was — only the mill frame ever existed, and the other
+ * two sat beside it printing the filenames they were waiting for.
+ *
+ * So: one frame, at the shape the file actually is. It was being cropped from
+ * 16:9 into a 4:5 portrait box a fifth of the page wide, which threw away most
+ * of its width to show a sliver of the thing the section is about. At full
+ * width in its own ratio it shows the beds, the mill and the ridge behind —
+ * the whole ground the history happened on.
  *
  * The timeline stays. Nothing in the sketch of this page had it, but four
  * dated facts — organised under Tetu, registered independently, cupped at 93,
@@ -49,26 +54,16 @@ export function History({ content }: { content: AboutContent['origin'] }) {
             ))}
           </div>
 
-          {/* Three tall frames. On a phone they scroll sideways rather than
-              stacking: three portrait photographs stacked full-width would be
-              most of a screen each and push the timeline a long way down, and
-              a row of them reads as a set, which is the point. */}
-          {/* `min-w-0`: a grid item's default `min-width: auto` is min-content,
-              so a horizontally scrolling child sizes the TRACK instead of
-              scrolling inside it. Without this the strip made the whole page
-              10px wider than the viewport at 320px. */}
-          <div className="min-w-0 lg:col-span-6 lg:col-start-7 lg:self-center">
-            <ul className="-mx-6 flex min-w-0 max-w-[100vw] snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 sm:-mx-10 sm:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0">
-              {SLOTS.map((slot, i) => (
-                <li key={slot} className="w-[62%] shrink-0 snap-start sm:w-[42%] lg:w-auto">
-                  <Reveal delay={i * 60} className="flex flex-col gap-3">
-                    <SmartImage slot={slot} />
-                    <p className="t-meta text-ink-soft">{content.captions[i]}</p>
-                  </Reveal>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* One frame, beside the account it belongs to. `min-w-0` stays: a
+              grid item's default `min-width: auto` is min-content, and this
+              track is the one that used to push the page 10px wider than a
+              320px viewport. */}
+          <figure className="min-w-0 lg:col-span-6 lg:col-start-7 lg:self-center">
+            <Reveal className="flex flex-col gap-3">
+              <SmartImage slot="historyOne" />
+              <figcaption className="t-meta text-ink-soft">{content.caption}</figcaption>
+            </Reveal>
+          </figure>
         </div>
 
         <ol className="mt-20 grid gap-px border border-line bg-line sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
