@@ -7,7 +7,6 @@ import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { RichText } from '@/components/ui/Fact';
 import { PageHeader } from '@/components/ui/PageHeader';
-import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { getDictionary, isLocale } from '@/lib/i18n';
 import { site, whatsappHref } from '@content/site';
