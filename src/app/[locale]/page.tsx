@@ -6,6 +6,7 @@ import { ProofBand } from '@/components/home/ProofBand';
 import { SeasonPanel } from '@/components/home/SeasonPanel';
 import { StoryTeaser } from '@/components/home/StoryTeaser';
 import { NoticeboardPreview } from '@/components/home/NoticeboardPreview';
+import { Partners } from '@/components/home/Partners';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
 import { buildMetadata, localBusinessLd, organizationLd } from '@/lib/seo';
@@ -50,6 +51,10 @@ export default async function HomePage({ params }: Props) {
         content={home.noticeboard}
         noticeboard={farmers.noticeboard}
       />
+
+      {/* Last, and after the members' band on purpose: the society's own people
+          come before the organisations it works with. */}
+      <Partners content={home.partners} />
     </>
   );
 }

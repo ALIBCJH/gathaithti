@@ -105,4 +105,20 @@ export const home: HomeContent = {
       'The noticeboard carries the current cherry rate, payment dates, collection times and AGM notices. It is built to load fast and read clearly on a phone in the sun.',
     cta: { label: 'Open the noticeboard', href: 'farmers#noticeboard' },
   },
+
+  /* The marks of four organisations the society works with, supplied by the
+     society. Names only — no line about what any of them does, and no claim
+     about the nature of the relationship. Those are statements about other
+     companies and none of them is ours to write; if the society wants them,
+     it supplies the words. The names are read off the marks themselves. */
+  partners: {
+    eyebrow: 'Partners',
+    heading: 'Who we work with',
+    items: [
+      { id: 'cms', name: 'Coffee Management Services', imageSlot: 'partnerCms' },
+      { id: 'dormans', name: 'Dormans', imageSlot: 'partnerDormans' },
+      { id: 'ea-bean', name: 'EA Bean Co.', imageSlot: 'partnerEaBean' },
+      { id: 'e4impact', name: 'E4Impact Foundation', imageSlot: 'partnerE4impact' },
+    ],
+  },
 };

@@ -589,6 +589,60 @@ export const images = {
      its two paragraphs and the file was never supplied, so half the band was an
      empty box printing the name it was waiting for. The brief is kept: if the
      photograph is taken, the band can have it back. */
+  /* The four partner marks on the home page. Each file is 1376x768 with the
+     logo centred on its own pale ground, so the slot is 16/9 and the image
+     fills the card edge to edge: the supplied background BECOMES the tile.
+     That is why they are not knocked out to transparent — four logos on four
+     slightly different pale grounds read as one row of tiles, where four
+     transparent logos on this site's dark parchment would read as four
+     different-coloured stains.
+
+     These are other organisations' trademarks. Do not restyle, recolour, crop
+     or stretch them, and do not add one without being told it is a partner. */
+  partnerCms: {
+    file: 'partner-cms.png',
+    page: 'Home',
+    section: 'Partners',
+    ratio: '16/9',
+    minWidth: 1200,
+    minHeight: 675,
+    direction: 'Supplied mark. The organisation\u2019s own logo, centred, on its own ground.',
+    alt: 'Coffee Management Services',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
+  },
+  partnerDormans: {
+    file: 'partner-dormans.png',
+    page: 'Home',
+    section: 'Partners',
+    ratio: '16/9',
+    minWidth: 1200,
+    minHeight: 675,
+    direction: 'Supplied mark. The organisation\u2019s own logo, centred, on its own ground.',
+    alt: 'Dormans',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
+  },
+  partnerEaBean: {
+    file: 'partner-ea-bean.png',
+    page: 'Home',
+    section: 'Partners',
+    ratio: '16/9',
+    minWidth: 1200,
+    minHeight: 675,
+    direction: 'Supplied mark. The organisation\u2019s own logo, centred, on its own ground.',
+    alt: 'EA Bean Co.',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
+  },
+  partnerE4impact: {
+    file: 'partner-e4impact.png',
+    page: 'Home',
+    section: 'Partners',
+    ratio: '16/9',
+    minWidth: 1200,
+    minHeight: 675,
+    direction: 'Supplied mark. The organisation\u2019s own logo, centred, on its own ground.',
+    alt: 'E4Impact Foundation',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
+  },
   farmersPrefinance: {
     file: 'gathaithi-society-office.jpg',
     page: 'Our Farmers',

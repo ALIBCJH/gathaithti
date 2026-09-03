@@ -17,7 +17,13 @@ const registrySource = readFileSync(join(root, 'content/images.ts'), 'utf8');
 const shotList = readFileSync(join(root, 'public/images/IMAGES.md'), 'utf8');
 
 const registry = [...registrySource.matchAll(/file: '([^']+)'/g)].map((m) => m[1]);
-const listed = new Set([...shotList.matchAll(/\| `([^`]+\.jpg)`/g)].map((m) => m[1]));
+/* Any image extension, not just .jpg. Every photograph on this site is a jpg,
+   but the partner marks are png — logos have flat grounds and hard type, which
+   is exactly what JPEG fringes — and matching only .jpg reported four files as
+   missing from a shot list they were already in. */
+const listed = new Set(
+  [...shotList.matchAll(/\| `([^`]+\.(?:jpg|jpeg|png|webp|avif))`/g)].map((m) => m[1]),
+);
 const onDisk = new Set(
   readdirSync(join(root, 'public/images')).filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f)),
 );
