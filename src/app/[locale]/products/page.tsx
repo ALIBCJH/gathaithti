@@ -64,8 +64,13 @@ export default async function ProductsPage({ params }: Props) {
       {/* Chronological: how the coffee is made, what this season produced, how
           it is sold, the lots themselves, then the way to ask for a sample.
           The catalogue used to come first, which showed a stranger the grades
-          before telling them anything about how the grades come about. */}
-      <ProcessWalkthrough content={products.process} />
+          before telling them anything about how the grades come about.
+
+          There is no hero band. The page's own title and lead are handed to
+          the first band, which is why ProcessWalkthrough takes `products.hero`
+          as well as its own steps — without it the page opened on a chapter
+          head and named itself nowhere. */}
+      <ProcessWalkthrough content={products.process} opening={products.hero} />
 
       <SeasonGem content={products.gem} />
 
