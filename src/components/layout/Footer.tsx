@@ -25,7 +25,7 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
           </div>
 
           <nav aria-label="Footer" className="flex flex-col gap-5">
-            <h2 className="t-meta text-ochre-light">{common.footer.sections.explore}</h2>
+            <h2 className="t-meta text-ochre-on-inverse">{common.footer.sections.explore}</h2>
             <ul className="flex flex-col gap-3">
               {routes.map((route) => (
                 <li key={route.key}>
@@ -41,7 +41,7 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
           </nav>
 
           <div className="flex flex-col gap-5">
-            <h2 className="t-meta text-ochre-light">{common.footer.sections.contact}</h2>
+            <h2 className="t-meta text-ochre-on-inverse">{common.footer.sections.contact}</h2>
             <address className="flex flex-col gap-2 text-[0.9375rem] not-italic text-on-inverse/80">
               <span>{site.address.line1}</span>
               <span>{site.address.village}</span>

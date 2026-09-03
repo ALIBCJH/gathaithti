@@ -25,7 +25,7 @@ export function Stat({
   if (!fact) return null;
 
   const labelTone = surface === 'dark' ? 'text-on-inverse/70' : 'text-ink-soft';
-  const unitTone = surface === 'dark' ? 'text-ochre-light' : 'text-ochre-ink';
+  const unitTone = surface === 'dark' ? 'text-ochre-on-inverse' : 'text-ochre-ink';
 
   return (
     <div className="flex flex-col gap-3">

@@ -6,7 +6,7 @@ const tones: Record<Tone, string> = {
   parchment: 'bg-parchment text-ink',
   'parchment-2': 'bg-parchment-2 text-ink',
   ink: 'bg-inverse text-on-inverse on-ink',
-  moss: 'bg-moss text-on-inverse on-moss',
+  moss: 'bg-moss text-on-moss on-moss',
 };
 
 /**

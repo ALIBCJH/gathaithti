@@ -36,17 +36,17 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
               markup rather than SectionHead: this band sits on ink, and the
               shared Eyebrow renders the dark ochre that measures 2.9:1 here. */}
           <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-4 text-center">
-            <p className="t-meta text-ochre-light">{content.eyebrow}</p>
+            <p className="t-meta text-ochre-on-inverse">{content.eyebrow}</p>
             <h2 id="noticeboard-heading" className="t-section text-balance text-on-inverse">
               {content.heading}
             </h2>
             <p className="t-body max-w-[56ch] text-on-inverse/75">{content.lead}</p>
-            <p className="t-meta text-on-inverse/50">{content.updated}</p>
+            <p className="t-meta text-on-inverse/65">{content.updated}</p>
           </div>
 
           {/* The price. The single most-read number on the site. */}
           <div className="mt-8 border-2 border-ochre bg-ochre/10 p-8 sm:p-12">
-            <p className="t-meta text-ochre-light">{content.priceLabel}</p>
+            <p className="t-meta text-ochre-on-inverse">{content.priceLabel}</p>
             <p className="t-figure mt-4 text-on-inverse" style={{ fontSize: 'clamp(3.5rem, 14vw, 7rem)' }}>
               <Fact id="cherryPriceCurrent" />
             </p>
@@ -65,7 +65,7 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
                   notice.urgent ? 'border-ochre bg-on-inverse/8' : 'border-on-inverse/25'
                 }`}
               >
-                <p className="t-meta text-ochre-light">{notice.label}</p>
+                <p className="t-meta text-ochre-on-inverse">{notice.label}</p>
                 <p className="t-figure-sm text-on-inverse">{notice.value}</p>
                 <p className="t-body text-[0.9375rem] leading-relaxed text-on-inverse/75">
                   {notice.detail}
@@ -89,7 +89,7 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
                   </div>
                 ))}
               </dl>
-              <p className="t-meta mt-4 text-on-inverse/50">{content.collection.note}</p>
+              <p className="t-meta mt-4 text-on-inverse/65">{content.collection.note}</p>
             </div>
 
             {/* Help */}
@@ -101,7 +101,7 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
                 {site.contact.memberLine.value ? (
                   <a
                     href={`tel:${site.contact.memberLine.value.replace(/\s/g, '')}`}
-                    className="t-figure-sm mt-2 inline-block text-on-inverse underline decoration-ochre-light/60 decoration-2 underline-offset-8 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ochre-light"
+                    className="t-figure-sm mt-2 inline-block text-on-inverse underline decoration-ochre-on-inverse/60 decoration-2 underline-offset-8 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-ochre-on-inverse"
                   >
                     {site.contact.memberLine.display}
                   </a>

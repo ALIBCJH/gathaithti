@@ -163,7 +163,7 @@ export function Header({
              whatever the picture is doing behind it. Light type on #241611 is
              16.27:1 whatever the crop lands on, which is a guarantee no scrim
              over a photograph can make. */
-          : 'bg-inverse border-b border-on-inverse/15 on-ink',
+          : 'bg-ink-fixed border-b border-on-ink-fixed/15 on-ink-fixed',
       ].join(' ')}
       style={{ height: 'var(--header-h)' }}
     >
@@ -171,7 +171,7 @@ export function Header({
         <Link
           href={`/${locale}`}
           className={`tap -my-2 inline-flex items-center py-2 t-meta transition-colors duration-200 [transition-timing-function:var(--ease)] ${
-            solid ? 'text-ink hover:text-ochre-ink' : 'text-on-inverse hover:text-ochre-light'
+            solid ? 'text-ink hover:text-ochre-ink' : 'text-on-ink-fixed hover:text-ochre-on-ink-fixed'
           }`}
         >
           <span className="font-semibold tracking-[0.14em] whitespace-nowrap">GATHAITHI</span>
@@ -199,8 +199,8 @@ export function Header({
                           ? 'text-ink'
                           : 'text-ink-soft hover:text-ink'
                         : current
-                          ? 'text-on-inverse'
-                          : 'text-on-inverse/75 hover:text-on-inverse',
+                          ? 'text-on-ink-fixed'
+                          : 'text-on-ink-fixed/75 hover:text-on-ink-fixed',
                     ].join(' ')}
                   >
                     {navLabel(route.key)}
@@ -209,7 +209,7 @@ export function Header({
                       className={[
                         'absolute inset-x-0 -bottom-0.5 h-px origin-left transition-transform duration-200',
                         '[transition-timing-function:var(--ease)]',
-                        solid ? 'bg-ochre' : 'bg-ochre-light',
+                        solid ? 'bg-ochre' : 'bg-ochre-on-ink-fixed',
                         current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100',
                       ].join(' ')}
                     />
@@ -227,7 +227,7 @@ export function Header({
               is `lg:hidden`, so the two are exact complements and the control
               is never absent and never doubled. */}
           <div className="hidden lg:block">
-            <ThemeToggle surface={solid ? 'light' : 'dark'} />
+            <ThemeToggle surface={solid ? 'light' : 'fixed-dark'} />
           </div>
 
           <button
@@ -321,7 +321,7 @@ export function Header({
                           'flex min-h-[3rem] items-center gap-4 rounded-full px-4 text-[0.9375rem]',
                           'transition-colors duration-200 [transition-timing-function:var(--ease)]',
                           current
-                            ? 'bg-ochre-light/15 font-medium text-ochre-light'
+                            ? 'bg-ochre-on-inverse/15 font-medium text-ochre-on-inverse'
                             : 'text-on-inverse/85 hover:bg-on-inverse/8 hover:text-on-inverse',
                         ].join(' ')}
                       >
@@ -357,7 +357,7 @@ export function Header({
               <span className="t-meta text-on-inverse/60">{memberPrice.label}</span>
               <span className="flex items-baseline gap-2">
                 <span className="t-figure-sm text-[1.5rem] text-on-inverse">{memberPrice.value}</span>
-                <span className="t-meta text-ochre-light">{memberPrice.unit}</span>
+                <span className="t-meta text-ochre-on-inverse">{memberPrice.unit}</span>
               </span>
             </Link>
 
@@ -369,7 +369,7 @@ export function Header({
               <Link
                 href={`/${locale}/products#request-a-sample`}
                 onClick={() => setOpen(false)}
-                className="inline-flex min-h-[2.75rem] flex-1 items-center justify-center rounded-full bg-ochre-light px-4 text-center text-[0.875rem] font-medium text-inverse transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse active:scale-[0.985]"
+                className="inline-flex min-h-[2.75rem] flex-1 items-center justify-center rounded-full bg-btn-inverse-fill px-4 text-center text-[0.875rem] font-medium text-btn-inverse-text transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse active:scale-[0.985]"
               >
                 {common.actions.requestSample}
               </Link>

@@ -23,15 +23,18 @@ const styles: Record<Surface, Record<Variant, string>> = {
     quiet: 'text-ochre-ink hover:text-ink underline-offset-4 hover:underline',
   },
   dark: {
-    /* On an inverse band the fill has to be the light ochre carrying dark
-       type: parchment on #B4622A measures 4.1:1, under AA at this size. The
-       type colour is `inverse`, which is dark in both themes — never `ink`,
-       which flips to a light colour when the page does. */
+    /* On an inverse band the fill and its type both come from tokens, because
+       the band itself changes colour with the theme. On a dark band that is
+       the light ochre carrying dark type — pale text on #B4622A measures
+       4.1:1, under AA at this size. On a light one it is the dark ochre
+       carrying pale type. It used to hardcode `bg-ochre-light text-inverse`,
+       which became light-on-light the moment inverse bands started following
+       the theme. */
     primary:
-      'bg-ochre-light text-inverse hover:bg-on-inverse hover:text-inverse active:bg-on-inverse',
+      'bg-btn-inverse-fill text-btn-inverse-text hover:bg-on-inverse hover:text-inverse active:bg-on-inverse',
     secondary:
       'border border-on-inverse/35 text-on-inverse hover:border-on-inverse hover:bg-on-inverse/10 active:bg-on-inverse/15',
-    quiet: 'text-ochre-light hover:text-on-inverse underline-offset-4 hover:underline',
+    quiet: 'text-ochre-on-inverse hover:text-on-inverse underline-offset-4 hover:underline',
   },
 };
 
