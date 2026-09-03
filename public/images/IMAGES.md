@@ -62,7 +62,7 @@ before the photography exists.
 | `gathaithi-picking-hands.jpg` | Our Coffee | Processing — selective picking | 3:2 | 1800×1200 | Close on a picker's hands taking ripe red cherry off the branch, one at a time, with green and unripe fruit left on the wood beside it. The selectivity is the subject. |
 | `gathaithi-ripening-cherry.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | **Stand-in, moved from the page hero.** Wants the ripest fruit of the season instead: tight, portrait, uniform deep red, soft light. Currently landscape in a portrait box. |
 | `gathaithi-green-sack.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | A jute sack of milled green coffee, stencilled for the society, on plain white. The only studio shot on the site — defensible because it is the product, not the process. Portrait, 896×1200. |
-| `gathaithi-gem-cupping.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | The cupping table mid-session: bowls in a row, a spoon lifted, the score sheet in frame. |
+| `gathaithi-the-cup.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | A brewed cup with roasted beans, warm and dark. Not the briefed cupping table, but contradicts nothing. Second studio shot in the row. Portrait, 896×1200. |
 | `process-01-pulping.jpg` | Our Coffee | Processing — pulping | 3:2 | 1800×1200 | Cherry entering the disc pulper, water moving, skins separating. Freeze the motion; keep the machinery legible. |
 | `process-02-fermentation.jpg` | Our Coffee | Processing — fermentation | 3:2 | 1800×1200 | **Met.** Tank of parchment under water, mucilage foaming across the surface, hills behind. Under-sized at 1264×848. |
 | `process-03-washing.jpg` | Our Coffee | Processing — washing | 3:2 | 1800×1200 | **Met.** Workers moving parchment along the channels with wooden paddles, drying beds behind. Under-sized at 1264×848. Do not reuse for step 05. |
@@ -144,4 +144,4 @@ the shot list is self-contained:
 - `gathaithi-society-office.jpg` — A member completing a pre-finance application at the Gathaithi society office.
 - `gathaithi-ripening-cherry.jpg` — Cherry on the branch at Gathaithi — red, yellow and green ripening together.
 - `gathaithi-green-sack.jpg` — A jute sack of milled green Gathaithi coffee, stencilled “Gathaithi Coffee, Nyeri, Kenya”.
-- `gathaithi-gem-cupping.jpg` — A cupping session in progress at Gathaithi, bowls laid out with a score sheet.
+- `gathaithi-the-cup.jpg` — A cup of brewed coffee on a saucer with roasted beans beside it, steam rising.
