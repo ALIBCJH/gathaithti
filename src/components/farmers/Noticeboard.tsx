@@ -20,12 +20,15 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
     >
       <Container width="wide">
         <div className="py-16 sm:py-20 lg:py-28">
-          <div className="flex flex-col gap-4">
+          {/* Centred, like every other head on this page — but still its own
+              markup rather than SectionHead: this band sits on ink, and the
+              shared Eyebrow renders the dark ochre that measures 2.9:1 here. */}
+          <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-4 text-center">
             <p className="t-meta text-ochre-light">{content.eyebrow}</p>
-            <h2 id="noticeboard-heading" className="t-section text-on-inverse">
+            <h2 id="noticeboard-heading" className="t-section text-balance text-on-inverse">
               {content.heading}
             </h2>
-            <p className="t-body text-on-inverse/75">{content.lead}</p>
+            <p className="t-body max-w-[56ch] text-on-inverse/75">{content.lead}</p>
             <p className="t-meta text-on-inverse/50">{content.updated}</p>
           </div>
 

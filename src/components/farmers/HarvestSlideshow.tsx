@@ -54,6 +54,7 @@ export function HarvestSlideshow({
   pauseLabel,
   playLabel,
   regionLabel,
+  ratio = 'aspect-3/2',
 }: {
   slides: Slide[];
   captions: string[];
@@ -61,6 +62,10 @@ export function HarvestSlideshow({
   pauseLabel: string;
   playLabel: string;
   regionLabel: string;
+  /** The frame's shape. `3/2` is the files' own; the wide layout crops to
+   *  16/9 so a photograph running most of the page's width does not take a
+   *  whole screen of height with it. */
+  ratio?: string;
 }) {
   const [index, setIndex] = useState(0);
   /* Four separate pieces of state, because they are four different reasons to
@@ -124,7 +129,7 @@ export function HarvestSlideshow({
         if (!event.currentTarget.contains(event.relatedTarget as Node)) setHovered(false);
       }}
     >
-      <div ref={region} className="relative aspect-3/2 w-full overflow-hidden bg-parchment-2">
+      <div ref={region} className={`relative ${ratio} w-full overflow-hidden bg-parchment-2`}>
         {slides.map((slide, i) => (
           <div
             key={slide.key}

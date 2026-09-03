@@ -459,7 +459,7 @@ export const images = {
       'A member picking ripe cherry by hand, close in, mid-work and clearly enjoying it. Subject right of centre, the loaded branch filling the left of the frame. Daylight, no flash.',
     alt: 'A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.',
     priority: true,
-    sizes: '(min-width: 1024px) 55vw, 100vw',
+    sizes: '(min-width: 1424px) 1280px, 92vw',
   },
   harvestTwo: {
     file: 'harvest-02-reaching.jpg',
@@ -470,7 +470,7 @@ export const images = {
     minHeight: 1334,
     direction: 'As harvest-01. A member reaching up into the branch, sky behind, selecting fruit rather than stripping it.',
     alt: 'A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.',
-    sizes: '(min-width: 1024px) 55vw, 100vw',
+    sizes: '(min-width: 1424px) 1280px, 92vw',
   },
   harvestThree: {
     file: 'harvest-03-two-members.jpg',
@@ -481,7 +481,7 @@ export const images = {
     minHeight: 1334,
     direction: 'As harvest-01. Two members working the same tree from either side — the crop is family work, and this is the frame that shows it.',
     alt: 'Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.',
-    sizes: '(min-width: 1024px) 55vw, 100vw',
+    sizes: '(min-width: 1424px) 1280px, 92vw',
   },
   memberOne: {
     file: 'member-01-portrait.jpg',

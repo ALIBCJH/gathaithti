@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
+import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -10,15 +10,16 @@ export function Training({ content }: { content: FarmersContent['training'] }) {
   return (
     <Section tone="parchment-2" ariaLabelledby="training-heading">
       <Container width="wide">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-          <div className="flex flex-col gap-6 lg:col-span-5">
-            <Eyebrow>{content.eyebrow}</Eyebrow>
-            <h2 id="training-heading" className="t-section max-w-[16ch]">
-              {content.heading}
-            </h2>
-            <p className="t-lead measure text-ink-soft">
-              <RichText text={content.lead} />
-            </p>
+        {/* Across the top and centred, like every other head on this page. */}
+        <SectionHead
+          id="training-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+          lead={content.lead}
+        />
+
+        <div className="mt-16 grid gap-16 lg:mt-20 lg:grid-cols-12 lg:gap-20">
+          <div className="flex flex-col gap-6 lg:col-span-5 lg:self-center">
             {content.body.map((paragraph, i) => (
               <p key={i} className="t-body measure text-ink-soft">
                 {paragraph}
