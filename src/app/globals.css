@@ -256,6 +256,20 @@ a[href^='tel:'] {
   color: var(--color-parchment);
 }
 
+/* Every photograph on the site is clipped to this. It is a token rather than a
+   utility because it has to be the same number in three places that cannot see
+   each other: the frame SmartImage clips with, the hairline mount the
+   placeholder draws inside that frame, and any card that puts a border around
+   an image. A photograph with a 12px corner beside a placeholder with a square
+   one is worse than either on its own.
+
+   The hero is the deliberate exception and stays square: it runs edge to edge
+   and a rounded full-bleed frame shows the page's ground in the screen's four
+   corners. */
+:root {
+  --radius-photo: 0.75rem;
+}
+
 /* A designed focus ring, everywhere, on everything. */
 :focus-visible {
   outline: 2px solid var(--color-ochre);
