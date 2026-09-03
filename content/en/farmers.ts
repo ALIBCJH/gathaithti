@@ -2,15 +2,16 @@ import type { FarmersContent } from '../types';
 
 /**
  * NOTE ON THE MEMBER PROFILES
- * THREE of the six cards below are SCAFFOLDING: names, years, tree counts and
- * quotes are invented and must be replaced with real interviews before anyone
- * treats them as true — we do not publish invented people.
+ * There are no invented people on this page any more. The three sample
+ * profiles — names, villages, years, tree counts and first-person quotes, none
+ * of them real — were removed outright; the three cards that remain are
+ * photographs of members at work, captioned with what the picture shows and
+ * carrying no identity at all.
  *
- * The other three carry the harvest photographs and NO identity at all. Those
- * files are real, recognisable members, and a real face over an invented name
- * is a false statement about a person who never agreed to appear here. A card
- * without a `name` renders as a photograph and a caption; add the identity
- * fields back when the interview is collected and it becomes a profile again.
+ * That is deliberate and it is the safe default. A card gains a `name` only
+ * when there is a real interview behind it, and gaining one turns it back into
+ * a full profile with no change to the component. Until then this band claims
+ * nothing about anybody.
  */
 
 export const farmers: FarmersContent = {
@@ -122,28 +123,26 @@ export const farmers: FarmersContent = {
   profiles: {
     eyebrow: 'Members',
     heading: 'The people behind the picking',
-    /* Corrected when the first three cards lost their invented identities: the
-       sentence said all six were sample entries, and three of them no longer
-       claim anything about anybody. */
+    /* Rewritten twice, both times because the cards below it changed. It said
+       all six profiles were sample entries; then that the three named ones
+       were; now there are no named ones at all, so it says what is actually
+       true of the band — three photographs, and interviews still to come. */
     lead:
-      'Most members farm under a hectare, alongside food crops and a cow or two. The three NAMED profiles below are SAMPLE ENTRIES — invented names, figures and words, standing in so the page can be seen whole. The interviews are still to be collected, and no member is published here without their agreement.',
+      'Most members farm under a hectare, alongside food crops and a cow or two. The interviews and portraits are still to be collected, and no member is published here without their agreement.',
     yearsLabel: 'Years farming',
     treesLabel: 'Trees',
     members: [
-      /* The first three cards carry the harvest photographs, and carry NO
-         identity — no name, no village, no figures, no quote.
+      /* Three photographs of members at work, carrying NO identity — no name,
+         no village, no figures, no quote. The three invented sample profiles
+         that used to follow them are gone.
 
-         The people in harvest-01..03 are real and recognisable. The six
-         profiles this page shipped with are invented sample entries. Putting
-         one over the other would have told a visitor that the member in the
-         red headscarf is Grace Wairimu, has farmed for 34 years, holds 420
-         trees and said a sentence she has never said — about someone who
-         never agreed to appear on this page at all.
-
-         So they are photographs of members at work, captioned with what the
-         picture shows rather than who is in it. When the real interviews are
-         collected, add the identity fields back to a card and it becomes a
-         profile again; nothing in the component has to change. */
+         The people in these frames are real and recognisable, which is the
+         whole reason the cards are shaped this way: a real face over an
+         invented name would have told a visitor that the member in the red
+         headscarf has farmed 34 years, holds 420 trees and said a sentence she
+         has never said. When a real interview is collected, add the identity
+         fields to a card and it becomes a profile again; nothing in the
+         component has to change. */
       {
         id: 'm1',
         imageSlot: 'memberOne',
@@ -158,36 +157,6 @@ export const farmers: FarmersContent = {
         id: 'm3',
         imageSlot: 'memberThree',
         caption: 'Two members, one tree. Most of the crop is family work.',
-      },
-      {
-        id: 'm4',
-        name: 'Samuel Githinji',
-        village: 'Gathaithi',
-        years: '41',
-        trees: '680',
-        quote:
-          '“Forty years on the same slope. The mill has changed three times; the trees have not.”',
-        imageSlot: 'memberFour',
-      },
-      {
-        id: 'm5',
-        name: 'Margaret Wanjiku',
-        village: 'Kagumo',
-        years: '19',
-        trees: '340',
-        quote:
-          '“The field days taught me to pick only red. My price went up before my yield did.”',
-        imageSlot: 'memberFive',
-      },
-      {
-        id: 'm6',
-        name: 'John Maina',
-        village: 'Ihwa',
-        years: '8',
-        trees: '180',
-        quote:
-          '“The smallest farm on this list, and I am still an owner of the mill. That is the whole point of a society.”',
-        imageSlot: 'memberSix',
       },
     ],
   },
