@@ -64,20 +64,23 @@ export function Terroir({ content }: { content: AboutContent['terroir'] }) {
           </dl>
         </div>
 
-        {/* What grows here. */}
-        <div className="mt-20 grid gap-10 lg:mt-24 lg:grid-cols-12 lg:gap-16">
-          <div className="flex flex-col gap-5 lg:col-span-5 lg:self-center">
-            <h3 className="t-section text-[clamp(1.5rem,2.4vw,2.25rem)]">
-              {content.varieties.heading}
-            </h3>
-            <p className="t-body measure text-ink-soft">
-              <RichText text={content.varieties.body} />
-            </p>
-          </div>
+        {/* What grows here. The heading sat in a five-column block beside the
+            list; it is a title, so it goes across the top and in the middle,
+            like every other title on this page, and the list runs underneath
+            at a width a definition list can actually be read at. */}
+        <div className="mt-20 flex flex-col items-center gap-5 text-center lg:mt-24">
+          <h3 className="t-section max-w-[20ch] text-balance text-[clamp(1.5rem,2.4vw,2.25rem)]">
+            {content.varieties.heading}
+          </h3>
+          <p className="t-body max-w-[56ch] text-ink-soft">
+            <RichText text={content.varieties.body} />
+          </p>
+        </div>
 
+        <div className="mt-12 lg:mt-16">
           {/* Reveal renders each row itself: a dl may contain divs, but the dt
               and dd pair must be a direct child of that div. */}
-          <dl className="lg:col-span-6 lg:col-start-7 lg:pt-2">
+          <dl className="mx-auto w-full max-w-[64rem]">
             {content.varieties.list.map((variety, i) => (
               <Reveal
                 key={variety.name}

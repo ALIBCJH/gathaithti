@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { SplitHero } from '@/components/layout/SplitHero';
 import { Pillars } from '@/components/about/Pillars';
 import { History } from '@/components/about/History';
 import { Governance } from '@/components/about/Governance';
@@ -39,21 +38,15 @@ export default async function AboutPage({ params }: Props) {
         ]}
       />
 
-      {/* Hero, then five bands in the order a stranger needs them: what the
-          society is, where it came from, how it is run and by whom, the paper
-          an auditor wants, and finally why the coffee tastes as it does. */}
-      <SplitHero
-        slot="aboutHero"
-        eyebrow={about.hero.eyebrow}
-        title={about.hero.title}
-        lead={about.hero.lead}
-        /* Measured: the man sits at ~29% across the source and the picked hand
-           at ~64%. A tall crop cannot hold both centred, and at 58% his face
-           was cut in half by the left edge of the panel on a phone. */
-        objectPosition="object-[34%_45%] lg:object-[50%_40%]"
-      />
+      {/* Five bands in the order a stranger needs them: what the society is,
+          where it came from, how it is run and by whom, the paper an auditor
+          wants, and finally why the coffee tastes as it does.
 
-      <Pillars content={about.pillars} />
+          There is no hero band. The photographic split that used to open the
+          page has gone, and the title it carried now opens the first band —
+          which is why Pillars is handed `about.hero` as well as its own
+          cards. */}
+      <Pillars content={about.pillars} opening={about.hero} />
       <History content={about.origin} />
       <Governance content={about.governance} />
       <InformationPoint content={about.registration} />

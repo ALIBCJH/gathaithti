@@ -8,6 +8,8 @@ export const about: AboutContent = {
     ogLine: 'Founded 1967 · Independent since June 2000 · Tetu, Nyeri',
   },
 
+  /* The page's title and its one sentence. There is no hero band any more —
+     these are rendered by `Pillars`, which is now the first band on the page. */
   hero: {
     eyebrow: 'About the society',
     title: 'Owned by the farmers who grow the coffee',
@@ -20,6 +22,10 @@ export const about: AboutContent = {
      figure of its own — the numbers come through {{tokens}} like everywhere
      else, so a correction in content/facts.ts reaches them. */
   pillars: {
+    /* NOT RENDERED. This band used to have a head of its own, directly below
+       the hero's — two bands in a row labelled ABOUT THE SOCIETY. The two are
+       one band now and it is titled by `hero` above. Both lines are kept
+       because restoring them is a two-line change if the head is wanted back. */
     eyebrow: 'About the society',
     heading: 'A society, not a supplier',
     cards: [

@@ -111,6 +111,11 @@ export const images = {
   },
 
   /* ── About ──────────────────────────────────────────────────────────── */
+  /* PARKED — nothing renders this. The About page opened with a split hero
+     built around this frame; the hero has gone and the page now opens on type.
+     The file is still in /public/images and the brief below is still good, so
+     the slot is kept rather than deleted: it is one line to place this
+     photograph somewhere it earns its space. */
   aboutHero: {
     file: 'gathaithi-member-at-the-tree.jpg',
     page: 'About',

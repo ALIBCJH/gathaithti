@@ -26,16 +26,19 @@ export function History({ content }: { content: AboutContent['origin'] }) {
   return (
     <Section tone="parchment-2" ariaLabelledby="history-heading">
       <Container width="wide">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
-          {/* Left as well: the heading is the first line of the account
-              beside it, and centring would orphan it from its own prose. */}
+        {/* Across the top, centred, like every other head on this page. It
+            used to sit in the left column as the first line of the account
+            beside it; on a page where every other band announces itself in
+            the middle, that read as a fourth column of prose rather than as
+            the title of the band. */}
+        <SectionHead
+          id="history-heading"
+          eyebrow={content.eyebrow}
+          heading={content.heading}
+        />
+
+        <div className="mt-16 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:gap-16">
           <div className="flex flex-col gap-6 lg:col-span-6">
-            <SectionHead
-              id="history-heading"
-              eyebrow={content.eyebrow}
-              heading={content.heading}
-              align="left"
-            />
             {content.body.map((paragraph, i) => (
               <p
                 key={i}
