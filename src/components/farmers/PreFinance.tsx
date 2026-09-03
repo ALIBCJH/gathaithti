@@ -2,7 +2,6 @@ import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { SmartImage } from '@/components/media/SmartImage';
 import type { FarmersContent } from '@content/types';
 
 export function PreFinance({ content }: { content: FarmersContent['prefinance'] }) {
@@ -17,18 +16,18 @@ export function PreFinance({ content }: { content: FarmersContent['prefinance'] 
           lead={content.lead}
         />
 
-        <div className="mt-16 grid gap-16 lg:mt-20 lg:grid-cols-12 lg:gap-20">
-          <Reveal className="lg:col-span-5">
-            <SmartImage slot="farmersPrefinance" />
-          </Reveal>
-
-          <div className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7 lg:self-center">
-            {content.body.map((paragraph, i) => (
-              <p key={i} className="t-body measure text-ink-soft">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+        {/* No photograph. There was a `farmersPrefinance` slot here and no file
+            in it, so half the band was an empty box printing the filename it
+            was waiting for, beside two paragraphs squeezed into five columns.
+            The two paragraphs run as two columns under the head instead — the
+            same shape the rest of this page uses. The brief is parked in
+            content/images.ts if the photograph is ever taken. */}
+        <div className="mx-auto mt-14 grid w-full max-w-[64rem] gap-6 lg:mt-16 lg:grid-cols-2 lg:gap-16">
+          {content.body.map((paragraph, i) => (
+            <p key={i} className="t-body text-ink-soft">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         <div className="mt-24 grid gap-16 lg:mt-32 lg:grid-cols-12 lg:gap-20">
