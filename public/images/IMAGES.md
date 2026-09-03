@@ -76,6 +76,10 @@ before the photography exists.
 | `member-06-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 3:2 | 2000×1334 | A field day in progress: the agronomist demonstrating pruning on a real tree, members close in around it, secateurs in hands. Teaching between equals. |
 | `gathaithi-society-office.jpg` | Our Farmers | Pre-finance — **parked, nothing renders it** | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
+| `partner-cms.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
+| `partner-dormans.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
+| `partner-ea-bean.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
+| `partner-e4impact.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
 
 ## Priority
 
@@ -136,6 +140,10 @@ the shot list is self-contained:
 - `member-06-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `gathaithi-agronomy-training.jpg` — Gathaithi members at a field day, learning pruning technique on a mature coffee tree.
 - `gathaithi-society-office.jpg` — A member completing a pre-finance application at the Gathaithi society office.
+- `partner-cms.png` — Coffee Management Services
+- `partner-dormans.png` — Dormans
+- `partner-ea-bean.png` — EA Bean Co.
+- `partner-e4impact.png` — E4Impact Foundation
 - `gathaithi-ripening-cherry.jpg` — Cherry on the branch at Gathaithi — red, yellow and green ripening together.
 - `gathaithi-green-sack.jpg` — A jute sack of milled green Gathaithi coffee, stencilled “Gathaithi Coffee, Nyeri, Kenya”.
 - `gathaithi-the-cup.jpg` — A cup of brewed coffee on a saucer with roasted beans beside it, steam rising.

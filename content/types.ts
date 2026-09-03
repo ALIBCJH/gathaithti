@@ -147,6 +147,15 @@ export interface HomeContent {
     card: { eyebrow: string; quote: string; support: string; footer: string };
   };
   noticeboard: { eyebrow: string; heading: string; lead: string; cta: Cta };
+  /**
+   * The organisations Gathaithi works with, as their own marks.
+   *
+   * `name` is the organisation's name and nothing else. There is deliberately
+   * no field for what each one does or how it is involved: those are claims
+   * about third parties, and the society is the only party that can make them.
+   * If a description is ever wanted, it comes from the society in writing.
+   */
+  partners: { eyebrow: string; heading: string; items: { id: string; name: string; imageSlot: string }[] };
 }
 
 /* ── About ──────────────────────────────────────────────────────────────── */
