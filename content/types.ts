@@ -291,14 +291,34 @@ export interface BoardMember {
   pending?: boolean;
 }
 
+/**
+ * A member card. Two shapes, and the difference is not cosmetic.
+ *
+ * With `name`, it is a PROFILE: a photograph of a person, their village, how
+ * long they have farmed, how many trees they hold and something they said.
+ * Every one of those is an attribution, so every one of them has to be true of
+ * the person in the photograph.
+ *
+ * Without `name`, it is a PHOTOGRAPH of a member at work and nothing more.
+ * That is the shape the first three cards take: the files in them are real,
+ * identifiable people, and the profiles this page ships with are invented
+ * sample entries. A real face over an invented name, an invented tree count
+ * and an invented quote is a false statement about someone who never agreed to
+ * appear here at all.
+ *
+ * When the real interviews are collected, a card gains the identity fields and
+ * becomes a profile again. Nothing else has to change.
+ */
 export interface MemberProfile {
   id: string;
-  name: string;
-  village: string;
-  years: string;
-  trees: string;
-  quote: string;
   imageSlot: string;
+  /** Says what the photograph shows. Never who. */
+  caption?: string;
+  name?: string;
+  village?: string;
+  years?: string;
+  trees?: string;
+  quote?: string;
 }
 
 export interface Notice {

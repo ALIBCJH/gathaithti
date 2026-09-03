@@ -2,10 +2,15 @@ import type { FarmersContent } from '../types';
 
 /**
  * NOTE ON THE MEMBER PROFILES
- * The six profiles below are SCAFFOLDING. Names, years, tree counts and quotes
- * are marked as drafts and must be replaced with real interviews before this
- * page goes live — we do not publish invented people. Structure, layout and
- * photo slots are final; only the content needs collecting.
+ * THREE of the six cards below are SCAFFOLDING: names, years, tree counts and
+ * quotes are invented and must be replaced with real interviews before anyone
+ * treats them as true — we do not publish invented people.
+ *
+ * The other three carry the harvest photographs and NO identity at all. Those
+ * files are real, recognisable members, and a real face over an invented name
+ * is a false statement about a person who never agreed to appear here. A card
+ * without a `name` renders as a photograph and a caption; add the identity
+ * fields back when the interview is collected and it becomes a profile again.
  */
 
 export const farmers: FarmersContent = {
@@ -110,40 +115,42 @@ export const farmers: FarmersContent = {
   profiles: {
     eyebrow: 'Members',
     heading: 'The people behind the picking',
+    /* Corrected when the first three cards lost their invented identities: the
+       sentence said all six were sample entries, and three of them no longer
+       claim anything about anybody. */
     lead:
-      'Most members farm under a hectare, alongside food crops and a cow or two. The six profiles below are SAMPLE ENTRIES — invented names, figures and words, standing in so the page can be seen whole. The photographs and the interviews are still to be collected, and no member is published here without their agreement.',
+      'Most members farm under a hectare, alongside food crops and a cow or two. The three NAMED profiles below are SAMPLE ENTRIES — invented names, figures and words, standing in so the page can be seen whole. The interviews are still to be collected, and no member is published here without their agreement.',
     yearsLabel: 'Years farming',
     treesLabel: 'Trees',
     members: [
+      /* The first three cards carry the harvest photographs, and carry NO
+         identity — no name, no village, no figures, no quote.
+
+         The people in harvest-01..03 are real and recognisable. The six
+         profiles this page shipped with are invented sample entries. Putting
+         one over the other would have told a visitor that the member in the
+         red headscarf is Grace Wairimu, has farmed for 34 years, holds 420
+         trees and said a sentence she has never said — about someone who
+         never agreed to appear on this page at all.
+
+         So they are photographs of members at work, captioned with what the
+         picture shows rather than who is in it. When the real interviews are
+         collected, add the identity fields back to a card and it becomes a
+         profile again; nothing in the component has to change. */
       {
         id: 'm1',
-        name: 'Grace Wairimu',
-        village: 'Gathaithi',
-        years: '34',
-        trees: '420',
-        quote:
-          '“My father planted the first block. I have replaced perhaps half of it with Batian, and the old SL28 still gives the best cup.”',
         imageSlot: 'memberOne',
+        caption: 'Ripe taken, green left — the branch is worked again in a week.',
       },
       {
         id: 'm2',
-        name: 'Peter Kimani',
-        village: 'Kagumo',
-        years: '12',
-        trees: '260',
-        quote:
-          '“I came back from Nairobi to farm. The pre-finance is what made it possible to prune properly in the first year.”',
         imageSlot: 'memberTwo',
+        caption: 'Selecting by colour, not by handful. Nothing is stripped.',
       },
       {
         id: 'm3',
-        name: 'Esther Nyambura',
-        village: 'Ihwa',
-        years: '27',
-        trees: '510',
-        quote:
-          '“I deliver in the evening and the receipt is written in front of me. That is the part I trust.”',
         imageSlot: 'memberThree',
+        caption: 'Two members, one tree. Most of the crop is family work.',
       },
       {
         id: 'm4',
