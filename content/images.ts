@@ -483,40 +483,54 @@ export const images = {
     alt: 'Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.',
     sizes: '(min-width: 1424px) 1280px, 92vw',
   },
+  /* The first three cards carry the harvest photographs — the same files as
+     the slideshow above, and deliberately NOT portraits. They are 3/2 because
+     that is what the files are: a 4/5 crop keeps only 53% of the width, and on
+     harvest-03 the two members stand at opposite edges, so a portrait crop
+     would cut both of them out and make the caption untrue.
+
+     These three carry no name, no village, no figures and no quote. The people
+     in them are real; the profiles this page ships with are invented. See the
+     note at the top of content/en/farmers.ts. */
   memberOne: {
-    file: 'member-01-portrait.jpg',
+    file: 'harvest-01-picking.jpg',
     page: 'Our Farmers',
     section: 'Member profiles',
-    ratio: '4/5',
-    minWidth: 1200,
-    minHeight: 1500,
+    ratio: '3/2',
+    minWidth: 2000,
+    minHeight: 1334,
     direction:
-      'Environmental portrait on the member’s own shamba, standing, eye level, looking at the lens. Even shade. Confident, not smiling on command. Same treatment for all six portraits.',
-    alt: 'A Gathaithi member photographed among their coffee trees.',
+      'Shared with the harvest slideshow. A member picking ripe cherry by hand, close in, mid-work. No crop that would cut the hands or the face.',
+    alt: 'A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   memberTwo: {
-    file: 'member-02-portrait.jpg',
+    file: 'harvest-02-reaching.jpg',
     page: 'Our Farmers',
     section: 'Member profiles',
-    ratio: '4/5',
-    minWidth: 1200,
-    minHeight: 1500,
-    direction: 'As member-01-portrait.jpg. Different member, same eye level and treatment.',
-    alt: 'A Gathaithi member photographed among their coffee trees.',
+    ratio: '3/2',
+    minWidth: 2000,
+    minHeight: 1334,
+    direction:
+      'Shared with the harvest slideshow. A member reaching up into the branch, selecting ripe cherry, sky behind.',
+    alt: 'A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   memberThree: {
-    file: 'member-03-portrait.jpg',
+    file: 'harvest-03-two-members.jpg',
     page: 'Our Farmers',
     section: 'Member profiles',
-    ratio: '4/5',
-    minWidth: 1200,
-    minHeight: 1500,
-    direction: 'As member-01-portrait.jpg. Different member, same eye level and treatment.',
-    alt: 'A Gathaithi member photographed among their coffee trees.',
+    ratio: '3/2',
+    minWidth: 2000,
+    minHeight: 1334,
+    direction:
+      'Shared with the harvest slideshow. Two members working the same tree from either side. They stand at opposite edges of the frame, so this one must never be cropped narrower than 3/2 — the caption says two members.',
+    alt: 'Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
+  /* The remaining three are still portraits, and still waiting. The brief used
+     to live on member-01; that slot now carries a harvest photograph, so the
+     reference brief moved here. */
   memberFour: {
     file: 'member-04-portrait.jpg',
     page: 'Our Farmers',
@@ -524,7 +538,8 @@ export const images = {
     ratio: '4/5',
     minWidth: 1200,
     minHeight: 1500,
-    direction: 'As member-01-portrait.jpg. Different member, same eye level and treatment.',
+    direction:
+      'Environmental portrait on the member’s own shamba, standing, eye level, looking at the lens. Even shade. Confident, not smiling on command. The same treatment for all three remaining portraits.',
     alt: 'A Gathaithi member photographed among their coffee trees.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -535,7 +550,7 @@ export const images = {
     ratio: '4/5',
     minWidth: 1200,
     minHeight: 1500,
-    direction: 'As member-01-portrait.jpg. Different member, same eye level and treatment.',
+    direction: 'As member-04-portrait.jpg. Different member, same eye level and treatment.',
     alt: 'A Gathaithi member photographed among their coffee trees.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -546,7 +561,7 @@ export const images = {
     ratio: '4/5',
     minWidth: 1200,
     minHeight: 1500,
-    direction: 'As member-01-portrait.jpg. Different member, same eye level and treatment.',
+    direction: 'As member-04-portrait.jpg. Different member, same eye level and treatment.',
     alt: 'A Gathaithi member photographed among their coffee trees.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
