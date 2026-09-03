@@ -200,16 +200,24 @@
    BASE
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* NO `scroll-behavior: smooth` HERE, deliberately.
+
+   It was on `html`, which is the scrolling element for the whole document, so
+   it governed every scroll on the site — including the one the App Router
+   performs on navigation. Clicking About from 2177px down sent the page
+   FURTHER down, to 2430px, and then animated back to the top over about
+   900ms, which reads as the new page scrolling itself instead of starting at
+   the top. There is no CSS way to exempt the router from it: the property
+   belongs to the scroller, not to the link that triggered the scroll.
+
+   So scrolling is instant, and the one element that genuinely wanted a glide —
+   the hero's scroll cue — asks for it itself, in SmoothAnchor.
+
+   `scroll-padding-top` stays and is unrelated to any of the above: it keeps an
+   anchor's target clear of the fixed header whichever way the scroll happens. */
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h) + 1.5rem);
   -webkit-text-size-adjust: 100%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 body {
