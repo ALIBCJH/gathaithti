@@ -5,7 +5,6 @@ import { Hero } from '@/components/home/Hero';
 import { ProofBand } from '@/components/home/ProofBand';
 import { SeasonPanel } from '@/components/home/SeasonPanel';
 import { StoryTeaser } from '@/components/home/StoryTeaser';
-import { NoticeboardPreview } from '@/components/home/NoticeboardPreview';
 import { Partners } from '@/components/home/Partners';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
@@ -24,7 +23,7 @@ export default async function HomePage({ params }: Props) {
   if (!isLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
-  const { home, farmers } = dict;
+  const { home } = dict;
 
   return (
     <>
@@ -46,11 +45,6 @@ export default async function HomePage({ params }: Props) {
         <SeasonPanel locale={locale} content={home.season} />
       </div>
       <StoryTeaser locale={locale} content={home.story} />
-      <NoticeboardPreview
-        locale={locale}
-        content={home.noticeboard}
-        noticeboard={farmers.noticeboard}
-      />
 
       {/* Last, and after the members' band on purpose: the society's own people
           come before the organisations it works with. */}

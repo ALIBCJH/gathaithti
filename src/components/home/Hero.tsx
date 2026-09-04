@@ -64,18 +64,28 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
 
   const slides: HeroSlide[] = (
     [
-      ['homeHero', 'heroMobileOne', 'object-[58%_46%] sm:object-[54%_46%] lg:object-[46%_44%]'],
-      ['homeHeroTwo', 'heroMobileTwo', 'object-center'],
-      ['homeHeroThree', 'heroMobileThree', 'object-[38%_50%] lg:object-[42%_50%]'],
-      ['homeHeroFour', 'heroMobileFour', 'object-center'],
+      /* The third entry is the crop on a PHONE. Two of the portraits are wider
+         in ratio than a phone screen and get cropped horizontally, and the
+         wordmark burned into hero-mobile-01 sits hard against its left edge —
+         centred, it was sliced in half. `object-left` keeps it. The other
+         three are close enough to a phone's own ratio that centre is right. */
+      ['homeHero', 'heroMobileOne', 'object-left', 'object-[58%_46%] sm:object-[54%_46%] lg:object-[46%_44%]'],
+      ['homeHeroTwo', 'heroMobileTwo', 'object-center', 'object-center'],
+      ['homeHeroThree', 'heroMobileThree', 'object-center', 'object-[38%_50%] lg:object-[42%_50%]'],
+      ['homeHeroFour', 'heroMobileFour', 'object-center', 'object-center'],
       /* Sun flare top-left, cluster right. The type is bottom-left, so the
          crop keeps the cluster in and the flare out of the words. */
-      ['homeHeroFive', null, 'object-[64%_55%] lg:object-[58%_50%]'],
+      ['homeHeroFive', null, null, 'object-[64%_55%] lg:object-[58%_50%]'],
     ] as const
   )
-    .map(([slot, mobileSlot, position]) => ({ image: getImage(slot), mobileSlot, position }))
+    .map(([slot, mobileSlot, mobilePosition, position]) => ({
+      image: getImage(slot),
+      mobileSlot,
+      mobilePosition,
+      position,
+    }))
     .filter(({ image: slide }) => slide.exists)
-    .map(({ image: slide, mobileSlot, position }) => {
+    .map(({ image: slide, mobileSlot, mobilePosition, position }) => {
       const wide = srcSetFor(slide.key as Parameters<typeof getImage>[0], 74);
       const tall = mobileSlot ? srcSetFor(mobileSlot, 74) : null;
       return {
@@ -90,14 +100,16 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
         mobileSrcSet: tall?.srcSet ?? null,
         mobileSizes: tall?.sizes ?? null,
         mobileAlt: mobileSlot ? getImage(mobileSlot).alt : null,
-        /* The crop offset belongs to the LANDSCAPE frame only. Where a
-           portrait file exists it is already composed for a phone — and has
-           the wordmark set into it — so below `lg` the frame is centred and
-           only the `lg:` half of the offset survives. Built here rather than
-           in the client component because it is a string transform on content,
-           and getting it wrong silently shifts a crop. */
+        /* One <img> serves both sources, so one class list has to carry both
+           crops: the phone's crop unprefixed, and only the `lg:` half of the
+           landscape offset above it. Built here rather than in the client
+           component because it is a string transform on content, and getting
+           it wrong silently shifts a crop. */
         position: mobileSlot
-          ? ['object-center', ...position.split(' ').filter((c) => c.startsWith('lg:'))].join(' ')
+          ? [
+              mobilePosition ?? 'object-center',
+              ...position.split(' ').filter((c) => c.startsWith('lg:')),
+            ].join(' ')
           : position,
       };
     });
@@ -167,37 +179,49 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
             {content.title}
           </h1>
 
-          <p className="t-lead max-w-[44ch] text-on-ink-fixed/90">
-            <RichText text={content.positioning} />
+          {/* Two lines, and the second is centred under the first rather than
+              ranged left with it. `w-fit` is what makes that work: the block
+              shrinks to the width of its longest line, so `text-center` on the
+              second centres it against the first and not against the column.
+
+              Set from `positioningLines` rather than split from the sentence
+              at render time — where the line breaks is a typographic decision
+              the society made, not something to infer from the last space. */}
+          <p className="t-lead w-fit max-w-[44ch] text-on-ink-fixed/90">
+            {content.positioningLines.map((line, i) => (
+              <span key={i} className={`block ${i > 0 ? 'text-center' : ''}`}>
+                <RichText text={line} />
+              </span>
+            ))}
           </p>
 
         </div>
       </div>
 
-      {/* The phone's cue out of the hero: a small arrow at the foot of the
-          frame. It replaced a "Read more" button that took up a whole row of
-          the composition — the picture is the point of this section, and the
-          arrow says the same thing in a tenth of the space.
+      {/* The phone's cue out of the hero: a small labelled button at the foot
+          of the frame, where a bare arrow used to be. An arrow means "there is
+          more below" only if you already read it that way; a word says it.
 
-          It scrolls rather than navigates. A downward arrow at the bottom of a
-          hero means "there is more below", and the button it replaced went to
-          About, which would have been a downward arrow that left the page. The
-          tap target is a full 44px; only the glyph inside it is small. */}
+          It still SCROLLS rather than navigates — to the first section under
+          the hero, not to another page — which is why it is a SmoothAnchor and
+          not a Button. The arrow stays as a glyph beside the word, so the
+          direction is not carried by the text alone.
+
+          No `.tap` here. That utility grows a small link's hit area on a touch
+          screen by forcing `position: relative` — an UNLAYERED rule inside
+          `@media (pointer: coarse)` that beats Tailwind's layered `absolute`.
+          On a real phone it stopped being positioned at all and sat 104px
+          above the bottom edge, in flow. This is already a 44px-tall target,
+          so it never needed it. */}
       <SmoothAnchor
         href="#story-heading"
         ariaLabel={content.scrollDown}
-        /* No `.tap` here. That utility exists to grow a small inline link's hit
-             area on a touch screen, and it does it by forcing
-             `position: relative` — an UNLAYERED rule inside
-             `@media (pointer: coarse)`, which beats Tailwind's layered
-             `absolute`. On a real phone the arrow stopped being positioned at
-             all and sat 104px above the bottom edge, in flow. It is already a
-             44px target, so it never needed `.tap`. */
-        className="absolute inset-x-0 bottom-4 z-10 mx-auto flex h-11 w-11 items-center justify-center text-on-ink-fixed/70 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-on-ink-fixed lg:hidden"
+        className="absolute inset-x-0 bottom-4 z-10 mx-auto flex h-11 w-fit items-center gap-2 rounded-full border border-on-ink-fixed/35 bg-ink-fixed/45 px-5 text-[0.875rem] font-medium text-on-ink-fixed backdrop-blur-[2px] transition-[background-color,border-color] duration-200 [transition-timing-function:var(--ease)] hover:border-on-ink-fixed/60 hover:bg-ink-fixed/70 lg:hidden"
       >
+        {content.scrollMore}
         <svg
           viewBox="0 0 24 24"
-          className="h-5 w-5"
+          className="h-4 w-4"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.75"

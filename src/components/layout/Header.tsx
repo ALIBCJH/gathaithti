@@ -348,7 +348,7 @@ export function Header({
                 room to put a label and a figure side by side without one of
                 them breaking. */}
             <Link
-              href={`/${locale}/farmers#noticeboard`}
+              href={`/${locale}/farmers`}
               onClick={() => setOpen(false)}
               className="stagger-in mx-4 mt-auto flex flex-col gap-1 rounded-lg border border-on-inverse/20 px-4 py-3 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ochre"
               style={{ '--i': 6 } as React.CSSProperties}
