@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import { BLUR_DATA_URL } from '@/lib/blur';
@@ -13,6 +12,15 @@ export interface HeroSlide {
   alt: string;
   /** From the slot. Carries the height-aware rule — see content/images.ts. */
   sizes: string;
+  /** The optimiser's candidates for the landscape frame. */
+  srcSet: string;
+  /**
+   * The portrait frame for phones, where one exists. Null means this slide has
+   * no phone-specific photograph and the landscape one is used at every width.
+   */
+  mobileSrcSet: string | null;
+  mobileSizes: string | null;
+  mobileAlt: string | null;
   /** Per-slide crop. Each frame has its subject in a different place. */
   position: string;
 }
@@ -125,18 +133,43 @@ export function HeroSlides({
                 i === index ? "opacity-100" : "pointer-events-none opacity-0",
               ].join(" ")}
             >
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                priority={i === 0}
-                fetchPriority={i === 0 ? "high" : "low"}
-                sizes={slide.sizes}
-                quality={74}
-                placeholder="blur"
-                blurDataURL={BLUR_DATA_URL}
-                className={`photo object-cover ${slide.position}`}
-              />
+              {/* A `<picture>`, not next/image, because this is the one place
+                  on the site that needs ART DIRECTION rather than a resize:
+                  the phone gets a different PHOTOGRAPH, not a crop of the same
+                  one. Two <Image> elements toggled with `lg:hidden` would both
+                  be downloaded — a display:none image is still fetched — where
+                  a `<source media>` is resolved before the request.
+
+                  The blur-up moves to the wrapper's background, which is what
+                  next/image does internally anyway.
+
+                  The crop offset is applied ONLY to the landscape frame. Each
+                  portrait file is already composed for a phone, and every one
+                  of them has the wordmark set into the photograph, so shifting
+                  the crop would push it off the edge. */}
+              <picture>
+                {slide.mobileSrcSet ? (
+                  <source
+                    media="(max-width: 1023px)"
+                    srcSet={slide.mobileSrcSet}
+                    sizes={slide.mobileSizes ?? "100vw"}
+                  />
+                ) : null}
+                <source media="(min-width: 1024px)" srcSet={slide.srcSet} sizes={slide.sizes} />
+                <img
+                  src={slide.src}
+                  alt={slide.alt}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchPriority={i === 0 ? "high" : "low"}
+                  decoding={i === 0 ? "sync" : "async"}
+                  style={{
+                    backgroundImage: `url(${BLUR_DATA_URL})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                  className={`photo absolute inset-0 h-full w-full object-cover ${slide.position}`}
+                />
+              </picture>
             </div>
           ),
         )}

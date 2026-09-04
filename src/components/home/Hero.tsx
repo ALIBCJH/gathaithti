@@ -1,3 +1,4 @@
+import { getImageProps } from 'next/image';
 import { RichText } from '@/components/ui/Fact';
 import { SmoothAnchor } from '@/components/ui/SmoothAnchor';
 import { Placeholder } from '@/components/media/Placeholder';
@@ -33,26 +34,73 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
      right of centre so the slice carries the lit ridge and the front of the
      branch together. It opens out toward the sunrise as the screen widens and
      there is room for both. */
-  const slides: HeroSlide[] = (
-    [
-      ['homeHero', 'object-[58%_46%] sm:object-[54%_46%] lg:object-[46%_44%]'],
-      ['homeHeroTwo', 'object-center'],
-      ['homeHeroThree', 'object-[38%_50%] lg:object-[42%_50%]'],
-      ['homeHeroFour', 'object-center'],
-      /* Sun flare top-left, cluster right. The type is bottom-left, so the
-         crop keeps the cluster in and the flare out of the words. */
-      ['homeHeroFive', 'object-[64%_55%] lg:object-[58%_50%]'],
-    ] as const
-  )
-    .map(([slot, position]) => ({ image: getImage(slot), position }))
-    .filter(({ image: slide }) => slide.exists)
-    .map(({ image: slide, position }) => ({
-      key: slide.key,
+  /* Each desktop frame may carry a PORTRAIT counterpart for phones. The
+     desktop pictures are landscape, and a phone was being shown a narrow
+     vertical slice of one — the crops below were the best that could be done
+     with the wrong shape of photograph.
+
+     `getImageProps` builds the optimiser's srcSet for both, and HeroSlides
+     renders them as a `<picture>`. That matters for weight: two `<Image>`
+     elements toggled with `lg:hidden` would BOTH be downloaded, because a
+     `display:none` image is still fetched. A `<source media>` is chosen before
+     the fetch, so a phone takes only the portrait and a desktop only the
+     landscape.
+
+     Slide five has no portrait counterpart and falls back to its landscape
+     frame, whose crop was already tuned for a phone. */
+  const srcSetFor = (slot: Parameters<typeof getImage>[0], quality: number) => {
+    const slide = getImage(slot);
+    if (!slide.exists) return null;
+    const { props } = getImageProps({
       src: slide.src,
       alt: slide.alt,
+      width: slide.minWidth,
+      height: slide.minHeight,
+      quality,
       sizes: slide.sizes ?? '100vw',
-      position,
-    }));
+    });
+    return { srcSet: props.srcSet ?? '', sizes: props.sizes ?? '100vw', src: props.src };
+  };
+
+  const slides: HeroSlide[] = (
+    [
+      ['homeHero', 'heroMobileOne', 'object-[58%_46%] sm:object-[54%_46%] lg:object-[46%_44%]'],
+      ['homeHeroTwo', 'heroMobileTwo', 'object-center'],
+      ['homeHeroThree', 'heroMobileThree', 'object-[38%_50%] lg:object-[42%_50%]'],
+      ['homeHeroFour', 'heroMobileFour', 'object-center'],
+      /* Sun flare top-left, cluster right. The type is bottom-left, so the
+         crop keeps the cluster in and the flare out of the words. */
+      ['homeHeroFive', null, 'object-[64%_55%] lg:object-[58%_50%]'],
+    ] as const
+  )
+    .map(([slot, mobileSlot, position]) => ({ image: getImage(slot), mobileSlot, position }))
+    .filter(({ image: slide }) => slide.exists)
+    .map(({ image: slide, mobileSlot, position }) => {
+      const wide = srcSetFor(slide.key as Parameters<typeof getImage>[0], 74);
+      const tall = mobileSlot ? srcSetFor(mobileSlot, 74) : null;
+      return {
+        key: slide.key,
+        src: wide?.src ?? slide.src,
+        alt: slide.alt,
+        sizes: wide?.sizes ?? slide.sizes ?? '100vw',
+        srcSet: wide?.srcSet ?? '',
+        /* Present only where a portrait file exists; HeroSlides omits the
+           `<source>` entirely when it is null, and the phone then takes the
+           landscape frame with the crop that was tuned for it. */
+        mobileSrcSet: tall?.srcSet ?? null,
+        mobileSizes: tall?.sizes ?? null,
+        mobileAlt: mobileSlot ? getImage(mobileSlot).alt : null,
+        /* The crop offset belongs to the LANDSCAPE frame only. Where a
+           portrait file exists it is already composed for a phone — and has
+           the wordmark set into it — so below `lg` the frame is centred and
+           only the `lg:` half of the offset survives. Built here rather than
+           in the client component because it is a string transform on content,
+           and getting it wrong silently shifts a crop. */
+        position: mobileSlot
+          ? ['object-center', ...position.split(' ').filter((c) => c.startsWith('lg:'))].join(' ')
+          : position,
+      };
+    });
 
   return (
     /* Exactly one viewport tall. The old hero was 92svh with everything pushed

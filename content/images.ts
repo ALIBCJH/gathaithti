@@ -599,6 +599,66 @@ export const images = {
 
      These are other organisations' trademarks. Do not restyle, recolour, crop
      or stretch them, and do not add one without being told it is a partner. */
+  /* THE MOBILE HERO — a second, portrait photograph for each of the first four
+     hero frames, chosen because a phone was being shown a narrow vertical
+     slice of a landscape picture. The desktop frames stay exactly as they are;
+     these are only ever fetched below 1024px, through a `<picture>` element,
+     so neither set is downloaded on the other's viewport.
+
+     `sizes` is expressed in vh on purpose. The hero is a full-height frame and
+     every one of these is TALLER in ratio than a phone, so `object-cover`
+     scales them by HEIGHT and the rendered WIDTH is ratio x viewport height —
+     which is what `sizes` describes. 46vh is not a typo for 46vw.
+
+     NOTE FOR WHOEVER TOUCHES THESE: each file has the words GATHAITHI COFFEE
+     burned into the photograph, in a different place in each one. That is why
+     no crop offset is applied to them and why the page does not print the name
+     over the top. */
+  heroMobileOne: {
+    file: 'hero-mobile-01.jpg',
+    page: 'Home',
+    section: 'Hero — mobile',
+    ratio: '2/3',
+    minWidth: 1000,
+    minHeight: 1500,
+    direction: 'Portrait. Roasted beans and a wooden scoop on dark timber. Supplied with the wordmark set into the lower left of the frame.',
+    alt: 'Roasted Gathaithi coffee beans spilling from a wooden scoop across dark timber.',
+    sizes: '(max-width: 1023px) 67vh, 100vw',
+  },
+  heroMobileTwo: {
+    file: 'hero-mobile-02.jpg',
+    page: 'Home',
+    section: 'Hero — mobile',
+    ratio: '9/16',
+    minWidth: 940,
+    minHeight: 1650,
+    direction: 'Portrait. Ripe red cherry on the branch, close in, leaves behind. Wordmark set into the upper left.',
+    alt: 'Ripe red coffee cherry on the branch at Gathaithi, leaves behind.',
+    sizes: '(max-width: 1023px) 57vh, 100vw',
+  },
+  heroMobileThree: {
+    file: 'hero-mobile-03.jpg',
+    page: 'Home',
+    section: 'Hero — mobile',
+    ratio: '9/19',
+    minWidth: 850,
+    minHeight: 1840,
+    direction: 'Portrait, and almost exactly a phone screen in shape. Cherry cluster with sun through the leaves. Wordmark set into the lower left.',
+    alt: 'A cluster of ripe Gathaithi cherry with morning sun through the leaves above.',
+    sizes: '(max-width: 1023px) 46vh, 100vw',
+  },
+  heroMobileFour: {
+    file: 'hero-mobile-04.jpg',
+    page: 'Home',
+    section: 'Hero — mobile',
+    ratio: '9/19',
+    minWidth: 850,
+    minHeight: 1840,
+    direction: 'Portrait, phone-shaped. A bed of green parchment coffee filling the frame. Wordmark set into the upper centre.',
+    alt: 'A bed of green Gathaithi coffee beans filling the frame.',
+    sizes: '(max-width: 1023px) 46vh, 100vw',
+  },
+
   partnerCms: {
     file: 'partner-cms.png',
     page: 'Home',
