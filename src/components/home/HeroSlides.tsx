@@ -201,7 +201,7 @@ export function HeroSlides({
             onFocus={() => setHovered(true)}
             onBlur={() => setHovered(false)}
             aria-label={playing ? pauseLabel : playLabel}
-            className="pointer-events-auto sr-only focus-visible:not-sr-only focus-visible:relative focus-visible:m-4 focus-visible:flex focus-visible:h-11 focus-visible:w-11 focus-visible:items-center focus-visible:justify-center focus-visible:rounded-full focus-visible:border focus-visible:border-on-inverse/60 focus-visible:bg-inverse/80 focus-visible:text-on-inverse"
+            className="pointer-events-auto sr-only focus-visible:not-sr-only focus-visible:relative focus-visible:m-4 focus-visible:flex focus-visible:h-11 focus-visible:w-11 focus-visible:items-center focus-visible:justify-center focus-visible:rounded-full focus-visible:border focus-visible:border-on-ink-fixed/60 focus-visible:bg-ink-fixed/80 focus-visible:text-on-ink-fixed"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden="true">
               {playing ? (
