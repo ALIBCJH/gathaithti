@@ -36,14 +36,18 @@ export function Section({
      top padding is the only thing holding the content clear. A normal section
      padding is written for a band in the middle of a page and leaves far too
      much air there — 192px on a desktop, most of it dead. This clears the
-     header and adds a deliberate gap, nothing more. The bottom stays loose. */
+     header and adds a deliberate gap, nothing more. The bottom stays loose.
+
+     The gap was 3rem on a desktop and is 1.5rem now: 48px of clear ground
+     under the bar became 24px. At the larger value the eyebrow floated in the
+     middle of an empty band and the page read as though it started late. */
   const padding =
     size === 'tight'
       ? 'py-16 sm:py-20 lg:py-24'
       : size === 'loose'
         ? 'py-24 sm:py-32 lg:py-48'
         : size === 'opener'
-          ? 'pb-24 pt-[calc(var(--header-h)+1.5rem)] sm:pb-32 sm:pt-[calc(var(--header-h)+2rem)] lg:pb-48 lg:pt-[calc(var(--header-h)+3rem)]'
+          ? 'pb-24 pt-[calc(var(--header-h)+0.75rem)] sm:pb-32 sm:pt-[calc(var(--header-h)+1rem)] lg:pb-48 lg:pt-[calc(var(--header-h)+1.5rem)]'
           : 'py-20 sm:py-28 lg:py-40';
 
   /* A hairline along the top of every section, so one band is told from the

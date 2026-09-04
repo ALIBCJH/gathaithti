@@ -44,14 +44,21 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
             <p className="t-meta text-on-inverse/65">{content.updated}</p>
           </div>
 
-          {/* The price. The single most-read number on the site. */}
-          <div className="mt-8 border-2 border-ochre bg-ochre/10 p-8 sm:p-12">
+          {/* The price. The single most-read number on the site — still the
+              largest thing in the band, just no longer 112px of it. The figure
+              was `clamp(3.5rem, 14vw, 7rem)` in a 48px-padded box, which came
+              to a 392px card carrying one number; it is a price, not a poster.
+
+              Sized through `--figure-size`, never `text-[…]`: `.t-figure` sets
+              its own `font-size`, so a bare text utility loses to it and is
+              silently ignored. */}
+          <div className="mt-8 border-2 border-ochre bg-ochre/10 p-6 sm:p-8">
             <p className="t-meta text-ochre-on-inverse">{content.priceLabel}</p>
-            <p className="t-figure mt-4 text-on-inverse" style={{ fontSize: 'clamp(3.5rem, 14vw, 7rem)' }}>
+            <p className="t-figure mt-3 text-on-inverse [--figure-size:clamp(2.75rem,9vw,4.5rem)]">
               <Fact id="cherryPriceCurrent" />
             </p>
-            <p className="t-lead mt-2 text-on-inverse/80">{content.priceUnit}</p>
-            <p className="t-body mt-6 max-w-[52ch] text-[0.9375rem] text-on-inverse/70">
+            <p className="t-lead mt-1 text-on-inverse/80">{content.priceUnit}</p>
+            <p className="t-body mt-4 max-w-[52ch] text-[0.9375rem] text-on-inverse/70">
               {content.priceFootnote}
             </p>
           </div>
@@ -61,7 +68,7 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
             {content.notices.map((notice) => (
               <li
                 key={notice.id}
-                className={`flex min-h-[11rem] flex-col gap-3 border p-6 sm:p-8 ${
+                className={`flex min-h-[8.5rem] flex-col gap-2.5 border p-5 sm:p-6 ${
                   notice.urgent ? 'border-ochre bg-on-inverse/8' : 'border-on-inverse/25'
                 }`}
               >
@@ -76,7 +83,7 @@ export function Noticeboard({ content }: { content: FarmersContent['noticeboard'
 
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
             {/* Collection times */}
-            <div className="border border-on-inverse/25 p-6 sm:p-8">
+            <div className="border border-on-inverse/25 p-5 sm:p-6">
               <h3 className="t-body font-medium text-on-inverse">{content.collection.heading}</h3>
               <dl className="mt-6">
                 {content.collection.rows.map((row, i) => (

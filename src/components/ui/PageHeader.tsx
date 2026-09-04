@@ -30,7 +30,7 @@ export function PageHeader({
        the cherry price — the one thing a member opens the page for, and the
        stated design goal of the band below — off the first screen entirely. */
     return (
-      <div className="bg-parchment pb-14 pt-[calc(var(--header-h)+1.5rem)] sm:pb-16 sm:pt-[calc(var(--header-h)+2rem)] lg:pb-20 lg:pt-[calc(var(--header-h)+3rem)]">
+      <div className="bg-parchment pb-14 pt-[calc(var(--header-h)+0.75rem)] sm:pb-16 sm:pt-[calc(var(--header-h)+1rem)] lg:pb-20 lg:pt-[calc(var(--header-h)+1.5rem)]">
         <Container width="wide">
           <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-6 text-center">
             <Eyebrow>{eyebrow}</Eyebrow>
@@ -44,8 +44,13 @@ export function PageHeader({
     );
   }
 
+  /* The left variant carried the ORIGINAL loose padding — pt-56 is 224px, and
+     with a 72px fixed bar over it that left 152px of empty ground before the
+     eyebrow, against 48px everywhere else. Contact was the last page still
+     opening that way. Same rhythm as the centred variant now; only the
+     arrangement of the three lines differs between them. */
   return (
-    <div className="bg-parchment pb-16 pt-40 sm:pb-20 sm:pt-48 lg:pb-24 lg:pt-56">
+    <div className="bg-parchment pb-14 pt-[calc(var(--header-h)+0.75rem)] sm:pb-16 sm:pt-[calc(var(--header-h)+1rem)] lg:pb-20 lg:pt-[calc(var(--header-h)+1.5rem)]">
       <Container width="wide">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
