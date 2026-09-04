@@ -655,21 +655,29 @@ a[href^='tel:'] {
    lines, so the type column climbs far higher up the frame than it does in a
    wide crop — and the ground has to climb with it. Measured on an iPhone 14
    the eyebrow sat at 2.9:1 against the layers above; these carry it past 4.5. */
+/* The phone's scrim was a 170% x 82% radial washing the whole lower-left of
+   the frame plus a linear reaching 78% of the way up — between them, most of
+   the picture was under brown. It read as a blur laid over the photograph
+   rather than as ground under the words.
+
+   What replaces it is a band, not a wash: one bottom-up gradient that is gone
+   by a third of the way up, so the photograph is clear everywhere above the
+   type and only the strip carrying the motto is darkened.
+
+   These numbers are not a taste judgement. With NO scrim at all, the brightest
+   pixels behind the motto measure 1.22:1 on slide two and 1.64:1 on slide one
+   — the words disappear into the picture. Sampled the same way, the band below
+   holds every slide above AA. Change it and re-run photocontrast.mjs; do not
+   change it by eye. */
 @media (max-width: 40rem) {
   .hero-scrim {
-    background:
-      radial-gradient(
-        170% 82% at 0% 100%,
-        color-mix(in srgb, var(--ink-fixed) 96%, transparent) 0%,
-        color-mix(in srgb, var(--ink-fixed) 86%, transparent) 46%,
-        transparent 92%
-      ),
-      linear-gradient(
-        to top,
-        color-mix(in srgb, var(--ink-fixed) 90%, transparent) 0%,
-        color-mix(in srgb, var(--ink-fixed) 45%, transparent) 46%,
-        transparent 78%
-      );
+    background: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--ink-fixed) 92%, transparent) 0%,
+      color-mix(in srgb, var(--ink-fixed) 78%, transparent) 14%,
+      color-mix(in srgb, var(--ink-fixed) 40%, transparent) 26%,
+      transparent 38%
+    );
   }
 }
 

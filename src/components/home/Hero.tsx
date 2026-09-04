@@ -113,8 +113,14 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
          much shallower than the one the dots and pause button needed. Below
          `lg` the hero is content-height rather than a full screen, so without
          a reserved band an element positioned against the section lands on top
-         of the copy. */
-      className="hero-fit relative isolate flex min-h-svh flex-col overflow-hidden bg-ink-fixed pb-14 text-on-ink-fixed on-ink-fixed lg:pb-0"
+         of the copy.
+
+         56px -> 40px, which drops the motto 16px down the frame and still
+         leaves 20px between it and the arrow. The floor is the arrow, not
+         taste: it is absolutely positioned at `bottom-4` and is a 44px target,
+         so the reserved band cannot go much below this without the two
+         touching. */
+      className="hero-fit relative isolate flex min-h-svh flex-col overflow-hidden bg-ink-fixed pb-10 text-on-ink-fixed on-ink-fixed lg:pb-0"
     >
       {slides.length > 0 ? (
         <HeroSlides
