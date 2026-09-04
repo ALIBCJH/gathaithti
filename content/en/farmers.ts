@@ -29,6 +29,15 @@ export const farmers: FarmersContent = {
       '{{members}} smallholder families farm the coffee that comes through this mill — and they own it. They elect the committee, they approve the accounts, and the price on this page is the price the society pays them.',
   },
 
+  /* PARKED — nothing renders this. The members' noticeboard was the whole
+     first band of Our Farmers: the cherry price, the next payment date, the
+     AGM, fertiliser orders, the collection times and the member line. The user
+     asked for the card removed outright.
+
+     Kept rather than deleted because it is the only place any of that is
+     written down, and it is the members' half of the site — if the society
+     wants a noticeboard again, this is it, not a rewrite. `Noticeboard.tsx`
+     and `NoticeboardPreview.tsx` are deleted; this is the copy they read. */
   noticeboard: {
     eyebrow: 'Members’ noticeboard',
     heading: 'Cherry price & payments',

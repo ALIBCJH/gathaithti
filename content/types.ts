@@ -118,6 +118,11 @@ export interface HomeContent {
   hero: {
     title: string;
     positioning: string;
+    /** The motto set as the hero draws it: one line per entry, the last
+     *  centred under the one above. `positioning` stays the plain sentence. */
+    positioningLines: string[];
+    /** The label on the cue out of the hero. */
+    scrollMore: string;
     /** Accessible name for the small arrow at the foot of the hero on a phone. */
     scrollDown: string;
     scrollHint: string;
