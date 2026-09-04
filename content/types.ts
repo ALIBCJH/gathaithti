@@ -36,7 +36,14 @@ export interface Fact {
 
 /* ── Images ─────────────────────────────────────────────────────────────── */
 
-export type AspectRatio = '21/9' | '16/9' | '3/2' | '4/3' | '1/1' | '4/5' | '3/4' | '2/3';
+/**
+ * The shape a slot reserves. `9/16` and `9/19` are the phone-screen portraits
+ * the mobile hero uses; for those slots the value is NOMINAL — the frame is
+ * the viewport, not a reserved box, so nothing lays out from it. The exact
+ * pixel size of each file is in its `minWidth`/`minHeight`.
+ */
+export type AspectRatio =
+  | '21/9' | '16/9' | '3/2' | '4/3' | '1/1' | '4/5' | '3/4' | '2/3' | '9/16' | '9/19';
 
 export interface ImageSlot {
   /** Filename inside /public/images. Drop a file with this exact name to fill the slot. */

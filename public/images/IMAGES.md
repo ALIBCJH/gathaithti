@@ -76,6 +76,10 @@ before the photography exists.
 | `member-06-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 3:2 | 2000×1334 | A field day in progress: the agronomist demonstrating pruning on a real tree, members close in around it, secateurs in hands. Teaching between equals. |
 | `gathaithi-society-office.jpg` | Our Farmers | Pre-finance — **parked, nothing renders it** | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
+| `hero-mobile-01.jpg` | Home | Hero — mobile | 2:3 | 1000×1500 | **Supplied, already in place.** Portrait. Roasted beans and a wooden scoop on dark timber. Carries the wordmark set into the lower left of the photograph. |
+| `hero-mobile-02.jpg` | Home | Hero — mobile | 9:16 | 940×1650 | **Supplied, already in place.** Portrait. Ripe red cherry on the branch. Wordmark set into the upper left. |
+| `hero-mobile-03.jpg` | Home | Hero — mobile | 9:19 | 850×1840 | **Supplied, already in place.** Portrait, phone-shaped. Cherry cluster, sun through the leaves. Wordmark set into the lower left — **the scrim is heaviest there and it is hard to read**. |
+| `hero-mobile-04.jpg` | Home | Hero — mobile | 9:19 | 850×1840 | **Supplied, already in place.** Portrait, phone-shaped. A bed of green parchment. Wordmark set into the upper centre — **the placement that reads best over the scrim**. |
 | `partner-cms.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
 | `partner-dormans.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
 | `partner-ea-bean.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
@@ -140,6 +144,10 @@ the shot list is self-contained:
 - `member-06-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `gathaithi-agronomy-training.jpg` — Gathaithi members at a field day, learning pruning technique on a mature coffee tree.
 - `gathaithi-society-office.jpg` — A member completing a pre-finance application at the Gathaithi society office.
+- `hero-mobile-01.jpg` — Roasted Gathaithi coffee beans spilling from a wooden scoop across dark timber.
+- `hero-mobile-02.jpg` — Ripe red coffee cherry on the branch at Gathaithi, leaves behind.
+- `hero-mobile-03.jpg` — A cluster of ripe Gathaithi cherry with morning sun through the leaves above.
+- `hero-mobile-04.jpg` — A bed of green Gathaithi coffee beans filling the frame.
 - `partner-cms.png` — Coffee Management Services
 - `partner-dormans.png` — Dormans
 - `partner-ea-bean.png` — EA Bean Co.
