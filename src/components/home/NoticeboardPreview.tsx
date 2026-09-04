@@ -48,13 +48,15 @@ export function NoticeboardPreview({
           </div>
 
           <Reveal className="lg:col-span-7" delay={60}>
-            <div className="flex flex-col gap-4 border border-on-inverse/20 p-10 sm:p-14">
+            {/* Same trim as the noticeboard's own price card: this was a
+                383px box holding one number at 88px. */}
+            <div className="flex flex-col gap-3 border border-on-inverse/20 p-7 sm:p-9">
               <p className="t-meta text-on-inverse/60">{noticeboard.priceLabel}</p>
-              <p className="t-figure text-on-inverse">
+              <p className="t-figure text-on-inverse [--figure-size:clamp(2.5rem,6vw,4rem)]">
                 <Fact id="cherryPriceCurrent" />
               </p>
               <p className="t-meta text-ochre-on-inverse">{price?.unit ?? noticeboard.priceUnit}</p>
-              <p className="t-body mt-4 max-w-[46ch] text-[0.9375rem] leading-relaxed text-on-inverse/70">
+              <p className="t-body mt-2 max-w-[46ch] text-[0.9375rem] leading-relaxed text-on-inverse/70">
                 {noticeboard.priceFootnote}
               </p>
             </div>
