@@ -154,16 +154,23 @@ export function Header({
       className={[
         'site-header fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,box-shadow] duration-300',
         '[transition-timing-function:var(--ease)]',
+        /* The bar FOLLOWS THE THEME everywhere, including over the hero: white
+           in the light theme, the society's brown in the dark one.
+
+           It was `--ink-fixed` — brown in both themes — because the scrims
+           under the hero type are mixed from that colour and the bar was
+           treated as part of the same object. It is not: the bar is OPAQUE, so
+           whatever the photograph does behind it is irrelevant to the type on
+           it, and there is no reason for it to ignore the toggle when every
+           other surface obeys it.
+
+           Opaque over the hero, translucent once scrolled. That is the only
+           difference between the two states now — before, they were two
+           different colour schemes, which is why four things in this file kept
+           drifting out of sync with the theme. */
         solid
           ? 'bg-parchment/95 border-b border-line backdrop-blur-[2px]'
-          /* Over the hero the bar used to be transparent, which made it part of
-             the photograph rather than a thing sitting on top of one — the
-             navigation floated in the sky and had to be rescued by a scrim.
-             It is the brand brown now: opaque, its own band, distinct from
-             whatever the picture is doing behind it. Light type on #241611 is
-             16.27:1 whatever the crop lands on, which is a guarantee no scrim
-             over a photograph can make. */
-          : 'bg-ink-fixed border-b border-on-ink-fixed/15 on-ink-fixed',
+          : 'bg-parchment border-b border-line',
       ].join(' ')}
       style={{ height: 'var(--header-h)' }}
     >
@@ -171,15 +178,11 @@ export function Header({
         <Link
           href={`/${locale}`}
           className={`tap -my-2 inline-flex items-center py-2 t-meta transition-colors duration-200 [transition-timing-function:var(--ease)] ${
-            solid ? 'text-ink hover:text-ochre-ink' : 'text-on-ink-fixed hover:text-ochre-on-ink-fixed'
+            'text-ink hover:text-ochre-ink'
           }`}
         >
           <span className="font-semibold tracking-[0.14em] whitespace-nowrap">GATHAITHI</span>
-          {/* `on-ink-fixed`, not `on-inverse`. Over the hero this bar is the
-              brand brown in BOTH themes, and `--on-inverse` went black in the
-              light theme when the inverse bands started following the toggle —
-              which left this at 1.15:1 on its own bar. */}
-          <span className={`ml-3 hidden sm:inline ${solid ? 'text-ink-soft' : 'text-on-ink-fixed/70'}`}>
+          <span className="ml-3 hidden sm:inline text-ink-soft">
             F.C.S.
           </span>
         </Link>
@@ -198,13 +201,7 @@ export function Header({
                     className={[
                       'group relative inline-block py-2 text-[0.9375rem] transition-colors duration-200',
                       '[transition-timing-function:var(--ease)]',
-                      solid
-                        ? current
-                          ? 'text-ink'
-                          : 'text-ink-soft hover:text-ink'
-                        : current
-                          ? 'text-on-ink-fixed'
-                          : 'text-on-ink-fixed/75 hover:text-on-ink-fixed',
+                      current ? 'text-ink' : 'text-ink-soft hover:text-ink',
                     ].join(' ')}
                   >
                     {navLabel(route.key)}
@@ -213,7 +210,7 @@ export function Header({
                       className={[
                         'absolute inset-x-0 -bottom-0.5 h-px origin-left transition-transform duration-200',
                         '[transition-timing-function:var(--ease)]',
-                        solid ? 'bg-ochre' : 'bg-ochre-on-ink-fixed',
+                        'bg-ochre',
                         current ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100',
                       ].join(' ')}
                     />
@@ -231,7 +228,7 @@ export function Header({
               is `lg:hidden`, so the two are exact complements and the control
               is never absent and never doubled. */}
           <div className="hidden lg:block">
-            <ThemeToggle surface={solid ? 'light' : 'fixed-dark'} />
+            <ThemeToggle surface="light" />
           </div>
 
           <button
@@ -240,11 +237,7 @@ export function Header({
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            /* Same correction as the wordmark above, and this one mattered
-               more: the three bars were black on the brown bar at 1.20:1, so
-               the menu button was all but invisible on the home page of a
-               phone in the default theme. */
-            className={`-mr-3 flex min-h-[2.75rem] min-w-[2.75rem] items-center justify-center lg:hidden ${solid ? 'text-ink' : 'text-on-ink-fixed'}`}
+            className="-mr-3 flex min-h-[2.75rem] min-w-[2.75rem] items-center justify-center text-ink lg:hidden"
           >
             {/* The word is gone from the bar, but the name is not: the three
                 bars are decorative, so without this the button would announce
@@ -252,9 +245,9 @@ export function Header({
                 voice control, just not drawn. */}
             <span className="sr-only">{common.actions.menu}</span>
             <span aria-hidden="true" className="flex h-3 w-5 flex-col justify-between">
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-ink-fixed'}`} />
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-ink-fixed'}`} />
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-ink-fixed'}`} />
+              <span className="h-px w-full bg-ink" />
+              <span className="h-px w-full bg-ink" />
+              <span className="h-px w-full bg-ink" />
             </span>
           </button>
         </div>

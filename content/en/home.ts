@@ -20,11 +20,6 @@ export const home: HomeContent = {
        standing snag: the line it replaced spelled "Flavors" the American way
        on a site that is British throughout. */
     positioning: 'Coffee that makes you glow.',
-    /* The same line, broken where the society wants it broken. The single
-       string above stays because it is the honest one-line form — anything
-       reading the motto as a sentence should get a sentence, not a fragment.
-       The hero renders these two and centres the second under the first. */
-    positioningLines: ['Coffee that makes you', 'glow.'],
     scrollMore: 'More',
     /* The button this replaced went to /about. A downward arrow at the foot of
        a hero means "there is more below", so it scrolls rather than navigates —

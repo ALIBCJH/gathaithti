@@ -179,20 +179,8 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
             {content.title}
           </h1>
 
-          {/* Two lines, and the second is centred under the first rather than
-              ranged left with it. `w-fit` is what makes that work: the block
-              shrinks to the width of its longest line, so `text-center` on the
-              second centres it against the first and not against the column.
-
-              Set from `positioningLines` rather than split from the sentence
-              at render time — where the line breaks is a typographic decision
-              the society made, not something to infer from the last space. */}
-          <p className="t-lead w-fit max-w-[44ch] text-on-ink-fixed/90">
-            {content.positioningLines.map((line, i) => (
-              <span key={i} className={`block ${i > 0 ? 'text-center' : ''}`}>
-                <RichText text={line} />
-              </span>
-            ))}
+          <p className="t-lead max-w-[44ch] text-on-ink-fixed/90">
+            <RichText text={content.positioning} />
           </p>
 
         </div>
@@ -236,7 +224,10 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
 
       <div className="hero-foot relative mx-auto flex w-full max-w-[100rem] items-end justify-between gap-10 px-6 pb-8 sm:px-10 lg:px-16 lg:pb-10">
         <p className="t-meta hidden items-center gap-3 text-on-ink-fixed/50 lg:flex">
-          <span aria-hidden="true" className="inline-block h-px w-8 bg-on-inverse/35" />
+          {/* `on-ink-fixed`: this rule sits on the HERO, which keeps the brand
+              brown in both themes. On `--on-inverse` it was black at 35% on a
+              dark photograph in the light theme — an invisible hairline. */}
+          <span aria-hidden="true" className="inline-block h-px w-8 bg-on-ink-fixed/35" />
           {content.scrollHint}
         </p>
 
