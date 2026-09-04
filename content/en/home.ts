@@ -16,7 +16,10 @@ export const home: HomeContent = {
        reads. Everything asserted below is structurally true of the society
        whatever the numbers turn out to be. The figures still have their place
        on the page: the proof band carries them directly under this. */
-    positioning: 'Elevated Flavors from the Slopes of Nyeri.',
+    /* The society's own line, supplied by the user. It also settles a
+       standing snag: the line it replaced spelled "Flavors" the American way
+       on a site that is British throughout. */
+    positioning: 'Coffee that makes you glow.',
     /* The button this replaced went to /about. A downward arrow at the foot of
        a hero means "there is more below", so it scrolls rather than navigates —
        About is a tap away in the drawer. The label is what a screen reader

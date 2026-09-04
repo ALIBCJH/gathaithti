@@ -175,7 +175,11 @@ export function Header({
           }`}
         >
           <span className="font-semibold tracking-[0.14em] whitespace-nowrap">GATHAITHI</span>
-          <span className={`ml-3 hidden sm:inline ${solid ? 'text-ink-soft' : 'text-on-inverse/70'}`}>
+          {/* `on-ink-fixed`, not `on-inverse`. Over the hero this bar is the
+              brand brown in BOTH themes, and `--on-inverse` went black in the
+              light theme when the inverse bands started following the toggle —
+              which left this at 1.15:1 on its own bar. */}
+          <span className={`ml-3 hidden sm:inline ${solid ? 'text-ink-soft' : 'text-on-ink-fixed/70'}`}>
             F.C.S.
           </span>
         </Link>
@@ -236,7 +240,11 @@ export function Header({
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className={`-mr-3 flex min-h-[2.75rem] min-w-[2.75rem] items-center justify-center lg:hidden ${solid ? 'text-ink' : 'text-on-inverse'}`}
+            /* Same correction as the wordmark above, and this one mattered
+               more: the three bars were black on the brown bar at 1.20:1, so
+               the menu button was all but invisible on the home page of a
+               phone in the default theme. */
+            className={`-mr-3 flex min-h-[2.75rem] min-w-[2.75rem] items-center justify-center lg:hidden ${solid ? 'text-ink' : 'text-on-ink-fixed'}`}
           >
             {/* The word is gone from the bar, but the name is not: the three
                 bars are decorative, so without this the button would announce
@@ -244,9 +252,9 @@ export function Header({
                 voice control, just not drawn. */}
             <span className="sr-only">{common.actions.menu}</span>
             <span aria-hidden="true" className="flex h-3 w-5 flex-col justify-between">
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
-              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-inverse'}`} />
+              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-ink-fixed'}`} />
+              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-ink-fixed'}`} />
+              <span className={`h-px w-full ${solid ? 'bg-ink' : 'bg-on-ink-fixed'}`} />
             </span>
           </button>
         </div>
