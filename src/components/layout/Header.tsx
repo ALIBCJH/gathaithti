@@ -343,15 +343,6 @@ export function Header({
               </ul>
             </nav>
 
-            <div
-              className="stagger-in mx-4 mt-4 border-t border-on-inverse/12 pt-5"
-              style={{ '--i': 5 } as React.CSSProperties}
-            >
-              <p className="t-quiet max-w-[24ch] text-[1.0625rem] leading-snug text-on-inverse/45">
-                {common.brand.tagline}
-              </p>
-            </div>
-
             {/* What members open this site for, one tap from anywhere. Stacked
                 rather than set in a row: at 86vw of a 320px screen there is no
                 room to put a label and a figure side by side without one of

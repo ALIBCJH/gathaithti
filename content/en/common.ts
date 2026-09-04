@@ -12,6 +12,11 @@ export const common: Common = {
   brand: {
     name: 'Gathaithi Farmers’ Co‑operative Society',
     short: 'Gathaithi',
+    /* PARKED — nothing renders this. It was the line under the navigation in
+       the mobile drawer and the user asked for it off. Kept rather than
+       deleted because it is a true, well-turned description of the society
+       and the sort of line that would otherwise be written again from
+       scratch; the footer blurb and the About lead both say more, at length. */
     tagline: 'Farmer-owned coffee from Tetu, Nyeri',
   },
 
