@@ -154,6 +154,16 @@ export const about: AboutContent = {
       ],
     },
 
+    /* PARKED — nothing renders these three. Management Committee, Supervisory
+       Committee and Society Office each carried a `composition` line naming
+       its members, and once the nine real portraits arrived those lines were
+       saying the same thing twice: every name here appears below with a face
+       and a role against it.
+
+       Kept rather than deleted because the ROLE descriptions are not written
+       anywhere else — what the supervisory committee is for, what the office
+       actually does day to day — and that is the part a buyer or an auditor
+       would ask about. The Society Manager is still unnamed. */
     bodies: [
       {
         name: 'Management Committee',

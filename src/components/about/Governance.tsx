@@ -7,14 +7,19 @@ import { BoardGrid } from '@/components/about/BoardGrid';
 import type { AboutContent } from '@content/types';
 
 /**
- * How the society runs: one plain statement of the arrangement, the three
- * bodies that make it up, and then the nine people on the committee.
+ * How the society runs: one plain statement of the arrangement, then the nine
+ * people who run it.
  *
- * The registration table used to sit here in the right-hand column. It has its
- * own section now — buyers arrive looking for those eight rows and should not
- * have to find them inside a wall of prose — which leaves this band doing one
- * job instead of two, and lets the statement run at full width above the
- * bodies rather than being squeezed into five columns beside a table.
+ * There were three cards between them — Management Committee, Supervisory
+ * Committee, Society Office — each naming its members in a `composition` line.
+ * They went when the real portraits arrived, because by then they were saying
+ * the same thing twice: the nine cards below already carry every one of those
+ * names with a face and a role against it, and a list of names above a grid of
+ * the same names is a list nobody reads.
+ *
+ * The registration table used to sit here too, in the right-hand column. It
+ * has its own section now — buyers arrive looking for those eight rows and
+ * should not have to find them inside a wall of prose.
  */
 export function Governance({ content }: { content: AboutContent['governance'] }) {
   return (
@@ -31,17 +36,6 @@ export function Governance({ content }: { content: AboutContent['governance'] })
           <SmartImage slot="aboutGovernance" />
         </div>
 
-        <div className="mt-20 grid gap-12 lg:mt-24 lg:grid-cols-3">
-          {content.bodies.map((body, i) => (
-            <Reveal key={body.name} delay={i * 60}>
-              <article className="flex h-full flex-col gap-4 border-t-2 border-ochre pt-8">
-                <h3 className="t-body font-medium">{body.name}</h3>
-                <p className="t-body text-[0.9375rem] text-ink-soft">{body.role}</p>
-                <p className="t-meta mt-auto pt-4 text-ink-soft">{body.composition}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
 
         <BoardGrid content={content.board} />
       </Container>

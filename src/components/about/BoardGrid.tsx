@@ -8,9 +8,9 @@ import type { AboutContent } from '@content/types';
  *
  * Buyers audit governance and members recognise faces, so this is the one
  * place on the site where the two audiences want exactly the same thing. It
- * sits under the three bodies rather than inside them: nine 4:5 cards need the
- * full width, and the committee is the only one of the three whose membership
- * is published.
+ * is the whole of the governance band below the statement now: the three
+ * cards that used to sit above it named these same people in prose, which was
+ * the same information twice.
  *
  * Every card renders whether or not its photograph exists. Until the files
  * land, SmartImage draws the designed placeholder carrying the filename each
