@@ -18,6 +18,7 @@ export const common: DeepPartial<Common> = {
     about: todo('About'),
     products: todo('Our Coffee'),
     farmers: todo('Our Farmers'),
+    gallery: todo('Gallery'),
     contact: todo('Contact'),
   },
 

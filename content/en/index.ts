@@ -4,6 +4,7 @@ import { home } from './home';
 import { about } from './about';
 import { products } from './products';
 import { farmers } from './farmers';
+import { gallery } from './gallery';
 import { contact } from './contact';
 
-export const en: Dictionary = { common, home, about, products, farmers, contact };
+export const en: Dictionary = { common, home, about, products, farmers, gallery, contact };

@@ -179,16 +179,22 @@ export const images = {
     alt: 'Gathaithi members delivering the day’s cherry at a village collection point in the evening.',
     sizes: '(min-width: 1024px) 46vw, 100vw',
   },
+  /* FILLED at last, and by something better than the brief asked for. The
+     slot wanted "the management committee in session — minute book, ledgers,
+     people mid-discussion". What the society sent is the whole committee
+     standing on their own drying beds, with the greenhouse behind them: it
+     says the same thing about the people and rather more about the place. The
+     brief is rewritten to what the photograph IS, not left describing a
+     picture nobody took. */
   aboutGovernance: {
-    file: 'gathaithi-committee-meeting.jpg',
+    file: 'gathaithi-committee-group.jpg',
     page: 'About',
     section: 'Governance',
     ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
-    direction:
-      'The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms.',
-    alt: 'Members of the Gathaithi management committee in session at the society office.',
+    minWidth: 1250,
+    minHeight: 830,
+    direction: 'Supplied. The management and supervisory committees together on the drying beds at the wet mill, the greenhouse behind them.',
+    alt: 'The Gathaithi management and supervisory committees standing together on the drying beds at the wet mill.',
     sizes: '(min-width: 1024px) 45vw, 100vw',
   },
 
@@ -720,6 +726,60 @@ export const images = {
     direction: 'Supplied. The 1 kg pack standing on a bench.',
     alt: 'A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+  },
+
+  /* THE GALLERY. Real photographs of the society, supplied by the society —
+     the drying beds, the solar drier, the greenhouse and the committee. They
+     are the first pictures on this site that are demonstrably of Gathaithi
+     rather than of coffee in general, which is why the gallery exists at all.
+
+     `gallerySolarDrier` and `galleryGreenhouse` both carry the stencil
+     "KCSAP/CON/GATHAITHI FCS" — the Kenya Climate Smart Agriculture Project.
+     The captions say the marking is there; they do NOT describe a partnership,
+     because nobody has told us the terms of one. */
+  galleryCommittee: {
+    file: 'gathaithi-committee-group.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '3/2',
+    minWidth: 1250,
+    minHeight: 830,
+    direction: 'Supplied. Shared with the About governance band.',
+    alt: 'The Gathaithi management and supervisory committees standing together on the drying beds at the wet mill.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+  galleryDryingBeds: {
+    file: 'gathaithi-drying-beds-long.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '4/5',
+    minWidth: 950,
+    minHeight: 1090,
+    direction: 'Supplied. A full-length drying bed of parchment running away from the camera, a worker turning it at the far end, the mill buildings on the left.',
+    alt: 'Parchment coffee spread the length of a raised drying bed at Gathaithi, a worker turning it at the far end.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+  gallerySolarDrier: {
+    file: 'gathaithi-solar-drier.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '3/2',
+    minWidth: 1250,
+    minHeight: 840,
+    direction: 'Supplied. Inside the solar drier: rows of raised beds under polythene, each covered with jute sacking, one stencilled PRODUCE OF KENYA.',
+    alt: 'Inside the solar drier at Gathaithi — rows of raised beds under polythene, covered with jute coffee sacking.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+  galleryGreenhouse: {
+    file: 'gathaithi-greenhouse.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '3/2',
+    minWidth: 1270,
+    minHeight: 810,
+    direction: 'Supplied. The greenhouse from outside, stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
+    alt: 'The greenhouse at Gathaithi, its polythene stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
   },
 
   partnerCms: {

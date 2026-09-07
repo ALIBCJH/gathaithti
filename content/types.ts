@@ -78,7 +78,7 @@ export interface Meta {
 
 export interface Common {
   brand: { name: string; short: string; tagline: string };
-  nav: { home: string; about: string; products: string; farmers: string; contact: string };
+  nav: { home: string; about: string; products: string; farmers: string; gallery: string; contact: string };
   actions: {
     requestSample: string;
     forMembers: string;
@@ -461,12 +461,32 @@ export interface ContactContent {
 
 /* ── The full dictionary ────────────────────────────────────────────────── */
 
+/**
+ * The gallery: photographs of the society itself.
+ *
+ * `items` is the running order of the slideshow. Each is a slot key and the
+ * line printed under it — a caption says what the picture SHOWS, never who is
+ * in it and never a claim the photograph does not support.
+ */
+export interface GalleryContent {
+  meta: Meta;
+  hero: { eyebrow: string; title: string; lead: string };
+  items: { id: string; imageSlot: string; caption: string }[];
+  prevLabel: string;
+  nextLabel: string;
+  pauseLabel: string;
+  playLabel: string;
+  regionLabel: string;
+  slideLabel: string;
+}
+
 export interface Dictionary {
   common: Common;
   home: HomeContent;
   about: AboutContent;
   products: ProductsContent;
   farmers: FarmersContent;
+  gallery: GalleryContent;
   contact: ContactContent;
 }
 
