@@ -7,20 +7,25 @@ import { SmartImage } from '@/components/media/SmartImage';
 import type { AboutContent } from '@content/types';
 
 /**
- * The history: the account on the left, one photograph on the right, and the
- * dated spine underneath.
+ * The history: the account, three photographs of the thing it describes, and
+ * the dated spine underneath.
  *
- * It was three tall frames, on the argument that a section about a span of
- * time reads better as a sequence than as a single illustration. That was true
- * of three photographs and false of one photograph and two empty boxes, which
- * is what it actually was — only the mill frame ever existed, and the other
- * two sat beside it printing the filenames they were waiting for.
+ * It was prose in one column with a single photograph beside it, and that
+ * photograph was gathaithi-mill-and-ridge.jpg — a picture of a wet mill
+ * standing in for THIS wet mill, on the one band that is entirely about this
+ * society taking over its own. Three real ones replace it, and each carries a
+ * paragraph of the history rather than illustrating the band in general: the
+ * gate is the society in its own name, the drying ground is what came under
+ * its management in 2000, the pulper is the running of it.
  *
- * So: one frame, at the shape the file actually is. It was being cropped from
- * 16:9 into a 4:5 portrait box a fifth of the page wide, which threw away most
- * of its width to show a sliver of the thing the section is about. At full
- * width in its own ratio it shows the beds, the mill and the ridge behind —
- * the whole ground the history happened on.
+ * They reuse the GALLERY slots — same files, so a second set of slots would
+ * fetch them at two different sizes on one page — and are forced to a common
+ * 4/5 through `SmartImage`'s `ratio`, because the three files are 0.67, 1.38
+ * and 1.64 and a row of three different shapes reads as three accidents.
+ *
+ * The account sits between the head and the photographs in two columns rather
+ * than one: centred under a centred head, a single column of prose ran to a
+ * measure nobody wants to read and left the band lopsided.
  *
  * The timeline stays. Nothing in the sketch of this page had it, but four
  * dated facts — organised under Tetu, registered independently, cupped at 93,
@@ -42,29 +47,30 @@ export function History({ content }: { content: AboutContent['origin'] }) {
           heading={content.heading}
         />
 
-        <div className="mt-16 grid gap-14 lg:mt-20 lg:grid-cols-12 lg:gap-16">
-          <div className="flex flex-col gap-6 lg:col-span-6">
-            {content.body.map((paragraph, i) => (
-              <p
-                key={i}
-                className={i === 0 ? 't-lead measure text-ink-soft' : 't-body measure text-ink-soft'}
-              >
-                <RichText text={paragraph} />
-              </p>
-            ))}
-          </div>
-
-          {/* One frame, beside the account it belongs to. `min-w-0` stays: a
-              grid item's default `min-width: auto` is min-content, and this
-              track is the one that used to push the page 10px wider than a
-              320px viewport. */}
-          <figure className="min-w-0 lg:col-span-6 lg:col-start-7 lg:self-center">
-            <Reveal className="flex flex-col gap-3">
-              <SmartImage slot="historyOne" />
-              <figcaption className="t-meta text-ink-soft">{content.caption}</figcaption>
-            </Reveal>
-          </figure>
+        {/* The account, in two columns under the head. */}
+        <div className="mx-auto mt-14 grid w-full max-w-[68rem] gap-x-16 gap-y-6 lg:mt-16 lg:grid-cols-2">
+          {content.body.map((paragraph, i) => (
+            <p key={i} className={i === 0 ? 't-lead text-ink-soft lg:col-span-2' : 't-body text-ink-soft'}>
+              <RichText text={paragraph} />
+            </p>
+          ))}
         </div>
+
+        {/* Three frames, one per turn of the history. Forced to a common
+            ratio: the files are 0.67, 1.38 and 1.64, and three different
+            shapes in a row read as three accidents rather than a set. */}
+        <ul className="mt-16 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-12">
+          {content.frames.map((frame, i) => (
+            <li key={frame.imageSlot}>
+              <Reveal delay={(i % 3) * 60} className="flex flex-col gap-4">
+                <SmartImage slot={frame.imageSlot} ratio="4/5" zoom />
+                <p className="t-body text-[0.9375rem] leading-relaxed text-ink-soft">
+                  {frame.caption}
+                </p>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
 
         <ol className="mt-20 grid gap-px border border-line bg-line sm:grid-cols-2 lg:mt-24 lg:grid-cols-4">
           {content.timeline.map((entry, i) => (

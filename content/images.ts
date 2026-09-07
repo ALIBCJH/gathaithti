@@ -137,10 +137,16 @@ export const images = {
      here is now what gathaithi-mill-and-ridge.jpg IS — 1672x941 — rather than
      the portrait box it was being cropped into, because a single frame can be
      the shape of its subject where a row of three has to agree on one. */
+  /* PARKED — nothing renders this. gathaithi-mill-and-ridge.jpg came from the
+     bought-and-generated set: a picture of a wet mill standing in for THIS wet
+     mill, on the one band that is entirely about this society taking over its
+     own. The history band carries three real photographs now. Kept because the
+     brief is still a good brief if anyone ever wants a single wide frame of
+     the mill and the ridge behind it. */
   historyOne: {
     file: 'gathaithi-mill-and-ridge.jpg',
     page: 'About',
-    section: 'History',
+    section: 'History — PARKED, nothing renders it',
     ratio: '16/9',
     minWidth: 1600,
     minHeight: 900,

@@ -47,18 +47,38 @@ export const about: AboutContent = {
   origin: {
     eyebrow: 'History',
     heading: 'History of the society',
-    /* The one photograph beside the text. There were three frames here and
-       only one file: the other two rendered as PHOTOGRAPH TO COME placeholders
-       for as long as the society had not supplied them, which made a row that
-       was two-thirds empty box. One frame that carries the section is worth
-       more than three that mostly do not exist. The two briefs are parked in
-       content/images.ts if those photographs are ever taken. */
-    caption: 'The wet mill and the drying beds, looking across to Tetu.',
+    /* THREE PHOTOGRAPHS, and all three are real. The single frame here was
+       gathaithi-mill-and-ridge.jpg, from the bought-and-generated set — a
+       picture of a wet mill standing in for THIS wet mill, on the one band
+       that is entirely about this society taking over its own.
+
+       Each one carries a paragraph of the history: the gate is the society in
+       its own name, the drying ground is what it took over in 2000, and the
+       pulper is the running of it. The captions say so rather than describing
+       the picture twice. */
     body: [
       'Coffee came to these ridges as a smallholder crop in the years around independence, and Gathaithi’s growers organised as part of the larger Tetu society in {{established}}. For three decades the village delivered its cherry into a structure it did not control.',
       'In {{independentSince}} that changed. Gathaithi registered as a society in its own right, named for the village itself, and took over the running of the wet mill on its own {{millSite}} hectares. Since then every decision about processing, marketing and payment has been taken by people who live within walking distance of the beds.',
       'The society has stayed deliberately small. One mill. One catchment. A membership that knows each other’s farms.',
     ],
+    frames: [
+      {
+        imageSlot: 'galleryGate',
+        caption:
+          'The gate. From 2000 the name on it has been the village’s own, not the society it used to deliver into.',
+      },
+      {
+        imageSlot: 'galleryDryingArea',
+        caption:
+          'The drying ground, between crops. Three hectares of it came under the society’s own management in that year.',
+      },
+      {
+        imageSlot: 'galleryPulper',
+        caption:
+          'The pulper. Taking over the mill meant taking over the machinery, the water and every decision about how the cherry is handled.',
+      },
+    ],
+
     timeline: [
       {
         year: '{{established}}',

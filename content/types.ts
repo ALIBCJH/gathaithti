@@ -176,10 +176,16 @@ export interface AboutContent {
   origin: {
     eyebrow: string;
     heading: string;
-    /** The one photograph beside the text. Was three, and two of them were
-     *  files the society never supplied — a row of two placeholders beside a
-     *  single real frame. */
-    caption: string;
+    /**
+     * Three photographs under the account, each with a line saying what it
+     * shows and why it belongs to this history.
+     *
+     * They reuse the GALLERY slots rather than declaring their own: the file
+     * is the same and a second slot for the same file would fetch it at two
+     * different sizes on one page. The shape is forced to a common ratio at
+     * the call site instead — see `SmartImage`'s `ratio`.
+     */
+    frames: { imageSlot: string; caption: string }[];
     body: string[];
     timeline: { year: string; title: string; body: string }[];
   };
