@@ -392,16 +392,21 @@ export const images = {
     sizes: '(min-width: 1024px) 45vw, 100vw',
   },
 
+  /* THE SOCIETY'S OWN PULPER, replacing a generated picture of a pulper.
+     This step describes what happens at THIS mill, so a photograph of some
+     other mill's machine — or of no mill at all — was the weakest kind of
+     illustration: plausible and untrue. The frame is stencilled
+     "KCSAP...GATHAITHI FCS-PULPER MACHINE", which is as much provenance as a
+     photograph can carry. process-01-pulping.jpg is superseded. */
   processPulping: {
-    file: 'process-01-pulping.jpg',
+    file: 'gathaithi-pulper.jpg',
     page: 'Our Coffee',
-    section: 'Processing — pulping',
-    ratio: '3/2',
-    minWidth: 1800,
-    minHeight: 1200,
-    direction:
-      'PARTLY MET. The frame in place shows the pulper with whole red cherry on one side and freshly pulped parchment on the other — the separation reads clearly, which is the point of the step. What it does not show is the water: the brief asked for cherry entering the disc pulper with water moving and skins separating, motion frozen. Worth reshooting for that; usable until then.',
-    alt: 'A pulper at Gathaithi, whole red cherry on one side and freshly pulped parchment on the other.',
+    section: 'Processing — 01',
+    ratio: '16/9',
+    minWidth: 1300,
+    minHeight: 800,
+    direction: 'Supplied. The pulper under its roof at the wet mill, hopper above, channels running off to the left.',
+    alt: 'The pulping machine at the Gathaithi wet mill, its frame stencilled GATHAITHI FCS-PULPER MACHINE.',
     sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processFermentation: {
@@ -779,6 +784,53 @@ export const images = {
     minHeight: 810,
     direction: 'Supplied. The greenhouse from outside, stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
     alt: 'The greenhouse at Gathaithi, its polythene stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+
+  /* Three more real photographs, and the gate is the most useful thing on
+     this whole image list.
+
+     It carries the society's OWN signage: the name in full, the co-operative
+     values board — Unity, Self Help, Democracy, Equality, Development — and
+     the motto "Quality Coffee, Better Livelihoods, A Sustainable Future".
+     Those are the society's words about itself, photographed, which is a
+     different class of evidence from anything written for it.
+
+     NOTE: the mark on the gate is a GREEN LEAF with "GATHAITHI COFFEE
+     CO-OPERATIVE SOCIETY LIMITED". The retail packs and the mobile hero use a
+     GOLD BEAN-AND-LEAF roundel reading "GATHAITHI SPECIALTY COFFEE". Two
+     different logos. Flagged to the client; neither has been altered. */
+  galleryGate: {
+    file: 'gathaithi-gate.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '2/3',
+    minWidth: 1020,
+    minHeight: 1530,
+    direction: 'Supplied. The entrance to the society: the name board, the co-operative values board and the motto, the track running up to the mill.',
+    alt: 'The entrance to Gathaithi Coffee Co-operative Society, its name board and co-operative values board beside the track up to the mill.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+  galleryPulper: {
+    file: 'gathaithi-pulper.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '16/9',
+    minWidth: 1300,
+    minHeight: 800,
+    direction: 'Supplied. Shared with the processing walkthrough.',
+    alt: 'The pulping machine at the Gathaithi wet mill, its frame stencilled GATHAITHI FCS-PULPER MACHINE.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+  galleryDryingArea: {
+    file: 'gathaithi-drying-area.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '3/2',
+    minWidth: 1210,
+    minHeight: 875,
+    direction: 'Supplied. The drying ground between crops — empty bed frames running down the slope, the water tower above them.',
+    alt: 'The drying ground at Gathaithi between crops, rows of empty bed frames running down the slope below the water tower.',
     sizes: '(min-width: 1024px) 70vw, 92vw',
   },
 

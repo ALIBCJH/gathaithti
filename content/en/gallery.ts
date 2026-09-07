@@ -49,6 +49,24 @@ export const gallery: GalleryContent = {
         'Inside the solar drier: raised beds under polythene, each covered with jute sacking. The frame is stencilled KCSAP/CON/GATHAITHI FCS.',
     },
     {
+      id: 'gate',
+      imageSlot: 'galleryGate',
+      caption:
+        'The entrance to the society. The board beside the gate carries the co-operative values — unity, self help, democracy, equality, development — and the motto: quality coffee, better livelihoods, a sustainable future.',
+    },
+    {
+      id: 'pulper',
+      imageSlot: 'galleryPulper',
+      caption:
+        'The pulper, under its roof at the wet mill. Cherry goes in whole and comes out as parchment the same night it is delivered.',
+    },
+    {
+      id: 'drying-area',
+      imageSlot: 'galleryDryingArea',
+      caption:
+        'The drying ground between crops: bed frames running down the slope, waiting for the next harvest.',
+    },
+    {
       id: 'greenhouse',
       imageSlot: 'galleryGreenhouse',
       caption:
