@@ -120,22 +120,37 @@ export const about: AboutContent = {
        rendering on its own. */
     board: {
       eyebrow: 'The committee',
-      heading: 'Who sits on the management committee',
+      heading: 'Who runs the society',
+      /* Rewritten when the real names arrived. It said "Nine members … four
+         hold office; five are elected to the committee without portfolio",
+         which described the placeholder arrangement, not this one: the nine
+         are TWO committees — six on the management committee and three on the
+         supervisory committee, which is elected separately and exists to check
+         the first. Every card states its own role, so a reader can tell which
+         is which without the grid being split in two. */
       lead:
-        'Nine members, elected by the membership at the Annual General Meeting. Four hold office; five are elected to the committee without portfolio.',
+        'Nine people, elected by the membership at the Annual General Meeting. Six sit on the management committee, which runs the society day to day. Three sit on the supervisory committee, which is elected separately and inspects the books, the store and the mill records on the members’ behalf.',
       pendingNote:
         'Names and photographs are being confirmed by the society. Entries marked below are drafts and are not yet a published statement of who holds office.',
-      roleLabel: 'Management committee',
+      roleLabel: 'Management and supervisory committees',
+      /* REAL PEOPLE, supplied by the client on 2026-09-07 with a photograph
+         each. `pending` is cleared, so the Draft markers and the notice above
+         the grid remove themselves.
+
+         Spellings are EXACTLY as supplied — a name is not something to tidy up
+         on someone's behalf. Three were flagged back to the client as possible
+         transcription slips: Waehira (Wachira?), German (Germano?), Kingory
+         (Kingori?). If any is wrong it is corrected here, in one line. */
       members: [
-        { id: 'b1', name: 'Peter Mwangi', role: 'Chairperson', imageSlot: 'boardOne', pending: true },
-        { id: 'b2', name: 'Esther Njeri', role: 'Vice-Chairperson', imageSlot: 'boardTwo', pending: true },
-        { id: 'b3', name: 'Samuel Kariuki', role: 'Treasurer', imageSlot: 'boardThree', pending: true },
-        { id: 'b4', name: 'Alice Wambui', role: 'Secretary', imageSlot: 'boardFour', pending: true },
-        { id: 'b5', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardFive', pending: true },
-        { id: 'b6', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardSix', pending: true },
-        { id: 'b7', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardSeven', pending: true },
-        { id: 'b8', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardEight', pending: true },
-        { id: 'b9', name: 'Name to come', role: 'Elected committee member', imageSlot: 'boardNine', pending: true },
+        { id: 'b1', name: 'Samuel Gachonge', role: 'Chairman', imageSlot: 'boardOne' },
+        { id: 'b2', name: 'Eugene Waehira', role: 'Vice-Chairman', imageSlot: 'boardTwo' },
+        { id: 'b3', name: 'Edward Ngure', role: 'Treasurer', imageSlot: 'boardThree' },
+        { id: 'b4', name: 'Ephraim Njogu', role: 'Secretary', imageSlot: 'boardFour' },
+        { id: 'b5', name: 'German Wambiru', role: 'Committee member', imageSlot: 'boardFive' },
+        { id: 'b6', name: 'Charles Wambugu', role: 'Committee member', imageSlot: 'boardSix' },
+        { id: 'b7', name: 'Paul Gaita', role: 'Supervisory Chairman', imageSlot: 'boardSeven' },
+        { id: 'b8', name: 'Daniel Ngatia', role: 'Supervisory Secretary', imageSlot: 'boardEight' },
+        { id: 'b9', name: 'Mary Kingory', role: 'Supervisory committee member', imageSlot: 'boardNine' },
       ],
     },
 
@@ -143,17 +158,22 @@ export const about: AboutContent = {
       {
         name: 'Management Committee',
         role: 'Elected by the members at the AGM. Responsible for the running of the society, the mill, marketing decisions and the payment schedule.',
-        composition: 'Peter Mwangi (Chairperson), Esther Njeri (Vice-Chairperson), Samuel Kariuki (Treasurer), Alice Wambui (Secretary), and five elected committee members',
+        composition: 'Samuel Gachonge (Chairman), Eugene Waehira (Vice-Chairman), Edward Ngure (Treasurer), Ephraim Njogu (Secretary), with German Wambiru and Charles Wambugu',
       },
       {
         name: 'Supervisory Committee',
         role: 'Elected separately and independent of the management committee. Inspects the books, the store and the mill records, and reports its findings directly to the members.',
-        composition: 'James Ndung’u, Margaret Nyokabi and Daniel Gitonga, elected at the AGM',
+        /* These three were INVENTED placeholders — James Ndung'u, Margaret
+           Nyokabi and Daniel Gitonga — published against a real office. They
+           are the real three now. */
+        composition: 'Paul Gaita (Chairman), Daniel Ngatia (Secretary) and Mary Kingory, elected at the AGM',
       },
       {
         name: 'Society Office',
         role: 'Day-to-day administration: the member register, cherry records, payments, pre-finance applications and buyer correspondence.',
-        composition: 'Joseph Kamau (Society Manager), with four office and mill staff',
+        /* STILL INVENTED. No name was supplied for the society manager, so this
+           one placeholder outlives the others — flagged to the client. */
+        composition: 'The Society Manager, with office and mill staff',
       },
     ],
   },
