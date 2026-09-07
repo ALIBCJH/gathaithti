@@ -135,6 +135,12 @@ export function LotCatalogue({
         {count}
       </p>
 
+      {/* Four across on a desktop: the catalogue holds four pack SIZES that
+          differ only in weight, so they read as one row of a set rather than as
+          two pairs. Two columns was written for two green-coffee lots.
+
+          The comment lives HERE, not beside the <ul>: a ternary branch takes a
+          single expression, and a JSX comment inside one makes it two. */}
       {shown.length === 0 ? (
         <div className="flex flex-col items-start gap-4 border border-line p-10">
           <p className="t-lead text-ink-soft">{copy.emptyState}</p>
@@ -143,7 +149,7 @@ export function LotCatalogue({
           </button>
         </div>
       ) : (
-        <ul className="grid gap-8 md:grid-cols-2 lg:gap-12">
+        <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {shown.map((item) => (
             <li key={item.id} className="contents">
               {item.card}

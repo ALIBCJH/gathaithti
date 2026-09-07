@@ -209,25 +209,44 @@ export interface AboutContent {
 
 /* ── Products ───────────────────────────────────────────────────────────── */
 
+/**
+ * One thing the catalogue sells.
+ *
+ * It was written for GREEN COFFEE LOTS sold by the container — hence `moq`,
+ * `incoterm` and `screen` — and the page now sells ROASTED RETAIL PACKS by the
+ * bag. The wholesale fields are optional rather than deleted: they are still
+ * true of the green coffee the society sells to importers, and a retail pack
+ * simply has no minimum order, no incoterm and no screen size. A card renders
+ * only the rows it actually has.
+ *
+ * `grade` carries whatever names the thing on the face of the card — the
+ * screen grade for a lot, the net weight for a pack.
+ */
 export interface Lot {
   id: string;
   grade: string;
   name: string;
-  /** Entry in content/facts.ts holding the indicative price. Omit for “on request”. */
+  /** Entry in content/facts.ts holding the price. Omit for “on request”. */
   priceFactId?: string;
-  /** Delivery terms the price is quoted on, e.g. “FOB Mombasa”. */
-  incoterm: string;
-  /** Smallest quantity the society will sell of this lot. */
-  moq: string;
+  /** Delivery terms the price is quoted on, e.g. “FOB Mombasa”. Wholesale only. */
+  incoterm?: string;
+  /** Smallest quantity the society will sell. Wholesale only. */
+  moq?: string;
   /** Sorting only — never rendered. Keep in step with `score`. */
   scoreValue?: number;
-  screen: string;
+  /** Screen size. Wholesale only — a retail pack has none. */
+  screen?: string;
   varieties: string;
   processing: string;
   cuppingNotes: string[];
-  score: string;
-  harvestWindow: string;
-  volume: string;
+  /** The cupping score, where one was awarded TO THIS THING. Optional: the 93
+   *  points belong to a washed green lot, not to a bag of ground medium roast,
+   *  and a retail pack must not borrow it. */
+  score?: string;
+  /** Wholesale only. */
+  harvestWindow?: string;
+  /** Wholesale only. */
+  volume?: string;
   packaging: string;
   availability: 'available' | 'allocated' | 'forward';
   availabilityLabel: string;

@@ -132,20 +132,27 @@ export function productLd(lot: Lot, locale: Locale) {
     '@context': 'https://schema.org',
     '@type': 'Product',
     '@id': `${urlFor(locale, 'products')}#lot-${lot.id}`,
-    name: `${lot.name} — washed Kenya green coffee`,
-    category: 'Green coffee',
+    /* The catalogue sells ROASTED RETAIL PACKS now, not green coffee by the
+       container. Saying "green coffee" here would be a machine-readable claim
+       that the thing on sale is unroasted — wrong for a 250 g bag of ground
+       medium roast, and the sort of error a shopping crawler acts on. */
+    name: `${lot.name} — single-origin Kenyan coffee`,
+    category: 'Roasted coffee',
     description: resolve(lot.description),
     brand: { '@type': 'Brand', name: site.short },
     manufacturer: { '@id': `${siteUrl}/#organization` },
     countryOfOrigin: 'KE',
     material: resolve(lot.varieties),
+    /* Screen size, harvest window and the rest are wholesale-only and absent
+       from a retail pack. An `undefined` value in a PropertyValue is not a
+       missing property — it serialises as a malformed one. */
     additionalProperty: [
-      { '@type': 'PropertyValue', name: 'Grade', value: lot.grade },
+      { '@type': 'PropertyValue', name: 'Net weight', value: lot.grade },
       { '@type': 'PropertyValue', name: 'Screen size', value: lot.screen },
       { '@type': 'PropertyValue', name: 'Processing', value: lot.processing },
       { '@type': 'PropertyValue', name: 'Harvest', value: lot.harvestWindow },
       { '@type': 'PropertyValue', name: 'Altitude', value: resolve('{{altitude}}') },
-    ],
+    ].filter((property) => Boolean(property.value)),
     /**
      * `offers` appears only when the lot's price has been CONFIRMED in
      * content/facts.ts. The catalogue may show an indicative figure to a human
@@ -158,9 +165,11 @@ export function productLd(lot: Lot, locale: Locale) {
       ? {
           offers: {
             '@type': 'Offer',
-            priceCurrency: 'USD',
+            /* KES: the retail list is in Kenyan shillings. The currency is
+               read off the fact rather than assumed — a price published in
+               the wrong currency is worse than no price at all. */
+            priceCurrency: price.display.startsWith('KSh') ? 'KES' : 'USD',
             price: price.value,
-            eligibleQuantity: { '@type': 'QuantitativeValue', unitCode: 'KGM' },
             availability:
               lot.availability === 'available'
                 ? 'https://schema.org/InStock'

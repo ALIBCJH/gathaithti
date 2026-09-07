@@ -44,6 +44,10 @@ export function LotCard({
      coffee catalogue that states no price and no minimum anywhere stops being
      a catalogue. The description is the one thing that is gone outright; it is
      still in the structured data for machines. */
+  /* Only the rows this item actually has. The wholesale fields — minimum
+     order, screen size, harvest window, volume, incoterm — are optional now
+     that the catalogue sells retail packs, and a row printing "undefined" is
+     worse than a row that is not there. */
   const spec = [
     ...(showPrice
       ? [{ label: 'Price', value: `{{${lot.priceFactId}}} · ${copy.priceCaption} (${copy.indicativeLabel.toLowerCase()})` }]
@@ -58,7 +62,7 @@ export function LotCard({
     { label: 'Volume', value: lot.volume },
     { label: 'Packaging', value: lot.packaging },
     { label: 'Terms', value: lot.incoterm },
-  ];
+  ].filter((row): row is { label: string; value: string } => Boolean(row.value));
 
   return (
     /* `data-lot` sets one custom property, `--lot`, and everything coloured on
@@ -113,6 +117,19 @@ export function LotCard({
         <div className="flex flex-col gap-1 border-b border-line pb-5">
           <p className="t-figure-sm text-[2rem] text-[var(--lot)]">{lot.grade}</p>
           <h3 className="t-body font-medium">{lot.name}</h3>
+
+          {/* The price sits on the FACE now. It was moved into the disclosure
+              when this catalogue sold green coffee, where the figure was an
+              indicative US$/kg FOB quote that needed its caveats beside it —
+              a number a stranger could misread as a shelf price. A retail pack
+              IS a shelf price, and hiding it behind "Full specification" is
+              hiding the one thing a buyer came for. It stays in the
+              specification too, with its caption. */}
+          {showPrice ? (
+            <p className="t-figure-sm mt-2 text-[1.5rem] text-ink">
+              <Fact id={lot.priceFactId!} />
+            </p>
+          ) : null}
         </div>
 
         <details className="group/spec border-t border-line pt-4">

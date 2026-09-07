@@ -659,6 +659,63 @@ export const images = {
     sizes: '(max-width: 1023px) 46vh, 100vw',
   },
 
+  /* The four retail packs. Portrait photographs of the pack on a bench; the
+     cards are 3/4 so all four crop the same way and the row keeps one height.
+
+     The ratio is 9/16, not the 3/4 first tried: three of the four files are
+     0.558 and a 3/4 box crops them top and bottom — which takes the LABEL off
+     the foot of the pack, the one part of the photograph that has to survive.
+
+     NOTE FOR WHOEVER REPLACES THESE: the label on the supplied artwork reads
+     "100% ARABICA ROBUSTA". Arabica and Robusta are two different species and
+     a coffee cannot be both; everything else on this site says the society
+     grows SL28, SL34, Ruiru 11 and Batian, which are all Arabica. Flagged to
+     the client; the photographs are used as supplied, unaltered. */
+  pack100g: {
+    file: 'pack-100g.jpg',
+    page: 'Our Coffee',
+    section: 'Retail packs',
+    ratio: '9/16',
+    minWidth: 760,
+    minHeight: 1350,
+    direction: 'Supplied. The 100 g pack standing on a bench, beans and a burlap sack behind.',
+    alt: 'A 100 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
+    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+  },
+  pack250g: {
+    file: 'pack-250g.jpg',
+    page: 'Our Coffee',
+    section: 'Retail packs',
+    ratio: '9/16',
+    minWidth: 1000,
+    minHeight: 1530,
+    direction: 'Supplied. The 250 g pack standing on a bench, coffee plant behind.',
+    alt: 'A 250 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
+    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+  },
+  pack500g: {
+    file: 'pack-500g.jpg',
+    page: 'Our Coffee',
+    section: 'Retail packs',
+    ratio: '9/16',
+    minWidth: 760,
+    minHeight: 1350,
+    direction: 'Supplied. The 500 g pack standing on a bench.',
+    alt: 'A 500 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
+    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+  },
+  pack1kg: {
+    file: 'pack-1kg.jpg',
+    page: 'Our Coffee',
+    section: 'Retail packs',
+    ratio: '9/16',
+    minWidth: 760,
+    minHeight: 1350,
+    direction: 'Supplied. The 1 kg pack standing on a bench.',
+    alt: 'A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden bench.',
+    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+  },
+
   partnerCms: {
     file: 'partner-cms.png',
     page: 'Home',

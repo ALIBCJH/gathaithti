@@ -31,95 +31,130 @@ export const products: ProductsContent = {
   marketNote: {
     eyebrow: 'How it is sold',
     heading: 'How to buy Gathaithi',
+    /* Rewritten when the catalogue changed from green-coffee lots to retail
+       packs. It used to say "there are no prices and no checkout here", which
+       stopped being true the moment the packs went up with a price on each.
+       There is still no checkout — that part stands — and everything about
+       how the GREEN coffee moves is unchanged, because that has not. */
     body: [
-      'Kenyan green coffee is sold either through the Nairobi Coffee Exchange auction or under a direct-sales licence. This page is a catalogue, not a shop — there are no prices and no checkout here, because that is not how this coffee legally moves.',
-      'If you are a roaster or importer, request a sample. The marketing office will send it with the lot details, current availability and the route we can sell it to you by. That conversation is the beginning of every direct relationship the society has.',
+      'Two different things are sold here, and they do not move the same way. The roasted packs above are the society\u2019s own retail line, priced in shillings and ordered from the office — there is no checkout on this page.',
+      'Green coffee is another matter. It is sold either through the Nairobi Coffee Exchange auction or under a direct-sales licence, so if you are a roaster or importer, request a sample: the marketing office will send it with the lot details, current availability and the route we can sell it to you by.',
     ],
   },
 
   catalogue: {
-    eyebrow: 'Catalogue',
-    heading: 'Grades and lots',
+    eyebrow: 'Retail packs',
+    heading: 'Buy it by the bag',
     lead:
-      'Grading is by screen size and bean form, done at the dry mill after the parchment leaves us. Cup character across the grades is consistent — the differences are in body, clarity and how the lot behaves in the roaster.',
+      'The society roasts and packs its own coffee in four sizes. It is one coffee — the same washed Nyeri lots that go to the dry mill — roasted medium and ground, packed under the society\u2019s own name.',
     legend: {
-      available: 'Samples available',
-      allocated: 'Allocated for this season',
-      forward: 'Forward — enquire',
+      available: 'In stock',
+      allocated: 'Out of stock',
+      forward: 'To order',
     },
 
     /* ── Prices ──────────────────────────────────────────────────────────
      * Set showPrices to false and every price on this page disappears — the
      * cards, the sorting option and the Product structured data all follow.
-     * The figures themselves live in content/facts.ts (priceAA … priceC) and
-     * are PLACEHOLDERS until the society confirms its own indicative list.
+     * The figures live in content/facts.ts (pack100g … pack1kg) and were
+     * supplied by the client on 2026-09-07. They are still `verified: false`,
+     * which is what keeps them OUT of the structured data: printing a price on
+     * a page and publishing it to a search engine are different acts.
      */
     showPrices: true,
-    priceCaption: 'per kg, FOB Mombasa',
+    priceCaption: 'per pack',
     priceNote:
-      'Prices are indicative, quoted per kilo FOB Mombasa on the current crop, and confirmed on enquiry. Kenyan coffee is sold through the Nairobi Coffee Exchange or under a direct-sales licence, so the figure that binds is the one on the contract, not the one on this page.',
-    indicativeLabel: 'Indicative',
+      'Prices are in Kenyan shillings and were supplied by the society. Confirm the current list with the office before ordering — the figure that binds is the one the office quotes, not the one on this page.',
+    indicativeLabel: 'Retail',
     moqLabel: 'Minimum',
-    filterLabel: 'Grade',
-    filterAll: 'All lots',
+    filterLabel: 'Size',
+    filterAll: 'All sizes',
     sortLabel: 'Sort by',
     sortOptions: [
-      { id: 'grade', label: 'Grade' },
+      { id: 'grade', label: 'Size' },
       { id: 'price', label: 'Price, low to high' },
-      { id: 'score', label: 'Cupping score' },
       { id: 'availability', label: 'Availability' },
     ],
-    resultCount: '{count} lots',
-    resultCountOne: '1 lot',
-    emptyState: 'No lots match that combination this season.',
-    clearFilters: 'Show all lots',
+    resultCount: '{count} sizes',
+    resultCountOne: '1 size',
+    emptyState: 'No packs match that combination.',
+    clearFilters: 'Show all sizes',
     detailsLabel: 'Full specification',
-    requestLotLabel: 'Request this lot',
+    requestLotLabel: 'Enquire about this pack',
   },
 
+  /* FOUR RETAIL PACKS, replacing the AA and AB green-coffee lots.
+     Same coffee in four sizes, so everything except weight, price and
+     photograph is identical between them — which is the honest way to write
+     it. The wholesale fields (minimum order, incoterm, screen size, harvest
+     window, volume) are OMITTED rather than filled with something plausible:
+     a 100 g bag on a shelf has no incoterm.
+
+     `grade` carries the net weight, because it is the thing that names the
+     card, and the card sets it large.
+
+     NO CUPPING SCORE. The 93 points were awarded to a washed GREEN lot; a bag
+     of ground medium roast is a different product and cannot inherit it. */
   lots: [
     {
-      id: 'aa',
-      grade: 'AA',
-      name: 'Gathaithi AA',
-      priceFactId: 'priceAA',
-      incoterm: 'FOB Mombasa',
-      moq: '5 bags · 300 kg',
-      scoreValue: 93,
-      screen: 'Screen 17/18',
-      varieties: 'SL28, SL34, with Ruiru 11 and Batian',
-      processing: 'Fully washed · overnight ferment · second soak · raised beds',
-      cuppingNotes: ['Blackcurrant', 'Grapefruit zest', 'Brown sugar', 'Dense, juicy body'],
-      score: '{{cuppingScore}}',
-      harvestWindow: 'Main crop: October – January',
-      volume: 'By allocation — enquire for current availability',
-      packaging: '60 kg GrainPro-lined sisal, or vacuum-packed on request',
+      id: 'pack-100g',
+      grade: '100g',
+      name: 'Gathaithi 100 g',
+      priceFactId: 'pack100g',
+      varieties: '{{varieties}}',
+      processing: 'Fully washed, medium roast, ground',
+      cuppingNotes: ['Floral', 'Chocolate', 'Caramel'],
+      packaging: '100 g resealable pack',
       availability: 'available',
-      availabilityLabel: 'Samples available',
+      availabilityLabel: 'In stock',
       description:
-        'The society’s flagship separation and the lot that carries the {{cuppingScore}}-point score. Large, uniform beans from the oldest SL28 blocks on the upper slopes. Structured, sweet and unmistakably Nyeri.',
-      imageSlot: 'lotAA',
+        'The smallest pack — a week of mornings, or a way to try the society\u2019s own roast before committing to a larger bag.',
+      imageSlot: 'pack100g',
     },
     {
-      id: 'ab',
-      grade: 'AB',
-      name: 'Gathaithi AB',
-      priceFactId: 'priceAB',
-      incoterm: 'FOB Mombasa',
-      moq: '5 bags · 300 kg',
-      screen: 'Screen 15/16',
-      varieties: 'SL28, SL34, Ruiru 11, Batian',
-      processing: 'Fully washed · overnight ferment · second soak · raised beds',
-      cuppingNotes: ['Plum', 'Blood orange', 'Cocoa', 'Rounded acidity'],
-      score: 'Cupped each season — score on request',
-      harvestWindow: 'Main crop: October – January',
-      volume: 'The largest volume the society offers',
-      packaging: '60 kg GrainPro-lined sisal, or vacuum-packed on request',
+      id: 'pack-250g',
+      grade: '250g',
+      name: 'Gathaithi 250 g',
+      priceFactId: 'pack250g',
+      varieties: '{{varieties}}',
+      processing: 'Fully washed, medium roast, ground',
+      cuppingNotes: ['Floral', 'Chocolate', 'Caramel'],
+      packaging: '250 g resealable pack',
       availability: 'available',
-      availabilityLabel: 'Samples available',
+      availabilityLabel: 'In stock',
       description:
-        'The workhorse grade and the bulk of what Gathaithi produces. Marginally softer than the AA and, in most seasons, the better value in the cup — many of our repeat buyers take AB by preference, not by compromise.',
-      imageSlot: 'lotAB',
+        'The everyday size. Enough for a fortnight of a two-cup morning, and small enough to finish while it is still fresh.',
+      imageSlot: 'pack250g',
+    },
+    {
+      id: 'pack-500g',
+      grade: '500g',
+      name: 'Gathaithi 500 g',
+      priceFactId: 'pack500g',
+      varieties: '{{varieties}}',
+      processing: 'Fully washed, medium roast, ground',
+      cuppingNotes: ['Floral', 'Chocolate', 'Caramel'],
+      packaging: '500 g resealable pack',
+      availability: 'available',
+      availabilityLabel: 'In stock',
+      description:
+        'For a household that drinks it daily, or an office that goes through a bag a month.',
+      imageSlot: 'pack500g',
+    },
+    {
+      id: 'pack-1kg',
+      grade: '1kg',
+      name: 'Gathaithi 1 kg',
+      priceFactId: 'pack1kg',
+      varieties: '{{varieties}}',
+      processing: 'Fully washed, medium roast, ground',
+      cuppingNotes: ['Floral', 'Chocolate', 'Caramel'],
+      packaging: '1 kg resealable pack',
+      availability: 'available',
+      availabilityLabel: 'In stock',
+      description:
+        'The largest pack. For a café, a shop, or anyone buying for more than one kitchen.',
+      imageSlot: 'pack1kg',
     },
   ],
 

@@ -214,6 +214,60 @@ export const facts = {
     updated: TODAY,
   },
 
+  /* ── Retail pack prices ───────────────────────────────────────────────
+   * Supplied by the client on 2026-09-07 for the four roasted retail packs.
+   * `verified` stays FALSE like every other figure on this site: it is the
+   * flag that lets `productLd` publish an `offers` block, and publishing a
+   * price to a search engine is a different act from printing one on a page.
+   * Flip these four to true, with a source, once the society confirms them
+   * as its published retail list.
+   *
+   * Note for whoever confirms them: the four are a flat KSh 1,000/kg at every
+   * size — the 100g costs the same per gram as the 1kg. That is unusual for
+   * retail, where the small pack normally carries a premium, so it is worth
+   * checking it is deliberate rather than a rounding of the list.
+   */
+  pack100g: {
+    id: 'pack100g',
+    label: 'Retail price, 100 g',
+    value: 100,
+    display: 'KSh 100',
+    unit: 'per 100 g pack',
+    verified: false,
+    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
+    updated: '2026-09-07',
+  },
+  pack250g: {
+    id: 'pack250g',
+    label: 'Retail price, 250 g',
+    value: 250,
+    display: 'KSh 250',
+    unit: 'per 250 g pack',
+    verified: false,
+    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
+    updated: '2026-09-07',
+  },
+  pack500g: {
+    id: 'pack500g',
+    label: 'Retail price, 500 g',
+    value: 500,
+    display: 'KSh 500',
+    unit: 'per 500 g pack',
+    verified: false,
+    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
+    updated: '2026-09-07',
+  },
+  pack1kg: {
+    id: 'pack1kg',
+    label: 'Retail price, 1 kg',
+    value: 1000,
+    display: 'KSh 1,000',
+    unit: 'per 1 kg pack',
+    verified: false,
+    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
+    updated: '2026-09-07',
+  },
+
   /* ── Indicative prices ────────────────────────────────────────────────
    *  ⚠ PLACEHOLDERS. These four figures are NOT quotes and NOT from the
    *  society. They exist so the catalogue can show a price column, and they
