@@ -47,8 +47,14 @@ export const products: ProductsContent = {
   catalogue: {
     eyebrow: 'Retail packs',
     heading: 'Buy it by the bag',
-    lead:
-      'The society roasts and packs its own coffee in four sizes. It is one coffee — the same washed Nyeri lots that go to the dry mill — roasted medium and ground, packed under the society\u2019s own name.',
+    /* NO LEAD. There was one — "The society roasts and packs its own coffee in
+       four sizes. It is one coffee — the same washed Nyeri lots that go to the
+       dry mill — roasted medium and ground, packed under the society's own
+       name." The user asked for it removed. The band opens the page, and the
+       four cards say the sizes themselves; the sentence about one coffee in
+       four sizes was explaining what the row below it already shows. The
+       claim about the roast and the mill survives on each card, under Full
+       specification (Process: fully washed, medium roast, ground). */
     legend: {
       available: 'In stock',
       allocated: 'Out of stock',

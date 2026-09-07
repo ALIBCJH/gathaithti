@@ -275,7 +275,6 @@ export interface ProductsContent {
   catalogue: {
     eyebrow: string;
     heading: string;
-    lead: string;
     legend: Record<string, string>;
     /** false hides every price on the page in one edit. */
     showPrices: boolean;
