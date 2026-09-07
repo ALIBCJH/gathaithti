@@ -45,7 +45,11 @@ export function BoardGrid({ content }: { content: AboutContent['governance']['bo
           <li key={member.id}>
             <Reveal delay={(i % 3) * 60}>
               <article className="group/card flex h-full flex-col gap-5">
-                <SmartImage slot={member.imageSlot} zoom />
+                {/* `object-top`: the supplied portraits are full length with
+                    the face in the upper third, and a centre crop takes the
+                    top of the head off the tallest of them. Anchoring to the
+                    top is what keeps nine faces in nine frames. */}
+                <SmartImage slot={member.imageSlot} zoom imageClassName="object-top" />
 
                 <div className="flex flex-col gap-1.5">
                   <h4 className="t-body font-medium leading-snug">
