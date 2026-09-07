@@ -5,10 +5,9 @@ import { LotCard } from '@/components/products/LotCard';
 import { LotCatalogue, type CatalogueItem } from '@/components/products/LotCatalogue';
 import { ProcessWalkthrough } from '@/components/products/ProcessWalkthrough';
 import { SeasonGem } from '@/components/products/SeasonGem';
-import { SampleRequestForm } from '@/components/products/SampleRequestForm';
+import { ReachOut } from '@/components/products/ReachOut';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
-import { Eyebrow } from '@/components/ui/Eyebrow';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Section } from '@/components/ui/Section';
 import { getFact } from '@/lib/facts';
@@ -122,28 +121,12 @@ export default async function ProductsPage({ params }: Props) {
 
       <SeasonGem content={products.gem} />
 
-      <Section tone="parchment" size="loose" id="request-a-sample" ariaLabelledby="sample-heading">
-        <Container width="wide">
-          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-            <div className="flex flex-col gap-8 lg:col-span-4">
-              <Eyebrow>{products.sample.eyebrow}</Eyebrow>
-              <h2 id="sample-heading" className="t-section max-w-[12ch]">
-                {products.sample.heading}
-              </h2>
-              <p className="t-lead measure text-ink-soft">{products.sample.lead}</p>
-            </div>
-
-            <div className="lg:col-span-7 lg:col-start-6">
-              <SampleRequestForm
-                content={products.sample}
-                form={common.form}
-                locale={locale}
-                lots={products.lots.map(({ id, grade, name }) => ({ id, grade, name }))}
-              />
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <ReachOut
+        content={products.sample}
+        form={common.form}
+        locale={locale}
+        packs={products.lots.map(({ id, grade, name }) => ({ id, grade, name }))}
+      />
     </>
   );
 }

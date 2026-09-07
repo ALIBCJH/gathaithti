@@ -31,14 +31,9 @@
 import { consoleProvider, resendProvider, smtpProvider } from './providers';
 
 export interface SampleRequest {
-  name: string;
-  company: string;
   email: string;
-  country: string;
-  role: string;
-  volume: string;
-  /** Id of the lot the buyer clicked through from, if any. */
-  lot?: string;
+  /** Id of the pack the sender clicked through from, if any. */
+  pack?: string;
   message: string;
   locale: string;
   submittedAt: string;
@@ -95,15 +90,10 @@ function format(request: SampleRequest): EmailMessage {
     process.env.SAMPLE_REQUEST_FROM ?? 'Gathaithi website <website@example.invalid>';
 
   const lines = [
-    'New sample request from the Gathaithi website',
+    'New enquiry from the Our Coffee page',
     '',
-    `Name:      ${request.name}`,
-    `Company:   ${request.company}`,
     `Email:     ${request.email}`,
-    `Country:   ${request.country}`,
-    `Role:      ${request.role}`,
-    `Volume:    ${request.volume}`,
-    `Lot:       ${request.lot || '—'}`,
+    `Pack:      ${request.pack || '—'}`,
     '',
     'Message:',
     request.message,
@@ -117,7 +107,7 @@ function format(request: SampleRequest): EmailMessage {
     to,
     from,
     replyTo: request.email,
-    subject: `Sample request — ${request.company || request.name} (${request.country})`,
+    subject: `Coffee enquiry${request.pack ? ` — ${request.pack}` : ''} — ${request.email}`,
     text: lines.join('\n'),
   };
 }

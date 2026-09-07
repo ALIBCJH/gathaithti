@@ -51,14 +51,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true }, { status: 200 });
   }
 
+  /* Three fields. The other five this endpoint used to take — name, company,
+     country, role, volume — went with the importer form the Our Coffee page
+     no longer has. Anything a browser still posts under those names is simply
+     not read. */
   const values = {
-    name: asString(body.name),
-    company: asString(body.company),
+    pack: asString(body.pack),
     email: asString(body.email),
-    country: asString(body.country),
-    role: asString(body.role),
-    volume: asString(body.volume),
-    lot: asString(body.lot),
     message: asString(body.message),
   };
 

@@ -282,39 +282,57 @@ export const products: ProductsContent = {
     ],
   },
 
+  /* THE REACH-OUT CARD. Rewritten from an eight-field importer form — name,
+     company, country, role, volume of interest, lot of interest, "what are you
+     looking for?" — which was asking a stranger for a CV before it would tell
+     them the price of a bag of coffee.
+
+     WhatsApp is first because that is how the enquiry actually arrives. The
+     numbers themselves live in content/site.ts and are NOT written here; a
+     channel whose number is unset renders as plain text rather than as a dead
+     link, so nothing on this page can dial the wrong person.
+
+     An importer is not shut out — the market note two bands up still points
+     roasters here, and the message box is where they say who they are. */
   sample: {
-    eyebrow: 'Direct enquiry',
-    heading: 'Request a sample',
+    eyebrow: 'Get in touch',
+    heading: 'Ask us about the coffee',
     lead:
-      'Tell us what you roast and what volume you work with. The marketing office replies with current availability, the lot details and a sample by courier — usually within two working days.',
-    fields: {
-      name: 'Your name',
-      company: 'Company',
-      email: 'Email',
-      country: 'Country',
-      role: 'Your role',
-      volume: 'Volume of interest',
-      lot: 'Lot of interest',
-      message: 'What are you looking for?',
+      'The office answers WhatsApp fastest during working hours. If you would rather write, the form below reaches the same desk.',
+
+    channels: {
+      whatsapp: {
+        label: 'WhatsApp us',
+        note: 'Fastest — office hours',
+        prefill: 'Hello Gathaithi — I saw the coffee packs on your website and would like to ask about them.',
+      },
+      phone: { label: 'Call the office', note: 'Mon\u2013Fri 8:00\u201317:00, Sat 8:00\u201313:00' },
+      missing: 'Number to be confirmed by the society',
     },
-    lotAny: 'No particular lot yet',
-    placeholders: {
-      name: 'Jane Wanjiku',
-      company: 'Roastery or importer',
-      email: 'you@company.com',
-      country: 'United Kingdom',
-      message: 'Grades you are interested in, your season, and how you plan to roast the coffee.',
+
+    form: {
+      heading: 'Or write to us here',
+      fields: {
+        pack: 'Which size are you interested in?',
+        email: 'Your email',
+        message: 'Your message',
+      },
+      packAny: 'Not sure yet',
+      placeholders: {
+        email: 'you@example.com',
+        message: 'How much you are after, and where you are — anything that helps the office answer you properly.',
+      },
+      submit: 'Send message',
+      consent:
+        'We use what you send here to answer your enquiry and nothing else. We do not sell or share it.',
+      /* Overrides common.form, whose success line promises "sample
+         availability and despatch details" — written for an importer, and the
+         wrong thing to tell somebody asking the price of a 250 g bag. */
+      success: {
+        title: 'Message received',
+        body: 'Thank you. The office will come back to you, usually within two working days. If it is urgent, WhatsApp is faster.',
+        again: 'Send another message',
+      },
     },
-    roles: ['Roaster', 'Importer', 'Exporter', 'Green buyer', 'Retailer', 'Other'],
-    volumes: [
-      'Under 5 bags (60 kg)',
-      '5 – 20 bags',
-      '20 – 100 bags',
-      'Over 100 bags',
-      'Not yet known',
-    ],
-    submit: 'Send request',
-    consent:
-      'We use what you send here to answer your enquiry and nothing else. We do not sell or share it.',
   },
 };
