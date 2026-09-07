@@ -10,38 +10,17 @@ export const about: AboutContent = {
 
   /* The page's title and its one sentence. There is no hero band any more —
      these are rendered by `Pillars`, which is now the first band on the page. */
+  /* PARKED — nothing renders this. "Owned by the farmers who grow the coffee"
+     and its sentence opened the About page, and they moved to Our Farmers
+     along with the three ownership cards: the claim they make is that page's
+     whole subject. About opens on its history now. Kept because the sentence
+     is a good short statement of what the society IS, and nothing else says it
+     in one breath. */
   hero: {
     eyebrow: 'About the society',
     title: 'Owned by the farmers who grow the coffee',
     lead:
       'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
-  },
-
-  /* Three cards under the hero: what this society is, before any history or
-     governance. Everything here is structurally true and carries no unverified
-     figure of its own — the numbers come through {{tokens}} like everywhere
-     else, so a correction in content/facts.ts reaches them. */
-  pillars: {
-    /* NOT RENDERED. This band used to have a head of its own, directly below
-       the hero's — two bands in a row labelled ABOUT THE SOCIETY. The two are
-       one band now and it is titled by `hero` above. Both lines are kept
-       because restoring them is a two-line change if the head is wanted back. */
-    eyebrow: 'About the society',
-    heading: 'A society, not a supplier',
-    cards: [
-      {
-        title: 'Owned by the people who grow it',
-        body: '{{members}} smallholder families hold the shares. The committee is elected from among them at the Annual General Meeting, and the accounts are put to the same room that elected it.',
-      },
-      {
-        title: 'One mill, one catchment',
-        body: 'A single wet mill on {{millSite}} hectares, serving the farms around it. Cherry is delivered the evening it is picked and processed within hours. Nothing is blended in from anywhere else.',
-      },
-      {
-        title: 'Independent since {{independentSince}}',
-        body: 'Gathaithi grew coffee under the wider Tetu society from {{established}}. Since {{independentSince}} it has run its own processing, its own marketing and its own payments.',
-      },
-    ],
   },
 
   origin: {

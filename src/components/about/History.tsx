@@ -10,6 +10,12 @@ import type { AboutContent } from '@content/types';
  * The history: the account, three photographs of the thing it describes, and
  * the dated spine underneath.
  *
+ * It OPENS THE PAGE now and carries its `h1`. The ownership band that used to
+ * — the page title and three cards — moved to Our Farmers, where that claim is
+ * the subject rather than a statement in passing; a page with no h1 has no
+ * title as far as a crawler or a screen reader is concerned, so the level came
+ * with the position.
+ *
  * It was prose in one column with a single photograph beside it, and that
  * photograph was gathaithi-mill-and-ridge.jpg — a picture of a wet mill
  * standing in for THIS wet mill, on the one band that is entirely about this
@@ -34,7 +40,7 @@ import type { AboutContent } from '@content/types';
  */
 export function History({ content }: { content: AboutContent['origin'] }) {
   return (
-    <Section tone="parchment-2" ariaLabelledby="history-heading">
+    <Section tone="parchment-2" size="opener" ariaLabelledby="history-heading">
       <Container width="wide">
         {/* Across the top, centred, like every other head on this page. It
             used to sit in the left column as the first line of the account
@@ -42,6 +48,7 @@ export function History({ content }: { content: AboutContent['origin'] }) {
             the middle, that read as a fourth column of prose rather than as
             the title of the band. */}
         <SectionHead
+          as="h1"
           id="history-heading"
           eyebrow={content.eyebrow}
           heading={content.heading}
@@ -80,9 +87,13 @@ export function History({ content }: { content: AboutContent['origin'] }) {
                   <p className="t-figure-sm text-ochre-ink">
                     <RichText text={entry.year} />
                   </p>
-                  <h3 className="t-body font-medium">
+                  {/* `h2`, not `h3`: this band's head is the page's h1 now
+                      that the ownership band has moved to Our Farmers, so a
+                      timeline entry is one level under it. As h3 the outline
+                      skipped 1->3 four times. */}
+                  <h2 className="t-body font-medium">
                     <RichText text={entry.title} />
-                  </h3>
+                  </h2>
                   <p className="t-body text-[0.9375rem] text-ink-soft">
                     <RichText text={entry.body} />
                   </p>

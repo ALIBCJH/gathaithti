@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { Pillars } from '@/components/about/Pillars';
 import { History } from '@/components/about/History';
 import { Governance } from '@/components/about/Governance';
 import { InformationPoint } from '@/components/about/InformationPoint';
@@ -38,15 +37,10 @@ export default async function AboutPage({ params }: Props) {
         ]}
       />
 
-      {/* Five bands in the order a stranger needs them: what the society is,
-          where it came from, how it is run and by whom, the paper an auditor
-          wants, and finally why the coffee tastes as it does.
-
-          There is no hero band. The photographic split that used to open the
-          page has gone, and the title it carried now opens the first band —
-          which is why Pillars is handed `about.hero` as well as its own
-          cards. */}
-      <Pillars content={about.pillars} opening={about.hero} />
+      {/* The history opens the page now. The ownership band that used to —
+          "Owned by the farmers who grow the coffee" and its three cards —
+          moved to Our Farmers, where that claim is the subject rather than a
+          statement in passing. History carries the h1 in its place. */}
       <History content={about.origin} />
       <Governance content={about.governance} />
       <InformationPoint content={about.registration} />
