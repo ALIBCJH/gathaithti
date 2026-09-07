@@ -29,8 +29,6 @@ export const gallery: GalleryContent = {
   hero: {
     eyebrow: 'Gallery',
     title: 'A walk through the mill',
-    lead:
-      'From the gate to the drying beds, in the order the coffee moves. Every photograph here was taken at Gathaithi.',
   },
 
   items: [

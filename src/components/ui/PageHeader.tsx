@@ -14,7 +14,9 @@ export function PageHeader({
 }: {
   eyebrow: string;
   title: string;
-  lead: string;
+  /** Optional: a page whose title says enough does not need a sentence under
+   *  it, and an empty paragraph still takes up space. */
+  lead?: string;
   /**
    * `center` stacks the three lines down the middle, the way About and Our
    * Coffee open. Left keeps the original two-column reading, where the title
@@ -35,9 +37,11 @@ export function PageHeader({
           <div className="mx-auto flex max-w-[52rem] flex-col items-center gap-6 text-center">
             <Eyebrow>{eyebrow}</Eyebrow>
             <h1 className="t-page-title max-w-[20ch] text-balance">{title}</h1>
-            <p className="t-lead max-w-[56ch] text-ink-soft">
-              <RichText text={lead} />
-            </p>
+            {lead ? (
+              <p className="t-lead max-w-[56ch] text-ink-soft">
+                <RichText text={lead} />
+              </p>
+            ) : null}
           </div>
         </Container>
       </div>
@@ -57,9 +61,11 @@ export function PageHeader({
             <Eyebrow className="mb-8">{eyebrow}</Eyebrow>
             <h1 className="t-page-title max-w-[18ch]">{title}</h1>
           </div>
-          <p className="t-lead measure text-ink-soft lg:col-span-5 lg:pt-4">
-            <RichText text={lead} />
-          </p>
+          {lead ? (
+            <p className="t-lead measure text-ink-soft lg:col-span-5 lg:pt-4">
+              <RichText text={lead} />
+            </p>
+          ) : null}
         </div>
       </Container>
     </div>

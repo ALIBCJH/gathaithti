@@ -43,7 +43,6 @@ export default async function GalleryPage({ params }: Props) {
         align="center"
         eyebrow={gallery.hero.eyebrow}
         title={gallery.hero.title}
-        lead={gallery.hero.lead}
       />
 
       <Section tone="parchment-2" ariaLabelledby="gallery-heading">
