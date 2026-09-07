@@ -1,7 +1,7 @@
 /**
  * One line icon per route, for the mobile navigation drawer.
  *
- * Drawn rather than installed. Five icons do not justify an icon library —
+ * Drawn rather than installed. Six icons do not justify an icon library —
  * the smallest of them ships more kilobytes than this whole file — and a
  * borrowed set would arrive with its own stroke weight, its own corner radius
  * and its own idea of a grid, none of which are this site's. These are set on
@@ -50,6 +50,15 @@ const paths: Record<string, React.ReactNode> = {
   ),
 
   /* An envelope. The contact page is a form, and this is what a form is. */
+  /* A frame with a hill and a sun in it — a picture, not a camera. The gallery
+     is the photographs, not the taking of them. */
+  gallery: (
+    <>
+      <rect x="3" y="4.75" width="18" height="14.5" rx="1.5" />
+      <circle cx="8.5" cy="9.75" r="1.4" />
+      <path d="M3.4 16.1 9 11.6l4.2 3.3 3.1-2.4 4.3 3.3" />
+    </>
+  ),
   contact: (
     <>
       <rect x="3" y="5.25" width="18" height="13.5" rx="1.5" />

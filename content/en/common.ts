@@ -25,6 +25,7 @@ export const common: Common = {
     about: 'About',
     products: 'Our Coffee',
     farmers: 'Our Farmers',
+    gallery: 'Gallery',
     contact: 'Contact',
   },
 

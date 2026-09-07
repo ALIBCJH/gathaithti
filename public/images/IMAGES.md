@@ -43,7 +43,8 @@ before the photography exists.
 | `gathaithi-cherry-sunlit.jpg` | Home | Hero — slide 5 | 16:9 | 2400×1350 | Red, orange and green cherry with the sun flaring through the canopy behind. Flare top-left, type bottom-left. |
 | `gathaithi-selective-picking.jpg` | Home | Current season | 4:5 | 1600×2000 | Close on a picker’s hands and a full bucket of ripe cherry. Skilled work, unhurried. Face optional; if included, working, not posed for the camera. |
 | `gathaithi-member-at-the-tree.jpg` | About | Hero — **parked, nothing renders it** | 3:2 | 2400×1600 | A member reaching up into the branch, taking ripe cherry by hand on the upper slopes. Cropped to a tall column by the page, so the reach must survive the crop: subject left of centre, room above the hands. |
-| `gathaithi-committee-meeting.jpg` | About | Governance | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
+| `gathaithi-committee-group.jpg` | About | Governance + Gallery | 3:2 | 1250×830 | **Supplied, already in place.** The management and supervisory committees on the drying beds, greenhouse behind. |
+| ~~`gathaithi-committee-meeting.jpg`~~ | superseded | 3:2 | 2000×1334 | The management committee in session at the society office — minute book, ledgers, people mid-discussion. Documentary, not a staged handshake or a row of folded arms. |
 | `gathaithi-mill-and-ridge.jpg` | About | History | 16:9 | 1600×900 | The mill and the ground it stands on: across the raised drying beds to the hills of Tetu behind. The section's only photograph, so it has to carry it — beds, buildings and ridge in one landscape frame. |
 | `gathaithi-society-store.jpg` | About | History — **parked, nothing renders it** | 4:5 | 1400×1750 | The oldest building the society still uses. Portrait, straight on, flat light. Age is the subject. |
 | `gathaithi-collection-evening.jpg` | About | History — **parked, nothing renders it** | 4:5 | 1400×1750 | Members at a collection point at the end of the day, buckets full, being weighed. Portrait. |
@@ -84,6 +85,9 @@ before the photography exists.
 | `pack-250g.jpg` | Our Coffee | Retail packs | 9:16 | 1000×1530 | **Supplied, already in place.** The 250 g pack on a bench. |
 | `pack-500g.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 500 g pack on a bench. |
 | `pack-1kg.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 1 kg pack on a bench. **Label reads "100% ARABICA ROBUSTA" — flagged; those are two species.** |
+| `gathaithi-drying-beds-long.jpg` | Gallery | Gallery | 4:5 | 950×1090 | **Supplied, already in place.** A full-length drying bed of parchment, a worker turning it at the far end. |
+| `gathaithi-solar-drier.jpg` | Gallery | Gallery | 3:2 | 1250×840 | **Supplied, already in place.** Inside the solar drier — raised beds under polythene, covered with jute sacking. |
+| `gathaithi-greenhouse.jpg` | Gallery | Gallery | 3:2 | 1270×810 | **Supplied, already in place.** The greenhouse, stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE. |
 | `partner-cms.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
 | `partner-dormans.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
 | `partner-ea-bean.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
@@ -156,6 +160,10 @@ the shot list is self-contained:
 - `pack-250g.jpg` — A 250 g pack of Gathaithi Specialty Coffee standing on a wooden bench.
 - `pack-500g.jpg` — A 500 g pack of Gathaithi Specialty Coffee standing on a wooden bench.
 - `pack-1kg.jpg` — A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden bench.
+- `gathaithi-committee-group.jpg` — The Gathaithi management and supervisory committees standing together on the drying beds at the wet mill.
+- `gathaithi-drying-beds-long.jpg` — Parchment coffee spread the length of a raised drying bed at Gathaithi, a worker turning it at the far end.
+- `gathaithi-solar-drier.jpg` — Inside the solar drier at Gathaithi — rows of raised beds under polythene, covered with jute coffee sacking.
+- `gathaithi-greenhouse.jpg` — The greenhouse at Gathaithi, its polythene stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.
 - `partner-cms.png` — Coffee Management Services
 - `partner-dormans.png` — Dormans
 - `partner-ea-bean.png` — EA Bean Co.

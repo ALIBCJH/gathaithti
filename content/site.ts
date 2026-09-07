@@ -161,6 +161,7 @@ export const routes = [
   { key: 'about', path: 'about' },
   { key: 'products', path: 'products' },
   { key: 'farmers', path: 'farmers' },
+  { key: 'gallery', path: 'gallery' },
   { key: 'contact', path: 'contact' },
 ] as const;
 
