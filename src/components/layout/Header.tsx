@@ -216,13 +216,16 @@ export function Header({
           />
 
           {/* The name is TEXT, so it is the accessible name of this link and
-              the mark above stays decorative. A phone gets the mark and the
-              name; F.C.S. is the part that goes when the bar gets tight. */}
+              the mark above stays decorative.
+
+              JUST THE NAME. "F.C.S." used to follow it on sm and up — the
+              abbreviation the society trades under. Removed at the user's
+              request: the mark now carries the identity and the initials were
+              the third thing in a lockup that only needs two. The full legal
+              name is still in the footer and in the structured data, which is
+              where a stranger or a crawler goes looking for it. */}
           <span className="ml-2.5 font-semibold tracking-[0.14em] whitespace-nowrap sm:ml-3">
             GATHAITHI
-          </span>
-          <span className="ml-3 hidden sm:inline text-ink-soft">
-            F.C.S.
           </span>
         </Link>
 
