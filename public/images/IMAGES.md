@@ -64,7 +64,7 @@ before the photography exists.
 | `gathaithi-ripening-cherry.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | **Stand-in, moved from the page hero.** Wants the ripest fruit of the season instead: tight, portrait, uniform deep red, soft light. Currently landscape in a portrait box. |
 | `gathaithi-green-sack.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | A jute sack of milled green coffee, stencilled for the society, on plain white. The only studio shot on the site — defensible because it is the product, not the process. Portrait, 896×1200. |
 | `gathaithi-the-cup.jpg` | Our Coffee | The season | 4:5 | 1400×1750 | A brewed cup with roasted beans, warm and dark. Not the briefed cupping table, but contradicts nothing. Second studio shot in the row. Portrait, 896×1200. |
-| `process-01-pulping.jpg` | Our Coffee | Processing — pulping | 3:2 | 1800×1200 | Cherry entering the disc pulper, water moving, skins separating. Freeze the motion; keep the machinery legible. |
+| `gathaithi-pulper.jpg` | Our Coffee — 01 + Gallery | Processing | 16:9 | 1300×800 | **Supplied, already in place.** The society's own pulper, stencilled GATHAITHI FCS-PULPER MACHINE. **Supersedes `process-01-pulping.jpg`, which was a generated stand-in and has been deleted.** |
 | `process-02-fermentation.jpg` | Our Coffee | Processing — fermentation | 3:2 | 1800×1200 | **Met.** Tank of parchment under water, mucilage foaming across the surface, hills behind. Under-sized at 1264×848. |
 | `process-03-washing.jpg` | Our Coffee | Processing — washing | 3:2 | 1800×1200 | **Met.** Workers moving parchment along the channels with wooden paddles, drying beds behind. Under-sized at 1264×848. Do not reuse for step 05. |
 | `process-04-grading.jpg` | Our Coffee | Processing — grading and sorting | 3:2 | 1800×1200 | **Met, for the sorting half.** Workers hand-picking defects from parchment on a raised bed, basin beside them. Density grading happens under water and photographs as water. |
@@ -88,6 +88,8 @@ before the photography exists.
 | `gathaithi-drying-beds-long.jpg` | Gallery | Gallery | 4:5 | 950×1090 | **Supplied, already in place.** A full-length drying bed of parchment, a worker turning it at the far end. |
 | `gathaithi-solar-drier.jpg` | Gallery | Gallery | 3:2 | 1250×840 | **Supplied, already in place.** Inside the solar drier — raised beds under polythene, covered with jute sacking. |
 | `gathaithi-greenhouse.jpg` | Gallery | Gallery | 3:2 | 1270×810 | **Supplied, already in place.** The greenhouse, stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE. |
+| `gathaithi-gate.jpg` | Gallery | Gallery | 2:3 | 1020×1530 | **Supplied, already in place.** The society entrance: name board, co-operative values board, motto, track up to the mill. |
+| `gathaithi-drying-area.jpg` | Gallery | Gallery | 3:2 | 1210×875 | **Supplied, already in place.** The drying ground between crops, empty bed frames below the water tower. |
 | `partner-cms.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
 | `partner-dormans.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
 | `partner-ea-bean.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
@@ -101,7 +103,7 @@ If the shoot has to be done in stages, this is the order that matters.
    the entire first impression.
 2. `member-04-portrait.jpg` … `member-06-portrait.jpg` — parked. The member band shows three photographs and publishes no names; a portrait is only wanted alongside a real interview.
    The site says the society is its members; without faces it is a claim.
-3. `process-01-pulping.jpg` … `process-05-raised-beds.jpg` — the processing
+3. `process-02-fermentation.jpg` … `process-05-raised-beds.jpg` — the processing
    walkthrough. Buyers read this section closely.
 4. `lot-aa-green-beans.jpg` … `lot-c-green-beans.jpg` — the four grade shots.
    One setup, one afternoon, four frames.
@@ -139,7 +141,6 @@ the shot list is self-contained:
 - `lot-ab-green-beans.jpg` — Grade AB green coffee beans from Gathaithi, screen 15 to 16.
 - `lot-pb-green-beans.jpg` — Peaberry green coffee beans from Gathaithi.
 - `lot-c-green-beans.jpg` — Grade C green coffee beans from Gathaithi.
-- `process-01-pulping.jpg` — Ripe cherry passing through the disc pulper at the Gathaithi wet mill.
 - `process-02-fermentation.jpg` — A fermentation tank at the Gathaithi wet mill, filled with parchment under water and mucilage foam, the hills of Tetu behind.
 - `process-03-washing.jpg` — Workers moving parchment along the washing channels with wooden paddles at the Gathaithi mill, raised drying beds behind them.
 - `process-04-grading.jpg` — Workers hand-sorting defects out of parchment on a raised drying bed at Gathaithi, a basin beside them for the rejects.
@@ -164,6 +165,9 @@ the shot list is self-contained:
 - `gathaithi-drying-beds-long.jpg` — Parchment coffee spread the length of a raised drying bed at Gathaithi, a worker turning it at the far end.
 - `gathaithi-solar-drier.jpg` — Inside the solar drier at Gathaithi — rows of raised beds under polythene, covered with jute coffee sacking.
 - `gathaithi-greenhouse.jpg` — The greenhouse at Gathaithi, its polythene stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.
+- `gathaithi-gate.jpg` — The entrance to Gathaithi Coffee Co-operative Society, its name board and co-operative values board beside the track up to the mill.
+- `gathaithi-pulper.jpg` — The pulping machine at the Gathaithi wet mill, its frame stencilled GATHAITHI FCS-PULPER MACHINE.
+- `gathaithi-drying-area.jpg` — The drying ground at Gathaithi between crops, rows of empty bed frames running down the slope below the water tower.
 - `partner-cms.png` — Coffee Management Services
 - `partner-dormans.png` — Dormans
 - `partner-ea-bean.png` — EA Bean Co.
