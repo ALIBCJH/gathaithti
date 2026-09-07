@@ -172,7 +172,6 @@ export interface HomeContent {
 export interface AboutContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
-  pillars: { eyebrow: string; heading: string; cards: { title: string; body: string }[] };
   origin: {
     eyebrow: string;
     heading: string;
@@ -375,6 +374,19 @@ export interface Notice {
 }
 
 export interface FarmersContent {
+  /**
+   * The ownership band, moved here from About. It is the claim this page
+   * exists to make — the farmers own the society — so it opens the page and
+   * carries its `h1`.
+   */
+  ownership: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    cards: { title: string; body: string }[];
+    imageSlot: string;
+    caption: string;
+  };
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
   noticeboard: {

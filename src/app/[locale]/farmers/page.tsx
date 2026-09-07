@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { MemberCard } from '@/components/farmers/MemberCard';
+import { Ownership } from '@/components/farmers/Ownership';
 import { Training } from '@/components/farmers/Training';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
@@ -39,17 +40,16 @@ export default async function FarmersPage({ params }: Props) {
         ]}
       />
 
-      {/* No page header. The members band opens the page, which is why it is
-          `opener` and why its head is the `h1`: a page with no h1 is a page
-          with no title as far as a crawler or a screen reader is concerned,
-          and removing the header without moving the level would have taken
-          the title off the one page about the membership.
+      {/* The ownership band opens the page and carries the h1 — the claim
+          that the farmers own this society is what the page is for. It came
+          from About, where it was the page title. */}
+      <Ownership content={farmers.ownership} />
 
-          `farmers.hero` is parked in the content file, not deleted. */}
-      <Section tone="parchment" size="opener" ariaLabelledby="profiles-heading">
+      {/* The members band. No longer the opener, so its head steps down to h2
+          and it takes the ordinary section padding back. */}
+      <Section tone="parchment" ariaLabelledby="profiles-heading">
         <Container width="wide">
           <SectionHead
-            as="h1"
             id="profiles-heading"
             eyebrow={farmers.profiles.eyebrow}
             heading={farmers.profiles.heading}

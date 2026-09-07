@@ -93,6 +93,7 @@ before the photography exists.
 | `gathaithi-recirculation-pump.jpg` | Gallery | Gallery | 3:2 | 1230×845 | **Supplied, already in place.** The re-circulation pump beside the washing channels. |
 | `gathaithi-soaking-tank.jpg` | Gallery | Gallery | 3:2 | 1310×810 | **Supplied, already in place.** The tiled soaking tank, empty between crops, stencilled KCSAP/CGN/GATHAITHI FCS-SOAKING. **Sent as "soaking-pump" — it is a tank, not a pump.** |
 | `gathaithi-notice-board.jpg` | Gallery | Gallery | 3:2 | 1300×815 | **Supplied, already in place.** The members' notice board on the timber mill building. |
+| `gathaithi-members-drying.jpg` | Our Farmers | Ownership | 16:9 | 1330×780 | **Supplied, already in place.** Members along a drying bed, hands in the parchment, the drying ground and greenhouse behind. |
 | `partner-cms.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
 | `partner-dormans.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
 | `partner-ea-bean.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
@@ -174,6 +175,7 @@ the shot list is self-contained:
 - `gathaithi-recirculation-pump.jpg` — The re-circulation pump at the Gathaithi wet mill, beside the empty washing channels.
 - `gathaithi-soaking-tank.jpg` — The tiled soaking tank at the Gathaithi wet mill, empty between crops.
 - `gathaithi-notice-board.jpg` — The members' notice board at Gathaithi, a green glazed case on the timber mill building with notices pinned inside.
+- `gathaithi-members-drying.jpg` — Gathaithi members standing along a raised drying bed, hands in the parchment, the drying ground and greenhouse behind them.
 - `partner-cms.png` — Coffee Management Services
 - `partner-dormans.png` — Dormans
 - `partner-ea-bean.png` — EA Bean Co.

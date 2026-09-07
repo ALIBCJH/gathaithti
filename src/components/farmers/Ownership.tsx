@@ -3,52 +3,43 @@ import { SectionHead } from '@/components/ui/SectionHead';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import type { AboutContent } from '@content/types';
+import { SmartImage } from '@/components/media/SmartImage';
+import type { FarmersContent } from '@content/types';
 
 /**
- * The opening of the page, and the three cards that answer it.
+ * What this page is for: the farmers own the society.
  *
- * There was a photographic hero above this band. It is gone: a landscape frame
- * cropped into a tall column, doing nothing but being large, above a title
- * stranded in the left half of the screen. What it left behind was two bands
- * in a row labelled ABOUT THE SOCIETY, the first of them holding a sentence
- * and nothing else.
- *
- * They are one band now. The title of the page sits centred at the top, its
- * one sentence under it, and the three cards immediately beneath — so the
- * first screen of the About page states what the society is and then starts
- * proving it, rather than showing a picture of a man in a tree.
+ * It was the OPENING OF THE ABOUT PAGE — its title, its one sentence and three
+ * cards under it. The claim is the same wherever it sits, but on About it was
+ * a statement about the society and here it is the page's subject, so it opens
+ * Our Farmers and carries that page's `h1`.
  *
  * Somebody who reads only this far should still leave knowing the farmers own
  * it, that it is one mill and one catchment, and that it has run itself since
  * 2000.
  *
- * Numbered, because they are not a sequence and the numbers would be a lie —
- * so they are not numbered. What separates them is a copper rule and the space
- * between, the same device the three governing bodies use further down.
+ * The photograph beneath is the members at a drying bed. Until it arrived, the
+ * single claim on this site that most needed a picture of real members did not
+ * have one — the three frames further down this page are still generated.
+ *
+ * The cards are not numbered, because they are not a sequence and numbering
+ * them would say they were. A copper rule and the space between separate them.
  */
-export function Pillars({
-  content,
-  opening,
-}: {
-  content: AboutContent['pillars'];
-  /** The page's own title and sentence, which used to belong to the hero. */
-  opening: AboutContent['hero'];
-}) {
+export function Ownership({ content }: { content: FarmersContent['ownership'] }) {
   return (
     /* `opener`: this band is the top of the page now, and the header is fixed,
        so its own top padding is the only thing holding the title clear of it. */
-    <Section tone="parchment" size="opener" ariaLabelledby="about-heading">
+    <Section tone="parchment" size="opener" ariaLabelledby="ownership-heading">
       <Container width="wide">
         {/* `h1`, and the only one on the page — it moved here from the hero
             that used to carry it. Centred, like every other head on this page:
             a heading in a left column reads as a column, not as a title. */}
         <SectionHead
           as="h1"
-          id="about-heading"
-          eyebrow={opening.eyebrow}
-          heading={opening.title}
-          lead={opening.lead}
+          id="ownership-heading"
+          eyebrow={content.eyebrow}
+          heading={content.title}
+          lead={content.lead}
         />
 
         <div className="mt-16 grid gap-10 lg:mt-24 lg:grid-cols-3 lg:gap-12">
@@ -65,6 +56,14 @@ export function Pillars({
             </Reveal>
           ))}
         </div>
+
+        {/* The members, under the claim that the society is theirs. */}
+        <figure className="mx-auto mt-16 w-full max-w-[64rem] lg:mt-20">
+          <Reveal className="flex flex-col gap-4">
+            <SmartImage slot={content.imageSlot} />
+            <figcaption className="t-meta text-ink-soft">{content.caption}</figcaption>
+          </Reveal>
+        </figure>
       </Container>
     </Section>
   );

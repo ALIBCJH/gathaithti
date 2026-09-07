@@ -26,6 +26,41 @@ export const farmers: FarmersContent = {
      with somebody's hands", over the 1,700-families lead. The user asked for
      the card removed, and the members band carries the page's h1 now. Kept
      because it is good copy and the only place that sentence exists. */
+  /* THE OWNERSHIP BAND, moved here from About.
+
+     "Owned by the farmers who grow the coffee" was the About page's title and
+     its three cards sat under it. But the claim it makes — that the members
+     are the shareholders, that the committee is elected from among them — is
+     what THIS page is for. On About it was a statement about the society; here
+     it is the page's subject, so it opens the page and carries the h1.
+
+     The photograph under it is the members themselves at a drying bed. Until
+     it arrived, the one claim on this site that most needed a picture of real
+     members had none. */
+  ownership: {
+    eyebrow: 'Our farmers',
+    title: 'Owned by the farmers who grow the coffee',
+    lead:
+      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
+    cards: [
+      {
+        title: 'Owned by the people who grow it',
+        body: '{{members}} smallholder families hold the shares. The committee is elected from among them at the Annual General Meeting, and the accounts are put to the same room that elected it.',
+      },
+      {
+        title: 'One mill, one catchment',
+        body: 'A single wet mill on {{millSite}} hectares, serving the farms around it. Cherry is delivered the evening it is picked and processed within hours. Nothing is blended in from anywhere else.',
+      },
+      {
+        title: 'Independent since {{independentSince}}',
+        body: 'Gathaithi grew coffee under the wider Tetu society from {{established}}. Since {{independentSince}} it has run its own processing, its own marketing and its own payments.',
+      },
+    ],
+    imageSlot: 'farmersMembers',
+    caption:
+      'Members at the drying beds. The society is theirs: they hold the shares, they elect the committee, and they are the room the accounts are put to.',
+  },
+
   hero: {
     eyebrow: 'Our farmers',
     title: 'Every kilo starts with somebody’s hands',

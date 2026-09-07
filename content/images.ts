@@ -881,6 +881,22 @@ export const images = {
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
 
+  /* Members at a drying bed, hands in the parchment, the whole drying ground
+     and the greenhouse behind them. It sits under the band that says the
+     farmers own this — which is the one claim on the site that most needed a
+     photograph of actual members, and until now had none that was real. */
+  farmersMembers: {
+    file: 'gathaithi-members-drying.jpg',
+    page: 'Our Farmers',
+    section: 'Ownership',
+    ratio: '16/9',
+    minWidth: 1330,
+    minHeight: 780,
+    direction: 'Supplied. Members along a drying bed, some reaching into the parchment, the drying ground and greenhouse behind.',
+    alt: 'Gathaithi members standing along a raised drying bed, hands in the parchment, the drying ground and greenhouse behind them.',
+    sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+
   partnerCms: {
     file: 'partner-cms.png',
     page: 'Home',
