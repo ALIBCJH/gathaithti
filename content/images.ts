@@ -646,7 +646,7 @@ export const images = {
     minHeight: 1500,
     direction: 'Portrait. Roasted beans and a wooden scoop on dark timber. Supplied with the wordmark set into the lower left of the frame.',
     alt: 'Roasted Gathaithi coffee beans spilling from a wooden scoop across dark timber.',
-    sizes: '(max-width: 1023px) 67vh, 100vw',
+    sizes: '(max-width: 1023px) 56vh, 100vw',
   },
   heroMobileTwo: {
     file: 'hero-mobile-02.jpg',
@@ -710,7 +710,7 @@ export const images = {
     page: 'Our Coffee',
     section: 'Retail packs',
     ratio: '9/16',
-    minWidth: 1000,
+    minWidth: 850,
     minHeight: 1530,
     direction: 'Supplied. The 250 g pack standing on a bench, coffee plant behind.',
     alt: 'A 250 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
@@ -895,6 +895,28 @@ export const images = {
     direction: 'Supplied. Members along a drying bed, some reaching into the parchment, the drying ground and greenhouse behind.',
     alt: 'Gathaithi members standing along a raised drying bed, hands in the parchment, the drying ground and greenhouse behind them.',
     sizes: '(min-width: 1024px) 70vw, 92vw',
+  },
+
+  /* The retail pack, as the fifth PHONE hero frame.
+
+     Slide five was the one with no portrait counterpart: on a phone it fell
+     back to its landscape frame and a hard crop. The pack is portrait, it is
+     the thing the society actually sells, and it puts a product in a rotation
+     that was otherwise all field and fruit.
+
+     It shares `pack-250g.jpg` with the Our Coffee catalogue. That is safe
+     because they are DIFFERENT PAGES — the rule this would otherwise break is
+     that no single page should fetch one file at two sizes. */
+  heroMobileFive: {
+    file: 'pack-250g.jpg',
+    page: 'Home',
+    section: 'Hero — mobile',
+    ratio: '9/16',
+    minWidth: 850,
+    minHeight: 1530,
+    direction: 'Supplied. The 250 g pack standing on a bench, coffee plant behind. Shared with the Our Coffee catalogue.',
+    alt: 'A 250 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
+    sizes: '(max-width: 1023px) 67vh, 100vw',
   },
 
   partnerCms: {

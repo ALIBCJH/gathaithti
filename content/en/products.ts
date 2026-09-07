@@ -205,8 +205,7 @@ export const products: ProductsContent = {
   process: {
     eyebrow: 'Processing',
     heading: 'From cherry to parchment',
-    lead:
-      'Kenyan washed processing is exacting and Gathaithi does not shortcut it. Cherry delivered in the evening is pulped the same night and does not leave the mill until it has been fermented, washed, soaked and dried under supervision.',
+
     steps: [
       {
         n: '01',
