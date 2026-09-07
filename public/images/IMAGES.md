@@ -82,7 +82,7 @@ before the photography exists.
 | `hero-mobile-03.jpg` | Home | Hero — mobile | 9:19 | 850×1840 | **Supplied, already in place.** Portrait, phone-shaped. Cherry cluster, sun through the leaves. Wordmark set into the lower left — **the scrim is heaviest there and it is hard to read**. |
 | `hero-mobile-04.jpg` | Home | Hero — mobile | 9:19 | 850×1840 | **Supplied, already in place.** Portrait, phone-shaped. A bed of green parchment. Wordmark set into the upper centre — **the placement that reads best over the scrim**. |
 | `pack-100g.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 100 g pack on a bench. |
-| `pack-250g.jpg` | Our Coffee | Retail packs | 9:16 | 1000×1530 | **Supplied, already in place.** The 250 g pack on a bench. |
+| `pack-250g.jpg` | Our Coffee + Home hero (mobile) | Retail packs | 9:16 | 1000×1530 | **Supplied, already in place.** The 250 g pack on a bench. |
 | `pack-500g.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 500 g pack on a bench. |
 | `pack-1kg.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 1 kg pack on a bench. **Label reads "100% ARABICA ROBUSTA" — flagged; those are two species.** |
 | `gathaithi-drying-beds-long.jpg` | Gallery | Gallery | 4:5 | 950×1090 | **Supplied, already in place.** A full-length drying bed of parchment, a worker turning it at the far end. |

@@ -46,8 +46,9 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
      the fetch, so a phone takes only the portrait and a desktop only the
      landscape.
 
-     Slide five has no portrait counterpart and falls back to its landscape
-     frame, whose crop was already tuned for a phone. */
+     All five have a portrait counterpart now. The fifth is the retail pack —
+     the thing the society sells — which also closes the one case where a
+     phone still got a landscape frame cropped hard. */
   const srcSetFor = (slot: Parameters<typeof getImage>[0], quality: number) => {
     const slide = getImage(slot);
     if (!slide.exists) return null;
@@ -75,7 +76,7 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
       ['homeHeroFour', 'heroMobileFour', 'object-center', 'object-center'],
       /* Sun flare top-left, cluster right. The type is bottom-left, so the
          crop keeps the cluster in and the flare out of the words. */
-      ['homeHeroFive', null, null, 'object-[64%_55%] lg:object-[58%_50%]'],
+      ['homeHeroFive', 'heroMobileFive', 'object-center', 'object-[64%_55%] lg:object-[58%_50%]'],
     ] as const
   )
     .map(([slot, mobileSlot, mobilePosition, position]) => ({

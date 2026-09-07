@@ -303,7 +303,10 @@ export interface ProductsContent {
     statement: string;
     cta: Cta;
   };
-  process: { eyebrow: string; heading: string; lead: string; steps: ProcessStep[] };
+  /* No `lead` on `process`. The six steps below said what the sentence said,
+     at length and with photographs — a summary of what the reader was about
+     to read. */
+  process: { eyebrow: string; heading: string; steps: ProcessStep[] };
   sample: {
     eyebrow: string;
     heading: string;

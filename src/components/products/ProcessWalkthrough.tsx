@@ -33,7 +33,6 @@ export function ProcessWalkthrough({ content }: { content: ProductsContent['proc
           id="process-heading"
           eyebrow={content.eyebrow}
           heading={content.heading}
-          lead={content.lead}
         />
 
         <ol className="mt-20 flex flex-col gap-24 lg:mt-28 lg:gap-32">
