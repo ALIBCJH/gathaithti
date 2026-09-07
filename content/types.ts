@@ -464,20 +464,28 @@ export interface ContactContent {
 /**
  * The gallery: photographs of the society itself.
  *
- * `items` is the running order of the slideshow. Each is a slot key and the
- * line printed under it — a caption says what the picture SHOWS, never who is
- * in it and never a claim the photograph does not support.
+ * `items` is A WALK THROUGH THE FACTORY, in order — the gate, the notice
+ * board, then cherry through pulping, washing, soaking and drying, then the
+ * greenhouse and the people. That order is why the cards are numbered: the
+ * numbers encode the sequence the coffee actually moves in, so a stranger
+ * scrolling the page learns how the mill works. Reorder the array and the
+ * numbering follows; it is never written down twice.
+ *
+ * A caption says what the picture SHOWS — never who is in it, and never a
+ * claim the photograph does not support.
  */
 export interface GalleryContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
-  items: { id: string; imageSlot: string; caption: string }[];
-  prevLabel: string;
-  nextLabel: string;
-  pauseLabel: string;
-  playLabel: string;
-  regionLabel: string;
-  slideLabel: string;
+  items: {
+    id: string;
+    imageSlot: string;
+    /** Two or three words. The thing itself, not a sentence. */
+    title: string;
+    caption: string;
+    /** Crop offset for the circle, where centre would cut the subject. */
+    position?: string;
+  }[];
 }
 
 export interface Dictionary {

@@ -1,83 +1,110 @@
 import type { GalleryContent } from '../types';
 
 /**
- * The gallery.
+ * The gallery — and it is a walk through the mill, not a pile of pictures.
  *
  * Every other photograph on this site was bought or generated: coffee in
- * general, standing in for Gathaithi in particular. These four are of the
- * society itself — its committee, its beds, its drier, its greenhouse — and
- * that is the whole reason the page exists. It is not a decorative slideshow;
- * it is the first evidence on the site that the place is real.
+ * general, standing in for Gathaithi in particular. These ten are of the
+ * society itself, and they happen to cover the whole of it — the gate you
+ * arrive at, the board members read, the machines the cherry passes through in
+ * order, the beds it dries on, the greenhouse, and the people who run it.
  *
- * Captions say what the picture SHOWS. Two of them carry the stencil
- * "KCSAP/CON/GATHAITHI FCS" — the Kenya Climate Smart Agriculture Project —
- * and the captions record that the marking is there. They do not describe a
- * partnership or its terms, because nobody has told us what those are.
+ * So they are ORDERED as the coffee moves and numbered accordingly. Someone
+ * who scrolls the page and reads nothing else should still come away knowing
+ * roughly how a wet mill works.
+ *
+ * Three of them carry the stencil "KCSAP/…/GATHAITHI FCS" — the Kenya Climate
+ * Smart Agriculture Project. The captions record that the marking is there.
+ * They do not describe a partnership or its terms, because nobody has told us
+ * what those are.
  */
 export const gallery: GalleryContent = {
   meta: {
-    title: 'Gallery — the mill, the beds and the committee | Gathaithi',
+    title: 'Gallery — a walk through the wet mill | Gathaithi',
     description:
-      'Photographs of Gathaithi Farmers’ Co-operative Society: the drying beds, the solar drier, the greenhouse and the elected committees, at the wet mill in Tetu, Nyeri.',
-    ogLine: 'The wet mill, the drying beds and the people who run them',
+      'Photographs of Gathaithi Farmers’ Co-operative Society: the gate, the members’ notice board, the pulper, the washing channels, the soaking tank, the drying beds, the solar drier, the greenhouse and the elected committees.',
+    ogLine: 'The gate, the pulper, the beds and the people who run them',
   },
 
   hero: {
     eyebrow: 'Gallery',
-    title: 'The society, photographed',
+    title: 'A walk through the mill',
     lead:
-      'The mill, the drying beds, the solar drier and the people elected to run them — photographed at Gathaithi, in Tetu.',
+      'From the gate to the drying beds, in the order the coffee moves. Every photograph here was taken at Gathaithi.',
   },
 
   items: [
     {
-      id: 'committee',
-      imageSlot: 'galleryCommittee',
-      caption:
-        'The management and supervisory committees on the drying beds, the greenhouse behind them.',
-    },
-    {
-      id: 'drying-beds',
-      imageSlot: 'galleryDryingBeds',
-      caption:
-        'Parchment spread the length of a raised bed, turned by hand through the day so it dries evenly.',
-    },
-    {
-      id: 'solar-drier',
-      imageSlot: 'gallerySolarDrier',
-      caption:
-        'Inside the solar drier: raised beds under polythene, each covered with jute sacking. The frame is stencilled KCSAP/CON/GATHAITHI FCS.',
-    },
-    {
       id: 'gate',
       imageSlot: 'galleryGate',
+      title: 'The gate',
       caption:
-        'The entrance to the society. The board beside the gate carries the co-operative values — unity, self help, democracy, equality, development — and the motto: quality coffee, better livelihoods, a sustainable future.',
+        'The board beside the entrance carries the co-operative values — unity, self help, democracy, equality, development — and the society’s motto: quality coffee, better livelihoods, a sustainable future.',
+    },
+    {
+      id: 'notice-board',
+      imageSlot: 'galleryNoticeBoard',
+      title: 'The notice board',
+      caption:
+        'Where members read the cherry price, the payment dates and the meeting notices. Glass, a small roof of its own, and a fire extinguisher on the wall beside it.',
     },
     {
       id: 'pulper',
       imageSlot: 'galleryPulper',
+      title: 'The pulper',
       caption:
-        'The pulper, under its roof at the wet mill. Cherry goes in whole and comes out as parchment the same night it is delivered.',
+        'Cherry delivered in the evening goes in whole and comes out as parchment the same night. The skin and pulp go one way, the beans the other.',
+    },
+    {
+      id: 'recirculation',
+      imageSlot: 'galleryRecirculation',
+      title: 'The re-circulation pump',
+      caption:
+        'It moves water back through the washing channels instead of drawing it fresh each time, which is most of what keeps a wet mill’s water use down.',
+      position: 'object-[60%_50%]',
+    },
+    {
+      id: 'soaking-tank',
+      imageSlot: 'gallerySoakingTank',
+      title: 'The soaking tank',
+      caption:
+        'The second soak, tiled and photographed empty between crops. Parchment sits under clean water overnight after fermentation — the step that gives Kenyan coffee much of its clarity.',
+      position: 'object-[65%_50%]',
+    },
+    {
+      id: 'drying-beds',
+      imageSlot: 'galleryDryingBeds',
+      title: 'The drying beds',
+      caption:
+        'Parchment spread the length of a raised bed and turned by hand through the day, so it dries evenly and slowly rather than baking on one side.',
+    },
+    {
+      id: 'solar-drier',
+      imageSlot: 'gallerySolarDrier',
+      title: 'The solar drier',
+      caption:
+        'Beds under polythene for the wet months, each covered with jute sacking. The frame is stencilled KCSAP/CON/GATHAITHI FCS.',
     },
     {
       id: 'drying-area',
       imageSlot: 'galleryDryingArea',
+      title: 'Between crops',
       caption:
-        'The drying ground between crops: bed frames running down the slope, waiting for the next harvest.',
+        'The drying ground with the beds empty, waiting for the next harvest. The tower carries the water and the lights.',
     },
     {
       id: 'greenhouse',
       imageSlot: 'galleryGreenhouse',
+      title: 'The greenhouse',
       caption:
-        'The greenhouse at the mill, its polythene stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
+        'Seedlings for replanting are raised here. Its polythene is stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
+    },
+    {
+      id: 'committee',
+      imageSlot: 'galleryCommittee',
+      title: 'The committees',
+      caption:
+        'The management and supervisory committees, elected by the membership, standing on the drying beds they are responsible for.',
     },
   ],
-
-  prevLabel: 'Previous photograph',
-  nextLabel: 'Next photograph',
-  pauseLabel: 'Pause the gallery',
-  playLabel: 'Play the gallery',
-  regionLabel: 'Photographs of the society',
-  slideLabel: 'Photograph {{n}} of {{total}}',
 };

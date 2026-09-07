@@ -90,6 +90,9 @@ before the photography exists.
 | `gathaithi-greenhouse.jpg` | Gallery | Gallery | 3:2 | 1270×810 | **Supplied, already in place.** The greenhouse, stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE. |
 | `gathaithi-gate.jpg` | Gallery | Gallery | 2:3 | 1020×1530 | **Supplied, already in place.** The society entrance: name board, co-operative values board, motto, track up to the mill. |
 | `gathaithi-drying-area.jpg` | Gallery | Gallery | 3:2 | 1210×875 | **Supplied, already in place.** The drying ground between crops, empty bed frames below the water tower. |
+| `gathaithi-recirculation-pump.jpg` | Gallery | Gallery | 3:2 | 1230×845 | **Supplied, already in place.** The re-circulation pump beside the washing channels. |
+| `gathaithi-soaking-tank.jpg` | Gallery | Gallery | 3:2 | 1310×810 | **Supplied, already in place.** The tiled soaking tank, empty between crops, stencilled KCSAP/CGN/GATHAITHI FCS-SOAKING. **Sent as "soaking-pump" — it is a tank, not a pump.** |
+| `gathaithi-notice-board.jpg` | Gallery | Gallery | 3:2 | 1300×815 | **Supplied, already in place.** The members' notice board on the timber mill building. |
 | `partner-cms.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
 | `partner-dormans.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
 | `partner-ea-bean.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
@@ -168,6 +171,9 @@ the shot list is self-contained:
 - `gathaithi-gate.jpg` — The entrance to Gathaithi Coffee Co-operative Society, its name board and co-operative values board beside the track up to the mill.
 - `gathaithi-pulper.jpg` — The pulping machine at the Gathaithi wet mill, its frame stencilled GATHAITHI FCS-PULPER MACHINE.
 - `gathaithi-drying-area.jpg` — The drying ground at Gathaithi between crops, rows of empty bed frames running down the slope below the water tower.
+- `gathaithi-recirculation-pump.jpg` — The re-circulation pump at the Gathaithi wet mill, beside the empty washing channels.
+- `gathaithi-soaking-tank.jpg` — The tiled soaking tank at the Gathaithi wet mill, empty between crops.
+- `gathaithi-notice-board.jpg` — The members' notice board at Gathaithi, a green glazed case on the timber mill building with notices pinned inside.
 - `partner-cms.png` — Coffee Management Services
 - `partner-dormans.png` — Dormans
 - `partner-ea-bean.png` — EA Bean Co.

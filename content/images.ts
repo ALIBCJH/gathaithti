@@ -751,7 +751,7 @@ export const images = {
     minHeight: 830,
     direction: 'Supplied. Shared with the About governance band.',
     alt: 'The Gathaithi management and supervisory committees standing together on the drying beds at the wet mill.',
-    sizes: '(min-width: 1024px) 70vw, 92vw',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
   galleryDryingBeds: {
     file: 'gathaithi-drying-beds-long.jpg',
@@ -762,7 +762,7 @@ export const images = {
     minHeight: 1090,
     direction: 'Supplied. A full-length drying bed of parchment running away from the camera, a worker turning it at the far end, the mill buildings on the left.',
     alt: 'Parchment coffee spread the length of a raised drying bed at Gathaithi, a worker turning it at the far end.',
-    sizes: '(min-width: 1024px) 70vw, 92vw',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
   gallerySolarDrier: {
     file: 'gathaithi-solar-drier.jpg',
@@ -773,7 +773,7 @@ export const images = {
     minHeight: 840,
     direction: 'Supplied. Inside the solar drier: rows of raised beds under polythene, each covered with jute sacking, one stencilled PRODUCE OF KENYA.',
     alt: 'Inside the solar drier at Gathaithi — rows of raised beds under polythene, covered with jute coffee sacking.',
-    sizes: '(min-width: 1024px) 70vw, 92vw',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
   galleryGreenhouse: {
     file: 'gathaithi-greenhouse.jpg',
@@ -784,7 +784,7 @@ export const images = {
     minHeight: 810,
     direction: 'Supplied. The greenhouse from outside, stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
     alt: 'The greenhouse at Gathaithi, its polythene stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
-    sizes: '(min-width: 1024px) 70vw, 92vw',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
 
   /* Three more real photographs, and the gate is the most useful thing on
@@ -809,7 +809,7 @@ export const images = {
     minHeight: 1530,
     direction: 'Supplied. The entrance to the society: the name board, the co-operative values board and the motto, the track running up to the mill.',
     alt: 'The entrance to Gathaithi Coffee Co-operative Society, its name board and co-operative values board beside the track up to the mill.',
-    sizes: '(min-width: 1024px) 70vw, 92vw',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
   galleryPulper: {
     file: 'gathaithi-pulper.jpg',
@@ -820,7 +820,7 @@ export const images = {
     minHeight: 800,
     direction: 'Supplied. Shared with the processing walkthrough.',
     alt: 'The pulping machine at the Gathaithi wet mill, its frame stencilled GATHAITHI FCS-PULPER MACHINE.',
-    sizes: '(min-width: 1024px) 70vw, 92vw',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
   galleryDryingArea: {
     file: 'gathaithi-drying-area.jpg',
@@ -831,7 +831,48 @@ export const images = {
     minHeight: 875,
     direction: 'Supplied. The drying ground between crops — empty bed frames running down the slope, the water tower above them.',
     alt: 'The drying ground at Gathaithi between crops, rows of empty bed frames running down the slope below the water tower.',
-    sizes: '(min-width: 1024px) 70vw, 92vw',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
+  },
+
+  /* THE WET-MILL MACHINERY, and the members' notice board.
+
+     `gathaithi-soaking-tank.jpg` is filed under the name the client sent it by
+     — "soaking-pump" — but it is not a pump: it is the tiled SOAKING TANK,
+     stencilled KCSAP/CGN/GATHAITHI FCS-SOAKING, photographed empty between
+     crops. The caption says what the picture shows, not what the file was
+     called. This is the second soak the processing walkthrough describes. */
+  galleryRecirculation: {
+    file: 'gathaithi-recirculation-pump.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '3/2',
+    minWidth: 1230,
+    minHeight: 845,
+    direction: 'Supplied. The re-circulation pump housing beside the washing channels, drying beds and greenhouse behind.',
+    alt: 'The re-circulation pump at the Gathaithi wet mill, beside the empty washing channels.',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
+  },
+  gallerySoakingTank: {
+    file: 'gathaithi-soaking-tank.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '3/2',
+    minWidth: 1310,
+    minHeight: 810,
+    direction: 'Supplied. The tiled soaking tank, empty between crops, stencilled KCSAP/CGN/GATHAITHI FCS-SOAKING.',
+    alt: 'The tiled soaking tank at the Gathaithi wet mill, empty between crops.',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
+  },
+  galleryNoticeBoard: {
+    file: 'gathaithi-notice-board.jpg',
+    page: 'Gallery',
+    section: 'Gallery',
+    ratio: '3/2',
+    minWidth: 1300,
+    minHeight: 815,
+    direction: 'Supplied. The members\u2019 notice board on the timber mill building, notices behind glass under its own little roof.',
+    alt: 'The members’ notice board at Gathaithi, a green glazed case on the timber mill building with notices pinned inside.',
+    sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
 
   partnerCms: {
