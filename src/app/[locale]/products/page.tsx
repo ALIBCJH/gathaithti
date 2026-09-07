@@ -86,7 +86,6 @@ export default async function ProductsPage({ params }: Props) {
             id="catalogue-heading"
             eyebrow={products.catalogue.eyebrow}
             heading={products.catalogue.heading}
-            lead={products.catalogue.lead}
           />
 
           {/* Tighter than the mt-20/24 this band used mid-page. As the opener
