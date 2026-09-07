@@ -18,6 +18,7 @@ export function SmartImage({
   imageClassName = '',
   zoom = false,
   square = false,
+  ratio,
 }: {
   slot: string;
   className?: string;
@@ -26,6 +27,15 @@ export function SmartImage({
   zoom?: boolean;
   /** Opt OUT of the corner radius. For a frame that meets an edge. */
   square?: boolean;
+  /**
+   * Override the slot's shape, e.g. `1/1`.
+   *
+   * The ratio is applied as an INLINE STYLE so the reserved box is exact, and
+   * an inline style beats any class — so `className="aspect-square"` on this
+   * component does nothing at all, silently. The gallery wants circles from
+   * frames that are 0.67 to 1.64 in the registry, so it says so here.
+   */
+  ratio?: string;
 }) {
   if (!isImageKey(slot)) {
     return (
@@ -34,7 +44,7 @@ export function SmartImage({
   }
 
   const image = getImage(slot);
-  const [w, h] = image.ratio.split('/');
+  const [w, h] = (ratio ?? image.ratio).split('/');
   /* Rounded by DEFAULT. There was a `rounded` prop here that defaulted to
      false, and in the whole codebase nothing ever passed it — so every
      photograph on the site had square corners against a design that rounds its

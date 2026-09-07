@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { GallerySlideshow } from '@/components/gallery/GallerySlideshow';
+import { GalleryGrid } from '@/components/gallery/GalleryGrid';
 import { Container } from '@/components/ui/Container';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getDictionary, isLocale } from '@/lib/i18n';
-import { getImage } from '@/lib/images';
 import { breadcrumbLd, buildMetadata, organizationLd } from '@/lib/seo';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -25,20 +24,6 @@ export default async function GalleryPage({ params }: Props) {
   const dict = getDictionary(locale);
   const { gallery, common } = dict;
 
-  /* Resolved here, on the server. The slideshow is a client component and
-     `getImage` reads node:fs — see the note on `GallerySlide`. A slot whose
-     file is missing is dropped rather than rendered as a placeholder: a
-     gallery of "photograph to come" boxes is not a gallery. */
-  const slides = gallery.items
-    .map((item) => ({ item, image: getImage(item.imageSlot as Parameters<typeof getImage>[0]) }))
-    .filter(({ image }) => image.exists)
-    .map(({ item, image }) => ({
-      id: item.id,
-      src: image.src,
-      alt: image.alt,
-      sizes: image.sizes ?? '100vw',
-      caption: item.caption,
-    }));
 
   return (
     <>
@@ -70,16 +55,8 @@ export default async function GalleryPage({ params }: Props) {
             {gallery.hero.title}
           </h2>
 
-          <div className="mx-auto w-full max-w-[64rem]">
-            <GallerySlideshow
-              slides={slides}
-              prevLabel={gallery.prevLabel}
-              nextLabel={gallery.nextLabel}
-              pauseLabel={gallery.pauseLabel}
-              playLabel={gallery.playLabel}
-              regionLabel={gallery.regionLabel}
-              slideLabel={gallery.slideLabel}
-            />
+          <div className="mx-auto w-full max-w-[76rem]">
+            <GalleryGrid items={gallery.items} />
           </div>
         </Container>
       </Section>
