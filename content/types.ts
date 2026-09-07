@@ -476,7 +476,10 @@ export interface ContactContent {
  */
 export interface GalleryContent {
   meta: Meta;
-  hero: { eyebrow: string; title: string; lead: string };
+  /* No `lead`. The gallery's title says what the page is and the numbered
+     captions say the rest; a sentence between them was one restatement too
+     many. */
+  hero: { eyebrow: string; title: string };
   items: {
     id: string;
     imageSlot: string;
