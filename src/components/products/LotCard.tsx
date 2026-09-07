@@ -116,7 +116,10 @@ export function LotCard({
 
         <div className="flex flex-col gap-1 border-b border-line pb-5">
           <p className="t-figure-sm text-[2rem] text-[var(--lot)]">{lot.grade}</p>
-          <h3 className="t-body font-medium">{lot.name}</h3>
+          {/* `h2`, not `h3`: the catalogue band opens Our Coffee now and its
+              head is the page's h1, so a card sits one level under it. It was
+              an h3 while the band sat fourth on the page under an h2. */}
+          <h2 className="t-body font-medium">{lot.name}</h2>
 
           {/* The price sits on the FACE now. It was moved into the disclosure
               when this catalogue sold green coffee, where the figure was an

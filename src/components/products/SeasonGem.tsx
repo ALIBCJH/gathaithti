@@ -8,14 +8,16 @@ import { SmartImage } from '@/components/media/SmartImage';
 import type { ProductsContent } from '@content/types';
 
 /**
- * What the mill produced this year, placed between the processing walkthrough
- * and the catalogue.
+ * What the mill produced this year, placed after the processing walkthrough
+ * and before the sample request.
  *
- * That position is the whole idea: the walkthrough explains how any lot is
- * made, the catalogue lists what is for sale, and this stands between them
- * saying what THIS season actually was. Three frames — the cherry it started
- * as, the parchment it dried to, the cup it scored — which is the same
- * sequence the walkthrough just went through, told once more in one screen.
+ * The position still does the same work, from the other side: the catalogue at
+ * the top of the page lists what is for sale and the walkthrough explains how
+ * any of it is made, and this closes the argument by saying what THIS season
+ * actually was, immediately above the form that asks for a sample of it. Three
+ * frames — the cherry it started as, the parchment it dried to, the cup it
+ * scored — which is the same sequence the walkthrough just went through, told
+ * once more in one screen.
  *
  * The closing line is a judgement rather than a fact, so it is set apart on
  * the brand brown and signed off by the button rather than dressed up as

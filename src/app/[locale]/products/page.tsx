@@ -61,19 +61,48 @@ export default async function ProductsPage({ params }: Props) {
         ]}
       />
 
-      {/* Chronological: how the coffee is made, what this season produced, how
-          it is sold, the lots themselves, then the way to ask for a sample.
-          The catalogue used to come first, which showed a stranger the grades
-          before telling them anything about how the grades come about.
+      {/* ORDER OF THE PAGE.
 
-          There is no hero band and no masthead. #52 put the page's own title
-          above the processing head and the user asked for it off, so the page
-          opens on the work: PROCESSING / From cherry to parchment. */}
-      <ProcessWalkthrough content={products.process} />
+          The packs come FIRST. This band used to sit fourth, under the
+          processing walkthrough, the season and the note on how the coffee is
+          sold — an order written when the catalogue held two GREEN COFFEE
+          lots, where a stranger really did need to know how a grade comes
+          about before the grades meant anything to them.
 
-      <SeasonGem content={products.gem} />
+          It sells roasted retail packs now, and that reasoning inverts: the
+          thing for sale is a bag of coffee with a price on it, and someone who
+          came to buy one should not have to scroll past six processing steps
+          to find it. So: what is for sale, how to buy it, how it is made, what
+          this season gave, then the way to ask for a sample.
 
-      {/* How this coffee is actually bought — said plainly, before the catalogue */}
+          The band therefore carries the page's `h1` and the `opener` padding —
+          the header is fixed, and whatever comes first has to clear it. Both
+          moved off the processing band, which now sits in mid-page and takes
+          an ordinary h2 and ordinary padding. */}
+      <Section tone="parchment-2" size="opener" id="lots" ariaLabelledby="catalogue-heading">
+        <Container width="wide">
+          <SectionHead
+            as="h1"
+            id="catalogue-heading"
+            eyebrow={products.catalogue.eyebrow}
+            heading={products.catalogue.heading}
+            lead={products.catalogue.lead}
+          />
+
+          {/* Tighter than the mt-20/24 this band used mid-page. As the opener
+              the head is a page title rather than a section head, and the old
+              gap left a visible hole between the lead and the filter bar. */}
+          <div className="mt-12 lg:mt-16">
+            <LotCatalogue items={catalogueItems} copy={products.catalogue} />
+          </div>
+        </Container>
+      </Section>
+
+      {/* How this coffee is actually bought, said plainly and kept next to the
+          catalogue — it is the answer to the cards above it, and its first
+          line points at them ("The roasted packs above"). It followed the
+          catalogue's move up the page rather than being left behind under the
+          processing steps. */}
       <Section tone="parchment" size="tight" ariaLabelledby="market-heading">
         <Container width="wide">
           <SectionHead id="market-heading" eyebrow={products.marketNote.eyebrow} heading={products.marketNote.heading} />
@@ -90,21 +119,9 @@ export default async function ProductsPage({ params }: Props) {
         </Container>
       </Section>
 
-      <Section tone="parchment-2" id="lots" ariaLabelledby="catalogue-heading">
-        <Container width="wide">
-          <SectionHead
-            id="catalogue-heading"
-            eyebrow={products.catalogue.eyebrow}
-            heading={products.catalogue.heading}
-            lead={products.catalogue.lead}
-          />
+      <ProcessWalkthrough content={products.process} />
 
-          <div className="mt-20 lg:mt-24">
-            <LotCatalogue items={catalogueItems} copy={products.catalogue} />
-          </div>
-        </Container>
-      </Section>
-
+      <SeasonGem content={products.gem} />
 
       <Section tone="parchment" size="loose" id="request-a-sample" ariaLabelledby="sample-heading">
         <Container width="wide">
