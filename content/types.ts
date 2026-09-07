@@ -60,6 +60,16 @@ export interface ImageSlot {
   priority?: boolean;
   /** Passed to next/image. Keep honest or the browser over-fetches on mobile. */
   sizes?: string;
+  /**
+   * Opt OUT of the phone density cap in src/lib/images.ts.
+   *
+   * By default a phone is served about 2x the CSS size of a slot rather than
+   * the 3x its screen reports, because on a 3x phone the difference is bytes
+   * rather than something anybody can see. Set this on the frames where it CAN
+   * be seen — the hero, which fills the screen, and the pack photographs,
+   * which are the product.
+   */
+  fullDensity?: boolean;
 }
 
 /* ── Shared page furniture ──────────────────────────────────────────────── */

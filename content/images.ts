@@ -41,6 +41,7 @@ export const images = {
        a viewport of that height, so the request matches the crop. Desktop is
        width-bound and keeps 100vw. */
     sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
   },
 
   /* Slides two and three of the hero. Both are LANDSCAPE, where homeHero is
@@ -60,6 +61,7 @@ export const images = {
       'A full frame of roasted beans, filling the frame edge to edge with no focal point — an all-over texture, which is the one kind of picture that survives being cropped to any shape. Warm and dark enough to carry white type anywhere in the frame.',
     alt: 'Roasted coffee beans filling the frame.',
     sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
   },
   homeHeroThree: {
     file: 'gathaithi-cherry-branch.jpg',
@@ -72,6 +74,7 @@ export const images = {
       'A branch of ripening cherry, red and green together, shot shallow so the canopy behind falls away to green bokeh. The cluster sits left of centre; the crop holds it there as the frame narrows.',
     alt: 'A branch of Gathaithi coffee carrying ripe red and unripe green cherry together.',
     sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
   },
   homeHeroFour: {
     file: 'gathaithi-beans-falling.jpg',
@@ -84,6 +87,7 @@ export const images = {
       'Roasted beans caught mid-fall against a deep brown ground, shallow depth of field. The darkest frame in the set, and the one the type sits most comfortably over.',
     alt: 'Roasted coffee beans falling through the air against a dark brown ground.',
     sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
   },
   homeHeroFive: {
     file: 'gathaithi-cherry-sunlit.jpg',
@@ -96,6 +100,7 @@ export const images = {
       'A cluster of red, orange and green cherry on the branch with the sun flaring through the canopy behind. The flare is top-left and the type sits bottom-left, so the crop keeps the cluster right of centre and the leaves under the words.',
     alt: 'A cluster of ripening Gathaithi cherry — red, orange and green — with sunlight flaring through the canopy behind.',
     sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
   },
   homeSeason: {
     file: 'gathaithi-selective-picking.jpg',
@@ -655,6 +660,7 @@ export const images = {
     direction: 'Portrait. Roasted beans and a wooden scoop on dark timber. Supplied with the wordmark set into the lower left of the frame.',
     alt: 'Roasted Gathaithi coffee beans spilling from a wooden scoop across dark timber.',
     sizes: '(max-width: 1023px) 56vh, 100vw',
+    fullDensity: true,
   },
   heroMobileTwo: {
     file: 'hero-mobile-02.jpg',
@@ -666,6 +672,7 @@ export const images = {
     direction: 'Portrait. Ripe red cherry on the branch, close in, leaves behind. Wordmark set into the upper left.',
     alt: 'Ripe red coffee cherry on the branch at Gathaithi, leaves behind.',
     sizes: '(max-width: 1023px) 57vh, 100vw',
+    fullDensity: true,
   },
   heroMobileThree: {
     file: 'hero-mobile-03.jpg',
@@ -677,6 +684,7 @@ export const images = {
     direction: 'Portrait, and almost exactly a phone screen in shape. Cherry cluster with sun through the leaves. Wordmark set into the lower left.',
     alt: 'A cluster of ripe Gathaithi cherry with morning sun through the leaves above.',
     sizes: '(max-width: 1023px) 46vh, 100vw',
+    fullDensity: true,
   },
   heroMobileFour: {
     file: 'hero-mobile-04.jpg',
@@ -688,6 +696,7 @@ export const images = {
     direction: 'Portrait, phone-shaped. A bed of green parchment coffee filling the frame. Wordmark set into the upper centre.',
     alt: 'A bed of green Gathaithi coffee beans filling the frame.',
     sizes: '(max-width: 1023px) 46vh, 100vw',
+    fullDensity: true,
   },
 
   /* The four retail packs. Portrait photographs of the pack on a bench; the
@@ -712,6 +721,7 @@ export const images = {
     direction: 'Supplied. The 100 g pack standing on a bench, beans and a burlap sack behind.',
     alt: 'A 100 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+    fullDensity: true,
   },
   pack250g: {
     file: 'pack-250g.jpg',
@@ -723,6 +733,7 @@ export const images = {
     direction: 'Supplied. The 250 g pack standing on a bench, coffee plant behind.',
     alt: 'A 250 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+    fullDensity: true,
   },
   pack500g: {
     file: 'pack-500g.jpg',
@@ -734,6 +745,7 @@ export const images = {
     direction: 'Supplied. The 500 g pack standing on a bench.',
     alt: 'A 500 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+    fullDensity: true,
   },
   pack1kg: {
     file: 'pack-1kg.jpg',
@@ -745,6 +757,7 @@ export const images = {
     direction: 'Supplied. The 1 kg pack standing on a bench.',
     alt: 'A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
+    fullDensity: true,
   },
 
   /* THE GALLERY. Real photographs of the society, supplied by the society —
@@ -925,6 +938,7 @@ export const images = {
     direction: 'Supplied. The 250 g pack standing on a bench, coffee plant behind. Shared with the Our Coffee catalogue.',
     alt: 'A 250 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(max-width: 1023px) 67vh, 100vw',
+    fullDensity: true,
   },
 
   partnerCms: {
