@@ -2,11 +2,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { MemberCard } from '@/components/farmers/MemberCard';
-import { PreFinance } from '@/components/farmers/PreFinance';
 import { Training } from '@/components/farmers/Training';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
-import { PageHeader } from '@/components/ui/PageHeader';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
@@ -41,18 +39,17 @@ export default async function FarmersPage({ params }: Props) {
         ]}
       />
 
-      {/* Centred, like every head on this page and like the way About and Our
-          Coffee open. Contact still uses the two-column form. */}
-      <PageHeader
-        align="center"
-        eyebrow={farmers.hero.eyebrow}
-        title={farmers.hero.title}
-        lead={farmers.hero.lead}
-      />
+      {/* No page header. The members band opens the page, which is why it is
+          `opener` and why its head is the `h1`: a page with no h1 is a page
+          with no title as far as a crawler or a screen reader is concerned,
+          and removing the header without moving the level would have taken
+          the title off the one page about the membership.
 
-      <Section tone="parchment" ariaLabelledby="profiles-heading">
+          `farmers.hero` is parked in the content file, not deleted. */}
+      <Section tone="parchment" size="opener" ariaLabelledby="profiles-heading">
         <Container width="wide">
           <SectionHead
+            as="h1"
             id="profiles-heading"
             eyebrow={farmers.profiles.eyebrow}
             heading={farmers.profiles.heading}
@@ -74,7 +71,6 @@ export default async function FarmersPage({ params }: Props) {
       </Section>
 
       <Training content={farmers.training} />
-      <PreFinance content={farmers.prefinance} />
     </>
   );
 }
