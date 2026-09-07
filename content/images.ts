@@ -615,6 +615,14 @@ export const images = {
   /* The four partner marks on the home page. Each file is 1376x768 with the
      logo centred on its own pale ground, so the slot is 16/9 and the image
      fills the card edge to edge: the supplied background BECOMES the tile.
+
+     WEBP, not PNG. They were supplied as PNG and were 3.45 MB between them —
+     a quarter of every image byte in this repo, for four logos that render at
+     about 300 CSS px. They are photographic renders (6-12k colours, gradients,
+     no alpha), which is the one thing PNG is bad at. Re-encoded at q92 they
+     are 273 KB and differ from the originals by at most 14/255 per channel;
+     a q92 JPEG was both bigger and three times further off, because JPEG rings
+     on exactly the hard type these carry.
      That is why they are not knocked out to transparent — four logos on four
      slightly different pale grounds read as one row of tiles, where four
      transparent logos on this site's dark parchment would read as four
@@ -920,7 +928,7 @@ export const images = {
   },
 
   partnerCms: {
-    file: 'partner-cms.png',
+    file: 'partner-cms.webp',
     page: 'Home',
     section: 'Partners',
     ratio: '16/9',
@@ -931,7 +939,7 @@ export const images = {
     sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
   },
   partnerDormans: {
-    file: 'partner-dormans.png',
+    file: 'partner-dormans.webp',
     page: 'Home',
     section: 'Partners',
     ratio: '16/9',
@@ -942,7 +950,7 @@ export const images = {
     sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
   },
   partnerEaBean: {
-    file: 'partner-ea-bean.png',
+    file: 'partner-ea-bean.webp',
     page: 'Home',
     section: 'Partners',
     ratio: '16/9',
@@ -953,7 +961,7 @@ export const images = {
     sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
   },
   partnerE4impact: {
-    file: 'partner-e4impact.png',
+    file: 'partner-e4impact.webp',
     page: 'Home',
     section: 'Partners',
     ratio: '16/9',
