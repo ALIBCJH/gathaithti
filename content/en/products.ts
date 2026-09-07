@@ -20,7 +20,9 @@ export const products: ProductsContent = {
 
      The lead is still a real claim with no home — "Every lot on this page
      comes from one wet mill and one catchment of {{members}} smallholders" —
-     and the catalogue band is where it would sit if it is ever wanted. */
+     and the catalogue band is where it would sit if it is ever wanted. That
+     band opens the page now and carries its h1, so anything from here would be
+     a second title directly above the first. */
   hero: {
     eyebrow: 'Our coffee',
     title: 'This season’s lots',
@@ -158,9 +160,9 @@ export const products: ProductsContent = {
     },
   ],
 
-  /* The season's standout, between the processing walkthrough and the
-     catalogue: what the mill produced this year, before the grades it was
-     sorted into.
+  /* The season's standout: what the mill produced this year. It sits after
+     the processing walkthrough and immediately above the sample request, which
+     is the action it argues for.
      ═══════════════════════════════════════════════════════════════════════
      DRAFT. Every figure comes through a {{token}} and is therefore as
      verified as the rest of content/facts.ts — which is to say not yet. The

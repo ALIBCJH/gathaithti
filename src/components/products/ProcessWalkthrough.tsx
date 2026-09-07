@@ -8,28 +8,25 @@ import type { ProductsContent } from '@content/types';
 
 /**
  * Six steps, alternating side to side, each one a photograph and a paragraph.
- * The top of the page, and the only band on it that carries an `h1`.
+ *
+ * NO LONGER THE TOP OF THE PAGE. It opened Our Coffee for as long as the
+ * catalogue held green coffee, where the grades meant nothing to a stranger
+ * until the processing had been explained. The catalogue sells roasted retail
+ * packs now and leads the page, so this band gave up the `h1` and the `opener`
+ * padding to it and sits in mid-page as an ordinary section.
  *
  * DO NOT ADD A PAGE MASTHEAD ABOVE THIS. One was added in #52 — OUR COFFEE /
  * This season's lots / the one-mill-one-catchment lead, rendered from
- * `products.hero` — on the reasoning that a page whose h1 is a chapter head
- * reads as though the reader landed halfway down it. The user looked at it and
- * asked for it off: the page opens on PROCESSING / From cherry to parchment,
- * and the first thing under the header is the work itself. `products.hero` is
- * parked again in content/en/products.ts and marked with that decision.
+ * `products.hero` — and the user asked for it off. `products.hero` is parked
+ * in content/en/products.ts and marked with that decision.
  */
 export function ProcessWalkthrough({ content }: { content: ProductsContent['process'] }) {
-  /* `opener`, because this band is the top of the page now that the hero has
-     gone — a loose section padding left 192px of dead air under a fixed header
-     on a desktop. */
   return (
-    <Section tone="parchment-2" size="opener" id="processing" ariaLabelledby="process-heading">
+    <Section tone="parchment-2" id="processing" ariaLabelledby="process-heading">
       <Container width="wide">
-        {/* `h1`: this band opens the page, and a page with no h1 is a page
-            with no title as far as a crawler or a screen reader is
-            concerned. */}
+        {/* `h2`, and ordinary padding: the catalogue above carries the page's
+            h1 and the header-clearing `opener` padding now. */}
         <SectionHead
-          as="h1"
           id="process-heading"
           eyebrow={content.eyebrow}
           heading={content.heading}
@@ -51,11 +48,11 @@ export function ProcessWalkthrough({ content }: { content: ProductsContent['proc
                       <span className="t-figure-sm text-ochre/60 tnum" aria-hidden="true">
                         {step.n}
                       </span>
-                      {/* `h2`, not `h3`: the band head above is the page's h1,
-                          so a step is one level under it. As h3 the outline
-                          skipped 1->3 — the state this page was in before #52
-                          briefly put an h2 in between. */}
-                      <h2 className="t-section text-[clamp(1.375rem,2.2vw,1.875rem)]">{step.title}</h2>
+                      {/* `h3`: one level under this band's own head, which is
+                          an h2 now that the catalogue opens the page and holds
+                          the h1. It was an h2 while this band was the opener —
+                          the level follows the band, not the type size. */}
+                      <h3 className="t-section text-[clamp(1.375rem,2.2vw,1.875rem)]">{step.title}</h3>
                     </div>
 
                     <p className="t-meta text-ochre-ink">
