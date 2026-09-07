@@ -160,7 +160,11 @@ export function LotCard({
 
         <a
           href={requestHref}
-          data-lot={lot.id}
+          /* `data-pack`, not `data-lot`. The <article> above already carries a
+             data-lot holding the GRADE for the colour rules, so a delegate
+             listening on [data-lot] picked that up whenever somebody clicked
+             the card anywhere but this link. Two attributes, two jobs. */
+          data-pack={lot.id}
           className="tap mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-5 py-3 text-[0.875rem] font-medium text-ink transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-accent hover:bg-accent hover:text-on-accent active:scale-[0.985]"
         >
           {copy.requestLotLabel}

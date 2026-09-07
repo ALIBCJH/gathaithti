@@ -306,21 +306,40 @@ export interface ProductsContent {
      at length and with photographs — a summary of what the reader was about
      to read. */
   process: { eyebrow: string; heading: string; steps: ProcessStep[] };
+  /**
+   * The reach-out card that closes Our Coffee.
+   *
+   * It was a green-coffee importer's form — name, company, country, role,
+   * volume of interest, lot of interest, "what are you looking for?" — eight
+   * fields asked of somebody who wanted to know the price of a 250 g bag. The
+   * page sells retail packs, so it asks a retail question: WhatsApp, the phone
+   * number, and three fields.
+   *
+   * The channels come FIRST and deliberately: most people who want a bag of
+   * coffee will send a WhatsApp message, not fill in a form.
+   */
   sample: {
     eyebrow: string;
     heading: string;
     lead: string;
-    fields: {
-      name: string; company: string; email: string; country: string;
-      role: string; volume: string; message: string; lot: string;
+    /** WhatsApp and the phone, in that order, above the form. */
+    channels: {
+      whatsapp: { label: string; note: string; prefill: string };
+      phone: { label: string; note: string };
+      /** Shown in place of a channel whose number is not set in site.ts. */
+      missing: string;
     };
-    /** First option of the lot select: no particular lot. */
-    lotAny: string;
-    placeholders: { name: string; company: string; email: string; country: string; message: string };
-    roles: string[];
-    volumes: string[];
-    submit: string;
-    consent: string;
+    form: {
+      heading: string;
+      fields: { pack: string; email: string; message: string };
+      /** First option of the pack select: no particular size yet. */
+      packAny: string;
+      placeholders: { email: string; message: string };
+      submit: string;
+      consent: string;
+      /** Overrides common.form, which still speaks to importers. */
+      success: { title: string; body: string; again: string };
+    };
   };
 }
 

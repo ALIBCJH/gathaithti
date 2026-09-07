@@ -51,16 +51,23 @@ export function validateAll<K extends string>(
   return errors;
 }
 
-/* ── The sample request, on Our Coffee ───────────────────────────────────── */
+/* ── The enquiry on Our Coffee ────────────────────────────────────────────
+ *
+ * THREE FIELDS, and only one of them optional. It used to ask eight — name,
+ * company, country, role, volume of interest, lot, and a message — because the
+ * catalogue sold green coffee by the container and the office needed to know
+ * who was asking before a sample was worth couriering. It sells retail packs
+ * now, and the honest question is: which size, where do we reply, what do you
+ * want to know.
+ *
+ * `pack` replaced `lot` in name as well as in purpose. Renamed rather than
+ * relabelled: the value is a pack id, and a field called `lot` carrying one is
+ * how the next person to read the email adapter gets misled.
+ */
 
 export const sampleRules = {
-  name: { required: true, max: 120 },
-  company: { required: true, max: 160 },
+  pack: { max: 40 },
   email: { required: true, max: 200, email: true },
-  country: { required: true, max: 80 },
-  role: { required: true, max: 60 },
-  volume: { required: true, max: 60 },
-  lot: { max: 40 },
   message: { required: true, min: 12, max: 4000 },
 } satisfies Record<string, FieldRule>;
 
