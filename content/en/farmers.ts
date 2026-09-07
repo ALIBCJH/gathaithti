@@ -22,6 +22,10 @@ export const farmers: FarmersContent = {
     ogLine: 'The members who own the society — noticeboard, training, pre-finance',
   },
 
+  /* PARKED — nothing renders this. It was the page header: "Every kilo starts
+     with somebody's hands", over the 1,700-families lead. The user asked for
+     the card removed, and the members band carries the page's h1 now. Kept
+     because it is good copy and the only place that sentence exists. */
   hero: {
     eyebrow: 'Our farmers',
     title: 'Every kilo starts with somebody’s hands',
@@ -203,6 +207,11 @@ export const farmers: FarmersContent = {
     ],
   },
 
+  /* PARKED — nothing renders this. The pre-finance band — "Money before the
+     crop pays", the four steps and the terms table — was removed at the user's
+     request. The SCHEME still exists and is still referred to on Contact and
+     About, so nothing else on the site became untrue; only this description of
+     it is gone. `PreFinance.tsx` is deleted; this is the copy it read. */
   prefinance: {
     eyebrow: 'Pre-finance',
     heading: 'Money before the crop pays',

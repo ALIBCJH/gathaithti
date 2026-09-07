@@ -139,8 +139,17 @@ export function LotCatalogue({
           differ only in weight, so they read as one row of a set rather than as
           two pairs. Two columns was written for two green-coffee lots.
 
-          The comment lives HERE, not beside the <ul>: a ternary branch takes a
-          single expression, and a JSX comment inside one makes it two. */}
+          THREE across, and a short last row is CENTRED under them. A 3-column
+          grid puts a lone fourth card hard against the left margin, which
+          reads as a mistake rather than as a fourth of four. The grid is
+          therefore SIX columns with each card spanning two, so a half-column
+          offset exists at all: the first card of a short last row is pushed to
+          column 3 when one is left over, or column 2 when two are. Driven by
+          the number SHOWN, so filtering to two sizes centres the pair too.
+
+          BOTH COMMENTS LIVE HERE, not beside the <ul>: a ternary branch takes
+          a single expression, and a JSX comment inside one makes it two. That
+          has now broken this exact file twice. */}
       {shown.length === 0 ? (
         <div className="flex flex-col items-start gap-4 border border-line p-10">
           <p className="t-lead text-ink-soft">{copy.emptyState}</p>
@@ -149,12 +158,20 @@ export function LotCatalogue({
           </button>
         </div>
       ) : (
-        <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-          {shown.map((item) => (
-            <li key={item.id} className="contents">
-              {item.card}
-            </li>
-          ))}
+        <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-6 lg:gap-8">
+          {shown.map((item, i) => {
+            const orphans = shown.length % 3;
+            const firstOfShortRow = orphans !== 0 && i === shown.length - orphans;
+            const offset = orphans === 1 ? 'lg:col-start-3' : 'lg:col-start-2';
+            return (
+              <li
+                key={item.id}
+                className={`lg:col-span-2 ${firstOfShortRow ? offset : ''}`}
+              >
+                {item.card}
+              </li>
+            );
+          })}
         </ul>
       )}
 
