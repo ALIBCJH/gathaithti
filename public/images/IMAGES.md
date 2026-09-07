@@ -94,10 +94,10 @@ before the photography exists.
 | `gathaithi-soaking-tank.jpg` | Gallery | Gallery | 3:2 | 1310×810 | **Supplied, already in place.** The tiled soaking tank, empty between crops, stencilled KCSAP/CGN/GATHAITHI FCS-SOAKING. **Sent as "soaking-pump" — it is a tank, not a pump.** |
 | `gathaithi-notice-board.jpg` | Gallery | Gallery | 3:2 | 1300×815 | **Supplied, already in place.** The members' notice board on the timber mill building. |
 | `gathaithi-members-drying.jpg` | Our Farmers | Ownership | 16:9 | 1330×780 | **Supplied, already in place.** Members along a drying bed, hands in the parchment, the drying ground and greenhouse behind. |
-| `partner-cms.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
-| `partner-dormans.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
-| `partner-ea-bean.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
-| `partner-e4impact.png` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
+| `partner-cms.webp` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** Another organisation's trademark — do not restyle, recolour, crop or stretch it. |
+| `partner-dormans.webp` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
+| `partner-ea-bean.webp` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
+| `partner-e4impact.webp` | Home | Partners | 16:9 | 1200×675 | **Supplied mark, already in place.** As above. |
 
 ## Priority
 
@@ -176,10 +176,10 @@ the shot list is self-contained:
 - `gathaithi-soaking-tank.jpg` — The tiled soaking tank at the Gathaithi wet mill, empty between crops.
 - `gathaithi-notice-board.jpg` — The members' notice board at Gathaithi, a green glazed case on the timber mill building with notices pinned inside.
 - `gathaithi-members-drying.jpg` — Gathaithi members standing along a raised drying bed, hands in the parchment, the drying ground and greenhouse behind them.
-- `partner-cms.png` — Coffee Management Services
-- `partner-dormans.png` — Dormans
-- `partner-ea-bean.png` — EA Bean Co.
-- `partner-e4impact.png` — E4Impact Foundation
+- `partner-cms.webp` — Coffee Management Services
+- `partner-dormans.webp` — Dormans
+- `partner-ea-bean.webp` — EA Bean Co.
+- `partner-e4impact.webp` — E4Impact Foundation
 - `gathaithi-ripening-cherry.jpg` — Cherry on the branch at Gathaithi — red, yellow and green ripening together.
 - `gathaithi-green-sack.jpg` — A jute sack of milled green Gathaithi coffee, stencilled “Gathaithi Coffee, Nyeri, Kenya”.
 - `gathaithi-the-cup.jpg` — A cup of brewed coffee on a saucer with roasted beans beside it, steam rising.

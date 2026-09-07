@@ -17,9 +17,12 @@ const registrySource = readFileSync(join(root, 'content/images.ts'), 'utf8');
 const shotList = readFileSync(join(root, 'public/images/IMAGES.md'), 'utf8');
 
 const registry = [...registrySource.matchAll(/file: '([^']+)'/g)].map((m) => m[1]);
-/* Any image extension, not just .jpg. Every photograph on this site is a jpg,
-   but the partner marks are png — logos have flat grounds and hard type, which
-   is exactly what JPEG fringes — and matching only .jpg reported four files as
+/* Any image extension, not just .jpg. Every photograph on this site is a jpg
+   and the four partner marks are webp — logos have flat grounds and hard type,
+   which is exactly what JPEG fringes, and measured against the original PNGs a
+   q92 webp is off by at most 14/255 where a q92 mozjpeg is off by 42. They
+   were PNG until the payload audit: 3.45 MB for four logos, cut to 273 KB.
+   Matching only .jpg reported four files as
    missing from a shot list they were already in. */
 const listed = new Set(
   [...shotList.matchAll(/\| `([^`]+\.(?:jpg|jpeg|png|webp|avif))`/g)].map((m) => m[1]),
