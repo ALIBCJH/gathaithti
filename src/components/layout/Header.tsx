@@ -181,7 +181,46 @@ export function Header({
             'text-ink hover:text-ochre-ink'
           }`}
         >
-          <span className="font-semibold tracking-[0.14em] whitespace-nowrap">GATHAITHI</span>
+          {/* THE MARK, and why it is the disc rather than the supplied file.
+              gathaithi-logo.jpeg is a STACKED lockup: the gold disc over a
+              filigree bar, with GATHAITHI and COFFEE beneath. In a 4.5rem bar
+              the whole thing can be about 48px tall, at which COFFEE renders
+              under 5px and the filigree turns to grain — and its cream ground
+              has to be knocked out for dark theme, which leaves a plate the
+              shape of the crop.
+
+              So the disc is lifted out of it — solved, not eyeballed: half
+              widths measured at two rows clear of the bar both give a circle
+              of radius 145 centred on (819, 261.5) — and the wordmark beside
+              it is set in the site's own type, which is sharp at any size and
+              in any theme. That is the same lockup, laid out for a bar.
+
+              Not next/image: it is a fixed 36px on every screen, so there is
+              nothing to resize and a plain img is one request with no loader
+              in front of it. It also keeps this file free of lib/images, which
+              reads node:fs and cannot be imported into a client component.
+
+              The lint rule that wants next/image here is right about
+              photographs and wrong about an 8 KB mark drawn at one fixed size:
+              there is no width to choose, so an optimiser has nothing to do
+              but add a request path in front of it. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/mark.webp"
+            alt=""
+            aria-hidden="true"
+            width={36}
+            height={36}
+            decoding="async"
+            className="h-8 w-8 shrink-0 sm:h-9 sm:w-9"
+          />
+
+          {/* The name is TEXT, so it is the accessible name of this link and
+              the mark above stays decorative. A phone gets the mark and the
+              name; F.C.S. is the part that goes when the bar gets tight. */}
+          <span className="ml-2.5 font-semibold tracking-[0.14em] whitespace-nowrap sm:ml-3">
+            GATHAITHI
+          </span>
           <span className="ml-3 hidden sm:inline text-ink-soft">
             F.C.S.
           </span>
@@ -289,7 +328,23 @@ export function Header({
               className="flex shrink-0 items-center justify-between pl-5 pr-3"
               style={{ height: 'var(--header-h)' }}
             >
-              <span className="t-meta font-semibold tracking-[0.14em]">GATHAITHI</span>
+              {/* The drawer header repeats the bar's lockup, so opening the
+                  menu does not feel like leaving the site. The disc is gold on
+                  a light ground in the artwork and the drawer is dark brown,
+                  which is exactly the case the transparent knockout was for. */}
+              <span className="flex items-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/mark.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={32}
+                  height={32}
+                  decoding="async"
+                  className="h-8 w-8 shrink-0"
+                />
+                <span className="t-meta ml-2.5 font-semibold tracking-[0.14em]">GATHAITHI</span>
+              </span>
 
               <button
                 type="button"

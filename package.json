@@ -9,7 +9,8 @@
     "lint": "eslint",
     "facts": "node scripts/audit-facts.mjs",
     "images": "node scripts/check-images.mjs",
-    "check": "npm run lint && npm run facts && npm run images"
+    "check": "npm run lint && npm run facts && npm run images",
+    "brand:mark": "node scripts/build-brand-mark.mjs"
   },
   "dependencies": {
     "next": "16.3.3",
@@ -24,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "sharp": "^0.35.3"
   }
 }
