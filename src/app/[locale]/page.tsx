@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { Hero } from '@/components/home/Hero';
 import { ProofBand } from '@/components/home/ProofBand';
+import { Statements } from '@/components/home/Statements';
 import { SeasonPanel } from '@/components/home/SeasonPanel';
 import { StoryTeaser } from '@/components/home/StoryTeaser';
 import { Partners } from '@/components/home/Partners';
@@ -41,6 +42,12 @@ export default async function HomePage({ params }: Props) {
       <div className="hidden lg:block">
         <ProofBand content={home.proof} />
       </div>
+      {/* The society's Vision and Mission, directly under the figures. Not
+          wrapped in `hidden lg:block` like the bands either side of it: those
+          two are data a visitor can take or leave, and this is the society
+          saying what it is for. */}
+      <Statements content={home.statements} />
+
       <div className="hidden lg:block">
         <SeasonPanel locale={locale} content={home.season} />
       </div>

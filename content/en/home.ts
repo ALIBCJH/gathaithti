@@ -33,6 +33,34 @@ export const home: HomeContent = {
     regionLabel: 'Photographs of Gathaithi coffee',
   },
 
+  /* THE SOCIETY'S OWN WORDS, supplied 2026-09-08 on its letterhead:
+
+       Vision:  A LEADER IN PRODUCTION AND MARKETING OF SPECIALITY COFFEE IN
+                KENYA
+       Mission: TO ENHANCE SOCIAL ECONOMIC PROGRESS OF OUR MEMBERS THROUGH
+                PRODUCTION OF QUANTITY AND QUALITY SPECIALITY COFFEE
+
+     Set in sentence case here and otherwise untouched. "Speciality" is their
+     spelling, and "social economic" is their phrase rather than
+     "socio-economic" — neither is corrected, because these are the statements
+     the co-operative adopted and not copy for this site to improve.
+
+     The motto, KILIMO BIASHARA, was supplied at the same time and is not here:
+     the hero already carries a line the user chose. */
+  statements: {
+    eyebrow: 'In their own words',
+    items: [
+      {
+        label: 'Vision',
+        body: 'A leader in production and marketing of speciality coffee in Kenya.',
+      },
+      {
+        label: 'Mission',
+        body: 'To enhance social economic progress of our members through production of quantity and quality speciality coffee.',
+      },
+    ],
+  },
+
   proof: {
     eyebrow: 'By the numbers',
     heading: 'A coffee society built on quality, ownership and time.',
