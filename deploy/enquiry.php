@@ -26,6 +26,14 @@
 
 declare(strict_types=1);
 
+/**
+ * Bumped whenever this file changes in a way worth confirming on a server.
+ * A GET returns it, so "is the fix actually uploaded?" is a question with an
+ * answer instead of an inference from which error code came back. That guess
+ * cost a round trip once already.
+ */
+const HANDLER_VERSION = '2026-09-08.2';
+
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
    which errs towards rejecting something too long rather than accepting it. */
@@ -73,7 +81,16 @@ function ok()
 }
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
-    fail(405, 'Method not allowed.');
+    /* Also the deployment check. Loading this URL in a browser proves three
+       things at once: the file parses, PHP is executing it rather than serving
+       it as text, and WHICH version of it is live. */
+    http_response_code(405);
+    echo json_encode([
+        'error' => 'Method not allowed.',
+        'handler' => HANDLER_VERSION,
+        'mail' => function_exists('mail') ? 'available' : 'DISABLED ON THIS HOST',
+    ]);
+    exit;
 }
 
 $raw = file_get_contents('php://input');
