@@ -757,13 +757,33 @@ export const images = {
      a coffee cannot be both; everything else on this site says the society
      grows SL28, SL34 and Ruiru 11, which are all Arabica. Flagged to
      the client; the photographs are used as supplied, unaltered. */
+  /* LANDSCAPE, 4/3, and the frames were BUILT rather than cropped.
+
+     The user asked for the pack cards to be landscape. These four photographs
+     are tight portraits — the pack fills each one top to bottom — so a
+     landscape crop of a 705x1264 frame keeps 470px of height and shows a
+     horizontal band of packaging with no pack in it. Cropping was not
+     available.
+
+     So each frame is composed instead: the photograph set at FULL HEIGHT on a
+     1400x1050 canvas whose sides are the same photograph, scaled to cover and
+     blurred, darkened a little, with the join feathered over 34px. Nothing is
+     invented — the fill is the picture's own colour and light — and the whole
+     pack, label and all, stays visible. It reads as depth of field.
+
+     scripts/build-pack-frames.mjs rebuilds them from the portrait originals,
+     which are in git history if a frame ever needs redoing.
+
+     The pack panel is 586px of the 1400, so the pack sits at 42% of the frame
+     in ALL FOUR — the evenness #82 went after, arrived at from the other
+     direction. */
   pack100g: {
     file: 'pack-100g.jpg',
     page: 'Our Coffee',
     section: 'Retail packs',
-    ratio: '9/16',
-    minWidth: 760,
-    minHeight: 1350,
+    ratio: '4/3',
+    minWidth: 1400,
+    minHeight: 1050,
     direction: 'Supplied. The 100 g pack standing on a bench, beans and a burlap sack behind.',
     alt: 'A 100 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
@@ -773,7 +793,7 @@ export const images = {
     file: 'pack-250g.jpg',
     page: 'Our Coffee',
     section: 'Retail packs',
-    ratio: '9/16',
+    ratio: '4/3',
     minWidth: 850,
     minHeight: 1530,
     direction: 'Supplied. The 250 g pack standing on a bench, coffee plant behind.',
@@ -785,9 +805,9 @@ export const images = {
     file: 'pack-500g.jpg',
     page: 'Our Coffee',
     section: 'Retail packs',
-    ratio: '9/16',
-    minWidth: 760,
-    minHeight: 1350,
+    ratio: '4/3',
+    minWidth: 1400,
+    minHeight: 1050,
     direction: 'Supplied. The 500 g pack standing on a bench.',
     alt: 'A 500 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
@@ -820,9 +840,9 @@ export const images = {
     file: 'pack-1kg.jpg',
     page: 'Our Coffee',
     section: 'Retail packs',
-    ratio: '9/16',
-    minWidth: 760,
-    minHeight: 1350,
+    ratio: '4/3',
+    minWidth: 1400,
+    minHeight: 1050,
     direction:
       'Supplied. The 1 kg pack standing on a table, a bowl of roasted beans to one side and a brass grinder to the other.',
     alt: 'A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden table, a bowl of roasted beans beside it.',
