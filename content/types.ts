@@ -292,14 +292,6 @@ export interface ProductsContent {
     priceNote: string;
     indicativeLabel: string;
     moqLabel: string;
-    filterLabel: string;
-    filterAll: string;
-    sortLabel: string;
-    sortOptions: { id: 'grade' | 'price' | 'score' | 'availability'; label: string }[];
-    resultCount: string;
-    resultCountOne: string;
-    emptyState: string;
-    clearFilters: string;
     detailsLabel: string;
     requestLotLabel: string;
   };
