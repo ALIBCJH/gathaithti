@@ -91,6 +91,10 @@ export interface Common {
   nav: { home: string; about: string; products: string; farmers: string; gallery: string; contact: string };
   actions: {
     requestSample: string;
+    /** The WhatsApp control in the bar and the drawer. */
+    whatsappLabel: string;
+    /** Pre-filled into the message, so the office knows where it came from. */
+    whatsappPrefill: string;
     forMembers: string;
     readStory: string;
     seeLots: string;

@@ -110,6 +110,12 @@ export function localBusinessLd(locale: Locale) {
     image: `${siteUrl}/opengraph-image`,
     url: urlFor(locale),
     address: postalAddress,
+    /* The number a search result puts a Call button on. It was never here,
+       because until 2026-09-08 the only number in site.ts was sample data and
+       publishing that to a search engine is a different act from printing it
+       on a page. `undefined` drops the key rather than emitting an empty
+       string, so blanking the number in site.ts removes it again. */
+    telephone: site.contact.officePhone.value || undefined,
     geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
     openingHoursSpecification: [
       {

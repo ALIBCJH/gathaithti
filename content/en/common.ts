@@ -31,6 +31,8 @@ export const common: Common = {
 
   actions: {
     requestSample: 'Request a sample',
+    whatsappLabel: 'WhatsApp us',
+    whatsappPrefill: 'Hello Gathaithi — I found you through your website.',
     forMembers: 'For our members',
     readStory: 'Read our story',
     seeLots: 'See this season’s lots',

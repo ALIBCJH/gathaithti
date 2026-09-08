@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { routes, type Locale } from '@content/site';
+import { routes, site, whatsappHref, type Locale } from '@content/site';
 import type { Common } from '@content/types';
+import { WhatsAppMark } from '@/components/icons/Channels';
 import { ThemeToggle } from './ThemeToggle';
 import { NavIcon } from './NavIcon';
 
@@ -261,7 +262,35 @@ export function Header({
           </ul>
         </nav>
 
-        <div className="flex shrink-0 items-center gap-4 sm:gap-6">
+        <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+          {/* WHATSAPP, ON EVERY PAGE. It is how an enquiry to this society
+              actually arrives, and until 2026-09-08 it could not be here: the
+              number was sample data, and a WhatsApp button in the bar of a
+              live site that dials a placeholder is the one control that costs
+              somebody something.
+
+              Rendered only when a number is set — `whatsappHref` returns an
+              empty string otherwise, and an anchor with no href is not a
+              control. It is a LINK and not a button because it goes somewhere,
+              and `target=_blank` because wa.me hands off to an app.
+
+              Named for a screen reader, which the icon alone cannot do. The
+              circle matches the theme toggle beside it, so the two read as a
+              pair of controls rather than as a logo and a control. */}
+          {whatsappHref() ? (
+            <a
+              href={whatsappHref(common.actions.whatsappPrefill)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="tap inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink-soft transition-[color,border-color,background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-ochre hover:text-ochre-ink active:scale-[0.94]"
+            >
+              <WhatsAppMark className="h-[1.15rem] w-[1.15rem]" />
+              <span className="sr-only">
+                {common.actions.whatsappLabel} {site.contact.whatsapp.display}
+              </span>
+            </a>
+          ) : null}
+
           {/* Desktop only. On a phone the switch lives in the drawer instead —
               there is one of it, not two, and the bar keeps to the two things
               it needs at that width: who this is, and the way in. The drawer
@@ -417,6 +446,22 @@ export function Header({
               style={{ '--i': 6 } as React.CSSProperties}
             >
               <ThemeToggle surface="dark" />
+
+              {/* The same action as the bar's icon, given a label here because
+                  there is room for one and because a drawer is read rather
+                  than scanned. */}
+              {whatsappHref() ? (
+                <a
+                  href={whatsappHref(common.actions.whatsappPrefill)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="tap inline-flex min-h-[2.75rem] flex-1 items-center justify-center gap-2.5 rounded-full border border-on-inverse/25 px-4 text-[0.875rem] font-medium text-on-inverse transition-[background-color,border-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-on-inverse/60 hover:bg-on-inverse/10 active:scale-[0.985]"
+                >
+                  <WhatsAppMark className="h-[1.15rem] w-[1.15rem] shrink-0" />
+                  {common.actions.whatsappLabel}
+                </a>
+              ) : null}
             </div>
           </div>
         </>
