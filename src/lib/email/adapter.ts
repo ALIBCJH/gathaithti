@@ -13,8 +13,12 @@
  *
  *         EMAIL_PROVIDER=resend
  *         RESEND_API_KEY=re_xxxxxxxxxxxx
- *         SAMPLE_REQUEST_TO=marketing@gathaithicoffee.co.ke
- *         SAMPLE_REQUEST_FROM="Gathaithi website <website@gathaithicoffee.co.ke>"
+ *         SAMPLE_REQUEST_TO=marketing@gathaithi.cloud
+ *         SAMPLE_REQUEST_FROM="Gathaithi website <website@gathaithi.cloud>"
+ *
+ *       FROM MUST BE ON gathaithi.cloud. The domain publishes DMARC
+ *       p=quarantine with aspf=s, so a From: anywhere else is silently
+ *       filed as spam rather than bounced.
  *
  *       Contact-page enquiries go to SAMPLE_REQUEST_TO as well, unless you
  *       set CONTACT_ENQUIRY_TO to send them somewhere else.
@@ -85,9 +89,9 @@ function chooseProvider(): { name: string; send: EmailProvider } {
 
 /** Renders the enquiry as plain text. Deliberately plain — it is read, not admired. */
 function format(request: SampleRequest): EmailMessage {
-  const to = process.env.SAMPLE_REQUEST_TO ?? 'office@example.invalid';
+  const to = process.env.SAMPLE_REQUEST_TO ?? 'marketing@gathaithi.cloud';
   const from =
-    process.env.SAMPLE_REQUEST_FROM ?? 'Gathaithi website <website@example.invalid>';
+    process.env.SAMPLE_REQUEST_FROM ?? 'Gathaithi website <website@gathaithi.cloud>';
 
   const lines = [
     'New enquiry from the Our Coffee page',
@@ -121,8 +125,8 @@ const TOPIC_LABEL: Record<string, string> = {
 
 /** The contact-page enquiry, as plain text. */
 function formatEnquiry(enquiry: ContactEnquiry): EmailMessage {
-  const to = process.env.CONTACT_ENQUIRY_TO ?? process.env.SAMPLE_REQUEST_TO ?? 'office@example.invalid';
-  const from = process.env.SAMPLE_REQUEST_FROM ?? 'Gathaithi website <website@example.invalid>';
+  const to = process.env.CONTACT_ENQUIRY_TO ?? process.env.SAMPLE_REQUEST_TO ?? 'office@gathaithi.cloud';
+  const from = process.env.SAMPLE_REQUEST_FROM ?? 'Gathaithi website <website@gathaithi.cloud>';
   const label = TOPIC_LABEL[enquiry.topic] ?? 'Enquiry';
 
   const lines = [
