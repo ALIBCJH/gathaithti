@@ -35,11 +35,18 @@ export const about: AboutContent = {
        its own name, the drying ground is what it took over in 2000, and the
        pulper is the running of it. The captions say so rather than describing
        the picture twice. */
-    body: [
-      'Coffee came to these ridges as a smallholder crop in the years around independence, and Gathaithi’s growers organised as part of the larger Tetu society in {{established}}. For three decades the village delivered its cherry into a structure it did not control.',
-      'On {{independentSince}} that changed. Gathaithi registered as a society in its own right, named for the village itself, and took over the running of the wet mill on its own {{millSite}} hectares. Since then every decision about processing, marketing and payment has been taken by people who live within walking distance of the beds.',
-      'The society has stayed deliberately small. One mill. One catchment. A membership that knows each other’s farms.',
-    ],
+    /* NO WRITTEN ACCOUNT. Three paragraphs sat here — the smallholder crop
+       around independence and the years under Tetu, the 2000 registration and
+       the mill on its own hectares, and a closing line about staying
+       deliberately small. The user asked for all three removed.
+
+       Nothing factual is lost with them. The timeline below carries 1967, the
+       2000 registration and the 93-point review as dated entries, and the
+       three photographs carry the same turns in their captions. What went was
+       the prose telling of it.
+
+       `body` is optional in the type, so the component renders no block at all
+       rather than an empty grid. */
     frames: [
       {
         imageSlot: 'galleryGate',
