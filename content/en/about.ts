@@ -4,7 +4,7 @@ export const about: AboutContent = {
   meta: {
     title: 'About Gathaithi Farmers’ Co-operative Society — history & governance',
     description:
-      'Founded {{established}} under Tetu and independently registered in {{independentSince}}. Governance, membership, terroir at {{altitude}}, and the pre-finance scheme that supports {{members}} farming families in Nyeri County.',
+      'Founded {{established}} under Tetu and independently registered on {{independentSince}}. Governance, membership, terroir at {{altitude}}, and the pre-finance scheme that supports {{members}} farming families in Nyeri County.',
     ogLine: 'Founded 1967 · Independent since June 2000 · Tetu, Nyeri',
   },
 
@@ -37,7 +37,7 @@ export const about: AboutContent = {
        the picture twice. */
     body: [
       'Coffee came to these ridges as a smallholder crop in the years around independence, and Gathaithi’s growers organised as part of the larger Tetu society in {{established}}. For three decades the village delivered its cherry into a structure it did not control.',
-      'In {{independentSince}} that changed. Gathaithi registered as a society in its own right, named for the village itself, and took over the running of the wet mill on its own {{millSite}} hectares. Since then every decision about processing, marketing and payment has been taken by people who live within walking distance of the beds.',
+      'On {{independentSince}} that changed. Gathaithi registered as a society in its own right, named for the village itself, and took over the running of the wet mill on its own {{millSite}} hectares. Since then every decision about processing, marketing and payment has been taken by people who live within walking distance of the beds.',
       'The society has stayed deliberately small. One mill. One catchment. A membership that knows each other’s farms.',
     ],
     frames: [
@@ -196,12 +196,13 @@ export const about: AboutContent = {
     varieties: {
       heading: 'What grows here',
       body:
-        'The catchment is planted to the classic Kenyan selections alongside the newer disease-resistant releases, which is what allows the society to keep quality high while managing coffee berry disease and leaf rust across {{trees}} trees.',
+        'The catchment is planted to the classic Kenyan selections alongside Ruiru 11, the disease-resistant release, which is what allows the society to keep quality high while managing coffee berry disease and leaf rust across {{trees}} trees.',
       list: [
         { name: 'SL28', note: 'The backbone of the catchment. Deep, structured, blackcurrant acidity.' },
         { name: 'SL34', note: 'Heavier body, tolerant of the wetter years on the upper slopes.' },
         { name: 'Ruiru 11', note: 'Compact and disease-resistant. Protects yield through bad seasons.' },
-        { name: 'Batian', note: 'Newer release, resistant and cup-clean, planted into gaps and renewals.' },
+        /* BATIAN REMOVED 2026-09-08. The society lists three varieties —
+           SL28, SL34 and Ruiru 11 — and Batian came from the project brief. */
       ],
     },
   },

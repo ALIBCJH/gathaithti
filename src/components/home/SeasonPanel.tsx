@@ -37,7 +37,12 @@ export function SeasonPanel({
               <h2 id="season-heading" className="t-section">
                 {content.heading}
               </h2>
-              <p className="t-lead measure text-ink-soft">{content.lead}</p>
+              {/* RichText, not a bare string: this lead names the crop
+                  months through {{mainCrop}} and {{flyCrop}} now, and a plain
+                  {content.lead} prints the braces. */}
+              <p className="t-lead measure text-ink-soft">
+                <RichText text={content.lead} />
+              </p>
             </Reveal>
 
             <Reveal delay={60}>

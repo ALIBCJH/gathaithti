@@ -87,11 +87,14 @@ export function organizationLd(locale: Locale) {
     url: urlFor(locale),
     foundingDate: String(facts.established.value),
     description: resolve(
-      'Farmer-owned coffee co-operative in Gathaithi village, Tetu Sub-County, Nyeri County, Kenya. {{members}} smallholder members, one wet mill, washed SL28, SL34, Ruiru 11 and Batian.',
+      'Farmer-owned coffee co-operative in Gathaithi village, Tetu Sub-County, Nyeri County, Kenya. {{members}} smallholder members, one wet mill, washed {{varieties}}.',
     ),
     address: postalAddress,
     areaServed: 'Worldwide',
-    knowsAbout: ['Washed Kenya coffee', 'SL28', 'SL34', 'Ruiru 11', 'Batian', 'Nyeri coffee'],
+    /* Kept in step with the `varieties` fact by hand — structured data cannot
+       take a {{token}}. The society lists three; Batian was in the brief and is
+       not grown here. */
+    knowsAbout: ['Washed Kenya coffee', 'SL28', 'SL34', 'Ruiru 11', 'Nyeri coffee'],
     memberOf: { '@type': 'Organization', name: 'Kenyan co-operative coffee sector' },
     numberOfEmployees: undefined,
   };
