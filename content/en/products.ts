@@ -75,18 +75,12 @@ export const products: ProductsContent = {
       'Prices are in Kenyan shillings and were supplied by the society. Confirm the current list with the office before ordering — the figure that binds is the one the office quotes, not the one on this page.',
     indicativeLabel: 'Retail',
     moqLabel: 'Minimum',
-    filterLabel: 'Size',
-    filterAll: 'All sizes',
-    sortLabel: 'Sort by',
-    sortOptions: [
-      { id: 'grade', label: 'Size' },
-      { id: 'price', label: 'Price, low to high' },
-      { id: 'availability', label: 'Availability' },
-    ],
-    resultCount: '{count} sizes',
-    resultCountOne: '1 size',
-    emptyState: 'No packs match that combination.',
-    clearFilters: 'Show all sizes',
+    /* NO FILTER AND NO SORT. This block used to carry filterLabel, filterAll,
+       sortLabel, three sortOptions, a result count in two forms, an empty
+       state and a clear-filters link — all of it for four packs of one coffee
+       that fit on one screen. Removed at the user's request, and removed from
+       the type as well as from here so none of it can be set and never read.
+       `moqLabel` and `indicativeLabel` stay: they label rows inside a card. */
     detailsLabel: 'Full specification',
     requestLotLabel: 'Enquire about this pack',
   },

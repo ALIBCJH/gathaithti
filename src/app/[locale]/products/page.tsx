@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { LotCard } from '@/components/products/LotCard';
-import { LotCatalogue, type CatalogueItem } from '@/components/products/LotCatalogue';
+import { PackGrid } from '@/components/products/PackGrid';
 import { ProcessWalkthrough } from '@/components/products/ProcessWalkthrough';
 import { SeasonGem } from '@/components/products/SeasonGem';
 import { ReachOut } from '@/components/products/ReachOut';
@@ -10,7 +10,6 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Section } from '@/components/ui/Section';
-import { getFact } from '@/lib/facts';
 import { getDictionary, isLocale } from '@/lib/i18n';
 import { breadcrumbLd, buildMetadata, localBusinessLd, organizationLd, productLd } from '@/lib/seo';
 
@@ -30,19 +29,13 @@ export default async function ProductsPage({ params }: Props) {
   const { products, common } = dict;
   const requestHref = '#request-a-sample';
 
-  /* The cards are server components — they check the filesystem for each
-     photograph — so they are rendered here and handed to the client-side
-     filter as props, alongside just enough metadata to sort and filter on. */
-  const catalogueItems: CatalogueItem[] = products.lots.map((lot) => ({
+  /* The cards read the filesystem to choose between a photograph and a
+     placeholder, so they are rendered here. They used to be handed to a client
+     component along with a price, a score and an availability rank so that it
+     could filter and sort them; that bar is gone, so all it needs is the card
+     and a key. */
+  const packCards = products.lots.map((lot) => ({
     id: lot.id,
-    grade: lot.grade,
-    availability: lot.availability,
-    availabilityLabel: lot.availabilityLabel,
-    price:
-      products.catalogue.showPrices && lot.priceFactId
-        ? Number(getFact(lot.priceFactId)?.value ?? Number.NaN) || undefined
-        : undefined,
-    score: lot.scoreValue,
     card: <LotCard lot={lot} copy={products.catalogue} requestHref={requestHref} />,
   }));
 
@@ -91,7 +84,7 @@ export default async function ProductsPage({ params }: Props) {
               the head is a page title rather than a section head, and the old
               gap left a visible hole between the lead and the filter bar. */}
           <div className="mt-12 lg:mt-16">
-            <LotCatalogue items={catalogueItems} copy={products.catalogue} />
+            <PackGrid cards={packCards} />
           </div>
         </Container>
       </Section>
