@@ -76,6 +76,9 @@ before the photography exists.
 | `member-05-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `member-06-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 2:3 | 768×1406 | **Supplied 2026-09-08.** An agronomist scouting a coffee tree on a member’s farm: sample jar, clipboard, ripe and unripe cherry beside him. Portrait, and smaller than the 2000px brief — ask for the original if the society still has it. Coat carries a KALRO mark; clipboard reads “Gathaiti Farmers Co-op”. |
+| `member-01-picking.jpg` | Our Farmers | Members | 2:3 | 768×1376 | **Supplied 2026-09-08.** A picker working a branch by hand, basket at the waist, more pickers along the rows behind. Portrait — the slot was 3:2 and a 3:2 crop keeps only 37% of the height. |
+| `member-02-selecting.jpg` | Our Farmers | Members | 2:3 | 768×1376 | **Supplied 2026-09-08.** A picker selecting cherry a berry at a time under shade netting, basket at the hip. |
+| `member-03-row.jpg` | Our Farmers | Members | 2:3 | 768×1376 | **Supplied 2026-09-08.** Three pickers working down the same row, baskets in hand, the ridge behind. THREE people — the caption counts them. |
 | `gathaithi-society-office.jpg` | Our Farmers | Pre-finance — **parked, nothing renders it** | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
 | `hero-mobile-01.jpg` | Home | Hero — mobile | 2:3 | 1000×1500 | **Supplied, already in place.** Portrait. Roasted beans and a wooden scoop on dark timber. Carries the wordmark set into the lower left of the photograph. |
 | `hero-mobile-02.jpg` | Home | Hero — mobile | 9:16 | 940×1650 | **Supplied, already in place.** Portrait. Ripe red cherry on the branch. Wordmark set into the upper left. |
@@ -149,6 +152,9 @@ the shot list is self-contained:
 - `process-03-washing.jpg` — Workers moving parchment along the washing channels with wooden paddles at the Gathaithi mill, raised drying beds behind them.
 - `process-04-grading.jpg` — Workers hand-sorting defects out of parchment on a raised drying bed at Gathaithi, a basin beside them for the rejects.
 - `process-05-raised-beds.jpg` — Parchment coffee spread in a thin layer on a raised drying bed at Gathaithi, the hills behind.
+- `member-01-picking.jpg` — A coffee picker in a red headscarf taking ripe cherry from a branch by hand, a basket at her waist and more pickers along the rows behind.
+- `member-02-selecting.jpg` — A coffee picker in a cap selecting ripe cherry a berry at a time, a woven basket slung at his hip, shade netting overhead.
+- `member-03-row.jpg` — Three coffee pickers working down the same row with baskets in hand, the Nyeri hills behind them.
 - `harvest-01-picking.jpg` — A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.
 - `harvest-02-reaching.jpg` — A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.
 - `harvest-03-two-members.jpg` — Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.

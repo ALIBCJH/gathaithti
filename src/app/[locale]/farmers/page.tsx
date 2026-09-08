@@ -40,16 +40,18 @@ export default async function FarmersPage({ params }: Props) {
         ]}
       />
 
-      {/* The ownership band opens the page and carries the h1 — the claim
-          that the farmers own this society is what the page is for. It came
-          from About, where it was the page title. */}
-      <Ownership content={farmers.ownership} />
+      {/* THE MEMBERS BAND OPENS THE PAGE, at the user's request. It sat
+          second, under the ownership claim; a visitor now meets the people
+          before the constitutional statement about who owns the society,
+          which is the right way round for a page called Our Farmers.
 
-      {/* The members band. No longer the opener, so its head steps down to h2
-          and it takes the ordinary section padding back. */}
-      <Section tone="parchment" ariaLabelledby="profiles-heading">
+          It therefore carries the `h1` and the header-clearing `opener`
+          padding. Both came off <Ownership />, which is an ordinary h2 band
+          below it now. */}
+      <Section tone="parchment" size="opener" ariaLabelledby="profiles-heading">
         <Container width="wide">
           <SectionHead
+            as="h1"
             id="profiles-heading"
             eyebrow={farmers.profiles.eyebrow}
             heading={farmers.profiles.heading}
@@ -69,6 +71,11 @@ export default async function FarmersPage({ params }: Props) {
           </div>
         </Container>
       </Section>
+
+      {/* The ownership claim — that the farmers are the shareholders and the
+          committee is elected from among them — reads as the answer to the
+          faces above it rather than as the page's opening statement. */}
+      <Ownership content={farmers.ownership} />
 
       <Training content={farmers.training} />
     </>
