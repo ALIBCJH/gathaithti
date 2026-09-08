@@ -36,7 +36,16 @@ export const home: HomeContent = {
   proof: {
     eyebrow: 'By the numbers',
     heading: 'A coffee society built on quality, ownership and time.',
-    factIds: ['cuppingScore', 'nationalRank2024', 'established', 'members'],
+    /* THREE, not four. `cuppingScore` — 93 points, "A cup worth noticing" —
+       was the first of them and was removed at the user's request.
+
+       It is only gone from HERE. The fact still exists in content/facts.ts and
+       is still cited on About (the timeline entry for that year) and on Our
+       Coffee (the "cup it scored" card), because those two put it in a
+       sentence with its lot and its date attached. On this band it was a bare
+       93 above the fold, which is the setting a score is least defensible in —
+       it is still `verified: false` and has no named cupping body. */
+    factIds: ['nationalRank2024', 'established', 'members'],
     /* Set differently here from the fact's own `display`, and nowhere else.
        `nationalRank2024` displays as the word "Second" because the About page
        puts it inside sentences — "Second nationally on cherry payment" — where
@@ -46,13 +55,11 @@ export const home: HomeContent = {
       nationalRank2024: '#2',
     },
     titles: {
-      cuppingScore: 'A cup worth noticing',
       nationalRank2024: 'Among Kenya’s best',
       established: 'More than five decades of coffee',
       members: 'Farmers. One society.',
     },
     captions: {
-      cuppingScore: 'Points, from a washed Nyeri lot cupped in {{cuppingYear}}.',
       nationalRank2024: 'Ranked second in Kenya on cherry payment to farmers, 2024.',
       established: 'Our story began under Tetu; the mill has been ours since {{independentSince}}.',
       members: 'Each one holds a stake in what the society sells.',

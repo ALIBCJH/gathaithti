@@ -32,9 +32,9 @@ export default async function HomePage({ params }: Props) {
 
       {/* The record and the season panel are desktop-only now.
 
-          `hidden` rather than dropped: the figures they carry — the cupping
-          score, the national rank, the year, the membership — are the whole of
-          this site's credibility, and Google indexes the mobile rendering. Kept
+          `hidden` rather than dropped: the figures they carry — the national
+          rank, the year, the membership — are the whole of this site's
+          credibility, and Google indexes the mobile rendering. Kept
           in the markup they stay indexed and stay available to a screen reader;
           they are simply not drawn on a phone, where the ask was for a shorter
           first scroll. Delete the wrappers and the sections come back. */}

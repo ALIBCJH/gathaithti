@@ -5,8 +5,19 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import type { HomeContent } from '@content/types';
 
+/* The row is as wide as it has entries. Hard-coding four left a hole on a
+   desktop the moment one was removed, and Tailwind cannot read a class name
+   built at runtime, so the three cases are written out. */
+const columns: Record<number, string> = {
+  1: 'lg:grid-cols-1',
+  2: 'lg:grid-cols-2',
+  3: 'lg:grid-cols-3',
+  4: 'lg:grid-cols-4',
+};
+
 /**
- * The four numbers this society is credible on.
+ * The numbers this society is credible on. THREE of them now — the cupping
+ * score was the fourth and came out at the user's request.
  *
  * It used to be a bare row of figures under an eyebrow reading "The record" —
  * four statistics with no sentence saying what they added up to. It now opens
@@ -16,7 +27,7 @@ import type { HomeContent } from '@content/types';
  *
  * The figures are the only thing on the home page a buyer might quote back, so
  * every one still goes through <Fact /> and still carries `data-verified` into
- * the DOM. None of the four is verified yet.
+ * the DOM. None of them is verified yet.
  */
 export function ProofBand({ content }: { content: HomeContent['proof'] }) {
   return (
@@ -32,7 +43,11 @@ export function ProofBand({ content }: { content: HomeContent['proof'] }) {
           </h2>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:mt-28 lg:grid-cols-4">
+        <div
+          className={`mt-20 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:mt-28 ${
+            columns[content.factIds.length] ?? 'lg:grid-cols-4'
+          }`}
+        >
           {content.factIds.map((id, i) => (
             <Reveal
               key={id}
@@ -41,11 +56,10 @@ export function ProofBand({ content }: { content: HomeContent['proof'] }) {
             >
               {/* Larger than the site's standard `.t-figure` (which caps at
                   5.5rem), because this row had the room and was not using it:
-                  the widest of the four, 1,700, drew 186px inside a 292px
-                  track on a desktop. At a 7rem cap it draws 225px and still
-                  clears. The floor and the vw term are untouched, so the two
-                  narrow cases — a 1024px window and the two-up at 640px —
-                  render exactly as they did. */}
+                  the widest figure, 1,700, drew 186px inside a 292px track on
+                  a desktop. At a 7rem cap it draws 225px and still clears —
+                  with more room now, not less, since three tracks are wider
+                  than four. The floor and the vw term are untouched. */}
               <p className="t-figure [--figure-size:clamp(3rem,7vw,7rem)]">
                 <Fact id={id} display={content.figures?.[id]} />
               </p>
