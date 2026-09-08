@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { Field, fieldClass } from '@/components/forms/Field';
 import { useEnquiryForm } from '@/components/forms/useEnquiryForm';
+import { CONTACT_ENDPOINT } from '@/lib/endpoints';
 import { contactRules, type ContactField } from '@/lib/enquiry';
 import type { Common, ContactForm as ContactFormContent } from '@content/types';
 
@@ -38,7 +39,7 @@ export function ContactForm({
   const successRef = useRef<HTMLDivElement>(null);
 
   const enquiry = useEnquiryForm<ContactField>({
-    endpoint: '/api/contact',
+    endpoint: CONTACT_ENDPOINT,
     rules: contactRules,
     messages,
     onSuccess: () => successRef.current?.focus(),

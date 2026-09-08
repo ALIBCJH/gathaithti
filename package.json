@@ -12,7 +12,7 @@
     "check": "npm run lint && npm run facts && npm run images",
     "build:cpanel": "node scripts/build-cpanel.mjs",
     "images:build": "node scripts/build-images.mjs",
-    "verify:cpanel": "node scripts/verify-cpanel.mjs",
+    "verify:cpanel": "node scripts/verify-cpanel.mjs && node scripts/verify-cpanel-live.mjs",
     "brand:mark": "node scripts/build-brand-mark.mjs",
     "packs:frames": "node scripts/build-pack-frames.mjs"
   },

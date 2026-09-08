@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Field, fieldClass } from '@/components/forms/Field';
 import { useEnquiryForm } from '@/components/forms/useEnquiryForm';
+import { SAMPLE_ENDPOINT } from '@/lib/endpoints';
 import { sampleRules, type SampleField } from '@/lib/enquiry';
 import type { Common, Lot, ProductsContent } from '@content/types';
 
@@ -35,7 +36,7 @@ export function PackEnquiryForm({
   const [pack, setPack] = useState('');
 
   const enquiry = useEnquiryForm<SampleField>({
-    endpoint: '/api/sample-request',
+    endpoint: SAMPLE_ENDPOINT,
     rules: sampleRules,
     messages: {
       required: form.required,
