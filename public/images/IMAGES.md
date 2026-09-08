@@ -75,7 +75,7 @@ before the photography exists.
 | `member-04-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | Environmental portrait on the member's own shamba, standing, eye level, looking at the lens. Even shade. Confident, not smiling on command. The reference for the three remaining portraits. |
 | `member-05-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
 | `member-06-portrait.jpg` | Our Farmers | Member profiles — **parked, nothing renders it** | 4:5 | 1200×1500 | As member-04-portrait.jpg. Different member, same eye level and treatment. |
-| `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 3:2 | 2000×1334 | A field day in progress: the agronomist demonstrating pruning on a real tree, members close in around it, secateurs in hands. Teaching between equals. |
+| `gathaithi-agronomy-training.jpg` | Our Farmers | Training | 2:3 | 768×1406 | **Supplied 2026-09-08.** An agronomist scouting a coffee tree on a member’s farm: sample jar, clipboard, ripe and unripe cherry beside him. Portrait, and smaller than the 2000px brief — ask for the original if the society still has it. Coat carries a KALRO mark; clipboard reads “Gathaiti Farmers Co-op”. |
 | `gathaithi-society-office.jpg` | Our Farmers | Pre-finance — **parked, nothing renders it** | 3:2 | 2000×1334 | The society office counter: member records, a clerk, an application being completed. Administrative competence, plainly shown. |
 | `hero-mobile-01.jpg` | Home | Hero — mobile | 2:3 | 1000×1500 | **Supplied, already in place.** Portrait. Roasted beans and a wooden scoop on dark timber. Carries the wordmark set into the lower left of the photograph. |
 | `hero-mobile-02.jpg` | Home | Hero — mobile | 9:16 | 940×1650 | **Supplied, already in place.** Portrait. Ripe red cherry on the branch. Wordmark set into the upper left. |
@@ -155,7 +155,7 @@ the shot list is self-contained:
 - `member-04-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `member-05-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
 - `member-06-portrait.jpg` — A Gathaithi member photographed among their coffee trees.
-- `gathaithi-agronomy-training.jpg` — Gathaithi members at a field day, learning pruning technique on a mature coffee tree.
+- `gathaithi-agronomy-training.jpg` — An agronomist inspecting a coffee branch on a member’s farm at Gathaithi, a sample jar in one hand and a clipboard in the other.
 - `gathaithi-society-office.jpg` — A member completing a pre-finance application at the Gathaithi society office.
 - `hero-mobile-01.jpg` — Roasted Gathaithi coffee beans spilling from a wooden scoop across dark timber.
 - `hero-mobile-02.jpg` — Ripe red coffee cherry on the branch at Gathaithi, leaves behind.
