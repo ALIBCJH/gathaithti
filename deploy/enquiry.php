@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-08.2';
+const HANDLER_VERSION = '2026-09-08.3-smtp';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -52,6 +52,22 @@ $CONFIG = [
        than bounced — the form would look broken while working perfectly. */
     'from' => 'Gathaithi website <website@gathaithi.cloud>',
 
+    /* ── SMTP ────────────────────────────────────────────────────────────
+     * This host DISABLES PHP's mail(). Confirmed on 2026-09-08: a GET to this
+     * file reports `"mail":"DISABLED ON THIS HOST"`, and calling it was the
+     * fatal behind the 500 the first live enquiry hit. That is ordinary on
+     * shared hosting — it is how a provider stops one compromised account
+     * spamming from the whole server.
+     *
+     * So the mail is handed to the mail server the same way a phone does it:
+     * authenticated SMTP over TLS, as website@gathaithi.cloud. It is also the
+     * better route — the message is signed by the domain's own server, which
+     * is what DKIM and that strict DMARC policy expect.
+     */
+    'smtp_host' => 'mail.gathaithi.cloud',
+    'smtp_port' => 465,
+    'smtp_user' => 'website@gathaithi.cloud',
+
     /* Requests per IP per hour, matching src/lib/rate-limit.ts. */
     'limit' => 5,
     'window' => 3600,
@@ -63,8 +79,116 @@ $CONFIG = [
     'store' => __DIR__ . '/.enquiry-store',
 ];
 
+/* ── THE PASSWORD LIVES IN ITS OWN FILE ───────────────────────────────────
+ *
+ * Not in this one, and the reason is practical rather than principled: this
+ * handler has been re-uploaded three times in a day, and a password kept in it
+ * would have been wiped by every one of those uploads. Beside it in
+ * .mail-password.php, it is set once and survives.
+ *
+ * CREATE public_html/.mail-password.php CONTAINING EXACTLY:
+ *
+ *     <?php return 'the password for website@gathaithi.cloud';
+ *
+ * No closing ?>, no blank lines after it. PHP files are executed rather than
+ * served, so the password is not readable over the web even if the leading dot
+ * were ignored — but the dot keeps it out of directory listings as well.
+ */
+$SECRET_FILE = __DIR__ . '/.mail-password.php';
+$CONFIG['smtp_pass'] = is_file($SECRET_FILE) ? trim((string) (require $SECRET_FILE)) : '';
+
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
+
+/**
+ * Hands one message to the mail server over authenticated TLS.
+ *
+ * Written out rather than pulled in, because this handler is ONE FILE that
+ * gets uploaded on its own. A library would mean a vendor directory to keep in
+ * step with it, and the protocol below is four commands and a full stop.
+ *
+ * `$why` is filled with the server's own reply when a step fails, so the log
+ * says "AUTH: 535 Incorrect authentication data" rather than "it did not
+ * work". That sentence is the difference between a two-minute fix and an
+ * afternoon.
+ */
+function smtp_send(array $cfg, $to, $subject, $body, array $headers, &$why)
+{
+    $why = '';
+
+    $context = stream_context_create(['ssl' => ['verify_peer' => true, 'verify_peer_name' => true]]);
+    $fp = @stream_socket_client(
+        'ssl://' . $cfg['smtp_host'] . ':' . $cfg['smtp_port'],
+        $errno,
+        $errstr,
+        20,
+        STREAM_CLIENT_CONNECT,
+        $context
+    );
+    if (!$fp) {
+        $why = 'connect: ' . $errstr . ' (' . $errno . ')';
+        return false;
+    }
+    stream_set_timeout($fp, 20);
+
+    /* A reply can run to several lines; only the last has a space in the
+       fourth column. Reading one line and moving on desynchronises everything
+       that follows. */
+    $read = function () use ($fp) {
+        $out = '';
+        while (($line = fgets($fp, 1024)) !== false) {
+            $out .= $line;
+            if (strlen($line) < 4 || $line[3] !== '-') {
+                break;
+            }
+        }
+        return $out;
+    };
+    $send = function ($line) use ($fp, $read) {
+        fwrite($fp, $line . "\r\n");
+        return $read();
+    };
+
+    $steps = [
+        ['greeting', $read(), '220'],
+        ['EHLO', $send('EHLO ' . $cfg['smtp_host']), '250'],
+        ['AUTH', $send('AUTH LOGIN'), '334'],
+        ['username', $send(base64_encode($cfg['smtp_user'])), '334'],
+        ['password', $send(base64_encode($cfg['smtp_pass'])), '235'],
+        ['MAIL FROM', $send('MAIL FROM:<' . $cfg['smtp_user'] . '>'), '250'],
+        ['RCPT TO', $send('RCPT TO:<' . $to . '>'), '250'],
+        ['DATA', $send('DATA'), '354'],
+    ];
+    foreach ($steps as $step) {
+        if (strncmp((string) $step[1], $step[2], 3) !== 0) {
+            $why = $step[0] . ': ' . trim((string) $step[1]);
+            fclose($fp);
+            return false;
+        }
+    }
+
+    /* CRLF line endings, and a leading full stop on a line of its own doubled —
+       a bare one ENDS the message, so a member writing a sentence that begins
+       with "." would truncate their own enquiry. */
+    $data = implode("\r\n", $headers) . "\r\n"
+        . 'To: ' . $to . "\r\n"
+        . 'Subject: ' . $subject . "\r\n"
+        . 'Date: ' . date('r') . "\r\n"
+        . "\r\n"
+        . preg_replace('/^\./m', '..', str_replace(["\r\n", "\n"], ["\n", "\r\n"], $body));
+
+    fwrite($fp, $data . "\r\n.\r\n");
+    $final = $read();
+    if (strncmp((string) $final, '250', 3) !== 0) {
+        $why = 'send: ' . trim((string) $final);
+        fclose($fp);
+        return false;
+    }
+
+    @fwrite($fp, "QUIT\r\n");
+    fclose($fp);
+    return true;
+}
 
 function fail($code, $message)
 {
@@ -89,6 +213,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
         'error' => 'Method not allowed.',
         'handler' => HANDLER_VERSION,
         'mail' => function_exists('mail') ? 'available' : 'DISABLED ON THIS HOST',
+        'transport' => 'smtp',
+        'smtp_password_file' => $CONFIG['smtp_pass'] !== '' ? 'present' : 'MISSING — create .mail-password.php',
     ]);
     exit;
 }
@@ -286,17 +412,15 @@ $record = function ($status, $detail = '') use ($store, $submitted, $form, $line
 
 $record('RECEIVED');
 
-/* ── 6. Send ────────────────────────────────────────────────────────────
+/* ── 6. Send, over SMTP ─────────────────────────────────────────────────
  *
- * `@mail(...)` was not enough. The @ operator suppresses WARNINGS; it does
- * nothing about an Error, and on a host where mail() is disabled through
- * disable_functions — common on shared hosting, which is what this is —
- * calling it is a fatal, which PHP answers with a bare 500 and an HTML error
- * page. The browser then shows "that didn't send" with no idea why.
+ * NOT mail(). This host disables it — a GET to this file reports
+ * "DISABLED ON THIS HOST" — and calling it is a fatal, which is what turned
+ * the first live enquiry into a bare 500. The message goes to the mail server
+ * the way a phone sends one: authenticated, over TLS, as website@.
  *
- * So: check the function exists, catch anything it throws anyway, and answer
- * in JSON either way. The enquiry is already on disk by this point, so a
- * failure here costs the reply, not the enquiry.
+ * The enquiry is already on disk by this point, so anything below costs the
+ * reply and not the enquiry.
  */
 
 $headers = [
@@ -307,29 +431,31 @@ $headers = [
     'X-Mailer: gathaithi-site',
 ];
 
-if (!function_exists('mail')) {
-    $record('MAIL-DISABLED', 'mail() is not available on this host');
-    fail(502, 'The site could not hand your message to the mail server. It has been recorded and the office has been alerted — or email us directly.');
+$encodedSubject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+/* NOT $body — that name already holds the decoded request further up. The
+   closure that reads it captured it by value, so reassigning would not have
+   broken anything today; it would have broken the first time somebody moved a
+   line. */
+$messageBody = implode("\n", $lines);
+
+if ($CONFIG['smtp_pass'] === '') {
+    $record('NO-SMTP-PASSWORD', 'create public_html/.mail-password.php');
+    fail(502, 'The site is not yet able to send mail. Your message has been recorded — please call or WhatsApp us, or try again later.');
 }
 
 $sent = false;
 $why = '';
 try {
-    $sent = @mail(
-        $to,
-        '=?UTF-8?B?' . base64_encode($subject) . '?=',
-        implode("\n", $lines),
-        implode("\r\n", $headers)
-    );
+    $sent = smtp_send($CONFIG, $to, $encodedSubject, $messageBody, $headers, $why);
 } catch (Throwable $e) {
     $sent = false;
     $why = get_class($e) . ': ' . $e->getMessage();
 }
 
-$record($sent ? 'SENT' : 'MAIL-FAILED', $why);
+$record($sent ? 'SENT' : 'SMTP-FAILED', $why);
 
 if (!$sent) {
-    fail(502, 'We could not send that just now. Please try again, or email the office directly.');
+    fail(502, 'We could not send that just now. Please try again, or call the office directly.');
 }
 
 ok();
