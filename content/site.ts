@@ -161,13 +161,22 @@ export const site = {
   ],
 } as const;
 
+/**
+ * The order of this array IS the order of the navigation — the bar, the mobile
+ * drawer, the footer and the sitemap all map over it, so they can never
+ * disagree about where a page sits.
+ *
+ * Gallery moved AFTER Contact on 2026-09-08 at the user's request. The drawer's
+ * icons are keyed by `key` rather than by position, so nothing else had to
+ * move with it.
+ */
 export const routes = [
   { key: 'home', path: '' },
   { key: 'about', path: 'about' },
   { key: 'products', path: 'products' },
   { key: 'farmers', path: 'farmers' },
-  { key: 'gallery', path: 'gallery' },
   { key: 'contact', path: 'contact' },
+  { key: 'gallery', path: 'gallery' },
 ] as const;
 
 export type RouteKey = (typeof routes)[number]['key'];
