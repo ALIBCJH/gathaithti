@@ -71,6 +71,7 @@ export function buildMetadata({
 
 const postalAddress = {
   '@type': 'PostalAddress',
+  postOfficeBoxNumber: site.address.poBox,
   streetAddress: `${site.address.line1}, ${site.address.village}`,
   addressLocality: site.address.subCounty,
   addressRegion: site.address.county,

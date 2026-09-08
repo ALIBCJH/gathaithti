@@ -195,7 +195,11 @@ export const products: ProductsContent = {
       {
         title: 'The cup it scored',
         body:
-          'A washed lot from this mill cupped at {{cuppingScore}} points in {{cuppingYear}}: blackcurrant, a dense structured acidity, and a finish that holds as it cools.',
+          /* The tasting note is the REVIEWER'S now, not ours. This card used to say
+           "blackcurrant, a dense structured acidity, and a finish that holds as
+           it cools", which was written for the layout before anybody knew who
+           had scored the coffee or what they said about it. */
+          'A washed lot from this mill scored {{cuppingScore}} points in a {{cuppingYear}} review by {{cuppingReviewer}}: a balanced, floral-toned Kenyan cup with distinct black currant, a pleasing savoury fruit attribute, and the classic Kenyan characteristics.',
         imageSlot: 'gemThree',
       },
     ],

@@ -72,7 +72,10 @@ export const about: AboutContent = {
       {
         year: '{{cuppingYear}}',
         title: 'Scored {{cuppingScore}} points',
-        body: 'A washed lot from the mill is cupped at {{cuppingScore}} points — confirmation of what the catchment can do in a good year.',
+        /* Names the reviewer now that there is one. A score with no
+           publishing body is not a claim a buyer accepts, and for two years
+           this timeline entry made one without saying who scored it. */
+        body: 'A washed lot from the mill scores {{cuppingScore}} points in a review by {{cuppingReviewer}} — confirmation of what the catchment can do in a good year.',
       },
       {
         year: '2024',
