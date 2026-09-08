@@ -1,49 +1,23 @@
 import { en } from '@content/en';
-import { sw } from '@content/sw';
-import type { DeepPartial, Dictionary } from '@content/types';
-import { defaultLocale, locales, type Locale } from '@content/site';
-
-export { locales, defaultLocale };
-export type { Locale };
-
-export function isLocale(value: string | undefined): value is Locale {
-  return !!value && (locales as readonly string[]).includes(value);
-}
-
-const isPlainObject = (v: unknown): v is Record<string, unknown> =>
-  typeof v === 'object' && v !== null && !Array.isArray(v);
+import type { Dictionary } from '@content/types';
 
 /**
- * Deep-merges a translation over the English base. Arrays replace wholesale —
- * a translated list is translated in full or not at all. Anything missing from
- * the translation keeps its English value, so a half-finished locale renders.
+ * ONE LANGUAGE, ONE DICTIONARY.
+ *
+ * The site was built bilingual: every page sat under a locale segment, and
+ * this file deep-merged a Kiswahili translation over the English base so a
+ * half-finished locale still rendered. Kiswahili was switched off long before
+ * launch, and on 2026-09-08 the locale segment came out of the URLs with it —
+ * /en/about became /about, which is the honest shape for a site with one
+ * language.
+ *
+ * WHAT IS STILL THERE IF IT COMES BACK: content/sw holds the translation, and
+ * the deep-merge that used to live here is in this file's git history. Putting
+ * it back means moving the pages under a [locale] folder again — an afternoon,
+ * not a rewrite. Nothing was deleted from content/.
  */
-function deepMerge<T>(base: T, override: unknown): T {
-  if (override === undefined || override === null) return base;
-  if (!isPlainObject(base) || !isPlainObject(override)) return override as T;
+export const dict: Dictionary = en;
 
-  const out: Record<string, unknown> = { ...base };
-  for (const [key, value] of Object.entries(override)) {
-    out[key] = deepMerge((base as Record<string, unknown>)[key], value);
-  }
-  return out as T;
-}
-
-/**
- * Keyed by string, not by Locale: the Kiswahili dictionary stays built and
- * ready even while `locales` in content/site.ts lists English only, so
- * switching the language back on needs no change here.
- */
-const dictionaries: Record<string, Dictionary> = {
-  en,
-  sw: deepMerge(en, sw as DeepPartial<Dictionary>),
-};
-
-export function getDictionary(locale: Locale): Dictionary {
-  return dictionaries[locale] ?? dictionaries[defaultLocale];
-}
-
-/** True while any part of a locale is still awaiting translation. */
-export function isTranslationPending(locale: Locale): boolean {
-  return locale !== defaultLocale;
-}
+/** The one language this site is written in. Used for <html lang>. */
+export const languageTag = 'en-KE';
+export const ogLocale = 'en_KE';

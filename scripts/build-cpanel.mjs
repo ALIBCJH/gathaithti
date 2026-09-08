@@ -6,17 +6,21 @@
  * Four steps, in this order, and the order is the whole point:
  *
  *   1. render every image variant, and the manifest the loader reads
- *   2. move the API routes AND the proxy out of the way
+ *   2. move the API routes out of the way
  *   3. next build, with BUILD_TARGET=cpanel
  *   4. assemble dist-cpanel, and zip it for upload
  *
  * STEP 2 NEEDS EXPLAINING. `output: 'export'` refuses to build a project that
- * contains a route handler or a proxy, because both are a running server and
- * there is not going to be one. Neither is deleted — the Vercel build still
- * uses them and still works — they are moved aside for the length of this
- * build and put back afterwards, including if the build throws. Their jobs on
- * cPanel are done by deploy/enquiry.php and by the RewriteRules in
- * deploy/htaccess.
+ * contains a route handler, because a route handler is a running server and
+ * there is not going to be one. The two are not deleted — they are moved
+ * aside for the length of this build and put back afterwards, including if it
+ * throws. Their job on cPanel is done by deploy/enquiry.php.
+ *
+ * The proxy and the in-locale catch-all used to be parked here too, and both
+ * are simply GONE now: the locale segment came out of the URLs on 2026-09-08,
+ * so there is no /en redirect for a proxy to perform and no locale layout for
+ * a catch-all to render a 404 inside. app/not-found.tsx and ErrorDocument
+ * cover it between them.
  *
  * STEP 1 IS SKIPPED when public/_img already holds variants newer than every
  * file in public/images. Encoding 50 photographs at seven widths in AVIF takes
@@ -37,14 +41,6 @@ import { buildImages } from './build-images.mjs';
 const root = process.cwd();
 const API = join(root, 'src', 'app', 'api');
 const API_PARKED = join(root, '.api-parked');
-const PROXY = join(root, 'src', 'proxy.ts');
-const PROXY_PARKED = join(root, '.proxy-parked.ts');
-/* The in-locale catch-all. `output: 'export'` rejects a dynamic segment with
-   no generateStaticParams AND rejects one that returns an empty list, and the
-   only way to satisfy it would be to invent a path like /en/404/ that answers
-   200 with a not-found page on it. Apache's ErrorDocument does this job. */
-const CATCHALL = join(root, 'src', 'app', '[locale]', '[...notfound]');
-const CATCHALL_PARKED = join(root, '.catchall-parked');
 const OUT = join(root, 'out');
 const DIST = join(root, 'dist-cpanel');
 const ZIP = join(root, 'dist-cpanel.zip');
@@ -88,24 +84,12 @@ if (fresh) {
 }
 
 let parkedApi = false;
-let parkedProxy = false;
-let parkedCatchall = false;
 try {
   if (existsSync(API)) {
-    console.log('2/5  parking the API routes, the proxy and the catch-all');
+    console.log('2/5  parking the API routes (a static export cannot hold one)');
     if (existsSync(API_PARKED)) rmSync(API_PARKED, { recursive: true });
     renameSync(API, API_PARKED);
     parkedApi = true;
-  }
-  if (existsSync(PROXY)) {
-    if (existsSync(PROXY_PARKED)) rmSync(PROXY_PARKED);
-    renameSync(PROXY, PROXY_PARKED);
-    parkedProxy = true;
-  }
-  if (existsSync(CATCHALL)) {
-    if (existsSync(CATCHALL_PARKED)) rmSync(CATCHALL_PARKED, { recursive: true });
-    renameSync(CATCHALL, CATCHALL_PARKED);
-    parkedCatchall = true;
   }
 
   console.log('3/5  next build');
@@ -120,11 +104,9 @@ try {
     },
   });
 } finally {
-  if (parkedApi) renameSync(API_PARKED, API);
-  if (parkedProxy) renameSync(PROXY_PARKED, PROXY);
-  if (parkedCatchall) renameSync(CATCHALL_PARKED, CATCHALL);
-  if (parkedApi || parkedProxy || parkedCatchall) {
-    console.log('     API routes, proxy and catch-all restored');
+  if (parkedApi) {
+    renameSync(API_PARKED, API);
+    console.log('     API routes restored');
   }
 }
 

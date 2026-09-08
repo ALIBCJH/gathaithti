@@ -22,11 +22,9 @@ import type { Common, ContactForm as ContactFormContent } from '@content/types';
 export function ContactForm({
   content,
   form,
-  locale,
 }: {
   content: ContactFormContent;
   form: Common['form'];
-  locale: string;
 }) {
   const messages = {
     required: form.required,
@@ -69,7 +67,7 @@ export function ContactForm({
   return (
     <form
       id="enquiry-form"
-      onSubmit={(event) => enquiry.submit(event, { locale })}
+      onSubmit={(event) => enquiry.submit(event)}
       noValidate
       className="flex flex-col gap-8"
     >

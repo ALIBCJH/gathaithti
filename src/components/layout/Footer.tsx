@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { routes, site, type Locale } from '@content/site';
+import { routes, site } from '@content/site';
 import type { Common } from '@content/types';
 import { Container } from '@/components/ui/Container';
 import { RichText } from '@/components/ui/Fact';
 
-export function Footer({ locale, common }: { locale: Locale; common: Common }) {
+export function Footer({ common }: { common: Common }) {
   const year = 2026; // stamped at build; update in this one place each January
 
   return (
@@ -30,7 +30,7 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
               {routes.map((route) => (
                 <li key={route.key}>
                   <Link
-                    href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
+                    href={route.path ? `/${route.path}` : '/'}
                     className="tap inline-block py-1 text-[0.9375rem] text-on-inverse/80 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:text-on-inverse"
                   >
                     {common.nav[route.key as keyof Common['nav']]}
@@ -53,7 +53,7 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
               <span>{site.address.postal}</span>
             </address>
             <Link
-              href={`/${locale}/contact`}
+              href={'/contact'}
               className="link text-[0.9375rem]"
             >
               {common.nav.contact}

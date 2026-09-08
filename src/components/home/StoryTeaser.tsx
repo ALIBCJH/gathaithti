@@ -6,13 +6,10 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { StoryCard } from '@/components/home/StoryCard';
 import type { HomeContent } from '@content/types';
-import type { Locale } from '@content/site';
 
 export function StoryTeaser({
-  locale,
   content,
 }: {
-  locale: Locale;
   content: HomeContent['story'];
 }) {
   return (
@@ -36,7 +33,7 @@ export function StoryTeaser({
             </Reveal>
 
             <Reveal delay={120}>
-              <Button href={`/${locale}/${content.cta.href}`} variant="secondary">
+              <Button href={`/${content.cta.href}`} variant="secondary">
                 {content.cta.label}
               </Button>
             </Reveal>

@@ -22,41 +22,33 @@ DirectoryIndex index.html
   RewriteCond %{DOCUMENT_ROOT}/_img/$1.avif -f
   RewriteRule ^_img/(.+)\.webp$ /_img/$1.avif [T=image/avif,E=AVIF:1,L]
 
-  # ── The locale redirect ──────────────────────────────────────────────────
-  # This is src/proxy.ts. Every page lives under /en, and anything without a
-  # locale is sent there permanently so search engines settle on one form.
-  # 308 rather than 301: it keeps the method, so a POST is never silently
-  # turned into a GET.
-  RewriteRule ^$ /en/ [R=308,L]
-
-  # The site was briefly bilingual. Anyone holding a /sw link lands on the
-  # English page rather than a 404.
-  RewriteRule ^sw$ /en/ [R=308,L]
-  RewriteRule ^sw/(.*)$ /en/$1 [R=308,L]
-
-  # Anything else without a locale, that is not a real file or directory and
-  # not one of the roots that lives outside /en.
+  # ── The old locale URLs ──────────────────────────────────────────────────
+  # The site was bilingual and every page lived under /en. Kiswahili was
+  # switched off long before launch and the segment came out of the URLs on
+  # 2026-09-08, but the site was live at /en for a few hours and those URLs may
+  # have been shared or crawled. They redirect permanently to the flat form
+  # rather than 404 — /en/about/ -> /about/, /en/ -> /.
   #
-  # TWO RULES, and the first one exists to save a redirect. The export is built
-  # with trailingSlash, so a page is a DIRECTORY holding an index.html. Sending
-  # /about to /en/about would land on a directory without its slash, and
-  # mod_dir would then issue a second redirect to /en/about/ — two round trips
-  # on a connection where one is already the slow part. If /en/<path> is a
-  # directory, go straight to the slashed form.
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !^/en(/|$)
-  RewriteCond %{REQUEST_URI} !^/(_img|_next|images)/
-  RewriteCond %{REQUEST_URI} !\.(php|xml|txt|ico|webmanifest)$
-  RewriteCond %{DOCUMENT_ROOT}/en/$1 -d
-  RewriteRule ^(.*[^/])$ /en/$1/ [R=308,L]
+  # This block is the ONLY reason /en is still mentioned anywhere. It can go
+  # once nothing links there, but it costs one rule and it costs nothing to
+  # keep.
+  RewriteRule ^en/?$ / [R=308,L]
+  RewriteRule ^en/(.*)$ /$1 [R=308,L]
 
+  # /sw was never published, but the codebase carried it long enough that a
+  # link could exist. Same treatment.
+  RewriteRule ^sw/?$ / [R=308,L]
+  RewriteRule ^sw/(.*)$ /$1 [R=308,L]
+
+  # ── Trailing slashes ─────────────────────────────────────────────────────
+  # The export is built with trailingSlash, so a page is a DIRECTORY holding an
+  # index.html. Asking for /about would land on a directory without its slash
+  # and mod_dir would issue a second redirect to add it — two round trips on a
+  # connection where one is already the slow part. Go straight there.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !^/en(/|$)
-  RewriteCond %{REQUEST_URI} !^/(_img|_next|images)/
-  RewriteCond %{REQUEST_URI} !\.(php|xml|txt|ico|webmanifest)$
-  RewriteRule ^(.*)$ /en/$1 [R=308,L]
+  RewriteCond %{DOCUMENT_ROOT}/$1 -d
+  RewriteRule ^(.+[^/])$ /$1/ [R=308,L]
 </IfModule>
 
 <IfModule mod_headers.c>

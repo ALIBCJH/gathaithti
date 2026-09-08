@@ -221,8 +221,20 @@ export const routes = [
 
 export type RouteKey = (typeof routes)[number]['key'];
 
-/** /en, /en/about, /sw/products … */
-export function href(locale: Locale, path: string = ''): string {
+/**
+ * `/`, `/about`, `/products` …
+ *
+ * The site was built bilingual and every page lived under a locale segment:
+ * /en/about beside /sw/about. Kiswahili was switched off long before launch
+ * and the segment stayed, so every URL carried an /en that distinguished it
+ * from nothing, and every visit to / paid a redirect to reach it. Removed on
+ * 2026-09-08 at the user's request — English only, and the URLs say so.
+ *
+ * The Kiswahili content is still in content/sw and the merge in
+ * src/lib/i18n.ts still works; bringing it back means putting the pages under
+ * a [locale] folder again, which is an afternoon rather than a rewrite.
+ */
+export function href(path: string = ''): string {
   const clean = path.replace(/^\//, '');
-  return clean ? `/${locale}/${clean}` : `/${locale}`;
+  return clean ? `/${clean}` : '/';
 }

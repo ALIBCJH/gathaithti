@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import { Hero } from '@/components/home/Hero';
 import { ProofBand } from '@/components/home/ProofBand';
@@ -8,27 +7,19 @@ import { SeasonPanel } from '@/components/home/SeasonPanel';
 import { StoryTeaser } from '@/components/home/StoryTeaser';
 import { Partners } from '@/components/home/Partners';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { getDictionary, isLocale } from '@/lib/i18n';
+import { dict } from '@/lib/i18n';
 import { buildMetadata, localBusinessLd, organizationLd } from '@/lib/seo';
 
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  return buildMetadata({ locale, path: '', meta: getDictionary(locale).home.meta });
+export function generateMetadata(): Metadata {
+  return buildMetadata({ path: '', meta: dict.home.meta });
 }
 
-export default async function HomePage({ params }: Props) {
-  const { locale } = await params;
-  if (!isLocale(locale)) notFound();
-
-  const dict = getDictionary(locale);
-  const { home } = dict;
+export default function HomePage() {
+    const { home } = dict;
 
   return (
     <>
-      <JsonLd data={[organizationLd(locale), localBusinessLd(locale)]} />
+      <JsonLd data={[organizationLd(), localBusinessLd()]} />
       <Hero content={home.hero} />
 
       {/* The record and the season panel are desktop-only now.
@@ -49,9 +40,9 @@ export default async function HomePage({ params }: Props) {
       <Statements content={home.statements} />
 
       <div className="hidden lg:block">
-        <SeasonPanel locale={locale} content={home.season} />
+        <SeasonPanel  content={home.season} />
       </div>
-      <StoryTeaser locale={locale} content={home.story} />
+      <StoryTeaser  content={home.story} />
 
       {/* Last, and after the members' band on purpose: the society's own people
           come before the organisations it works with. */}
