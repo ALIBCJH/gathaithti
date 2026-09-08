@@ -138,6 +138,19 @@ export interface HomeContent {
     playLabel: string;
     regionLabel: string;
   };
+  /**
+   * The society's own Vision and Mission, in its own words.
+   *
+   * Supplied on the letterhead in block capitals; set here in sentence case,
+   * because a paragraph of capitals is read as shouting and the words are
+   * unchanged either way. Do not paraphrase them — they are the statements the
+   * co-operative adopted, not copy for this site.
+   */
+  statements: {
+    eyebrow: string;
+    items: { label: string; body: string }[];
+  };
+
   proof: {
     eyebrow: string;
     heading: string;
