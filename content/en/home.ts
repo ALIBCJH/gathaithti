@@ -4,7 +4,7 @@ export const home: HomeContent = {
   meta: {
     title: 'Gathaithi Coffee — farmer-owned washed Kenya coffee, Tetu, Nyeri',
     description:
-      'Gathaithi Farmers’ Co‑operative Society: {{members}} smallholder members, one wet mill in Tetu, Nyeri County. Washed SL28, SL34, Ruiru 11 and Batian. Request a sample direct from the society that grows it.',
+      'Gathaithi Farmers’ Co‑operative Society: {{members}} smallholder members, one wet mill in Tetu, Nyeri County. Washed {{varieties}}. Request a sample direct from the society that grows it.',
     ogLine: 'Farmer-owned washed coffee from Tetu, Nyeri County, Kenya',
   },
 
@@ -70,10 +70,15 @@ export const home: HomeContent = {
     eyebrow: 'This season',
     heading: 'What is on the beds now',
     lead:
-      'The main crop runs from October, with the fly crop earlier in the year. Availability moves week to week — this panel is updated by the marketing office as lots come off the drying beds and through milling.',
+      'The main crop is picked {{mainCrop}} and the fly crop {{flyCrop}}. Availability moves week to week — this panel is updated by the marketing office as lots come off the drying beds and through milling.',
     status: 'Main crop — samples available',
     rows: [
-      { label: 'Grades offered', value: 'AA · AB' },
+      /* Was "Grades offered: AA · AB", which was the two green-coffee lots
+         the catalogue used to carry. The society reports the grades its
+         parchment is actually separated into, so the label says produced —
+         what is FOR SALE in a given season is a different question and one
+         nobody has answered. */
+      { label: 'Grades produced', value: '{{grades}}' },
       { label: 'Varieties', value: '{{varieties}}' },
       { label: 'Process', value: 'Fully washed, second soak, sun-dried on raised beds' },
       { label: 'Cherry intake this year', value: '{{cherryAnnual}} kg' },
@@ -86,13 +91,13 @@ export const home: HomeContent = {
     eyebrow: 'The society',
     heading: 'Every kilo has a name attached',
     body: [
-      'Gathaithi has grown coffee since {{established}}, first as part of the wider Tetu society. In {{independentSince}} the farmers of this village registered their own society, took over their own wet mill, and became responsible for their own returns.',
+      'Gathaithi has grown coffee since {{established}}, first as part of the wider Tetu society. On {{independentSince}} the farmers of this village registered their own society, took over their own wet mill, and became responsible for their own returns.',
       'That decision is the whole story. Cherry is picked selectively by the household that grew it, delivered the same evening, and processed within hours at a single mill on {{millSite}} hectares. Nothing is blended in from elsewhere, and the books record which household every delivery came from.',
       'What the society sells is the work of {{members}} families on the eastern slopes above Nyeri — and what it returns to them is the reason the work stays good.',
     ],
     /* The statement card in the right-hand column, where the wet-mill
        photograph used to sit. The year is written out rather than taken from
-       {{independentSince}}: that fact displays as “June 2000”, and the
+       {{independentSince}}: that fact displays as “21 January 2000”, and the
        sentence is built around the bare year. If the registration date is
        ever corrected, correct it here too. */
     card: {

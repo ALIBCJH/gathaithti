@@ -7,7 +7,7 @@ export const products: ProductsContent = {
        grades the page does not carry. */
     title: 'Our Coffee — Gathaithi AA & AB washed Kenya lots',
     description:
-      'Washed Kenya lots from Gathaithi: AA and AB. SL28, SL34, Ruiru 11 and Batian, fermented overnight, second-soaked and dried {{dryingDays}} on raised beds. Request a sample from the society.',
+      'Washed Kenya lots from Gathaithi: AA and AB. {{varieties}}, fermented overnight, second-soaked and dried {{dryingDays}} on raised beds. Request a sample from the society.',
     ogLine: 'AA · AB — fully washed, second soak, raised-bed dried',
   },
 

@@ -31,25 +31,43 @@ import type { Fact } from './types';
 
 const TODAY = '2026-08-27';
 
+/* The day the society answered a written list of questions about itself. Every
+   figure carrying this date came from the factory rather than from the project
+   brief, and is the first verified data this file has held. */
+const FROM_SOCIETY = '2026-09-08';
+const SOURCE = 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-08.';
+
 export const facts = {
   /* ── Identity and history ─────────────────────────────────────────────── */
+  /* ⚠ STILL UNVERIFIED, AND NOW IN DOUBT. Asked "year formed", the society
+     answered 21 January 2000 — the date this co-operative was registered — and
+     said nothing about 1967. 1967 came from the project brief and is the claim
+     that "Gathaithi grew coffee under the wider Tetu society from 1967", which
+     is a different statement from when the society was formed and was NOT
+     confirmed either way.
+
+     It matters because the home page prints it under "More than five decades of
+     coffee". If the society only dates itself from 2000, that heading and the
+     opening line of the story on the home page both go. Raised with the client;
+     unanswered. Do not mark this verified on the strength of the 2000 date. */
   established: {
     id: 'established',
     label: 'Established',
     value: 1967,
     display: '1967',
     verified: false,
-    note: 'Founding year under the wider Tetu society. Confirm against the original registration.',
-    updated: TODAY,
+    note: 'NOT CONFIRMED. The society gave 21 January 2000 as the year formed and did not mention 1967. This figure claims coffee was grown here under the wider Tetu society from 1967 — confirm it separately or remove the claim.',
+    updated: FROM_SOCIETY,
   },
   independentSince: {
     id: 'independentSince',
     label: 'Independent since',
-    value: '2000-06',
-    display: 'June 2000',
-    verified: false,
-    note: 'Month and year of independent registration. Confirm exact date and certificate number.',
-    updated: TODAY,
+    value: '2000-01-21',
+    display: '21 January 2000',
+    verified: true,
+    source: SOURCE,
+    note: 'The society’s own answer to "year formed". The registration certificate number is still not supplied.',
+    updated: FROM_SOCIETY,
   },
   registrationNumber: {
     id: 'registrationNumber',
@@ -62,37 +80,112 @@ export const facts = {
   },
 
   /* ── Scale ────────────────────────────────────────────────────────────── */
+  /* ACTIVE members. The society also reports 632 dormant — see membersDormant.
+     Everything on the site that says "{{members}} smallholders own this
+     society" means the active register, which is the honest number for a
+     sentence about who holds the shares and delivers the cherry. */
   members: {
     id: 'members',
     label: 'Farmer members',
-    value: 1700,
-    display: '1,700',
-    approximate: true,
-    verified: false,
-    note: 'Active membership at last count. Confirm against the current register.',
-    updated: TODAY,
+    value: 1988,
+    display: '1,988',
+    verified: true,
+    source: SOURCE,
+    note: 'Active members. A further 632 are dormant.',
+    updated: FROM_SOCIETY,
+  },
+  membersDormant: {
+    id: 'membersDormant',
+    label: 'Dormant members',
+    value: 632,
+    display: '632',
+    verified: true,
+    source: SOURCE,
+    note: 'On the register but not currently delivering. Nothing renders this yet.',
+    updated: FROM_SOCIETY,
   },
   trees: {
     id: 'trees',
     label: 'Coffee trees',
-    value: 230000,
-    display: '230,000',
-    approximate: true,
-    verified: false,
-    note: 'Total across member farms. Confirm against the last agronomy census.',
-    updated: TODAY,
+    value: 330000,
+    display: '330,000',
+    verified: true,
+    source: SOURCE,
+    note: 'Total across member farms.',
+    updated: FROM_SOCIETY,
   },
+  /* A FLOOR, NOT A POINT. The society answered "from 1,000,000 kgs and above",
+     so the display says "Over" and the value holds the floor. Do not quietly
+     turn this into a single number in a sentence that implies precision. */
   cherryAnnual: {
     id: 'cherryAnnual',
     label: 'Cherry delivered each year',
-    value: 870000,
-    display: '870,000',
+    value: 1000000,
+    display: 'Over 1,000,000',
     unit: 'kg',
-    approximate: true,
-    verified: false,
-    note: 'Annual cherry intake. Confirm the season this refers to — volume swings with the crop cycle.',
-    updated: TODAY,
+    verified: true,
+    source: SOURCE,
+    note: 'The society\u2019s answer was "from 1,000,000 Kgs and above". Volume swings with the crop cycle.',
+    updated: FROM_SOCIETY,
   },
+  /* ── Governance ───────────────────────────────────────────────────────
+   * The society reports SEVEN board members and THREE supervisory. The About
+   * page carries NINE portraits — six management and three supervisory — so
+   * one board member has no portrait and no name on this site. Raised with the
+   * client; unanswered. */
+  boardMembers: {
+    id: 'boardMembers',
+    label: 'Board members',
+    value: 7,
+    display: 'Seven',
+    verified: true,
+    source: SOURCE,
+    note: 'The society corrected an earlier answer of ten. Only six management portraits are published — one board member is missing a name and a photograph.',
+    updated: FROM_SOCIETY,
+  },
+  supervisoryMembers: {
+    id: 'supervisoryMembers',
+    label: 'Supervisory committee',
+    value: 3,
+    display: 'Three',
+    verified: true,
+    source: SOURCE,
+    updated: FROM_SOCIETY,
+  },
+  agmMonth: {
+    id: 'agmMonth',
+    label: 'Annual General Meeting',
+    value: 'February',
+    display: 'February',
+    verified: true,
+    source: SOURCE,
+    note: 'Held mostly in February; the last was 24 February 2026.',
+    updated: FROM_SOCIETY,
+  },
+
+  /* ── The coffee year ──────────────────────────────────────────────────
+   * The site said the main crop "runs from October", which was the brief's
+   * guess. The society gives August to December, with the fly crop April to
+   * July — a materially longer and earlier main crop than was published. */
+  mainCrop: {
+    id: 'mainCrop',
+    label: 'Main crop',
+    value: '2026-08/2026-12',
+    display: 'August – December',
+    verified: true,
+    source: SOURCE,
+    updated: FROM_SOCIETY,
+  },
+  flyCrop: {
+    id: 'flyCrop',
+    label: 'Fly crop',
+    value: '2026-04/2026-07',
+    display: 'April – July',
+    verified: true,
+    source: SOURCE,
+    updated: FROM_SOCIETY,
+  },
+
   wetMills: {
     id: 'wetMills',
     label: 'Wet mill',
@@ -153,14 +246,28 @@ export const facts = {
     note: 'Deep red volcanic (nitisol) soils. Confirm classification if a soil survey exists.',
     updated: TODAY,
   },
+  /* BATIAN IS GONE. The brief listed four varieties; the society lists three,
+     so anything describing "the newer disease-resistant releases" in the
+     plural now rests on Ruiru 11 alone. */
   varieties: {
     id: 'varieties',
     label: 'Varieties',
-    value: 'SL28, SL34, Ruiru 11, Batian',
-    display: 'SL28, SL34, Ruiru 11, Batian',
-    verified: false,
-    note: 'Confirm the approximate share of each variety across member farms — buyers ask.',
-    updated: TODAY,
+    value: 'SL28, SL34, Ruiru 11',
+    display: 'SL28, SL34 & Ruiru 11',
+    verified: true,
+    source: SOURCE,
+    note: 'The approximate share of each across member farms is still not supplied — buyers ask.',
+    updated: FROM_SOCIETY,
+  },
+  grades: {
+    id: 'grades',
+    label: 'Grades produced',
+    value: 'AA, AB, C, PB, T, TT, UG',
+    display: 'AA, AB, C, PB, T, TT & UG',
+    verified: true,
+    source: SOURCE,
+    note: 'Every grade the dry mill separates out of this society’s parchment — not the same as what is offered for sale in a given season.',
+    updated: FROM_SOCIETY,
   },
 
   /* ── Quality and returns ──────────────────────────────────────────────── */
@@ -193,25 +300,41 @@ export const facts = {
     note: 'Second in Kenya on cherry payment to farmers, 2024. Confirm the publishing body.',
     updated: TODAY,
   },
+  /* The brief's "KSh 126 in 2024" was never right: the society's own schedule
+     gives 130.37 for 2023–2024 and 138.50 for 2024–2025. Kept as the
+     2024–2025 rate, which is what a sentence about "last season" means. */
   cherryPrice2024: {
     id: 'cherryPrice2024',
-    label: 'Cherry payment, 2024',
-    value: 126,
-    display: 'KSh 126',
+    label: 'Cherry payment, 2024 – 2025',
+    value: 138.5,
+    display: 'KSh 138.50',
     unit: 'per kg',
-    verified: false,
-    note: 'The 2024 payment rate to members. Confirm against the payment schedule.',
-    updated: TODAY,
+    verified: true,
+    source: SOURCE,
+    note: 'Replaces a brief figure of KSh 126, which matched no season the society reports.',
+    updated: FROM_SOCIETY,
   },
   cherryPriceCurrent: {
     id: 'cherryPriceCurrent',
-    label: 'Current cherry price',
-    value: 126,
-    display: 'KSh 126',
+    label: 'Cherry payment, 2025 – 2026',
+    value: 147,
+    display: 'KSh 147',
     unit: 'per kg',
-    verified: false,
-    note: 'SHOWN ON THE MEMBER NOTICEBOARD. Placeholder — currently the 2024 rate. This is the figure members check most; keep it current.',
-    updated: TODAY,
+    verified: true,
+    source: SOURCE,
+    note: 'The 2025–2026 season rate, and the figure members check most. Update it each season from `cherryPayments` at the foot of this file.',
+    updated: FROM_SOCIETY,
+  },
+  mbuniPriceCurrent: {
+    id: 'mbuniPriceCurrent',
+    label: 'Mbuni payment, 2025 – 2026',
+    value: 465,
+    display: 'KSh 465',
+    unit: 'per kg',
+    verified: true,
+    source: SOURCE,
+    note: 'Mbuni is the dried natural, hulled from cherry dried whole rather than washed. Paid per kilo of MBUNI, which is why the rate is several times the cherry rate — it takes roughly five to six kilos of cherry to make one.',
+    updated: FROM_SOCIETY,
   },
 
   /* ── Retail pack prices ───────────────────────────────────────────────
@@ -353,6 +476,45 @@ export const facts = {
 } as const satisfies Record<string, Fact>;
 
 export type FactId = keyof typeof facts;
+
+/**
+ * ══════════════════════════════════════════════════════════════════════════
+ *  WHAT THE SOCIETY HAS PAID ITS MEMBERS, SEASON BY SEASON.
+ * ══════════════════════════════════════════════════════════════════════════
+ *
+ *  Supplied by the society on 2026-09-08 and the most checkable thing on this
+ *  site: a co-operative's payment history is the number its own members judge
+ *  it by, and the one a buyer can ask it to stand behind.
+ *
+ *  Both rates are KSh PER KILO, and they are not comparable to each other.
+ *  Cherry is the fresh fruit as delivered to the wet mill. Mbuni is the dried
+ *  natural — cherry dried whole and hulled rather than washed — so a kilo of
+ *  mbuni is several kilos of cherry, which is why the rate is several times
+ *  higher and why the two are never added together.
+ *
+ *  These are NOT in `facts` above. A Fact is one figure with one label; this
+ *  is a table, and flattening it into twenty entries would lose the thing that
+ *  makes it worth publishing, which is the shape of the line.
+ */
+export interface SeasonPayment {
+  /** As the society writes it. */
+  season: string;
+  /** KSh per kilo of fresh cherry delivered. */
+  cherry: number;
+  /** KSh per kilo of mbuni, the dried natural. */
+  mbuni: number;
+}
+
+export const cherryPayments: SeasonPayment[] = [
+  { season: '2021 – 2022', cherry: 119.5, mbuni: 160 },
+  { season: '2022 – 2023', cherry: 80, mbuni: 149 },
+  { season: '2023 – 2024', cherry: 130.37, mbuni: 179 },
+  { season: '2024 – 2025', cherry: 138.5, mbuni: 334 },
+  { season: '2025 – 2026', cherry: 147, mbuni: 465 },
+];
+
+/** The season the two `…PriceCurrent` facts above refer to. */
+export const currentSeason = cherryPayments[cherryPayments.length - 1];
 
 export const factList: Fact[] = Object.values(facts);
 
