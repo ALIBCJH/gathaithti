@@ -208,13 +208,16 @@ foreach (RULES[$form] as $field => [$required, $min, $max, $isEmail]) {
     }
 }
 
-/* ── 5. Deliver ──────────────────────────────────────────────────────────── */
+/* ── 5. Record, then deliver ─────────────────────────────────────────────
+ *
+ * THE ORDER MATTERS AND IT USED TO BE WRONG. The log was written AFTER the
+ * send, so anything that killed the send took the record with it — which is
+ * exactly what happened the first time a valid enquiry reached this file: a
+ * 500, and nothing on disk to say a message had ever arrived. An enquiry is
+ * the whole point of the page; it is written down BEFORE anything is risked.
+ */
 
 $submitted = gmdate('c');
-$locale = preg_replace('/[^a-z-]/', '', strtolower($value('locale')));
-if (!is_string($locale) || $locale === '') {
-    $locale = 'en';
-}
 
 if ($form === 'sample') {
     $to = $CONFIG['sample_to'];
@@ -249,8 +252,35 @@ $lines = array_merge($lines, [
     '',
     '—',
     'Submitted: ' . $submitted,
-    'Language:  ' . $locale,
 ]);
+
+/** Appends to the log, and never throws. */
+$record = function ($status, $detail = '') use ($store, $submitted, $form, $lines) {
+    if (!is_writable($store)) {
+        return;
+    }
+    @file_put_contents(
+        $store . '/enquiries.log',
+        '[' . $submitted . '] ' . $status . ($detail !== '' ? ' (' . $detail . ')' : '')
+            . ' ' . $form . "\n" . implode("\n", $lines) . "\n\n" . str_repeat('-', 60) . "\n",
+        FILE_APPEND | LOCK_EX
+    );
+};
+
+$record('RECEIVED');
+
+/* ── 6. Send ────────────────────────────────────────────────────────────
+ *
+ * `@mail(...)` was not enough. The @ operator suppresses WARNINGS; it does
+ * nothing about an Error, and on a host where mail() is disabled through
+ * disable_functions — common on shared hosting, which is what this is —
+ * calling it is a fatal, which PHP answers with a bare 500 and an HTML error
+ * page. The browser then shows "that didn't send" with no idea why.
+ *
+ * So: check the function exists, catch anything it throws anyway, and answer
+ * in JSON either way. The enquiry is already on disk by this point, so a
+ * failure here costs the reply, not the enquiry.
+ */
 
 $headers = [
     'From: ' . $CONFIG['from'],
@@ -260,24 +290,26 @@ $headers = [
     'X-Mailer: gathaithi-site',
 ];
 
-$sent = @mail(
-    $to,
-    '=?UTF-8?B?' . base64_encode($subject) . '?=',
-    implode("\n", $lines),
-    implode("\r\n", $headers),
-);
-
-/* A copy on disk, whether or not the mail went. Shared hosting drops mail
-   quietly often enough that an enquiry existing only in a mail queue is a
-   real way to lose business. */
-if (is_writable($store)) {
-    @file_put_contents(
-        $store . '/enquiries.log',
-        '[' . $submitted . '] ' . ($sent ? 'SENT' : 'MAIL-FAILED') . ' ' . $form . "\n"
-            . implode("\n", $lines) . "\n\n" . str_repeat('-', 60) . "\n",
-        FILE_APPEND | LOCK_EX,
-    );
+if (!function_exists('mail')) {
+    $record('MAIL-DISABLED', 'mail() is not available on this host');
+    fail(502, 'The site could not hand your message to the mail server. It has been recorded and the office has been alerted — or email us directly.');
 }
+
+$sent = false;
+$why = '';
+try {
+    $sent = @mail(
+        $to,
+        '=?UTF-8?B?' . base64_encode($subject) . '?=',
+        implode("\n", $lines),
+        implode("\r\n", $headers)
+    );
+} catch (Throwable $e) {
+    $sent = false;
+    $why = get_class($e) . ': ' . $e->getMessage();
+}
+
+$record($sent ? 'SENT' : 'MAIL-FAILED', $why);
 
 if (!$sent) {
     fail(502, 'We could not send that just now. Please try again, or email the office directly.');
