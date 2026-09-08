@@ -28,13 +28,21 @@ signed by the domain's own server, which is what its DKIM and its strict DMARC
 policy expect.
 
 It needs one file. In File Manager, inside `public_html`, create
-**`.mail-password.php`** containing exactly this and nothing else:
+**`.mail-password.php`** containing the password for `website@gathaithi.cloud`.
+Any of these work:
 
 ```php
-<?php return 'the password you set for website@gathaithi.cloud';
+<?php return 'the password';
 ```
 
-No closing `?>`, no blank line after it.
+```
+the password
+```
+
+The file is read as TEXT, never executed, so a stray quote or a missing
+semicolon cannot break anything. It used to be `require`d, which meant a typo
+in it was a PHP parse error that took the whole endpoint down with a bare 500 —
+including the diagnostic that would have explained why.
 
 **It is a separate file on purpose.** `enquiry.php` gets re-uploaded whenever
 the site is rebuilt, and a password kept inside it would be wiped every time.
