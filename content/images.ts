@@ -526,40 +526,61 @@ export const images = {
      These three carry no name, no village, no figures and no quote. The people
      in them are real; the profiles this page ships with are invented. See the
      note at the top of content/en/farmers.ts. */
+  /* THE THREE FRAMES IN THE MEMBERS BAND, replaced 2026-09-08.
+     They used to be harvest-0*.jpg, shared with the parked harvest slideshow.
+     They have their own files now, so changing one band cannot silently change
+     the other, and the harvest slots keep the pictures their briefs describe.
+
+     PORTRAIT, all three 768x1376. The slots were 3/2 landscape at a 2000px
+     minimum; a 3/2 crop of a 768x1376 frame keeps 37% of its height, which
+     takes the heads off two of these and the baskets off all three. The ratio
+     follows the photographs.
+
+     STILL NOT PHOTOGRAPHS OF NAMED MEMBERS. The three they replaced were
+     generated and these read the same way — a like-for-like swap, not a step
+     towards evidence. That is why the cards below still carry NO name, no
+     village, no figures and no quote: see content/en/farmers.ts. The real
+     thing on this page remains gathaithi-members-drying.jpg in the ownership
+     band. */
   memberOne: {
-    file: 'harvest-01-picking.jpg',
+    file: 'member-01-picking.jpg',
     page: 'Our Farmers',
-    section: 'Member profiles',
-    ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
+    section: 'Members',
+    ratio: '2/3',
+    minWidth: 768,
+    minHeight: 1376,
     direction:
-      'Shared with the harvest slideshow. A member picking ripe cherry by hand, close in, mid-work. No crop that would cut the hands or the face.',
-    alt: 'A Gathaithi member in a red headscarf picking ripe red cherry by hand, a branch heavy with fruit beside her.',
+      'A picker working a branch by hand, basket at the waist, more pickers along the rows behind her.',
+    alt: 'A coffee picker in a red headscarf taking ripe cherry from a branch by hand, a basket at her waist and more pickers along the rows behind.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   memberTwo: {
-    file: 'harvest-02-reaching.jpg',
+    file: 'member-02-selecting.jpg',
     page: 'Our Farmers',
-    section: 'Member profiles',
-    ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
+    section: 'Members',
+    ratio: '2/3',
+    minWidth: 768,
+    minHeight: 1376,
     direction:
-      'Shared with the harvest slideshow. A member reaching up into the branch, selecting ripe cherry, sky behind.',
-    alt: 'A Gathaithi member reaching up into a coffee branch to select ripe cherry, blue sky behind.',
+      'A picker selecting cherry a berry at a time under shade netting, basket slung at the hip.',
+    alt: 'A coffee picker in a cap selecting ripe cherry a berry at a time, a woven basket slung at his hip, shade netting overhead.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   memberThree: {
-    file: 'harvest-03-two-members.jpg',
+    file: 'member-03-row.jpg',
     page: 'Our Farmers',
-    section: 'Member profiles',
-    ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
+    section: 'Members',
+    /* THREE pickers, not two. The frame this replaced held two people at
+       opposite edges and carried a warning never to crop it narrower than 3/2
+       for that reason. This one has them along a row with the hills behind, so
+       the warning is gone and the caption in content/en/farmers.ts was
+       corrected to match — it used to say "Two members, one tree". */
+    ratio: '2/3',
+    minWidth: 768,
+    minHeight: 1376,
     direction:
-      'Shared with the harvest slideshow. Two members working the same tree from either side. They stand at opposite edges of the frame, so this one must never be cropped narrower than 3/2 — the caption says two members.',
-    alt: 'Two Gathaithi members working the same coffee tree from either side, picking ripe cherry.',
+      'Three pickers working down the same row, baskets in hand, the ridge behind them.',
+    alt: 'Three coffee pickers working down the same row with baskets in hand, the Nyeri hills behind them.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   /* PARKED — nothing renders these three. They held the three invented sample

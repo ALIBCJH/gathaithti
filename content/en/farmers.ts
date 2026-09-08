@@ -204,7 +204,12 @@ export const farmers: FarmersContent = {
       {
         id: 'm3',
         imageSlot: 'memberThree',
-        caption: 'Two members, one tree. Most of the crop is family work.',
+        /* Was "Two members, one tree." The photograph behind this card was
+           replaced on 2026-09-08 and the new one has three people working
+           down a row, so the caption had to follow it. A caption that counts
+           the people in the frame is a caption that has to be checked every
+           time the frame changes. */
+        caption: 'Picked down the row, tree by tree, over several passes.',
       },
     ],
   },
