@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-08.4-smtp';
+const HANDLER_VERSION = '2026-09-08.5-smtp';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -79,23 +79,51 @@ $CONFIG = [
     'store' => __DIR__ . '/.enquiry-store',
 ];
 
-/* ── THE PASSWORD LIVES IN ITS OWN FILE ───────────────────────────────────
+/* ── THE PASSWORD LIVES IN ITS OWN FILE, AND IS NEVER EXECUTED ────────────
  *
- * Not in this one, and the reason is practical rather than principled: this
- * handler has been re-uploaded three times in a day, and a password kept in it
- * would have been wiped by every one of those uploads. Beside it in
- * .mail-password.php, it is set once and survives.
+ * Not in this one, because this handler gets re-uploaded whenever the site is
+ * rebuilt and would wipe a password kept inside it.
  *
- * CREATE public_html/.mail-password.php CONTAINING EXACTLY:
+ * IT IS READ AS TEXT, NOT `require`d, AND THAT IS THE IMPORTANT PART. It used
+ * to be required, which meant the file had to be valid PHP — so a password
+ * containing an apostrophe, or a missing semicolon, was a PARSE ERROR in a
+ * file the handler pulls in near the top. That does not fail politely: it
+ * takes the whole endpoint down with a bare 500, including the diagnostic that
+ * would have explained it. It happened. Asking somebody to hand-write PHP
+ * syntax for a password was the mistake, so the syntax is no longer required.
  *
- *     <?php return 'the password for website@gathaithi.cloud';
+ * Anything reasonable in public_html/.mail-password.php now works:
  *
- * No closing ?>, no blank lines after it. PHP files are executed rather than
- * served, so the password is not readable over the web even if the leading dot
- * were ignored — but the dot keeps it out of directory listings as well.
+ *     <?php return 'the password';        the documented form
+ *     <?php return "the password";        double quotes
+ *     the password                        the bare password on its own
+ *
+ * Only the OUTERMOST pair of quotes is stripped, so quotes inside a password
+ * survive. The .php extension is kept for one reason: PHP files are executed
+ * rather than served, so the password cannot be fetched over the web even if
+ * the leading dot is ignored.
  */
 $SECRET_FILE = __DIR__ . '/.mail-password.php';
-$CONFIG['smtp_pass'] = is_file($SECRET_FILE) ? trim((string) (require $SECRET_FILE)) : '';
+$CONFIG['smtp_pass'] = '';
+
+if (is_file($SECRET_FILE)) {
+    $secret = (string) @file_get_contents($SECRET_FILE);
+    /* Strip a PHP wrapper if there is one; accept a bare password if not. */
+    $secret = preg_replace('/^\s*<\?php\s*/i', '', $secret);
+    $secret = preg_replace('/^\s*return\s+/i', '', (string) $secret);
+    $secret = preg_replace('/\s*;?\s*(\?>)?\s*$/', '', (string) $secret);
+    $secret = trim((string) $secret);
+
+    /* One matching pair of surrounding quotes, and one only. */
+    if (strlen($secret) >= 2) {
+        $first = $secret[0];
+        if (($first === "'" || $first === '"') && substr($secret, -1) === $first) {
+            $secret = substr($secret, 1, -1);
+        }
+    }
+
+    $CONFIG['smtp_pass'] = $secret;
+}
 
 /* ── WHOSE REQUEST IS THIS? ────────────────────────────────────────────────
  *
@@ -259,7 +287,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
         'handler' => HANDLER_VERSION,
         'mail' => function_exists('mail') ? 'available' : 'DISABLED ON THIS HOST',
         'transport' => 'smtp',
-        'smtp_password_file' => $CONFIG['smtp_pass'] !== '' ? 'present' : 'MISSING — create .mail-password.php',
+        /* The LENGTH, never the password. Enough to see that the file was
+           read and that what came out of it is a plausible shape — a length of
+           0 means missing or empty, and a length that is not what was typed
+           means the wrapper was stripped wrongly. */
+        'smtp_password_file' => $CONFIG['smtp_pass'] !== ''
+            ? 'present (' . strlen($CONFIG['smtp_pass']) . ' characters)'
+            : 'MISSING or empty — create .mail-password.php',
         /* Your own address, and which header carried it. If this says
            "none", the host hides the visitor behind a proxy and the per-IP
            limit is off — see the block that works this out. */
