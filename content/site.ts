@@ -96,28 +96,42 @@ const contact: {
   memberLine: ContactDetail;
   whatsapp: ContactDetail;
 } = {
-  /* THE PHONE AND THE WHATSAPP ARE REAL from 2026-09-08 — one number,
-     0726680365, supplied by the client and used for both. It is written here
-     in international form because that is the only form `tel:` and wa.me both
-     take from a phone abroad; the display keeps the spacing a Kenyan reader
-     expects.
+  /* ALL REAL FROM 2026-09-08. Nothing in this block is sample data any more.
 
-     ⚠ THE EMAIL ADDRESSES ARE STILL SAMPLE DATA. They sit on
-     gathaithicoffee.co.ke, which has no DNS record at all, so mail to them
-     bounces at the sender rather than landing in a stranger's inbox. That was
-     deliberate and it still is — but a real number beside three invented
-     addresses is a page a visitor half-trusts, so these are the next thing to
-     ask for.
+     THE NUMBER: 0726680365, one line answering both the phone and WhatsApp.
+     Written in international form because that is the only form `tel:` and
+     wa.me both take from a phone abroad; the display keeps the spacing a
+     Kenyan reader expects.
+
+     THE ADDRESSES: three mailboxes on gathaithi.cloud, created in cPanel on
+     the society's own Truehost account. They replace addresses on
+     gathaithicoffee.co.ke, a domain with no DNS record, chosen deliberately so
+     that mail to them bounced at the sender rather than reaching a stranger.
+
+       office@      general enquiries, read daily
+       marketing@   sample and buyer enquiries
+       website@     what the forms send FROM. Nobody reads it.
+
+     THAT THIRD ONE IS NOT DECORATION. gathaithi.cloud publishes DMARC
+     `p=quarantine` with `aspf=s` — strict alignment — so anything the site
+     sends must be From: an address on this domain. Send as gmail.com and the
+     mail is not bounced, it is silently filed as spam, and the form looks
+     broken when it is not.
 
      The members' line is BLANK rather than invented. It carried
-     +254 700 000 111 from the sample block, and a fake number standing next to
-     a real one is worse than no row at all: a member would ring it. Both the
-     contact page and the footer drop a channel whose `value` is empty, so the
-     row simply is not drawn. Fill it in and it comes back. */
+     +254 700 000 111 from the old sample block, and a fake number standing
+     next to a real one is worse than no row at all: a member would ring it.
+     Both the contact page and the footer drop a channel whose `value` is
+     empty, so the row simply is not drawn. Fill it in and it comes back. */
   officePhone: { value: '+254726680365', display: '+254 726 680 365' },
-  officeEmail: { value: 'office@gathaithicoffee.co.ke', display: 'office@gathaithicoffee.co.ke' },
-  buyerEmail: { value: 'marketing@gathaithicoffee.co.ke', display: 'marketing@gathaithicoffee.co.ke' },
-  buyerContact: { name: 'Grace Wanjiru', role: 'Marketing & Sales, Gathaithi FCS' },
+  officeEmail: { value: 'office@gathaithi.cloud', display: 'office@gathaithi.cloud' },
+  buyerEmail: { value: 'marketing@gathaithi.cloud', display: 'marketing@gathaithi.cloud' },
+  /* BLANK, not invented. This was "Grace Wanjiru, Marketing & Sales" — a
+     person who does not exist, carried since the first build. Nothing renders
+     it (it is exposed as a {{buyerContact}} token that no content file uses),
+     which is exactly how it survived every pass that removed the other
+     invented people. Supply the real marketing contact and it has a home. */
+  buyerContact: { name: '', role: '' },
   memberLine: { value: '', display: '' },
   /* `value` is digits only, no plus and no spaces — that is the form wa.me
      takes, and anything else silently 404s rather than erroring. Same number
@@ -163,8 +177,10 @@ export const site = {
 
   contact,
 
-  /** Where the sample-request form delivers. Set SAMPLE_REQUEST_TO in .env. */
-  sampleRequestTo: process.env.SAMPLE_REQUEST_TO ?? 'office@example.invalid',
+  /** Where the sample-request form delivers. Override with SAMPLE_REQUEST_TO
+   *  in .env; the fallback is a real mailbox now, so a deployment that forgets
+   *  the variable still delivers instead of posting into a void. */
+  sampleRequestTo: process.env.SAMPLE_REQUEST_TO ?? 'marketing@gathaithi.cloud',
 
   openingHours: [
     { day: 'Monday – Friday', time: '8:00 – 17:00' },
