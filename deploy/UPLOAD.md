@@ -14,9 +14,35 @@ Make sure `.htaccess` came across. File Manager hides dotfiles until you turn
 on **Settings → Show Hidden Files**, and without it every URL 404s and every
 image is served larger than it needs to be.
 
-## 2. Set the two email addresses
+## 2. Create the mail password file
 
-Open `enquiry.php` and edit the block at the top:
+**This host disables PHP's `mail()`.** Confirmed on 2026-09-08 — loading
+`/enquiry.php` in a browser reports `"mail":"DISABLED ON THIS HOST"`. That is
+ordinary on shared hosting: it is how a provider stops one compromised account
+spamming from the whole server. Calling it is a fatal error, which is why the
+first live enquiry came back as a bare 500.
+
+So the site sends the way a phone does — authenticated SMTP over TLS as
+`website@gathaithi.cloud`, which is also the better route: the message is
+signed by the domain's own server, which is what its DKIM and its strict DMARC
+policy expect.
+
+It needs one file. In File Manager, inside `public_html`, create
+**`.mail-password.php`** containing exactly this and nothing else:
+
+```php
+<?php return 'the password you set for website@gathaithi.cloud';
+```
+
+No closing `?>`, no blank line after it.
+
+**It is a separate file on purpose.** `enquiry.php` gets re-uploaded whenever
+the site is rebuilt, and a password kept inside it would be wiped every time.
+This one is set once and survives. PHP files are executed rather than served,
+so it is not readable over the web, and the leading dot keeps it out of
+directory listings too.
+
+The addresses themselves are already set in `enquiry.php` and need no editing:
 
 ```php
 'sample_to'  => 'marketing@gathaithi.cloud',   // Our Coffee enquiries
@@ -24,15 +50,17 @@ Open `enquiry.php` and edit the block at the top:
 'from'       => 'Gathaithi website <website@gathaithi.cloud>',
 ```
 
-**These three already exist** — `office@`, `marketing@` and `website@` were
-created in cPanel on 2026-09-08 — so this block should need no editing unless
-the addresses change.
+## 2b. Check it before testing
 
-**`from` must stay on gathaithi.cloud.** The domain publishes DMARC
-`p=quarantine` with `aspf=s` (strict alignment), so a `From:` of gmail.com, or
-of any other domain, is not bounced — it is **silently filed as spam**. The
-form looks broken while working perfectly. SPF, DKIM and DMARC are all already
-published for this domain by the host; nothing needs adding.
+Open **https://gathaithi.cloud/enquiry.php** in a browser. It answers:
+
+```json
+{"error":"Method not allowed.","handler":"…","transport":"smtp",
+ "smtp_password_file":"present"}
+```
+
+`"smtp_password_file":"present"` means the file was found and read. If it says
+`MISSING`, the file is not there or is not named exactly `.mail-password.php`.
 
 ## 3. Send yourself one of each
 
