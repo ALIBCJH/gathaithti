@@ -1,36 +1,27 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import { GalleryGrid } from '@/components/gallery/GalleryGrid';
 import { Container } from '@/components/ui/Container';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { getDictionary, isLocale } from '@/lib/i18n';
+import { dict } from '@/lib/i18n';
 import { breadcrumbLd, buildMetadata, organizationLd } from '@/lib/seo';
 
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  return buildMetadata({ locale, path: 'gallery', meta: getDictionary(locale).gallery.meta });
+export function generateMetadata(): Metadata {
+  return buildMetadata({ path: 'gallery', meta: dict.gallery.meta });
 }
 
-export default async function GalleryPage({ params }: Props) {
-  const { locale } = await params;
-  if (!isLocale(locale)) notFound();
-
-  const dict = getDictionary(locale);
-  const { gallery, common } = dict;
+export default function GalleryPage() {
+    const { gallery, common } = dict;
 
 
   return (
     <>
       <JsonLd
         data={[
-          organizationLd(locale),
-          breadcrumbLd(locale, [
+          organizationLd(),
+          breadcrumbLd([
             { name: common.nav.home, path: '' },
             { name: common.nav.gallery, path: 'gallery' },
           ]),

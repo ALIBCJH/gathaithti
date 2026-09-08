@@ -70,7 +70,6 @@ export async function POST(request: Request) {
 
   const delivery = await sendSampleRequest({
     ...values,
-    locale: asString(body.locale) || 'en',
     submittedAt: new Date().toISOString(),
   });
   if (!delivery.ok) {

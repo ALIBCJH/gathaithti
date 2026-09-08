@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import { ContactForm } from '@/components/contact/ContactForm';
 import { JsonLd } from '@/components/seo/JsonLd';
@@ -8,32 +7,24 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { RichText } from '@/components/ui/Fact';
 import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
-import { getDictionary, isLocale } from '@/lib/i18n';
+import { dict } from '@/lib/i18n';
 import { site, whatsappHref } from '@content/site';
 import { breadcrumbLd, buildMetadata, localBusinessLd, organizationLd } from '@/lib/seo';
 
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  return buildMetadata({ locale, path: 'contact', meta: getDictionary(locale).contact.meta });
+export function generateMetadata(): Metadata {
+  return buildMetadata({ path: 'contact', meta: dict.contact.meta });
 }
 
-export default async function ContactPage({ params }: Props) {
-  const { locale } = await params;
-  if (!isLocale(locale)) notFound();
-
-  const dict = getDictionary(locale);
-  const { contact, common } = dict;
+export default function ContactPage() {
+    const { contact, common } = dict;
 
   return (
     <>
       <JsonLd
         data={[
-          organizationLd(locale),
-          localBusinessLd(locale),
-          breadcrumbLd(locale, [
+          organizationLd(),
+          localBusinessLd(),
+          breadcrumbLd([
             { name: common.nav.home, path: '' },
             { name: common.nav.contact, path: 'contact' },
           ]),
@@ -180,13 +171,13 @@ export default async function ContactPage({ params }: Props) {
               <p className="t-body border-t border-line pt-6 text-[0.9375rem] text-ink-soft">
                 {contact.form.note}
               </p>
-              <a href={`/${locale}/products#request-a-sample`} className="link t-meta w-fit">
+              <a href={'/products#request-a-sample'} className="link t-meta w-fit">
                 {common.actions.requestSample}
               </a>
             </div>
 
             <div className="lg:col-span-7 lg:col-start-6">
-              <ContactForm content={contact.form} form={common.form} locale={locale} />
+              <ContactForm content={contact.form} form={common.form}  />
             </div>
           </div>
         </Container>

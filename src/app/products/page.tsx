@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import { LotCard } from '@/components/products/LotCard';
 import { PackGrid } from '@/components/products/PackGrid';
@@ -10,23 +9,15 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Section } from '@/components/ui/Section';
-import { getDictionary, isLocale } from '@/lib/i18n';
+import { dict } from '@/lib/i18n';
 import { breadcrumbLd, buildMetadata, localBusinessLd, organizationLd, productLd } from '@/lib/seo';
 
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  return buildMetadata({ locale, path: 'products', meta: getDictionary(locale).products.meta });
+export function generateMetadata(): Metadata {
+  return buildMetadata({ path: 'products', meta: dict.products.meta });
 }
 
-export default async function ProductsPage({ params }: Props) {
-  const { locale } = await params;
-  if (!isLocale(locale)) notFound();
-
-  const dict = getDictionary(locale);
-  const { products, common } = dict;
+export default function ProductsPage() {
+    const { products, common } = dict;
   const requestHref = '#request-a-sample';
 
   /* The cards read the filesystem to choose between a photograph and a
@@ -43,13 +34,13 @@ export default async function ProductsPage({ params }: Props) {
     <>
       <JsonLd
         data={[
-          organizationLd(locale),
-          localBusinessLd(locale),
-          breadcrumbLd(locale, [
+          organizationLd(),
+          localBusinessLd(),
+          breadcrumbLd([
             { name: common.nav.home, path: '' },
             { name: common.nav.products, path: 'products' },
           ]),
-          ...products.lots.map((lot) => productLd(lot, locale)),
+          ...products.lots.map((lot) => productLd(lot)),
         ]}
       />
 
@@ -117,7 +108,6 @@ export default async function ProductsPage({ params }: Props) {
       <ReachOut
         content={products.sample}
         form={common.form}
-        locale={locale}
         packs={products.lots.map(({ id, grade, name }) => ({ id, grade, name }))}
       />
     </>

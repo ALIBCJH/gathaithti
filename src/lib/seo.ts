@@ -2,21 +2,17 @@ import type { Metadata } from 'next';
 import {
   site,
   siteUrl,
-  locales,
-  defaultLocale,
-  localeTags,
-  localeOgTags,
-  type Locale,
 } from '@content/site';
 import { facts } from '@content/facts';
 import { getFact } from './facts';
 import { resolve } from './facts';
 import type { Lot, Meta } from '@content/types';
+import { ogLocale } from './i18n';
 
-/** Canonical URL for a page in a locale. Path is relative: '', 'about', … */
-export function urlFor(locale: Locale, path = ''): string {
+/** Canonical URL for a page. Path is relative: '', 'about', … */
+export function urlFor(path = ''): string {
   const clean = path.replace(/^\//, '');
-  return clean ? `${siteUrl}/${locale}/${clean}` : `${siteUrl}/${locale}`;
+  return clean ? `${siteUrl}/${clean}` : siteUrl;
 }
 
 /**
@@ -25,35 +21,29 @@ export function urlFor(locale: Locale, path = ''): string {
  * corrects the search snippet too.
  */
 export function buildMetadata({
-  locale,
   path = '',
   meta,
 }: {
-  locale: Locale;
   path?: string;
   meta: Meta;
 }): Metadata {
   const title = resolve(meta.title);
   const description = resolve(meta.description);
-  const canonical = urlFor(locale, path);
+  const canonical = urlFor(path);
 
-  /* Only worth emitting once there is more than one language to point at. */
-  const languages =
-    locales.length > 1
-      ? {
-          ...Object.fromEntries(locales.map((l) => [localeTags[l] ?? l, urlFor(l, path)])),
-          'x-default': urlFor(defaultLocale, path),
-        }
-      : undefined;
+  /* NO hreflang. It says "this page also exists in another language", and it
+     does not: the site is English only and the locale segment came out of the
+     URLs on 2026-09-08. An alternates block listing one language is noise a
+     crawler has to read and discard. */
 
   return {
     title,
     description,
-    alternates: { canonical, ...(languages ? { languages } : {}) },
+    alternates: { canonical },
     openGraph: {
       type: 'website',
       siteName: site.name,
-      locale: localeOgTags[locale] ?? 'en_KE',
+      locale: ogLocale,
       url: canonical,
       title,
       description,
@@ -78,14 +68,14 @@ const postalAddress = {
   addressCountry: site.address.countryCode,
 };
 
-export function organizationLd(locale: Locale) {
+export function organizationLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': `${siteUrl}/#organization`,
     name: site.legalName,
     alternateName: [...site.alternateNames],
-    url: urlFor(locale),
+    url: urlFor(),
     foundingDate: String(facts.established.value),
     description: resolve(
       'Farmer-owned coffee co-operative in Gathaithi village, Tetu Sub-County, Nyeri County, Kenya. {{members}} smallholder members, one wet mill, washed {{varieties}}.',
@@ -101,14 +91,14 @@ export function organizationLd(locale: Locale) {
   };
 }
 
-export function localBusinessLd(locale: Locale) {
+export function localBusinessLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': `${siteUrl}/#localbusiness`,
     name: site.legalName,
     image: `${siteUrl}/opengraph-image`,
-    url: urlFor(locale),
+    url: urlFor(),
     address: postalAddress,
     /* The number a search result puts a Call button on. It was never here,
        because until 2026-09-08 the only number in site.ts was sample data and
@@ -135,13 +125,13 @@ export function localBusinessLd(locale: Locale) {
   };
 }
 
-export function productLd(lot: Lot, locale: Locale) {
+export function productLd(lot: Lot) {
   const price = lot.priceFactId ? getFact(lot.priceFactId) : undefined;
 
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    '@id': `${urlFor(locale, 'products')}#lot-${lot.id}`,
+    '@id': `${urlFor('products')}#lot-${lot.id}`,
     /* The catalogue sells ROASTED RETAIL PACKS now, not green coffee by the
        container. Saying "green coffee" here would be a machine-readable claim
        that the thing on sale is unroasted — wrong for a 250 g bag of ground
@@ -191,7 +181,7 @@ export function productLd(lot: Lot, locale: Locale) {
   };
 }
 
-export function breadcrumbLd(locale: Locale, trail: { name: string; path: string }[]) {
+export function breadcrumbLd(trail: { name: string; path: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -199,7 +189,7 @@ export function breadcrumbLd(locale: Locale, trail: { name: string; path: string
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: urlFor(locale, item.path),
+      item: urlFor(item.path),
     })),
   };
 }

@@ -29,12 +29,10 @@ import type { Common, Lot, ProductsContent } from '@content/types';
 export function ReachOut({
   content,
   form,
-  locale,
   packs,
 }: {
   content: ProductsContent['sample'];
   form: Common['form'];
-  locale: string;
   packs: Pick<Lot, 'id' | 'grade' | 'name'>[];
 }) {
   const whatsapp = site.contact.whatsapp;
@@ -134,7 +132,7 @@ export function ReachOut({
           </h3>
 
           <div className="mt-5">
-            <PackEnquiryForm content={content.form} form={form} locale={locale} packs={packs} />
+            <PackEnquiryForm content={content.form} form={form} packs={packs} />
           </div>
         </div>
       </Container>

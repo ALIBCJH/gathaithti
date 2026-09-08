@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { routes, site, whatsappHref, type Locale } from '@content/site';
+import { routes, site, whatsappHref } from '@content/site';
 import type { Common } from '@content/types';
 import { WhatsAppMark } from '@/components/icons/Channels';
 import { ThemeToggle } from './ThemeToggle';
@@ -17,21 +17,14 @@ import { NavIcon } from './NavIcon';
  * hero renders (#hero-sentinel). Pages without a hero have no sentinel and get
  * the solid bar immediately, with no scroll listener running at all.
  */
-export function Header({
-  locale,
-  common,
-}: {
-  locale: Locale;
-  common: Common;
-  /** Prepared on the server so the panel needs no access to the facts file. */
-}) {
-  const pathname = usePathname() ?? `/${locale}`;
+export function Header({ common }: { common: Common }) {
+  const pathname = usePathname() ?? '/';
   /* Only the home page has a full-bleed hero to sit transparently over.
      `solid` is DERIVED from the current path rather than held in state: the
      header stays mounted across client-side navigation, and a stored value
      went stale the moment you moved from the hero to a parchment page —
      parchment type on a parchment background, an invisible navigation bar. */
-  const isHome = pathname === `/${locale}`;
+  const isHome = pathname === '/';
 
   /* The observed value is stored with the path it was measured on, so a value
      left over from the previous page can never be read as current. */
@@ -126,7 +119,7 @@ export function Header({
   const navLabel = (key: string) => common.nav[key as keyof Common['nav']];
 
   const isCurrent = (path: string) => {
-    const full = path ? `/${locale}/${path}` : `/${locale}`;
+    const full = path ? `/${path}` : '/';
     return path ? pathname.startsWith(full) : pathname === full;
   };
 
@@ -175,7 +168,7 @@ export function Header({
     >
       <div className="mx-auto flex h-full w-full max-w-[100rem] items-center justify-between gap-4 px-6 sm:gap-8 sm:px-10 lg:px-16">
         <Link
-          href={`/${locale}`}
+          href={'/'}
           className={`tap -my-2 inline-flex items-center py-2 t-meta transition-colors duration-200 [transition-timing-function:var(--ease)] ${
             'text-ink hover:text-ochre-ink'
           }`}
@@ -236,7 +229,7 @@ export function Header({
               return (
                 <li key={route.key}>
                   <Link
-                    href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
+                    href={route.path ? `/${route.path}` : '/'}
                     aria-current={current ? 'page' : undefined}
                     onClick={toTopIfCurrent(current)}
                     className={[
@@ -405,7 +398,7 @@ export function Header({
                   return (
                     <li key={route.key} className="stagger-in" style={{ '--i': i } as React.CSSProperties}>
                       <Link
-                        href={route.path ? `/${locale}/${route.path}` : `/${locale}`}
+                        href={route.path ? `/${route.path}` : '/'}
                         aria-current={current ? 'page' : undefined}
                         onClick={() => {
                           setOpen(false);

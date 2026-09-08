@@ -36,8 +36,8 @@ const rel = new Set(files.map((f) => '/' + relative(DIST, f).split('\\').join('/
 ck(html.length > 0, `${html.length} html pages built`);
 
 for (const page of ['', 'about', 'products', 'farmers', 'gallery', 'contact']) {
-  const p = join(DIST, 'en', page, 'index.html');
-  ck(existsSync(p), `/en/${page} exists as ${relative(DIST, p)}`);
+  const p = join(DIST, page, 'index.html');
+  ck(existsSync(p), `/${page} exists as ${relative(DIST, p)}`);
 }
 
 ck(existsSync(join(DIST, '.htaccess')), '.htaccess is in the bundle');

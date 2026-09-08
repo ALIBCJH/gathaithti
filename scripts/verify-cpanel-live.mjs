@@ -38,7 +38,7 @@ const base = `http://127.0.0.1:${PORT}`;
 try {
   for (let i = 0; i < 40; i++) {
     try {
-      const r = await fetch(`${base}/en/`);
+      const r = await fetch(`${base}/`);
       if (r.ok) break;
     } catch {
       /* not up yet */
@@ -56,7 +56,7 @@ try {
       if (r.status() >= 400) missing.push(`${r.status()} ${r.url().replace(base, '')}`);
     });
 
-    await page.goto(`${base}/en/`, { waitUntil: 'networkidle' });
+    await page.goto(`${base}/`, { waitUntil: 'networkidle' });
     await page.evaluate(async () => {
       for (let y = 0; y < document.body.scrollHeight; y += 600) {
         window.scrollTo(0, y);
@@ -79,7 +79,7 @@ try {
     if (r.status() >= 400) broken.push(`${r.status()} ${r.url().replace(base, '')}`);
   });
 
-  for (const path of ['/en/', '/en/about/', '/en/products/', '/en/farmers/', '/en/gallery/', '/en/contact/']) {
+  for (const path of ['/', '/about/', '/products/', '/farmers/', '/gallery/', '/contact/']) {
     const r = await page.goto(base + path, { waitUntil: 'networkidle' });
     ck(r.status() === 200, `${path} serves 200`);
   }
@@ -92,7 +92,7 @@ try {
     await route.fulfill({ status: 200, contentType: 'application/json', body: '{"ok":true}' });
   });
 
-  await page.goto(`${base}/en/products/`, { waitUntil: 'networkidle' });
+  await page.goto(`${base}/products/`, { waitUntil: 'networkidle' });
   await page.fill('#email', 'someone@example.com');
   await page.fill('#message', 'Please tell me about the 250 g pack.');
   await page.waitForTimeout(2600); /* the endpoint rejects anything faster than a person */

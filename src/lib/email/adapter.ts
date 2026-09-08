@@ -39,7 +39,6 @@ export interface SampleRequest {
   /** Id of the pack the sender clicked through from, if any. */
   pack?: string;
   message: string;
-  locale: string;
   submittedAt: string;
 }
 
@@ -53,7 +52,6 @@ export interface ContactEnquiry {
   topic: string;
   memberNumber: string;
   message: string;
-  locale: string;
   submittedAt: string;
 }
 
@@ -104,7 +102,6 @@ function format(request: SampleRequest): EmailMessage {
     '',
     '—',
     `Submitted: ${request.submittedAt}`,
-    `Language:  ${request.locale}`,
   ];
 
   return {
@@ -144,7 +141,6 @@ function formatEnquiry(enquiry: ContactEnquiry): EmailMessage {
     '',
     '—',
     `Submitted: ${enquiry.submittedAt}`,
-    `Language:  ${enquiry.locale}`,
   ];
 
   return {

@@ -6,13 +6,10 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { SmartImage } from '@/components/media/SmartImage';
 import type { HomeContent } from '@content/types';
-import type { Locale } from '@content/site';
 
 export function SeasonPanel({
-  locale,
   content,
 }: {
-  locale: Locale;
   content: HomeContent['season'];
 }) {
   return (
@@ -69,7 +66,7 @@ export function SeasonPanel({
             </Reveal>
 
             <Reveal delay={180}>
-              <Button href={`/${locale}/${content.cta.href}`} variant="secondary">
+              <Button href={`/${content.cta.href}`} variant="secondary">
                 {content.cta.label}
               </Button>
             </Reveal>

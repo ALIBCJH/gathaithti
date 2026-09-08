@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 
 import { MemberCard } from '@/components/farmers/MemberCard';
 import { Ownership } from '@/components/farmers/Ownership';
@@ -9,31 +8,23 @@ import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { getDictionary, isLocale } from '@/lib/i18n';
+import { dict } from '@/lib/i18n';
 import { breadcrumbLd, buildMetadata, localBusinessLd, organizationLd } from '@/lib/seo';
 
-type Props = { params: Promise<{ locale: string }> };
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
-  if (!isLocale(locale)) return {};
-  return buildMetadata({ locale, path: 'farmers', meta: getDictionary(locale).farmers.meta });
+export function generateMetadata(): Metadata {
+  return buildMetadata({ path: 'farmers', meta: dict.farmers.meta });
 }
 
-export default async function FarmersPage({ params }: Props) {
-  const { locale } = await params;
-  if (!isLocale(locale)) notFound();
-
-  const dict = getDictionary(locale);
-  const { farmers, common } = dict;
+export default function FarmersPage() {
+    const { farmers, common } = dict;
 
   return (
     <>
       <JsonLd
         data={[
-          organizationLd(locale),
-          localBusinessLd(locale),
-          breadcrumbLd(locale, [
+          organizationLd(),
+          localBusinessLd(),
+          breadcrumbLd([
             { name: common.nav.home, path: '' },
             { name: common.nav.farmers, path: 'farmers' },
           ]),

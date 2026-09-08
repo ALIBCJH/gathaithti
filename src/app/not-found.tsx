@@ -13,7 +13,7 @@ export default function NotFound() {
             The link may be old, or mistyped. Everything the society publishes is reachable from the
             home page.
           </p>
-          <Link href="/en" className="link w-fit t-meta">
+          <Link href="/" className="link w-fit t-meta">
             Back to the home page
           </Link>
         </div>

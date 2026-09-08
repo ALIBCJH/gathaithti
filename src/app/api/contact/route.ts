@@ -58,7 +58,6 @@ export async function POST(request: Request) {
 
   const enquiry: ContactEnquiry = {
     ...values,
-    locale: asString(body.locale) || 'en',
     submittedAt: new Date().toISOString(),
   };
 

@@ -1,15 +1,14 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
-import { notFound } from 'next/navigation';
-import '../globals.css';
+import './globals.css';
 
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { SkipLink } from '@/components/layout/SkipLink';
 import { RevealScript } from '@/components/ui/Reveal';
 import { THEME_SCRIPT } from '@/components/layout/ThemeToggle';
-import { getDictionary, isLocale, locales } from '@/lib/i18n';
-import { localeTags, site, siteUrl } from '@content/site';
+import { dict, languageTag } from '@/lib/i18n';
+import { site, siteUrl } from '@content/site';
 
 /**
  * Display face. Optical sizing is the point of Fraunces: it thickens the
@@ -42,8 +41,10 @@ export const metadata: Metadata = {
   creator: site.legalName,
   publisher: site.legalName,
   formatDetection: { telephone: true, address: false, email: true },
-  /* Static files rather than a generated /icon route: the route resolves
-     relative to the locale segment and 404s on /en/icon. */
+  /* Static files rather than a generated /icon route. The reason was that the
+     route resolved relative to the locale segment and 404d on /en/icon; that
+     segment is gone, but static files in /public are still one fewer thing for
+     the export to render and one fewer thing to go wrong. */
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: '48x48' },
@@ -64,25 +65,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
-export default async function LocaleLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  if (!isLocale(locale)) notFound();
-
-  const dict = getDictionary(locale);
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
-      lang={localeTags[locale] ?? 'en-KE'}
+      lang={languageTag}
       className={`${fraunces.variable} ${inter.variable}`}
       /* data-theme is written by the script below before React sees the page. */
       suppressHydrationWarning
@@ -94,14 +80,14 @@ export default async function LocaleLayout({
       </head>
       <body className="min-h-screen antialiased">
         <SkipLink label={dict.common.actions.skipToContent} />
-        <Header locale={locale} common={dict.common} />
+        <Header common={dict.common} />
         {/* English only. If Kiswahili is switched back on in content/site.ts,
             the translation-in-progress notice goes here:
             <div style={{ paddingTop: 'var(--header-h)' }}>
               <TranslationNotice message={dict.common.locale.pending} />
             </div> */}
         <main id="main">{children}</main>
-        <Footer locale={locale} common={dict.common} />
+        <Footer common={dict.common} />
         <RevealScript />
       </body>
     </html>

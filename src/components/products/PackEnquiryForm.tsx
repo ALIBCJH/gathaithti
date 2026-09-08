@@ -23,12 +23,10 @@ import type { Common, Lot, ProductsContent } from '@content/types';
 export function PackEnquiryForm({
   content,
   form,
-  locale,
   packs,
 }: {
   content: ProductsContent['sample']['form'];
   form: Common['form'];
-  locale: string;
   /** Offered in the size select, and set by the cards above. */
   packs: Pick<Lot, 'id' | 'grade' | 'name'>[];
 }) {
@@ -89,7 +87,7 @@ export function PackEnquiryForm({
   }
 
   return (
-    <form onSubmit={(event) => enquiry.submit(event, { locale })} noValidate className="flex flex-col gap-2">
+    <form onSubmit={(event) => enquiry.submit(event)} noValidate className="flex flex-col gap-2">
       {/* Honeypot. Real people never see it; bots fill it in. */}
       <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
         <label htmlFor="website">Website</label>
