@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-08.3-smtp';
+const HANDLER_VERSION = '2026-09-08.4-smtp';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -96,6 +96,51 @@ $CONFIG = [
  */
 $SECRET_FILE = __DIR__ . '/.mail-password.php';
 $CONFIG['smtp_pass'] = is_file($SECRET_FILE) ? trim((string) (require $SECRET_FILE)) : '';
+
+/* ── WHOSE REQUEST IS THIS? ────────────────────────────────────────────────
+ *
+ * This got the whole form wrong once, so it is worth the words. The limiter
+ * keyed on REMOTE_ADDR, and on this host LiteSpeed proxies through 127.0.0.1 —
+ * the same value for every visitor on earth. Five diagnostic requests from one
+ * laptop therefore used up the allowance for EVERYBODY, and the next person to
+ * open the contact page was told "too many requests from this connection".
+ * A rate limiter that cannot tell two people apart is not a rate limiter, it
+ * is an outage on a timer.
+ *
+ * So: try the headers a proxy sets, in order of how much they can be trusted,
+ * and take the first that is a real, routable address. Longhand rather than
+ * `a ?? b ?: c`, which is a PARSE ERROR in PHP 8 — and a parse error here is a
+ * blank page rather than a caught bug.
+ */
+$ipSource = 'none';
+$ip = '';
+foreach (
+    [
+        'HTTP_CF_CONNECTING_IP',   // Cloudflare
+        'HTTP_TRUE_CLIENT_IP',
+        'HTTP_X_REAL_IP',
+        'HTTP_X_FORWARDED_FOR',    // may be a chain; the client is first
+        'REMOTE_ADDR',
+    ] as $header
+) {
+    if (empty($_SERVER[$header])) {
+        continue;
+    }
+    $candidate = trim(explode(',', (string) $_SERVER[$header])[0]);
+
+    /* Loopback and LAN addresses identify the proxy, not the visitor. Taking
+       one would put every visitor in the same bucket, which is the bug. */
+    $routable = filter_var(
+        $candidate,
+        FILTER_VALIDATE_IP,
+        FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
+    );
+    if ($routable !== false) {
+        $ip = $candidate;
+        $ipSource = $header;
+        break;
+    }
+}
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
@@ -215,6 +260,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
         'mail' => function_exists('mail') ? 'available' : 'DISABLED ON THIS HOST',
         'transport' => 'smtp',
         'smtp_password_file' => $CONFIG['smtp_pass'] !== '' ? 'present' : 'MISSING — create .mail-password.php',
+        /* Your own address, and which header carried it. If this says
+           "none", the host hides the visitor behind a proxy and the per-IP
+           limit is off — see the block that works this out. */
+        'you' => $ip !== '' ? $ip : 'not identifiable',
+        'ip_source' => $ipSource,
+        'rate_limit' => $ip !== '' ? 'on' : 'off (visitors indistinguishable)',
     ]);
     exit;
 }
@@ -233,25 +284,15 @@ if (!is_dir($store)) {
     @file_put_contents($store . '/.htaccess', "Require all denied\n");
 }
 
-/* Longhand on purpose: `a ?? b ?: c` without brackets is a PARSE ERROR in
-   PHP 8, and a parse error here is a blank page rather than a caught bug. */
-$ip = '';
-if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
-    $ip = (string) $_SERVER['HTTP_CF_CONNECTING_IP'];
-} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $parts = explode(',', (string) $_SERVER['HTTP_X_FORWARDED_FOR']);
-    $ip = $parts[0];
-} elseif (!empty($_SERVER['REMOTE_ADDR'])) {
-    $ip = (string) $_SERVER['REMOTE_ADDR'];
-}
-if ($ip === '') {
-    $ip = 'unknown';
-}
-
-$bucket = $store . '/rl_' . hash('sha256', trim($ip)) . '.json';
+$bucket = $store . '/rl_' . hash('sha256', $ip) . '.json';
 $now = time();
 
-if (is_writable($store)) {
+/* NO IDENTIFIABLE VISITOR, NO PER-IP LIMIT. If every request looks like the
+   same one, a limit does not slow an abuser down — it locks out everybody else
+   after five submissions and leaves the form apparently broken. The honeypot
+   and the too-fast-to-be-human check still stand, and they are what actually
+   catch scripts; this one only ever throttled volume. */
+if ($ip !== '' && is_writable($store)) {
     $window = ['count' => 0, 'reset' => $now + $CONFIG['window']];
     if (is_file($bucket)) {
         $decoded = json_decode((string) @file_get_contents($bucket), true);
