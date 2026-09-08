@@ -601,17 +601,42 @@ export const images = {
     alt: 'A Gathaithi member photographed among their coffee trees.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
+  /* SUPPLIED, and it is not the photograph this slot was written for.
+     The brief asked for a field day — the agronomist demonstrating pruning,
+     members close in around the tree, secateurs in hands. What arrived is one
+     agronomist scouting a tree: sample jar in hand, clipboard headed Gathaiti
+     Farmers Co-op, cherry at every stage of ripeness on the branch beside him.
+     Both are training; they are not the same picture, so the direction and the
+     alt below describe WHAT IS IN THE FRAME rather than what was asked for.
+     The band's copy still covers it — "pest and disease scouting through the
+     wet months" is exactly this.
+
+     PORTRAIT, 768x1406. The slot was 3/2 landscape at a 2000px minimum, which
+     would have cropped a horizontal band out of the middle of a standing man
+     and taken his head off. The ratio follows the photograph instead, and the
+     Training band gives the frame a narrower column to suit it.
+
+     It is SMALLER than any other photograph here — 768px wide against a 2000px
+     brief. At the width it is drawn that is enough: about 440 CSS px on a
+     desktop, and 784 device px on a 3x phone under the density cap. It is thin
+     for a 2x desktop. Ask for the original if the society still has it.
+
+     TWO THINGS ARE VISIBLE IN IT that nobody has explained, both recorded here
+     rather than described on the page: the coat carries the KALRO mark (Kenya
+     Agricultural & Livestock Research Organisation), and the clipboard reads
+     "Gathaiti Farmers Co-op" — a FOURTH spelling of the society's name. The
+     alt text says neither, because neither has been confirmed. */
   farmersTraining: {
     file: 'gathaithi-agronomy-training.jpg',
     page: 'Our Farmers',
     section: 'Training',
-    ratio: '3/2',
-    minWidth: 2000,
-    minHeight: 1334,
+    ratio: '2/3',
+    minWidth: 768,
+    minHeight: 1406,
     direction:
-      'A field day in progress: the agronomist demonstrating pruning on a real tree, members close in around it, secateurs in hands. Teaching between equals.',
-    alt: 'Gathaithi members at a field day, learning pruning technique on a mature coffee tree.',
-    sizes: '(min-width: 1024px) 50vw, 100vw',
+      'Supplied. An agronomist scouting a coffee tree on a member\u2019s farm: sample jar in one hand, clipboard in the other, ripe and unripe cherry on the branch beside him, shade netting overhead.',
+    alt: 'An agronomist inspecting a coffee branch on a member\u2019s farm at Gathaithi, a sample jar in one hand and a clipboard in the other.',
+    sizes: '(min-width: 1024px) 36vw, 100vw',
   },
   /* PARKED — nothing renders this. The pre-finance band had this frame beside
      its two paragraphs and the file was never supplied, so half the band was an
