@@ -208,7 +208,13 @@ export interface AboutContent {
      * the call site instead — see `SmartImage`'s `ratio`.
      */
     frames: { imageSlot: string; caption: string }[];
-    body: string[];
+    /**
+     * The written account. OPTIONAL: it was three paragraphs and the user
+     * asked for all three removed, so the band is its head, three captioned
+     * photographs and the timeline. History renders nothing here when it is
+     * absent, rather than an empty grid with its own top margin.
+     */
+    body?: string[];
     timeline: { year: string; title: string; body: string }[];
   };
   registration: {

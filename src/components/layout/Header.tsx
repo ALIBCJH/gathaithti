@@ -19,12 +19,10 @@ import { NavIcon } from './NavIcon';
 export function Header({
   locale,
   common,
-  memberPrice,
 }: {
   locale: Locale;
   common: Common;
   /** Prepared on the server so the panel needs no access to the facts file. */
-  memberPrice: { label: string; value: string; unit: string };
 }) {
   const pathname = usePathname() ?? `/${locale}`;
   /* Only the home page has a full-bleed hero to sit transparently over.
@@ -352,7 +350,15 @@ export function Header({
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full text-on-inverse/70 transition-[background-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse/10 hover:text-on-inverse active:scale-[0.94]"
+                /* A DRAWN CIRCLE, not just a round hit area. It was already
+                   44px and `rounded-full`, so it was tappable — but nothing
+                   showed where, and a bare glyph on a dark panel reads as
+                   decoration rather than as a control. The ring and the faint
+                   fill say "press here" before it is pressed, which is the
+                   whole ask. WCAG 1.4.11 wants 3:1 for a control's own
+                   boundary; the ring is `on-inverse/35` over the drawer's
+                   brown, which clears it. */
+                className="tap inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-on-inverse/35 bg-on-inverse/10 text-on-inverse transition-[background-color,border-color,color,transform] duration-200 [transition-timing-function:var(--ease)] hover:border-on-inverse/60 hover:bg-on-inverse/20 active:scale-[0.94]"
               >
                 <span className="sr-only">{common.actions.close}</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -394,35 +400,23 @@ export function Header({
               </ul>
             </nav>
 
-            {/* What members open this site for, one tap from anywhere. Stacked
-                rather than set in a row: at 86vw of a 320px screen there is no
-                room to put a label and a figure side by side without one of
-                them breaking. */}
-            <Link
-              href={`/${locale}/farmers`}
-              onClick={() => setOpen(false)}
-              className="stagger-in mx-4 mt-auto flex flex-col gap-1 rounded-lg border border-on-inverse/20 px-4 py-3 transition-colors duration-200 [transition-timing-function:var(--ease)] hover:border-ochre"
+            {/* THE DRAWER IS NAVIGATION AND NOTHING ELSE NOW.
+
+                Two things were removed from under the rows at the user's
+                request: a cherry-price card linking to Our Farmers, and a
+                Request a sample button. Both were shortcuts bolted onto a menu.
+                The price is still on Our Farmers, which is where a member goes
+                for it, and the enquiry is still on Our Coffee where the packs
+                are — neither is reachable only from here.
+
+                `mt-auto` moved onto this row, because the price card used to
+                carry it: without it the theme toggle floats under the last
+                nav row instead of sitting at the foot of the panel. */}
+            <div
+              className="stagger-in mt-auto flex items-center gap-3 border-t border-on-inverse/15 px-4 py-4"
               style={{ '--i': 6 } as React.CSSProperties}
             >
-              <span className="t-meta text-on-inverse/60">{memberPrice.label}</span>
-              <span className="flex items-baseline gap-2">
-                <span className="t-figure-sm text-[1.5rem] text-on-inverse">{memberPrice.value}</span>
-                <span className="t-meta text-ochre-on-inverse">{memberPrice.unit}</span>
-              </span>
-            </Link>
-
-            <div
-              className="stagger-in mt-4 flex items-center gap-3 border-t border-on-inverse/15 px-4 py-4"
-              style={{ '--i': 7 } as React.CSSProperties}
-            >
               <ThemeToggle surface="dark" />
-              <Link
-                href={`/${locale}/products#request-a-sample`}
-                onClick={() => setOpen(false)}
-                className="inline-flex min-h-[2.75rem] flex-1 items-center justify-center rounded-full bg-btn-inverse-fill px-4 text-center text-[0.875rem] font-medium text-btn-inverse-text transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-on-inverse active:scale-[0.985]"
-              >
-                {common.actions.requestSample}
-              </Link>
             </div>
           </div>
         </>

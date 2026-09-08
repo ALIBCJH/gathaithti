@@ -54,14 +54,20 @@ export function History({ content }: { content: AboutContent['origin'] }) {
           heading={content.heading}
         />
 
-        {/* The account, in two columns under the head. */}
-        <div className="mx-auto mt-14 grid w-full max-w-[68rem] gap-x-16 gap-y-6 lg:mt-16 lg:grid-cols-2">
-          {content.body.map((paragraph, i) => (
-            <p key={i} className={i === 0 ? 't-lead text-ink-soft lg:col-span-2' : 't-body text-ink-soft'}>
-              <RichText text={paragraph} />
-            </p>
-          ))}
-        </div>
+        {/* The account, in two columns under the head — WHEN THERE IS ONE.
+            The three paragraphs that lived here were removed at the user's
+            request, and an empty array still rendered this grid and its
+            14-unit top margin: a band of nothing between the head and the
+            photographs. */}
+        {content.body?.length ? (
+          <div className="mx-auto mt-14 grid w-full max-w-[68rem] gap-x-16 gap-y-6 lg:mt-16 lg:grid-cols-2">
+            {content.body.map((paragraph, i) => (
+              <p key={i} className={i === 0 ? 't-lead text-ink-soft lg:col-span-2' : 't-body text-ink-soft'}>
+                <RichText text={paragraph} />
+              </p>
+            ))}
+          </div>
+        ) : null}
 
         {/* Three frames, one per turn of the history. Forced to a common
             ratio: the files are 0.67, 1.38 and 1.64, and three different
