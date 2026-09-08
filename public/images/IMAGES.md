@@ -87,7 +87,7 @@ before the photography exists.
 | `pack-100g.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 100 g pack on a bench. |
 | `pack-250g.jpg` | Our Coffee + Home hero (mobile) | Retail packs | 9:16 | 1000×1530 | **Supplied, already in place.** The 250 g pack on a bench. |
 | `pack-500g.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 500 g pack on a bench. |
-| `pack-1kg.jpg` | Our Coffee | Retail packs | 9:16 | 760×1350 | **Supplied, already in place.** The 1 kg pack on a bench. **Label reads "100% ARABICA ROBUSTA" — flagged; those are two species.** |
+| `pack-1kg.jpg` | Our Coffee | Retail packs | 9:16 | 768×1376 | **Replaced 2026-09-08.** The 1 kg pack on a table with a bowl of beans and a grinder. Two known faults, both accepted by the client: the pack fills only 32% of the frame where the other three fill 71–78%, and the label printing is corrupted ("1BB% ABARIEA ROBUSTA", "Nat 1hg"). Not cropped to match — a matching crop is 332px wide and would enlarge the bad printing. |
 | `gathaithi-drying-beds-long.jpg` | Gallery | Gallery | 4:5 | 950×1090 | **Supplied, already in place.** A full-length drying bed of parchment, a worker turning it at the far end. |
 | `gathaithi-solar-drier.jpg` | Gallery | Gallery | 3:2 | 1250×840 | **Supplied, already in place.** Inside the solar drier — raised beds under polythene, covered with jute sacking. |
 | `gathaithi-greenhouse.jpg` | Gallery | Gallery | 3:2 | 1270×810 | **Supplied, already in place.** The greenhouse, stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE. |

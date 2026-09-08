@@ -793,6 +793,29 @@ export const images = {
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
     fullDensity: true,
   },
+  /* REPLACED 2026-09-08 at the user's request, on the second asking, and the
+     two things that are wrong with the new frame are recorded here rather than
+     rediscovered later.
+
+     1. THE PACK FILLS 32% OF THE WIDTH. The other three fill 71, 78 and 75 —
+        #82 exists purely to have evened those up — so the 1 kg reads smaller
+        in the row than the 100 g does. It is NOT cropped to match: bringing it
+        to 74% leaves a 332x595 crop, which is 0.80x of what a 1x desktop card
+        needs and 0.33x on a 3x phone, softer than anything else on the site.
+
+     2. THE LABEL PRINTING IS CORRUPTED. Beside the file it replaced, at the
+        same scale, it reads "1BB% ABARIEA ROBUSTA", "NIEDUM RUCST", "Nat 1hg"
+        and a bottom line that is noise, where the old one read "100% ARABICA
+        ROBUSTA / MEDIUM ROAST / Net 1kg / PRODUCT OF KENYA | GATHAITHI
+        CO-OPERATIVE SOCIETY LIMITED". The user was shown this side by side,
+        chose to keep the old photograph, then asked again for the new one.
+
+     Those two facts settle each other: leaving the pack small in the frame is
+     what keeps the garbled printing too small to read. A crop that fixed the
+     framing would enlarge the defect. So it ships as supplied, uncropped.
+
+     A usable replacement is the same scene with the pack filling most of the
+     frame, 1400px wide or more, and the printing legible. */
   pack1kg: {
     file: 'pack-1kg.jpg',
     page: 'Our Coffee',
@@ -800,8 +823,9 @@ export const images = {
     ratio: '9/16',
     minWidth: 760,
     minHeight: 1350,
-    direction: 'Supplied. The 1 kg pack standing on a bench.',
-    alt: 'A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden bench.',
+    direction:
+      'Supplied. The 1 kg pack standing on a table, a bowl of roasted beans to one side and a brass grinder to the other.',
+    alt: 'A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden table, a bowl of roasted beans beside it.',
     sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
     fullDensity: true,
   },
