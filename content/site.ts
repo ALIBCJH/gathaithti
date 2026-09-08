@@ -96,21 +96,33 @@ const contact: {
   memberLine: ContactDetail;
   whatsapp: ContactDetail;
 } = {
-  /* ⚠ SAMPLE DATA — none of this reaches anybody.
-     The numbers are the +254 700 000 xxx block, which is patterned rather than
-     issued, so a misdial does not ring a stranger. The addresses are on
+  /* THE PHONE AND THE WHATSAPP ARE REAL from 2026-09-08 — one number,
+     0726680365, supplied by the client and used for both. It is written here
+     in international form because that is the only form `tel:` and wa.me both
+     take from a phone abroad; the display keeps the spacing a Kenyan reader
+     expects.
+
+     ⚠ THE EMAIL ADDRESSES ARE STILL SAMPLE DATA. They sit on
      gathaithicoffee.co.ke, which has no DNS record at all, so mail to them
-     bounces at the sender rather than landing in someone else's inbox.
-     Both are deliberate: a plausible-looking wrong number on a live page is
-     worse than an empty field, because somebody acts on it. */
-  officePhone: { value: '+254700000000', display: '+254 700 000 000' },
+     bounces at the sender rather than landing in a stranger's inbox. That was
+     deliberate and it still is — but a real number beside three invented
+     addresses is a page a visitor half-trusts, so these are the next thing to
+     ask for.
+
+     The members' line is BLANK rather than invented. It carried
+     +254 700 000 111 from the sample block, and a fake number standing next to
+     a real one is worse than no row at all: a member would ring it. Both the
+     contact page and the footer drop a channel whose `value` is empty, so the
+     row simply is not drawn. Fill it in and it comes back. */
+  officePhone: { value: '+254726680365', display: '+254 726 680 365' },
   officeEmail: { value: 'office@gathaithicoffee.co.ke', display: 'office@gathaithicoffee.co.ke' },
   buyerEmail: { value: 'marketing@gathaithicoffee.co.ke', display: 'marketing@gathaithicoffee.co.ke' },
   buyerContact: { name: 'Grace Wanjiru', role: 'Marketing & Sales, Gathaithi FCS' },
-  memberLine: { value: '+254700000111', display: '+254 700 000 111' },
+  memberLine: { value: '', display: '' },
   /* `value` is digits only, no plus and no spaces — that is the form wa.me
-     takes, and anything else silently 404s rather than erroring. */
-  whatsapp: { value: '254700000222', display: '+254 700 000 222' },
+     takes, and anything else silently 404s rather than erroring. Same number
+     as the office line above; the society answers both on one handset. */
+  whatsapp: { value: '254726680365', display: '+254 726 680 365' },
 };
 
 /** wa.me wants digits with no plus and no spaces; `text` is pre-filled for the
