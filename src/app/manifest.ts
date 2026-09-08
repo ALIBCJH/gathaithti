@@ -1,6 +1,14 @@
 import type { MetadataRoute } from 'next';
 import { defaultLocale, site } from '@content/site';
 
+/* `output: 'export'` refuses a metadata route that has not said it is static —
+   "export const dynamic = force-static / export const revalidate not
+   configured". Nothing in here reads a request, so it always was static; the
+   export just wants that stated. Harmless on Vercel, where it was already
+   being emitted as a static file. */
+export const dynamic = 'force-static';
+
+
 /**
  * A web manifest, so that "open the app" has a defined starting point.
  *

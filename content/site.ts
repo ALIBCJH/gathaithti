@@ -27,8 +27,20 @@ export const defaultLocale: Locale = 'en';
 export const localeTags: Record<string, string> = { en: 'en-KE', sw: 'sw-KE' };
 export const localeOgTags: Record<string, string> = { en: 'en_KE', sw: 'sw_KE' };
 
-/** Where the site lives, if nothing else says otherwise. */
-const FALLBACK_SITE_URL = 'https://gathaithicoffee.co.ke';
+/**
+ * Where the site lives, if nothing else says otherwise.
+ *
+ * THIS ONE MATTERS NOW. On Vercel it was inert — the platform supplies
+ * VERCEL_PROJECT_PRODUCTION_URL and this was never reached — but the cPanel
+ * static export runs with no environment variables at all, so every canonical
+ * link, OpenGraph URL, JSON-LD @id and sitemap entry in that build comes from
+ * here. It carried gathaithicoffee.co.ke, a domain with no DNS record, which
+ * would have shipped a site telling search engines it lived somewhere that
+ * does not exist.
+ *
+ * Set NEXT_PUBLIC_SITE_URL if the site ever moves; it wins over this.
+ */
+const FALLBACK_SITE_URL = 'https://gathaithi.cloud';
 
 /**
  * The canonical origin, used for <link rel="canonical">, OpenGraph URLs,

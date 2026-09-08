@@ -1,0 +1,128 @@
+# ═══════════════════════════════════════════════════════════════════════════
+#  Gathaithi — Apache configuration for cPanel
+#  Copied to the upload folder as .htaccess by scripts/build-cpanel.mjs.
+#  Everything the Node server used to do is in this file.
+# ═══════════════════════════════════════════════════════════════════════════
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ── AVIF, without a second srcset ────────────────────────────────────────
+  # Every image under /_img/ exists twice: name-640.webp and name-640.avif.
+  # The pages only ever link to the .webp. If the browser says it reads AVIF
+  # and the sibling exists, serve that instead. Same URL, smaller bytes, and
+  # a browser that cannot read AVIF is never sent one.
+  #
+  # Vary: Accept is not optional. Without it a proxy or the browser cache can
+  # hand the AVIF to the next visitor whether or not they can read it.
+  RewriteCond %{HTTP_ACCEPT} image/avif
+  RewriteCond %{DOCUMENT_ROOT}/_img/$1.avif -f
+  RewriteRule ^_img/(.+)\.webp$ /_img/$1.avif [T=image/avif,E=AVIF:1,L]
+
+  # ── The locale redirect ──────────────────────────────────────────────────
+  # This is src/proxy.ts. Every page lives under /en, and anything without a
+  # locale is sent there permanently so search engines settle on one form.
+  # 308 rather than 301: it keeps the method, so a POST is never silently
+  # turned into a GET.
+  RewriteRule ^$ /en/ [R=308,L]
+
+  # The site was briefly bilingual. Anyone holding a /sw link lands on the
+  # English page rather than a 404.
+  RewriteRule ^sw$ /en/ [R=308,L]
+  RewriteRule ^sw/(.*)$ /en/$1 [R=308,L]
+
+  # Anything else without a locale, that is not a real file or directory and
+  # not one of the roots that lives outside /en.
+  #
+  # TWO RULES, and the first one exists to save a redirect. The export is built
+  # with trailingSlash, so a page is a DIRECTORY holding an index.html. Sending
+  # /about to /en/about would land on a directory without its slash, and
+  # mod_dir would then issue a second redirect to /en/about/ — two round trips
+  # on a connection where one is already the slow part. If /en/<path> is a
+  # directory, go straight to the slashed form.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/en(/|$)
+  RewriteCond %{REQUEST_URI} !^/(_img|_next|images)/
+  RewriteCond %{REQUEST_URI} !\.(php|xml|txt|ico|webmanifest)$
+  RewriteCond %{DOCUMENT_ROOT}/en/$1 -d
+  RewriteRule ^(.*[^/])$ /en/$1/ [R=308,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/en(/|$)
+  RewriteCond %{REQUEST_URI} !^/(_img|_next|images)/
+  RewriteCond %{REQUEST_URI} !\.(php|xml|txt|ico|webmanifest)$
+  RewriteRule ^(.*)$ /en/$1 [R=308,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header append Vary Accept env=AVIF
+</IfModule>
+
+# ── Caching ────────────────────────────────────────────────────────────────
+# Two rules, and the difference between them is whether the filename changes
+# when the contents do.
+#
+#   /_next/static  the filename contains a build hash, so a change is a new
+#                  name. Cache it for a year and never revalidate.
+#   /_img          the filename contains the width, not a hash. A year is
+#                  still right — a photograph is replaced by uploading a new
+#                  name — but it is not immutable, so leave the door open.
+#   .html          MUST NOT be cached hard. It is the file that points at the
+#                  hashed assets; cache it for a year and a visitor is stuck
+#                  on the old site until they clear their browser.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(avif|webp|jpe?g|png|css|js|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000"
+  </FilesMatch>
+  <FilesMatch "^(sitemap\.xml|robots\.txt|manifest\.webmanifest)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+
+  # Modest, uncontroversial hardening. No CSP here: this site loads its own
+  # fonts, styles and scripts and nothing else, but a CSP written blind is how
+  # a live site goes blank, so it belongs in a change of its own.
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# ── Compression ────────────────────────────────────────────────────────────
+# LiteSpeed (most cPanel hosts) and Apache both read this. Images are already
+# compressed — running deflate over an AVIF costs CPU and saves nothing.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff font/woff2
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+</IfModule>
+
+# The export writes its not-found page at the ROOT, not under the locale —
+# /404.html — so that is what this points at. It was /en/404.html on the
+# assumption that a page inside [locale] would land inside it; the build warns
+# if this file ever moves again.
+ErrorDocument 404 /404.html
