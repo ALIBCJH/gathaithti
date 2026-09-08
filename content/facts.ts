@@ -50,13 +50,30 @@ export const facts = {
      coffee". If the society only dates itself from 2000, that heading and the
      opening line of the story on the home page both go. Raised with the client;
      unanswered. Do not mark this verified on the strength of the 2000 date. */
+  /* CONFIRMED 2026-09-08, and the doubt raised in #95 is resolved. The
+     society's background note reads: "Established in 1967 under NORTH TETU
+     COFFEE GROWERS UNION. Registered autonomously on 21st January 2000 under
+     Reg. No. 9176." Both dates are real and they answer different questions —
+     1967 is when coffee here was organised, 2000 is when this society became
+     its own. The home page's "More than five decades of coffee" stands. */
   established: {
     id: 'established',
     label: 'Established',
     value: 1967,
     display: '1967',
-    verified: false,
-    note: 'NOT CONFIRMED. The society gave 21 January 2000 as the year formed and did not mention 1967. This figure claims coffee was grown here under the wider Tetu society from 1967 — confirm it separately or remove the claim.',
+    verified: true,
+    source: SOURCE,
+    note: 'Organised in 1967 under the North Tetu Coffee Growers Union; autonomous from 2000. The two dates are not alternatives.',
+    updated: FROM_SOCIETY,
+  },
+  unionFrom1967: {
+    id: 'unionFrom1967',
+    label: 'Founding union',
+    value: 'North Tetu Coffee Growers Union',
+    display: 'North Tetu Coffee Growers Union',
+    verified: true,
+    source: SOURCE,
+    note: 'The body Gathaithi\u2019s growers organised under in 1967, before registering separately in 2000.',
     updated: FROM_SOCIETY,
   },
   independentSince: {
@@ -72,11 +89,12 @@ export const facts = {
   registrationNumber: {
     id: 'registrationNumber',
     label: 'Registration number',
-    value: 'CS/2891',
-    display: 'CS/2891',
-    verified: false,
-    note: 'NOT INVENTED. Supply the Co-operative Societies registration number — international buyers audit this.',
-    updated: TODAY,
+    value: '9176',
+    display: '9176',
+    verified: true,
+    source: SOURCE,
+    note: 'Registered autonomously under this number on 21 January 2000. Replaces a placeholder of CS/2891 that was invented for layout.',
+    updated: FROM_SOCIETY,
   },
 
   /* ── Scale ────────────────────────────────────────────────────────────── */
@@ -92,6 +110,24 @@ export const facts = {
     verified: true,
     source: SOURCE,
     note: 'Active members. A further 632 are dormant.',
+    updated: FROM_SOCIETY,
+  },
+  /* THE WHOLE REGISTER, where `members` above is the ACTIVE count. The site
+     uses the active one wherever it says who owns the society and delivers the
+     cherry, because that is what those sentences mean.
+
+     The arithmetic does not quite close: 1,988 active + 632 dormant is 2,620,
+     and the background note says 2,613 with "new members continuously
+     joining". A seven-member gap between two answers given the same day is not
+     worth chasing. It is worth not hiding. */
+  membersTotal: {
+    id: 'membersTotal',
+    label: 'Members on the register',
+    value: 2613,
+    display: '2,613',
+    verified: true,
+    source: SOURCE,
+    note: 'Active and dormant together, and still growing. 1,988 of them were active at 31 October.',
     updated: FROM_SOCIETY,
   },
   membersDormant: {
@@ -117,15 +153,19 @@ export const facts = {
   /* A FLOOR, NOT A POINT. The society answered "from 1,000,000 kgs and above",
      so the display says "Over" and the value holds the floor. Do not quietly
      turn this into a single number in a sentence that implies precision. */
+  /* AN AVERAGE. The first answer was "from 1,000,000 Kgs and above" and #95
+     rendered that as a floor; the background note gives approximately
+     1,200,000, which is a better figure and still approximate. */
   cherryAnnual: {
     id: 'cherryAnnual',
     label: 'Cherry delivered each year',
-    value: 1000000,
-    display: 'Over 1,000,000',
+    value: 1200000,
+    display: '1,200,000',
     unit: 'kg',
+    approximate: true,
     verified: true,
     source: SOURCE,
-    note: 'The society\u2019s answer was "from 1,000,000 Kgs and above". Volume swings with the crop cycle.',
+    note: 'An annual average. #95 carried "Over 1,000,000" from an earlier answer of "from 1,000,000 Kgs and above"; the background note gives approximately 1,200,000.',
     updated: FROM_SOCIETY,
   },
   /* ── Governance ───────────────────────────────────────────────────────
@@ -198,13 +238,13 @@ export const facts = {
   millSite: {
     id: 'millSite',
     label: 'Mill site',
-    value: 3,
-    display: '3',
+    value: 3.142,
+    display: '3.142',
     unit: 'hectares',
-    approximate: true,
-    verified: false,
-    note: 'Land area of the wet mill site.',
-    updated: TODAY,
+    verified: true,
+    source: SOURCE,
+    note: 'The single factory sits on this. Was an approximate 3 ha from the brief.',
+    updated: FROM_SOCIETY,
   },
 
   /* ── Terroir ──────────────────────────────────────────────────────────── */
@@ -271,24 +311,41 @@ export const facts = {
   },
 
   /* ── Quality and returns ──────────────────────────────────────────────── */
+  /* CONFIRMED, WITH A PUBLISHER AT LAST. The 93 points come from a 2022
+     review by Jaunt Coffee Roasters of San Diego, California — the body a
+     buyer would ask for, and the reason this can now be set as a claim rather
+     than a number from nowhere. The society's own summary of that cup is
+     "balanced floral-toned Kenyan, distinct black currant, a pleasing savory
+     fruit attribute, classic Kenyan characteristics", which is what the Our
+     Coffee card quotes instead of the tasting note this site invented. */
   cuppingScore: {
     id: 'cuppingScore',
     label: 'Cupping score',
     value: 93,
     display: '93',
     unit: 'points',
-    verified: false,
-    note: 'Confirm the cupping body, the protocol, the lot and the exact date. A score without a source is not a claim a buyer will accept.',
-    updated: TODAY,
+    verified: true,
+    source: 'Jaunt Coffee Roasters review, San Diego, California, 2022. Supplied by the society 2026-09-08.',
+    note: 'The protocol and the exact lot are still not stated.',
+    updated: FROM_SOCIETY,
   },
   cuppingYear: {
     id: 'cuppingYear',
     label: 'Year scored',
     value: 2022,
     display: '2022',
-    verified: false,
-    note: 'Year the 93-point score was awarded.',
-    updated: TODAY,
+    verified: true,
+    source: 'Jaunt Coffee Roasters review, San Diego, California, 2022.',
+    updated: FROM_SOCIETY,
+  },
+  cuppingReviewer: {
+    id: 'cuppingReviewer',
+    label: 'Reviewed by',
+    value: 'Jaunt Coffee Roasters, San Diego, California',
+    display: 'Jaunt Coffee Roasters, San Diego',
+    verified: true,
+    source: SOURCE,
+    updated: FROM_SOCIETY,
   },
   nationalRank2024: {
     id: 'nationalRank2024',
@@ -476,6 +533,23 @@ export const facts = {
 } as const satisfies Record<string, Fact>;
 
 export type FactId = keyof typeof facts;
+
+/**
+ * ⚠ A THIRD-PARTY PROFILE OF THIS FACTORY DISAGREES WITH THE SOCIETY.
+ *
+ * Alongside its own background note the client sent a listing from an outside
+ * platform — "Gathaithi Coffee Factory … Altitude 1,700 meters … Farmer Count
+ * 1,542 Farmers … Satellite Verified Location". Two of its numbers conflict
+ * with what the society says about itself:
+ *
+ *   farmers    1,542   against 1,988 active / 2,613 on the register
+ *   altitude   1,700 m against the 1,720 m this site carries from the brief
+ *
+ * NOTHING FROM THAT LISTING IS USED HERE. Where a society contradicts a
+ * directory about its own membership, the society wins; and 1,720 stays
+ * `verified: false` rather than being swapped for another unconfirmed number.
+ * Recorded so the next person does not "correct" the register downwards.
+ */
 
 /**
  * ══════════════════════════════════════════════════════════════════════════

@@ -133,7 +133,12 @@ export const site = {
     village: 'Gathaithi Village',
     subCounty: 'Tetu Sub-County',
     county: 'Nyeri County',
-    postal: 'P.O. Box 217, Nyeri 10100',
+    /* From the society's own letterhead, 2026-09-08. Was 'P.O. Box 217,
+       Nyeri 10100', which came from the brief and was never confirmed —
+       and which nothing rendered, so a wrong address sat unread for months.
+       It is in the footer and the structured data now. */
+    poBox: '12504',
+    postal: 'P.O. Box 12504, Nyeri',
     country: 'Kenya',
     countryCode: 'KE',
   },

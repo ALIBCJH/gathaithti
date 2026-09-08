@@ -47,6 +47,10 @@ export function Footer({ locale, common }: { locale: Locale; common: Common }) {
               <span>{site.address.village}</span>
               <span>{site.address.subCounty}</span>
               <span>{site.address.county}, {site.address.country}</span>
+              {/* The postal address. It was in content/site.ts all along and
+                  nothing read it, so the box number the society actually uses
+                  appeared nowhere on its own website. */}
+              <span>{site.address.postal}</span>
             </address>
             <Link
               href={`/${locale}/contact`}
