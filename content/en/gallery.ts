@@ -22,7 +22,7 @@ export const gallery: GalleryContent = {
   meta: {
     title: 'Gallery — a walk through the wet mill | Gathaithi',
     description:
-      'Photographs of Gathaithi Farmers’ Co-operative Society: the gate, the members’ notice board, the pulper, the washing channels, the soaking tank, the drying beds, the solar drier, the greenhouse and the elected committees.',
+      'Photographs of the Gathaithi wet mill: the gate, the pulper, the washing channels, the drying beds, the greenhouse and the elected committees.',
     ogLine: 'The gate, the pulper, the beds and the people who run them',
   },
 

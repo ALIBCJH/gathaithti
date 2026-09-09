@@ -17,9 +17,14 @@ import type { FarmersContent } from '../types';
 export const farmers: FarmersContent = {
   meta: {
     title: 'Our Farmers — members, training & pre-finance | Gathaithi',
+    /* NO LONGER PROMISES THE NOTICEBOARD. It offered "current cherry price,
+       payment dates and collection times" — the members' noticeboard, removed
+       in #70. The page carries none of the three, and a description that
+       advertises what is not there is why somebody leaves in two seconds. Cut
+       under 160 characters as well, which is all a search result shows. */
     description:
-      'The {{members}} smallholder members who own Gathaithi Farmers’ Co-operative Society. Current cherry price, payment dates and collection times, plus agronomy training and the pre-finance scheme.',
-    ogLine: 'The members who own the society — noticeboard, training, pre-finance',
+      'The {{members}} smallholder members who own Gathaithi: how the society is theirs, the agronomy training it runs, and the people who pick the cherry.',
+    ogLine: 'The members who own the society',
   },
 
   /* PARKED — nothing renders this. It was the page header: "Every kilo starts
