@@ -9,10 +9,23 @@ import { resolve } from './facts';
 import type { Lot, Meta } from '@content/types';
 import { ogLocale } from './i18n';
 
-/** Canonical URL for a page. Path is relative: '', 'about', … */
+/**
+ * Canonical URL for a page. Path is relative: '', 'about', …
+ *
+ * WITH A TRAILING SLASH, because the site is built with `trailingSlash` and
+ * every page is a directory holding an index.html. Without it this returned
+ * https://gathaithi.cloud/about, which 301s to /about/ — so the sitemap listed
+ * six URLs that all redirected, and Search Console would have filed every one
+ * of them as "Page with redirect" on the day the site was submitted. Google
+ * follows the redirect and indexes the right page either way; the point is not
+ * to hand somebody six warnings that look like breakage and are not.
+ *
+ * Next normalises the canonical <link> itself, which is why the pages already
+ * agreed and only the hand-built sitemap and JSON-LD did not.
+ */
 export function urlFor(path = ''): string {
-  const clean = path.replace(/^\//, '');
-  return clean ? `${siteUrl}/${clean}` : siteUrl;
+  const clean = path.replace(/^\//, '').replace(/\/$/, '');
+  return clean ? `${siteUrl}/${clean}/` : `${siteUrl}/`;
 }
 
 /**
