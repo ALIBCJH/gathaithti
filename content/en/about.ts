@@ -2,9 +2,9 @@ import type { AboutContent } from '../types';
 
 export const about: AboutContent = {
   meta: {
-    title: 'About Gathaithi Farmers’ Co-operative Society — history & governance',
+    title: 'About Gathaithi Co-operative Society — history & governance',
     description:
-      'Founded {{established}} under Tetu and independently registered on {{independentSince}}. Governance, membership, terroir at {{altitude}}, and the pre-finance scheme that supports {{members}} farming families in Nyeri County.',
+      'Organised in {{established}} under North Tetu and independent since 2000. The society’s history, its governance, and the {{members}} families who own it.',
     ogLine: 'Founded 1967 · Independent since June 2000 · Tetu, Nyeri',
   },
 

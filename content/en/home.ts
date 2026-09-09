@@ -4,7 +4,7 @@ export const home: HomeContent = {
   meta: {
     title: 'Gathaithi Coffee — farmer-owned washed Kenya coffee, Tetu, Nyeri',
     description:
-      'Gathaithi Farmers’ Co‑operative Society: {{members}} smallholder members, one wet mill in Tetu, Nyeri County. Washed {{varieties}}. Request a sample direct from the society that grows it.',
+      'Farmer-owned washed Kenya coffee from Tetu, Nyeri. {{members}} smallholder members, one wet mill, {{varieties}}, sold direct by the society.',
     ogLine: 'Farmer-owned washed coffee from Tetu, Nyeri County, Kenya',
   },
 

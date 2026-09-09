@@ -2,13 +2,17 @@ import type { ProductsContent } from '../types';
 
 export const products: ProductsContent = {
   meta: {
-    /* Says AA and AB because the catalogue is AA and AB. It still advertised
-       PB and C after those lots were withdrawn — a search result promising two
-       grades the page does not carry. */
-    title: 'Our Coffee — Gathaithi AA & AB washed Kenya lots',
+    /* SELLS WHAT THE PAGE SELLS. This said "AA & AB washed Kenya lots" — the
+       green-coffee catalogue that was replaced by retail packs in #72, and
+       never revisited. A search result promising a roaster two green grades,
+       landing them on 100 g bags at KSh 100, is a mismatch Google notices and
+       a visitor resents. The same fault it already had once, with PB and C. */
+    title: 'Buy Gathaithi coffee — 100 g to 1 kg packs from the society',
+    /* Under 160 characters, because that is what a search result shows.
+       Everything longer is cut mid-sentence. */
     description:
-      'Washed Kenya lots from Gathaithi: AA and AB. {{varieties}}, fermented overnight, second-soaked and dried {{dryingDays}} on raised beds. Request a sample from the society.',
-    ogLine: 'AA · AB — fully washed, second soak, raised-bed dried',
+      'The society\u2019s own roasted coffee in 100\u00a0g, 250\u00a0g, 500\u00a0g and 1\u00a0kg packs, from KSh\u00a0100. Washed Nyeri arabica, roasted and packed at the mill.',
+    ogLine: 'Roasted and packed by the society — 100 g to 1 kg',
   },
 
   /* PARKED, and parked by a decision rather than by accident. #52 rendered

@@ -4,7 +4,7 @@ export const contact: ContactContent = {
   meta: {
     title: 'Contact Gathaithi Farmers’ Co-operative Society — Tetu, Nyeri',
     description:
-      'Contact the society directly: buyer enquiries and samples, member services, and supplier or partner enquiries. Gathaithi wet mill, Tetu Sub-County, Nyeri County, Kenya.',
+      'Talk to Gathaithi Farmers’ Co-operative Society in Tetu, Nyeri — by WhatsApp, phone or email. Buyer enquiries, samples and member services.',
     ogLine: 'Buyers · Members · Suppliers — reach the society directly',
   },
 
