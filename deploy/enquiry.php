@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-10.7-limit20';
+const HANDLER_VERSION = '2026-09-10.8-lasterror';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -306,6 +306,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
         'you' => $ip !== '' ? $ip : 'not identifiable',
         'ip_source' => $ipSource,
         'rate_limit' => $ip !== '' ? 'on' : 'off (visitors indistinguishable)',
+        /* The mail server's own words the last time a send failed, so the
+           reason is readable from a browser instead of by hunting through
+           the log. Server-side text only — an SMTP reply, never anything the
+           visitor typed and never the password. */
+        'last_error' => is_file($CONFIG['store'] . '/last-error.txt')
+            ? trim((string) @file_get_contents($CONFIG['store'] . '/last-error.txt'))
+            : 'none recorded',
     ]);
     exit;
 }
@@ -489,6 +496,20 @@ $record = function ($status, $detail = '') use ($store, $submitted, $form, $line
             . ' ' . $form . "\n" . implode("\n", $lines) . "\n\n" . str_repeat('-', 60) . "\n",
         FILE_APPEND | LOCK_EX
     );
+
+    /* A failure also goes into a file of its own, which the GET diagnostic
+       reads back. The log holds the answer already, but it holds it among
+       every enquiry ever received, and asking somebody to go and find it has
+       twice been slower than the fault deserved. This makes "why did that
+       one fail?" answerable from a browser. Overwritten each time: it is the
+       LAST failure, not a history — the log is the history. */
+    if ($status !== 'RECEIVED' && $status !== 'SENT') {
+        @file_put_contents(
+            $store . '/last-error.txt',
+            '[' . $submitted . '] ' . $status . ' ' . $detail . "\n",
+            LOCK_EX
+        );
+    }
 };
 
 $record('RECEIVED');
