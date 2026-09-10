@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-10.9-noreplyto';
+const HANDLER_VERSION = '2026-09-10.10-replyline';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -450,30 +450,44 @@ foreach (RULES[$form] as $field => [$required, $min, $max, $isEmail]) {
 
 $submitted = gmdate('c');
 
+/* This message has no Reply-To, so pressing Reply addresses website@ — the
+   mailbox the site sends FROM, which nobody reads. That has already swallowed
+   one reply to a real customer. So the address to write to is stated at the
+   top, in its own line, and the trap is named rather than left to be
+   discovered. The subject carries it too, so it is visible in the list
+   without opening anything. */
+$replyBanner = [
+    'REPLY TO: ' . $values['email'],
+    '(Pressing Reply goes to the website, not to them. Copy the address above.)',
+    '',
+];
+
 if ($form === 'sample') {
     $to = $CONFIG['sample_to'];
     $subject = 'Coffee enquiry'
         . ($values['pack'] !== '' ? ' — ' . $values['pack'] : '')
         . ' — ' . $values['email'];
-    $lines = [
+    $lines = array_merge([
         'New enquiry from the Our Coffee page',
         '',
+    ], $replyBanner, [
         'Email:     ' . $values['email'],
         'Pack:      ' . ($values['pack'] !== '' ? $values['pack'] : '—'),
-    ];
+    ]);
 } else {
     $to = $CONFIG['contact_to'];
-    $subject = 'Website enquiry — ' . $values['name'];
-    $lines = [
+    $subject = 'Website enquiry — ' . $values['name'] . ' — ' . $values['email'];
+    $lines = array_merge([
         'New enquiry from the contact page',
         '',
+    ], $replyBanner, [
         'Name:      ' . $values['name'],
         'Email:     ' . $values['email'],
         'Phone:     ' . ($values['phone'] !== '' ? $values['phone'] : '—'),
         'Org:       ' . ($values['organisation'] !== '' ? $values['organisation'] : '—'),
         'Topic:     ' . $values['topic'],
         'Member no: ' . ($values['memberNumber'] !== '' ? $values['memberNumber'] : '—'),
-    ];
+    ]);
 }
 
 $lines = array_merge($lines, [
