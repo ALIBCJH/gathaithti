@@ -21,7 +21,7 @@ export interface RateLimitResult {
   retryAfterSeconds: number;
 }
 
-export function rateLimit(key: string, limit = 5, windowMs = 60 * 60 * 1000): RateLimitResult {
+export function rateLimit(key: string, limit = 20, windowMs = 60 * 60 * 1000): RateLimitResult {
   const now = Date.now();
   const existing = windows.get(key);
 
