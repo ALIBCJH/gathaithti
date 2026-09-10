@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-10.8-lasterror';
+const HANDLER_VERSION = '2026-09-10.9-noreplyto';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -545,9 +545,25 @@ try {
 }
 $messageId = '<' . date('YmdHis') . '.' . $messageIdSeed . '@' . $fromDomain . '>';
 
+/* NO Reply-To.
+ *
+ * It used to carry the enquirer's address, so that Reply went straight back
+ * to them. That is the shape of a forged message — From: on this domain,
+ * replies redirected to a free webmail account — and the outbound filter on
+ * this host scores it accordingly. The evidence, from the handler's own
+ * last-error report:
+ *
+ *     SMTP-FAILED  send: 550 Message discarded as high-probability spam
+ *
+ * Every enquiry with a webmail Reply-To scored high: about one in three was
+ * refused outright and never sent at all, and the rest arrived with ***SPAM***
+ * prefixed to the subject. Every enquiry replying to this domain passed.
+ *
+ * The address is not lost — it is the second line of the body, and the
+ * society replies by copying it. A reply that costs one extra action beats an
+ * enquiry that never arrives. */
 $headers = [
     'From: ' . $CONFIG['from'],
-    'Reply-To: ' . $values['email'],
     'Message-ID: ' . $messageId,
     'Content-Type: text/plain; charset=utf-8',
     'MIME-Version: 1.0',
