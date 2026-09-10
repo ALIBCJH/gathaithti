@@ -36,6 +36,13 @@ const TODAY = '2026-08-27';
    brief, and is the first verified data this file has held. */
 const FROM_SOCIETY = '2026-09-08';
 const SOURCE = 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-08.';
+/* The four retail pack prices, confirmed separately and later: the society
+   first supplied them on 2026-09-07 and confirmed them as current on
+   2026-09-10, which is what lets them go into the structured data Google
+   reads. A price a shopping crawler may repeat needs a stronger provenance
+   than a figure printed on a page. */
+const PRICES_CONFIRMED = '2026-09-10';
+const PRICE_SOURCE = 'Retail list confirmed by Gathaithi Farmers Co-op Society Ltd, 2026-09-10.';
 
 export const facts = {
   /* ── Identity and history ─────────────────────────────────────────────── */
@@ -413,9 +420,9 @@ export const facts = {
     value: 100,
     display: 'KSh 100',
     unit: 'per 100 g pack',
-    verified: false,
-    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
-    updated: '2026-09-07',
+    verified: true,
+    source: PRICE_SOURCE,
+    updated: PRICES_CONFIRMED,
   },
   pack250g: {
     id: 'pack250g',
@@ -423,9 +430,9 @@ export const facts = {
     value: 250,
     display: 'KSh 250',
     unit: 'per 250 g pack',
-    verified: false,
-    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
-    updated: '2026-09-07',
+    verified: true,
+    source: PRICE_SOURCE,
+    updated: PRICES_CONFIRMED,
   },
   pack500g: {
     id: 'pack500g',
@@ -433,9 +440,9 @@ export const facts = {
     value: 500,
     display: 'KSh 500',
     unit: 'per 500 g pack',
-    verified: false,
-    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
-    updated: '2026-09-07',
+    verified: true,
+    source: PRICE_SOURCE,
+    updated: PRICES_CONFIRMED,
   },
   pack1kg: {
     id: 'pack1kg',
@@ -443,9 +450,9 @@ export const facts = {
     value: 1000,
     display: 'KSh 1,000',
     unit: 'per 1 kg pack',
-    verified: false,
-    note: 'Supplied by the client 2026-09-07. Confirm against the society\u2019s published retail list.',
-    updated: '2026-09-07',
+    verified: true,
+    source: PRICE_SOURCE,
+    updated: PRICES_CONFIRMED,
   },
 
   /* ── Indicative prices ────────────────────────────────────────────────
