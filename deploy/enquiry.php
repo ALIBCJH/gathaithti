@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-08.5-smtp';
+const HANDLER_VERSION = '2026-09-10.6-msgid';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -498,9 +498,30 @@ $record('RECEIVED');
  * reply and not the enquiry.
  */
 
+/* Every message needs its own Message-ID. Leaving it off is what a bulk
+   sender does and what a mail client never does, so SpamAssassin scores the
+   absence directly (MISSING_MID) — which is how the first live enquiries came
+   to sit in Junk marked ***SPAM*** while the send itself had succeeded.
+   The domain is taken from the From: address so the two cannot drift apart. */
+$fromDomain = 'gathaithi.cloud';
+if (preg_match('/@([A-Za-z0-9.\-]+)/', $CONFIG['from'], $m)) {
+    $fromDomain = rtrim($m[1], '>');
+}
+/* random_bytes() throws when the system has no entropy source. That is rare
+   and it is also a fatal, which on this host means a bare 500 and a lost
+   enquiry — the exact failure mode that hid the mail() problem for a day. A
+   weaker id is worth far more than an unhandled throw. */
+try {
+    $messageIdSeed = bin2hex(random_bytes(8));
+} catch (Throwable $e) {
+    $messageIdSeed = substr(md5((string) mt_rand() . microtime()), 0, 16);
+}
+$messageId = '<' . date('YmdHis') . '.' . $messageIdSeed . '@' . $fromDomain . '>';
+
 $headers = [
     'From: ' . $CONFIG['from'],
     'Reply-To: ' . $values['email'],
+    'Message-ID: ' . $messageId,
     'Content-Type: text/plain; charset=utf-8',
     'MIME-Version: 1.0',
     'X-Mailer: gathaithi-site',
