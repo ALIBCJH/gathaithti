@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-10.6-msgid';
+const HANDLER_VERSION = '2026-09-10.7-limit20';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -68,8 +68,14 @@ $CONFIG = [
     'smtp_port' => 465,
     'smtp_user' => 'website@gathaithi.cloud',
 
-    /* Requests per IP per hour, matching src/lib/rate-limit.ts. */
-    'limit' => 5,
+    /* Requests per IP per hour, matching src/lib/rate-limit.ts.
+       Counted per INTERNET CONNECTION, not per person: an office, a college
+       or a cyber cafe all share one address, so a low number turns "several
+       people wrote in today" into "please try again later" for everybody
+       after the fifth. Five was too tight and locked out real visitors twice.
+       The honeypot and the minimum fill time are what actually stop bots;
+       this only blunts a flood. */
+    'limit' => 20,
     'window' => 3600,
 
     /* Anything filled in faster than this is a script, matching MIN_FILL_MS
