@@ -240,7 +240,7 @@ export const images = {
     minWidth: 800,
     minHeight: 1200,
     direction: 'As board-01-portrait.jpg — same height, same crop, same light. Vice-Chairperson.',
-    alt: 'Eugene Waehira, Vice-Chairman of the Gathaithi management committee.',
+    alt: 'Eugene Wachira, Vice-Chairman of the Gathaithi management committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   boardThree: {

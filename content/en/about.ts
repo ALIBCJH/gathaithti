@@ -153,10 +153,14 @@ export const about: AboutContent = {
          Spellings are EXACTLY as supplied — a name is not something to tidy up
          on someone's behalf. Three were flagged back to the client as possible
          transcription slips: Waehira (Wachira?), German (Germano?), Kingory
-         (Kingori?). If any is wrong it is corrected here, in one line. */
+         (Kingori?). If any is wrong it is corrected here, in one line.
+
+         WACHIRA CONFIRMED 2026-09-11: the first was a slip, and the name is
+         corrected here, in the committee line below, and in the photograph's
+         alt text in content/images.ts. German and Kingory stand as supplied. */
       members: [
         { id: 'b1', name: 'Samuel Gachonge', role: 'Chairman', imageSlot: 'boardOne' },
-        { id: 'b2', name: 'Eugene Waehira', role: 'Vice-Chairman', imageSlot: 'boardTwo' },
+        { id: 'b2', name: 'Eugene Wachira', role: 'Vice-Chairman', imageSlot: 'boardTwo' },
         { id: 'b3', name: 'Edward Ngure', role: 'Treasurer', imageSlot: 'boardThree' },
         { id: 'b4', name: 'Ephraim Njogu', role: 'Secretary', imageSlot: 'boardFour' },
         { id: 'b5', name: 'German Wambiru', role: 'Committee member', imageSlot: 'boardFive' },
@@ -181,7 +185,7 @@ export const about: AboutContent = {
       {
         name: 'Management Committee',
         role: 'Elected by the members at the AGM. Responsible for the running of the society, the mill, marketing decisions and the payment schedule.',
-        composition: 'Samuel Gachonge (Chairman), Eugene Waehira (Vice-Chairman), Edward Ngure (Treasurer), Ephraim Njogu (Secretary), with German Wambiru and Charles Wambugu',
+        composition: 'Samuel Gachonge (Chairman), Eugene Wachira (Vice-Chairman), Edward Ngure (Treasurer), Ephraim Njogu (Secretary), with German Wambiru and Charles Wambugu',
       },
       {
         name: 'Supervisory Committee',
