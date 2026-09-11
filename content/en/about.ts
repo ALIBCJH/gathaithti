@@ -108,7 +108,11 @@ export const about: AboutContent = {
       { label: 'County', value: 'Nyeri County' },
       { label: 'Sub-county', value: 'Tetu' },
       { label: 'Wet mills operated', value: '{{wetMills}}' },
-      { label: 'Membership', value: '{{members}} smallholder farmers' },
+      /* The society's own breakdown, as it gave it on 2026-09-11. The three
+         come from content/facts.ts and must keep adding up. */
+      { label: 'Active members', value: '{{members}}' },
+      { label: 'Dormant members', value: '{{membersDormant}}' },
+      { label: 'Total membership', value: '{{membersTotal}}' },
     ],
   },
 
