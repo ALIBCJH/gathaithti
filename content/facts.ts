@@ -41,6 +41,8 @@ const SOURCE = 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-08.';
    2026-09-10, which is what lets them go into the structured data Google
    reads. A price a shopping crawler may repeat needs a stronger provenance
    than a figure printed on a page. */
+/* The society corrected the dormant and total membership counts. */
+const MEMBERSHIP_CORRECTED = '2026-09-11';
 const PRICES_CONFIRMED = '2026-09-10';
 const PRICE_SOURCE = 'Retail list confirmed by Gathaithi Farmers Co-op Society Ltd, 2026-09-10.';
 
@@ -105,7 +107,7 @@ export const facts = {
   },
 
   /* ── Scale ────────────────────────────────────────────────────────────── */
-  /* ACTIVE members. The society also reports 632 dormant — see membersDormant.
+  /* ACTIVE members. The society also reports 633 dormant — see membersDormant.
      Everything on the site that says "{{members}} smallholders own this
      society" means the active register, which is the honest number for a
      sentence about who holds the shares and delivers the cherry. */
@@ -116,36 +118,36 @@ export const facts = {
     display: '1,988',
     verified: true,
     source: SOURCE,
-    note: 'Active members. A further 632 are dormant.',
+    note: 'Active members. A further 633 are dormant.',
     updated: FROM_SOCIETY,
   },
   /* THE WHOLE REGISTER, where `members` above is the ACTIVE count. The site
      uses the active one wherever it says who owns the society and delivers the
      cherry, because that is what those sentences mean.
 
-     The arithmetic does not quite close: 1,988 active + 632 dormant is 2,620,
-     and the background note says 2,613 with "new members continuously
-     joining". A seven-member gap between two answers given the same day is not
-     worth chasing. It is worth not hiding. */
+     The first answers did not close: 1,988 active + 632 dormant is 2,620,
+     against a total of 2,613. The society corrected all three on 2026-09-11 to
+     1,988 + 633 = 2,621, which does. If they are ever updated again, keep
+     them adding up — a reader who does the sum will notice before we do. */
   membersTotal: {
     id: 'membersTotal',
     label: 'Members on the register',
-    value: 2613,
-    display: '2,613',
+    value: 2621,
+    display: '2,621',
     verified: true,
     source: SOURCE,
     note: 'Active and dormant together, and still growing. 1,988 of them were active at 31 October.',
-    updated: FROM_SOCIETY,
+    updated: MEMBERSHIP_CORRECTED,
   },
   membersDormant: {
     id: 'membersDormant',
     label: 'Dormant members',
-    value: 632,
-    display: '632',
+    value: 633,
+    display: '633',
     verified: true,
     source: SOURCE,
-    note: 'On the register but not currently delivering. Nothing renders this yet.',
-    updated: FROM_SOCIETY,
+    note: 'On the register but not currently delivering. Shown on About, in "The society on paper".',
+    updated: MEMBERSHIP_CORRECTED,
   },
   trees: {
     id: 'trees',
@@ -549,7 +551,7 @@ export type FactId = keyof typeof facts;
  * 1,542 Farmers … Satellite Verified Location". Two of its numbers conflict
  * with what the society says about itself:
  *
- *   farmers    1,542   against 1,988 active / 2,613 on the register
+ *   farmers    1,542   against 1,988 active / 2,621 on the register
  *   altitude   1,700 m against the 1,720 m this site carries from the brief
  *
  * NOTHING FROM THAT LISTING IS USED HERE. Where a society contradicts a
