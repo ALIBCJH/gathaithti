@@ -1,10 +1,17 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { BLUR_DATA_URL } from '@/lib/blur';
 import { ROTATION_INTERVAL } from '@/lib/rotation';
 
+
+/**
+ * Dispatched on `window` each time the photograph changes, after the first.
+ * HeroMotto listens for it to replay its entrance; anything else in the hero
+ * that should move with the pictures can do the same.
+ */
+export const HERO_SLIDE_EVENT = 'gathaithi:hero-slide';
 
 export interface HeroSlide {
   key: string;
@@ -97,6 +104,18 @@ export function HeroSlides({
     );
     return () => window.clearTimeout(id);
   }, [index, running, slides.length]);
+
+  /* Tell the rest of the hero the picture changed. Skipped on the first
+     render: the motto's entrance already plays on load, and announcing slide
+     0 there would play it twice. */
+  const firstSlide = useRef(true);
+  useEffect(() => {
+    if (firstSlide.current) {
+      firstSlide.current = false;
+      return;
+    }
+    window.dispatchEvent(new Event(HERO_SLIDE_EVENT));
+  }, [index]);
 
   const label = (n: number) =>
     slideLabel

@@ -10,6 +10,11 @@ export const home: HomeContent = {
 
   hero: {
     title: 'Gathaithi Farmers’ Co‑operative Society',
+    /* Supplied on the letterhead 2026-09-08 as KILIMO BIASHARA, and asked for
+       on the hero 2026-09-11, sliding in with the photographs. Kiswahili,
+       roughly "farming as a business"; left untranslated, as the society uses
+       it. Stored in the case the client wrote it; the capitals are CSS. */
+    motto: 'Kilimo Biashara',
     /* No {{fact}} tokens here on purpose. Every figure in content/facts.ts is
        still `verified: false`, and the line this replaced put two of them —
        the membership and the cupping score — in the first sentence a visitor
@@ -45,8 +50,8 @@ export const home: HomeContent = {
      "socio-economic" — neither is corrected, because these are the statements
      the co-operative adopted and not copy for this site to improve.
 
-     The motto, KILIMO BIASHARA, was supplied at the same time and is not here:
-     the hero already carries a line the user chose. */
+     The motto, KILIMO BIASHARA, was supplied at the same time. It is not in
+     this band: it went on the hero, over the photographs, on 2026-09-11. */
   statements: {
     eyebrow: 'In their own words',
     items: [

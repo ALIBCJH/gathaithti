@@ -131,6 +131,12 @@ export interface HomeContent {
   meta: Meta;
   hero: {
     title: string;
+    /**
+     * The society's motto, in Kiswahili, set over the photographs. Rendered
+     * with `lang="sw"` so a screen reader pronounces it as Kiswahili rather
+     * than guessing at it in English.
+     */
+    motto: string;
     positioning: string;
     /** The label on the cue out of the hero. */
     scrollMore: string;
