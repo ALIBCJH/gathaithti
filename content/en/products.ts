@@ -246,7 +246,10 @@ export const products: ProductsContent = {
       },
       {
         n: '04',
-        title: 'Washing',
+        /* "Soaking and washing" from 2026-09-11, at the client's request, with
+           their own photograph of the soaking tank. The body already covered
+           both — it was written when the second soak was folded in here. */
+        title: 'Soaking and washing',
         duration: 'On completion of ferment',
         /* The second soak used to be a step of its own and was replaced by
            grading. Its substance is folded in here rather than dropped: it is

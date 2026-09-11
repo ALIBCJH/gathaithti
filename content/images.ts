@@ -433,15 +433,25 @@ export const images = {
     sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processWashing: {
-    file: 'process-03-washing.jpg',
+    /* REPLACED 2026-09-11 with the client's own photograph, soaking.jpeg,
+       when the card became "Soaking and washing". A NEW FILE NAME, not the old
+       one overwritten: .htaccess caches images for a year and the variants
+       carry no content hash, so reusing process-03-washing.jpg would have
+       kept the old picture on every returning visitor's screen.
+
+       Cropped 1282x816 -> 1224x816 (exact 3:2) from the LEFT, not the centre:
+       the stencil along the right-hand wall reads "KCSAP/CGN/GATHAITHI FCS-
+       SOAKING", and a centred crop took the last letters off it. The left
+       edge loses only part of a water inlet. */
+    file: 'process-03-soaking-washing.jpg',
     page: 'Our Coffee',
-    section: 'Processing — washing',
+    section: 'Processing — soaking and washing',
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
     direction:
-      'MET, and the best frame on the page: a line of workers moving parchment along the channels with wooden paddles, drying beds waiting behind them. It shows the WORK, not just the water. Under-sized at 1264x848. NOTE: this frame also shows density grading, which is step 05 — do not reuse it there. Two adjacent cards carrying the same photograph would read as an error.',
-    alt: 'Workers moving parchment along the washing channels with wooden paddles at the Gathaithi mill, raised drying beds behind them.',
+      'MET, supplied by the society: the tiled soaking tank full, parchment lying under clean water, the society\u2019s name stencilled on the wall, drying beds and a polytunnel behind. Under-sized at 1224x816, like most of this set.',
+    alt: 'Parchment coffee lying under clean water in a tiled soaking tank at the Gathaithi mill, the wall stencilled "Gathaithi FCS – Soaking", drying beds behind.',
     sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processGrading: {
