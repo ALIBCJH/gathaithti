@@ -164,6 +164,8 @@ export interface HomeContent {
   proof: {
     eyebrow: string;
     heading: string;
+    /** Set when the heading is not English — the motto is Kiswahili. */
+    headingLang?: string;
     factIds: string[];
     /** Per-fact override for how the figure is SET here. See content/en/home.ts. */
     figures?: Record<string, string>;
