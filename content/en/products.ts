@@ -308,7 +308,7 @@ export const products: ProductsContent = {
         note: 'Fastest — office hours',
         prefill: 'Hello Gathaithi — I saw the coffee packs on your website and would like to ask about them.',
       },
-      phone: { label: 'Call the office', note: 'Mon\u2013Fri 8:00\u201317:00, Sat 8:00\u201313:00' },
+      phone: { label: 'Call the office', note: 'Mon\u2013Sat 8:00\u201316:00' },
       missing: 'Number to be confirmed by the society',
     },
 

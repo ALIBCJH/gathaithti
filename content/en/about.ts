@@ -210,13 +210,15 @@ export const about: AboutContent = {
     varieties: {
       heading: 'What grows here',
       body:
-        'The catchment is planted to the classic Kenyan selections alongside Ruiru 11, the disease-resistant release, which is what allows the society to keep quality high while managing coffee berry disease and leaf rust across {{trees}} trees.',
+        'The catchment is planted to Ruiru 11, grown grafted, and Batian — both disease-resistant releases, which is what allows the society to keep quality high while managing coffee berry disease and leaf rust across {{trees}} trees.',
       list: [
-        { name: 'SL28', note: 'The backbone of the catchment. Deep, structured, blackcurrant acidity.' },
-        { name: 'SL34', note: 'Heavier body, tolerant of the wetter years on the upper slopes.' },
-        { name: 'Ruiru 11', note: 'Compact and disease-resistant. Protects yield through bad seasons.' },
-        /* BATIAN REMOVED 2026-09-08. The society lists three varieties —
-           SL28, SL34 and Ruiru 11 — and Batian came from the project brief. */
+        /* THE SOCIETY'S LIST, 2026-09-11: Ruiru Grafted & Batian, "remove all
+           the other varieties". SL28 and SL34 are gone from here and from
+           the `varieties` fact; Batian is back. The notes say only what is
+           generally true of each variety — nothing specific to this
+           catchment that the society has not supplied. */
+        { name: 'Ruiru Grafted', note: 'Ruiru 11, grown grafted. Compact and disease-resistant, it protects yield through bad seasons.' },
+        { name: 'Batian', note: 'A tall, disease-resistant Kenyan release, bred to stand up to coffee berry disease and leaf rust.' },
       ],
     },
   },

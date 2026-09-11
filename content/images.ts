@@ -755,7 +755,7 @@ export const images = {
      NOTE FOR WHOEVER REPLACES THESE: the label on the supplied artwork reads
      "100% ARABICA ROBUSTA". Arabica and Robusta are two different species and
      a coffee cannot be both; everything else on this site says the society
-     grows SL28, SL34 and Ruiru 11, which are all Arabica. Flagged to
+     grows Ruiru 11 and Batian, which are both Arabica. Flagged to
      the client; the photographs are used as supplied, unaltered. */
   /* LANDSCAPE, 4/3, and the frames were BUILT rather than cropped.
 

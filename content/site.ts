@@ -110,7 +110,9 @@ const contact: {
 } = {
   /* ALL REAL FROM 2026-09-08. Nothing in this block is sample data any more.
 
-     THE NUMBER: 0726680365, one line answering both the phone and WhatsApp.
+     THE PHONE: 0745194764 from 2026-09-11, replacing 0726680365.
+     WHATSAPP is still 0726680365 until the society says whether it moves too
+     — the two used to be one line on one handset.
      Written in international form because that is the only form `tel:` and
      wa.me both take from a phone abroad; the display keeps the spacing a
      Kenyan reader expects.
@@ -135,7 +137,7 @@ const contact: {
      next to a real one is worse than no row at all: a member would ring it.
      Both the contact page and the footer drop a channel whose `value` is
      empty, so the row simply is not drawn. Fill it in and it comes back. */
-  officePhone: { value: '+254726680365', display: '+254 726 680 365' },
+  officePhone: { value: '+254745194764', display: '+254 745 194 764' },
   officeEmail: { value: 'office@gathaithi.cloud', display: 'office@gathaithi.cloud' },
   buyerEmail: { value: 'marketing@gathaithi.cloud', display: 'marketing@gathaithi.cloud' },
   /* BLANK, not invented. This was "Grace Wanjiru, Marketing & Sales" — a
@@ -194,9 +196,10 @@ export const site = {
    *  the variable still delivers instead of posting into a void. */
   sampleRequestTo: process.env.SAMPLE_REQUEST_TO ?? 'marketing@gathaithi.cloud',
 
+  /* From the society 2026-09-11. Also written into the LocalBusiness data in
+     src/lib/seo.ts — a search engine reads that copy, not this one. */
   openingHours: [
-    { day: 'Monday – Friday', time: '8:00 – 17:00' },
-    { day: 'Saturday', time: '8:00 – 13:00' },
+    { day: 'Monday – Saturday', time: '8:00 – 16:00' },
     { day: 'Sunday & public holidays', time: 'Closed' },
   ],
 } as const;
