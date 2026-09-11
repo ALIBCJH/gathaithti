@@ -31,7 +31,7 @@ export const contact: ContactContent = {
       note: 'Fastest, office hours',
       prefill: 'Hello Gathaithi — I found you through the website.',
     },
-    phone: { label: 'Call the office', note: 'Mon–Fri 8:00–17:00, Sat 8:00–13:00' },
+    phone: { label: 'Call the office', note: 'Mon–Sat 8:00–16:00' },
     email: { label: 'Email the office', note: 'Answered within two working days' },
     memberLine: { label: 'Members’ line', note: 'Payments, statements and pre-finance' },
   },
@@ -106,8 +106,7 @@ export const contact: ContactContent = {
       'Nyeri County, Kenya',
     ],
     hours: [
-      { day: 'Monday – Friday', time: '8:00 – 17:00' },
-      { day: 'Saturday', time: '8:00 – 13:00' },
+      { day: 'Monday – Saturday', time: '8:00 – 16:00' },
       { day: 'Sunday & public holidays', time: 'Closed' },
     ],
     registration: [

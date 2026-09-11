@@ -96,9 +96,8 @@ export function organizationLd() {
     address: postalAddress,
     areaServed: 'Worldwide',
     /* Kept in step with the `varieties` fact by hand — structured data cannot
-       take a {{token}}. The society lists three; Batian was in the brief and is
-       not grown here. */
-    knowsAbout: ['Washed Kenya coffee', 'SL28', 'SL34', 'Ruiru 11', 'Nyeri coffee'],
+       take a {{token}}. Ruiru 11 and Batian, per the society 2026-09-11. */
+    knowsAbout: ['Washed Kenya coffee', 'Ruiru 11', 'Batian', 'Nyeri coffee'],
     memberOf: { '@type': 'Organization', name: 'Kenyan co-operative coffee sector' },
     numberOfEmployees: undefined,
   };
@@ -120,18 +119,16 @@ export function localBusinessLd() {
        string, so blanking the number in site.ts removes it again. */
     telephone: site.contact.officePhone.value || undefined,
     geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+    /* 8:00 – 16:00, Monday to Saturday, from the society 2026-09-11. Written
+       out again here because a search engine shows THESE hours, not the
+       page's — keep them in step with `openingHours` in content/site.ts and
+       the two copies in content/en/contact.ts and products.ts. */
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         opens: '08:00',
-        closes: '17:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Saturday'],
-        opens: '08:00',
-        closes: '13:00',
+        closes: '16:00',
       },
     ],
     parentOrganization: { '@id': `${siteUrl}/#organization` },

@@ -43,6 +43,9 @@ const SOURCE = 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-08.';
    than a figure printed on a page. */
 /* The society corrected the dormant and total membership counts. */
 const MEMBERSHIP_CORRECTED = '2026-09-11';
+/* The society's "Grades & Varieties" section, sent the same day. */
+const GRADES_VARIETIES_UPDATED = '2026-09-11';
+const VARIETIES_SOURCE = 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-11.';
 const PRICES_CONFIRMED = '2026-09-10';
 const PRICE_SOURCE = 'Retail list confirmed by Gathaithi Farmers Co-op Society Ltd, 2026-09-10.';
 
@@ -295,28 +298,33 @@ export const facts = {
     note: 'Deep red volcanic (nitisol) soils. Confirm classification if a soil survey exists.',
     updated: TODAY,
   },
-  /* BATIAN IS GONE. The brief listed four varieties; the society lists three,
-     so anything describing "the newer disease-resistant releases" in the
-     plural now rests on Ruiru 11 alone. */
+  /* THE SOCIETY'S OWN LIST, 2026-09-11: "Ruiru Grafted & Batian", with the
+     instruction to remove every other variety. This replaces SL28, SL34 &
+     Ruiru 11 (2026-09-08), and it brings Batian BACK — it had been removed on
+     the 2026-09-08 answers as a brief-only variety. The society's latest word
+     wins; "Ruiru Grafted" is their name for it and is kept as written. */
   varieties: {
     id: 'varieties',
     label: 'Varieties',
-    value: 'SL28, SL34, Ruiru 11',
-    display: 'SL28, SL34 & Ruiru 11',
+    value: 'Ruiru Grafted, Batian',
+    display: 'Ruiru Grafted & Batian',
     verified: true,
-    source: SOURCE,
+    source: VARIETIES_SOURCE,
     note: 'The approximate share of each across member farms is still not supplied — buyers ask.',
-    updated: FROM_SOCIETY,
+    updated: GRADES_VARIETIES_UPDATED,
   },
+  /* "Grades: Mbuni", from the society 2026-09-11, replacing AA, AB, C, PB, T,
+     TT & UG. ⚠ Mbuni is the natural grade — cherry dried whole — while the
+     rest of the site calls the coffee WASHED and the mill a wet mill. Flagged
+     to the client; set as supplied. The old list is in git if it comes back. */
   grades: {
     id: 'grades',
     label: 'Grades produced',
-    value: 'AA, AB, C, PB, T, TT, UG',
-    display: 'AA, AB, C, PB, T, TT & UG',
+    value: 'Mbuni',
+    display: 'Mbuni',
     verified: true,
-    source: SOURCE,
-    note: 'Every grade the dry mill separates out of this society’s parchment — not the same as what is offered for sale in a given season.',
-    updated: FROM_SOCIETY,
+    source: VARIETIES_SOURCE,
+    updated: GRADES_VARIETIES_UPDATED,
   },
 
   /* ── Quality and returns ──────────────────────────────────────────────── */
