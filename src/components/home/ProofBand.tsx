@@ -37,6 +37,7 @@ export function ProofBand({ content }: { content: HomeContent['proof'] }) {
           <Eyebrow>{content.eyebrow}</Eyebrow>
           <h2
             id="proof-heading"
+            lang={content.headingLang}
             className="t-section text-[clamp(1.875rem,3.6vw,3.25rem)] text-balance"
           >
             {content.heading}

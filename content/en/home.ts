@@ -68,7 +68,11 @@ export const home: HomeContent = {
 
   proof: {
     eyebrow: 'By the numbers',
-    heading: 'A coffee society built on quality, ownership and time.',
+    /* The society's motto, asked for here 2026-09-11 in place of "A coffee
+       society built on quality, ownership and time." Kiswahili, so the
+       heading is marked `lang="sw"` for screen readers. */
+    heading: 'Kilimo Biashara',
+    headingLang: 'sw',
     /* THREE, not four. `cuppingScore` — 93 points, "A cup worth noticing" —
        was the first of them and was removed at the user's request.
 
