@@ -3,6 +3,7 @@ import { RichText } from '@/components/ui/Fact';
 import { SmoothAnchor } from '@/components/ui/SmoothAnchor';
 import { Placeholder } from '@/components/media/Placeholder';
 import { HeroSlides, type HeroSlide } from '@/components/home/HeroSlides';
+import { HeroMotto } from '@/components/home/HeroMotto';
 import { getImage } from '@/lib/images';
 import type { HomeContent } from '@content/types';
 
@@ -170,6 +171,10 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
 
       <div className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-end px-6 pb-2 pt-[calc(var(--header-h)+2rem)] sm:px-10 lg:px-16 lg:pb-6">
         <div className="flex max-w-[46rem] flex-col gap-4 sm:gap-5">
+          {/* The motto, first in the column. On a phone the name below is not
+              drawn, so this is the first thing the hero says there. */}
+          <HeroMotto text={content.motto} />
+
           {/* `sr-only` below lg, not `hidden`. The name is off the small screen
               as asked, but it is still the page's only <h1> — and Google indexes
               the MOBILE rendering of a page, so a heading actually removed there

@@ -721,6 +721,26 @@ a[href^='tel:'] {
     animation: stagger-in 420ms var(--ease) both;
     animation-delay: calc(var(--i, 0) * 45ms + 60ms);
   }
+
+  /* The hero motto slides in from the left edge each time the photograph
+     changes. Delayed so it lands as the 900ms crossfade resolves, rather than
+     arriving over the picture that is leaving. */
+  .motto-in {
+    animation: motto-in 800ms var(--ease) 250ms both;
+  }
+}
+
+/* The motto: the society's own words, so it is set with more presence than a
+   label — letter-spaced capitals, sized with the screen. Cream on the scrim,
+   never the ochre accent: ochre is a mid-tone and failed contrast over the
+   sunlit hillside the one time it sat here. */
+.hero-motto {
+  font-size: clamp(0.95rem, 0.8rem + 0.6vw, 1.35rem);
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-on-ink-fixed);
 }
 
 @keyframes drawer-in {
@@ -732,6 +752,13 @@ a[href^='tel:'] {
 @keyframes scrim-in {
   from {
     opacity: 0;
+  }
+}
+
+@keyframes motto-in {
+  from {
+    opacity: 0;
+    transform: translateX(-2.5rem);
   }
 }
 
