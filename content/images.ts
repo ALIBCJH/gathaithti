@@ -450,25 +450,29 @@ export const images = {
     sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processWashing: {
-    /* REPLACED 2026-09-11 with the client's own photograph, soaking.jpeg,
-       when the card became "Soaking and washing". A NEW FILE NAME, not the old
-       one overwritten: .htaccess caches images for a year and the variants
-       carry no content hash, so reusing process-03-washing.jpg would have
-       kept the old picture on every returning visitor's screen.
+    /* REPLACED 2026-09-13 with the client's washing-coffee.jpeg, two days after
+       the soaking-tank photograph went in here. The card keeps the title the
+       client chose on 2026-09-11, "Soaking and washing".
 
-       Cropped 1282x816 -> 1224x816 (exact 3:2) from the LEFT, not the centre:
-       the stencil along the right-hand wall reads "KCSAP/CGN/GATHAITHI FCS-
-       SOAKING", and a centred crop took the last letters off it. The left
-       edge loses only part of a water inlet. */
-    file: 'process-03-soaking-washing.jpg',
+       The frame shows the drum screen above a white-tiled tank with freshly
+       pulped parchment spread across the floor — which reads as the pulper
+       outlet or a fermentation tank as much as the washing channels. Set on
+       this card because that is where the client asked for it; the alt text
+       describes what is in the picture rather than naming a step.
+
+       Cropped 1191x896 -> 1191x794 (exact 3:2) by taking 102px off the BOTTOM,
+       which is only more parchment; a centred crop clipped the drum. New file
+       name, never an overwrite: images are cached for a year and the variants
+       carry no content hash. */
+    file: 'process-04-washing-coffee.jpg',
     page: 'Our Coffee',
     section: 'Processing — soaking and washing',
     ratio: '3/2',
     minWidth: 1800,
     minHeight: 1200,
     direction:
-      'MET, supplied by the society: the tiled soaking tank full, parchment lying under clean water, the society\u2019s name stencilled on the wall, drying beds and a polytunnel behind. Under-sized at 1224x816, like most of this set.',
-    alt: 'Parchment coffee lying under clean water in a tiled soaking tank at the Gathaithi mill, the wall stencilled "Gathaithi FCS – Soaking", drying beds behind.',
+      'MET, supplied by the client: a rotating drum screen feeding freshly pulped parchment into a white-tiled tank. Under-sized at 1191x794, like most of this set.',
+    alt: 'Freshly pulped parchment coffee spread across a white-tiled tank at the Gathaithi mill, the rotating drum screen that feeds it above.',
     sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
   processGrading: {
