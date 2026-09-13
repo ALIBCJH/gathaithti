@@ -437,18 +437,6 @@ export const images = {
     alt: 'The pulping machine at the Gathaithi wet mill, its frame stencilled GATHAITHI FCS-PULPER MACHINE.',
     sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
   },
-  processFermentation: {
-    file: 'process-02-fermentation.jpg',
-    page: 'Our Coffee',
-    section: 'Processing — fermentation',
-    ratio: '3/2',
-    minWidth: 1800,
-    minHeight: 1200,
-    direction:
-      'MET. A tank filled with parchment under water, mucilage breaking up as foam across the surface, the catchment behind it. Shot in daylight from a low three-quarter angle rather than at dusk from above as the brief asked, which reads better anyway: the hills place the tank somewhere real. Under-sized at 1264x848.',
-    alt: 'A fermentation tank at the Gathaithi wet mill, filled with parchment under water and mucilage foam, the hills of Tetu behind.',
-    sizes: '(min-width: 1620px) 696px, (min-width: 1024px) 43vw, 90vw',
-  },
   processWashing: {
     /* REPLACED 2026-09-13 with the client's washing-coffee.jpeg, two days after
        the soaking-tank photograph went in here. The card keeps the title the

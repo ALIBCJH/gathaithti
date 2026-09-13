@@ -26,7 +26,7 @@
   "gathaithi-pulper": 1366,
   "gathaithi-recirculation-pump": 1366,
   "gathaithi-retail-pouch": 1080,
-  "gathaithi-ripening-cherry": 1920,
+  "gathaithi-ripe-cherry": 828,
   "gathaithi-roasted-beans": 1920,
   "gathaithi-selective-picking": 1080,
   "gathaithi-soaking-tank": 1366,
@@ -51,8 +51,7 @@
   "partner-dormans": 1920,
   "partner-e4impact": 1920,
   "partner-ea-bean": 1920,
-  "process-02-fermentation": 1366,
-  "process-03-soaking-washing": 1366,
   "process-04-grading": 1366,
+  "process-04-washing-coffee": 1366,
   "process-05-raised-beds": 1920
 }

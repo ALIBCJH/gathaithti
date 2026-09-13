@@ -7,7 +7,7 @@ import { SmartImage } from '@/components/media/SmartImage';
 import type { ProductsContent } from '@content/types';
 
 /**
- * Six steps, alternating side to side, each one a photograph and a paragraph.
+ * Five steps, alternating side to side, each one a photograph and a paragraph.
  *
  * NO LONGER THE TOP OF THE PAGE. It opened Our Coffee for as long as the
  * catalogue held green coffee, where the grades meant nothing to a stranger
