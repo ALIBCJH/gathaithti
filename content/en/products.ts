@@ -215,6 +215,12 @@ export const products: ProductsContent = {
   process: {
     eyebrow: 'Processing',
     heading: 'From cherry to parchment',
+    /* FIVE STEPS from 2026-09-13. Fermentation (was 03) removed at the
+       client's request — "we do not need it" — and the steps after it
+       renumbered. Two lines pointed at it as a step of its own and were
+       reworded: Pulping's "before fermentation even begins", and Soaking and
+       washing's duration "On completion of ferment", now "After pulping".
+       The `fermentHours` fact is kept in content/facts.ts, unrendered. */
 
     steps: [
       {
@@ -231,26 +237,17 @@ export const products: ProductsContent = {
         title: 'Pulping',
         duration: 'Within hours of delivery',
         body:
-          'The disc pulper removes the skin and most of the fruit the same night, and the parchment is separated by density as it leaves the machine. Heavier, denser beans go forward as the top grade before fermentation even begins.',
+          'The disc pulper removes the skin and most of the fruit the same night, and the parchment is separated by density as it leaves the machine. Heavier, denser beans go forward as the top grade from the start.',
         detail: 'Density-graded at the pulper',
         imageSlot: 'processPulping',
       },
       {
         n: '03',
-        title: 'Fermentation',
-        duration: '{{fermentHours}}',
-        body:
-          'Parchment ferments under supervision in tanks so that the remaining mucilage breaks down cleanly. Cool nights at {{altitude}} make this slower and more even here than at lower altitude, which is a large part of why the cup is clean.',
-        detail: 'Dry ferment, tank by tank',
-        imageSlot: 'processFermentation',
-      },
-      {
-        n: '04',
         /* "Soaking and washing" from 2026-09-11, at the client's request, with
            their own photograph of the soaking tank. The body already covered
            both — it was written when the second soak was folded in here. */
         title: 'Soaking and washing',
-        duration: 'On completion of ferment',
+        duration: 'After pulping',
         /* The second soak used to be a step of its own and was replaced by
            grading. Its substance is folded in here rather than dropped: it is
            the same parchment in the same water, it happens at this point, and
@@ -262,7 +259,7 @@ export const products: ProductsContent = {
         imageSlot: 'processWashing',
       },
       {
-        n: '05',
+        n: '04',
         title: 'Grading and sorting',
         /* Two separations, not one, and they happen at different points — so
            the copy says which is which rather than letting the photograph
@@ -276,7 +273,7 @@ export const products: ProductsContent = {
         imageSlot: 'processGrading',
       },
       {
-        n: '06',
+        n: '05',
         title: 'Drying on raised beds',
         duration: '{{dryingDays}}',
         body:

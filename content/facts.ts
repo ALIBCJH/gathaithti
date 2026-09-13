@@ -526,7 +526,7 @@ export const facts = {
     value: 'overnight',
     display: 'Overnight',
     verified: false,
-    note: 'Brief says “overnight”. Supply the hour range the mill actually works to (Kenyan mills typically 12–24 hours, varying with temperature).',
+    note: 'Nothing renders this since the Fermentation step was removed from Our Coffee on 2026-09-13. Brief said “overnight”; never confirmed by the society.',
     updated: TODAY,
   },
   soakHours: {
