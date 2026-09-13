@@ -221,7 +221,13 @@ export const images = {
 
      The brief below still stands for any replacement. */
   boardOne: {
-    file: 'board-01-portrait.jpg',
+    /* REPLACED 2026-09-13 with the client's chairman.jpeg — the same
+       photograph of Samuel Gachonge with the composited office background
+       (a reception desk and a stranger's logo) taken out and a plain light
+       ground in its place. 832x1254 cropped to 832x1248, exact 2/3, by 6px off
+       the bottom. New file name rather than an overwrite: images are cached for
+       a year and the variants carry no content hash. */
+    file: 'board-01-chairman.jpg',
     page: 'About',
     section: 'Governance — management committee',
     ratio: '2/3',
@@ -239,7 +245,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Vice-Chairperson.',
+    direction: 'As boardOne — same height, same crop, same light. Vice-Chairperson.',
     alt: 'Eugene Wachira, Vice-Chairman of the Gathaithi management committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -250,7 +256,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Treasurer.',
+    direction: 'As boardOne — same height, same crop, same light. Treasurer.',
     alt: 'Edward Ngure, Treasurer of Gathaithi Farmers’ Co-operative Society.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -261,7 +267,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Secretary.',
+    direction: 'As boardOne — same height, same crop, same light. Secretary.',
     alt: 'Ephraim Njogu, Secretary of Gathaithi Farmers’ Co-operative Society.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -272,7 +278,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Elected committee member.',
+    direction: 'As boardOne — same height, same crop, same light. Elected committee member.',
     alt: 'German Wambiru, a member of the Gathaithi management committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -283,7 +289,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Elected committee member.',
+    direction: 'As boardOne — same height, same crop, same light. Elected committee member.',
     alt: 'Charles Wambugu, a member of the Gathaithi management committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -294,7 +300,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Elected committee member.',
+    direction: 'As boardOne — same height, same crop, same light. Elected committee member.',
     alt: 'Paul Gaita, Chairman of the Gathaithi supervisory committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -305,7 +311,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Elected committee member.',
+    direction: 'As boardOne — same height, same crop, same light. Elected committee member.',
     alt: 'Daniel Ngatia, Secretary of the Gathaithi supervisory committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
@@ -316,7 +322,7 @@ export const images = {
     ratio: '2/3',
     minWidth: 800,
     minHeight: 1200,
-    direction: 'As board-01-portrait.jpg — same height, same crop, same light. Elected committee member.',
+    direction: 'As boardOne — same height, same crop, same light. Elected committee member.',
     alt: 'Mary Kingory, a member of the Gathaithi supervisory committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
