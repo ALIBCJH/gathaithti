@@ -536,21 +536,73 @@ export interface ContactContent {
  * A caption says what the picture SHOWS — never who is in it, and never a
  * claim the photograph does not support.
  */
+/** One photograph on the gallery walk. */
+export interface GalleryPhoto {
+  imageSlot: string;
+  /**
+   * The photograph's OWN shape, as `width/height` of the file. The walk never
+   * crops, so this — not the slot's registry ratio — sizes the frame.
+   */
+  ratio: string;
+  /** Two or three words. The thing itself, not a sentence. */
+  title: string;
+  /** Shown in the viewer when the photograph is opened large. */
+  caption: string;
+}
+
+/** One stop on the walk. The order of the array IS the route. */
+export interface GalleryStop {
+  /** Two digits, as painted on the route: '01'. */
+  n: string;
+  /** Anchor, `#stop-<id>`, and the key the route map watches. */
+  id: string;
+  /** The stop's name on the route map — short enough for a phone bar. */
+  short: string;
+  title: string;
+  text: string;
+  /**
+   * opening — the page's first screen: the title beside the first photograph
+   * split / split-flip — text beside one photograph, photograph right / left
+   * full — one photograph across the whole column, text under it
+   * pair — two photographs side by side at their own shapes
+   */
+  layout: 'opening' | 'split' | 'split-flip' | 'full' | 'pair';
+  /** narrow: a smaller landscape photograph. tall: a portrait, kept from towering. */
+  photoSize?: 'narrow' | 'tall';
+  /** Stencil lettering set on the photograph's corner, as the society marks its walls. */
+  tag?: string;
+  /** Smaller photographs, for a quiet stop. */
+  quiet?: boolean;
+  /** A section word painted before this stop: THE MILL, THE BEDS. */
+  act?: { name: string; note: string };
+  photos: GalleryPhoto[];
+}
+
 export interface GalleryContent {
   meta: Meta;
-  /* No `lead`. The gallery's title says what the page is and the numbered
-     captions say the rest; a sentence between them was one restatement too
-     many. */
-  hero: { eyebrow: string; title: string };
-  items: {
-    id: string;
-    imageSlot: string;
-    /** Two or three words. The thing itself, not a sentence. */
+  hero: {
+    /** Stencilled above the title. */
+    mark: string;
     title: string;
-    caption: string;
-    /** Crop offset for the circle, where centre would cut the subject. */
-    position?: string;
-  }[];
+    /** The end of the title, set in italic. */
+    titleEmphasis: string;
+    lede: string;
+    /** The button that starts the walk at stop 02. */
+    start: string;
+  };
+  route: { label: string; title: string };
+  stops: GalleryStop[];
+  end: { title: string; back: string };
+  viewer: {
+    label: string;
+    close: string;
+    previous: string;
+    next: string;
+    /** 'Photo {{n}} / {{total}}' */
+    count: string;
+    /** 'View larger: {{title}}' */
+    open: string;
+  };
 }
 
 export interface Dictionary {

@@ -1025,6 +1025,23 @@ export const images = {
     alt: 'The tiled soaking tank at the Gathaithi wet mill, empty between crops.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
+  /* Stop 05 on the gallery walk. The client's soaking.jpeg — the tank FULL,
+     parchment under water, the wall stencilled KCSAP/CGN/GATHAITHI FCS-
+     SOAKING. It was on Our Coffee from #125 until #128 replaced it there with
+     the washing photograph; it comes back here under its own name. Uncropped:
+     the walk shows every photograph at its own shape. */
+  galleryTankFull: {
+    file: 'gallery-soaking-tank-full.jpg',
+    page: 'Gallery',
+    section: 'Stop 05 — the soaking tank',
+    ratio: '3/2', /* registry shape only — the walk passes the file's own 1282/816 */
+    minWidth: 1800,
+    minHeight: 1146,
+    direction:
+      'MET, supplied by the society: the tiled soaking tank full, parchment under clean water, the society\u2019s name stencilled on the wall, drying beds and a polytunnel behind.',
+    alt: 'Parchment coffee under clean water in the tiled soaking tank at Gathaithi, the wall stencilled KCSAP/CGN/GATHAITHI FCS – SOAKING, drying beds behind.',
+    sizes: '(min-width: 1100px) 70vw, 100vw',
+  },
   galleryNoticeBoard: {
     file: 'gathaithi-notice-board.jpg',
     page: 'Gallery',
