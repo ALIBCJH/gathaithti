@@ -132,22 +132,10 @@ export const home: HomeContent = {
       'That decision is the whole story. Cherry is picked selectively by the household that grew it, delivered the same evening, and processed within hours at a single mill on {{millSite}} hectares. Nothing is blended in from elsewhere, and the books record which household every delivery came from.',
       'What the society sells is the work of {{members}} families on the eastern slopes above Nyeri — and what it returns to them is the reason the work stays good.',
     ],
-    /* The statement card in the right-hand column, where the wet-mill
-       photograph used to sit. The year is written out rather than taken from
-       {{independentSince}}: that fact displays as “21 January 2000”, and the
-       sentence is built around the bare year. If the registration date is
-       ever corrected, correct it here too. */
-    card: {
-      eyebrow: 'Our story',
-      quote:
-        'In 2000, the farmers of Gathaithi made a simple decision: to own what they had spent generations building.',
-      support:
-        'They took responsibility for their coffee, their factory, and their future. More than two decades later, that decision still shapes every cherry delivered to the mill.',
-      footer: 'Gathaithi Farmers Co-operative Society • Est. 2000',
-    },
-    pullQuote:
-      'We are not suppliers to this business. We are the ones who own it.',
-    attribution: 'Grace Wairimu, member since 1991 — sample quotation, not yet collected',
+    /* The right-hand column is a photograph (images.ts `homeStory`). The
+       "Our story" statement card and the Grace Wairimu pull quote — marked
+       "sample quotation, not yet collected" and published anyway — were both
+       removed 2026-09-13 at the client's request. */
     cta: { label: 'Read our story', href: 'about' },
   },
 

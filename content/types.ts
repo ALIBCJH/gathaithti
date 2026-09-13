@@ -179,10 +179,6 @@ export interface HomeContent {
     heading: string;
     body: string[];
     cta: Cta;
-    pullQuote: string;
-    attribution: string;
-    /** The editorial statement card that balances the story column. */
-    card: { eyebrow: string; quote: string; support: string; footer: string };
   };
   noticeboard: { eyebrow: string; heading: string; lead: string; cta: Cta };
   /**

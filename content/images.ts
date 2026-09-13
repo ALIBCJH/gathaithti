@@ -102,6 +102,26 @@ export const images = {
     sizes: '(max-width: 1023px) 178vh, 100vw',
     fullDensity: true,
   },
+  /* RESTORED 2026-09-13. #24 took the wet-mill photograph out of this spot
+     and put an editorial quote card in its place; the client asked for a
+     photograph back, their best-berry.jpeg, and for the card to go.
+
+     1264x846 cropped to 1263x842 (exact 3/2, the shape this slot had before)
+     by trimming 2px top and bottom and 1px off the right. Well under the
+     2400px this slot once asked for; the column draws it at about 700 CSS px
+     on a wide desktop. */
+  homeStory: {
+    file: 'home-story-best-berry.jpg',
+    page: 'Home',
+    section: 'Story teaser',
+    ratio: '3/2',
+    minWidth: 2400,
+    minHeight: 1600,
+    direction:
+      'MET, supplied by the client: two hands cupping freshly picked ripe red cherry over a woven basket full of it, ground and green leaves around.',
+    alt: 'Hands holding freshly picked ripe red coffee cherry over a woven basket full of cherry.',
+    sizes: '(min-width: 1024px) 50vw, 100vw',
+  },
   homeSeason: {
     file: 'gathaithi-selective-picking.jpg',
     page: 'Home',
