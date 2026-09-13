@@ -19,6 +19,8 @@ export function SmartImage({
   zoom = false,
   square = false,
   ratio,
+  sizes,
+  priority,
 }: {
   slot: string;
   className?: string;
@@ -36,6 +38,14 @@ export function SmartImage({
    * frames that are 0.67 to 1.64 in the registry, so it says so here.
    */
   ratio?: string;
+  /**
+   * Override the slot's `sizes` for one use. A slot is registered for the page
+   * it was made for; the gallery walk shows some of the same photographs full
+   * width, where the slot's narrow `sizes` would pick a soft, small file.
+   */
+  sizes?: string;
+  /** Override the slot's `priority` — for a photograph that opens a page. */
+  priority?: boolean;
 }) {
   if (!isImageKey(slot)) {
     return (
@@ -62,9 +72,9 @@ export function SmartImage({
           src={image.src}
           alt={image.alt}
           fill
-          sizes={image.sizes ?? '100vw'}
-          priority={image.priority}
-          loading={image.priority ? undefined : 'lazy'}
+          sizes={sizes ?? image.sizes ?? '100vw'}
+          priority={priority ?? image.priority}
+          loading={(priority ?? image.priority) ? undefined : 'lazy'}
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
           quality={72}

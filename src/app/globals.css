@@ -775,6 +775,102 @@ a[href^='tel:'] {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   GALLERY WALK
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Stencil lettering, for what marks a place on the walk: stop numbers, the
+   route, the act words. The face (`--font-stencil`) is loaded by the gallery
+   page only; anywhere else this falls back to a condensed sans. */
+.stencil {
+  font-family: var(--font-stencil), 'Arial Narrow', Impact, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* THE MILL, THE BEDS — painted big and outlined, like a stencil sprayed on a
+   wall and left to fade. Drawn from the text ochre token, so it is the dark
+   ochre on white and the light ochre on brown. */
+.walk-act {
+  font-family: var(--font-stencil), 'Arial Narrow', Impact, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(3.25rem, 11vw, 9.5rem);
+  line-height: 0.82;
+  color: color-mix(in srgb, var(--ochre-text) 12%, transparent);
+  -webkit-text-stroke: 1.5px var(--ochre-text);
+  text-wrap: balance;
+}
+
+.walk-photo {
+  position: relative;
+  display: block;
+  border-radius: var(--radius-photo);
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: 0 30px 60px -32px rgb(0 0 0 / 0.45);
+}
+.walk-photo:focus-visible {
+  outline: 2px solid var(--color-ochre);
+  outline-offset: 4px;
+}
+
+/* A stencil set on a photograph's corner. Always pale with a shadow: it sits
+   on the picture, not on the page, so it does not follow the theme. */
+.walk-tag {
+  position: absolute;
+  left: 0.875rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  pointer-events: none;
+  color: var(--on-ink-fixed);
+  font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.55);
+}
+
+/* Each print DEVELOPS as it scrolls in: a warm, dim wash lifts off and the
+   photograph settles from a touch larger. Scroll-driven, so there is nothing
+   to wait for and nothing is ever hidden — the wash is off entirely in
+   browsers without scroll timelines and for anyone who asks for less motion,
+   where the photograph is simply there. An overlay, not a filter, so the
+   site's own `.photo` treatment is never overridden. */
+.walk-develop {
+  display: none;
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .walk-develop {
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: rgb(58 30 14 / 0.6);
+      animation: walk-develop linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 38%;
+    }
+    .walk-photo img {
+      animation: walk-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 38%;
+    }
+  }
+}
+@keyframes walk-develop {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes walk-settle {
+  from {
+    transform: scale(1.06);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    PHOTOGRAPHY
    ═══════════════════════════════════════════════════════════════════════════ */
 
