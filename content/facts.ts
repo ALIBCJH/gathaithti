@@ -46,6 +46,9 @@ const MEMBERSHIP_CORRECTED = '2026-09-11';
 /* The society's "Grades & Varieties" section, sent the same day. */
 const GRADES_VARIETIES_UPDATED = '2026-09-11';
 const VARIETIES_SOURCE = 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-11.';
+/* Certification, supplied 2026-09-13. */
+const CERTIFICATION_UPDATED = '2026-09-13';
+const CERTIFICATION_SOURCE = 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-13.';
 const PRICES_CONFIRMED = '2026-09-10';
 const PRICE_SOURCE = 'Retail list confirmed by Gathaithi Farmers Co-op Society Ltd, 2026-09-10.';
 
@@ -325,6 +328,38 @@ export const facts = {
     verified: true,
     source: VARIETIES_SOURCE,
     updated: GRADES_VARIETIES_UPDATED,
+  },
+
+  /* ── Certification ────────────────────────────────────────────────────── */
+  /* The client's words, 2026-09-13: "Certified by RA (Rain Forest) and EUDR".
+
+     Written as TWO DIFFERENT KINDS OF CLAIM, because they are. Rainforest
+     Alliance is a certification — "Rainforest Alliance Certified" is the
+     scheme's own phrase. EUDR, the EU Deforestation Regulation, is a law a
+     supplier complies with; nothing and nobody is "certified by EUDR", and a
+     buyer who ships into Europe would read that as a mistake.
+
+     No seal is shown. The Rainforest Alliance frog is licensed artwork with
+     its own usage approval; the words are enough until the society has it. */
+  certificationRA: {
+    id: 'certificationRA',
+    label: 'Certification',
+    value: 'Rainforest Alliance Certified',
+    display: 'Rainforest Alliance Certified',
+    verified: true,
+    source: CERTIFICATION_SOURCE,
+    note: 'Certificate number and expiry not supplied. Rainforest Alliance certificates are publicly searchable, and a buyer will look this one up — supply the number.',
+    updated: CERTIFICATION_UPDATED,
+  },
+  eudr: {
+    id: 'eudr',
+    label: 'EU Deforestation Regulation',
+    value: 'EUDR compliant',
+    display: 'EUDR compliant',
+    verified: true,
+    source: CERTIFICATION_SOURCE,
+    note: 'Compliance, not a certification. Buyers importing into the EU will ask for the due-diligence statement and plot geolocation data behind it.',
+    updated: CERTIFICATION_UPDATED,
   },
 
   /* ── Quality and returns ──────────────────────────────────────────────── */
