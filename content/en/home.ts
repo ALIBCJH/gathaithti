@@ -117,6 +117,9 @@ export const home: HomeContent = {
          nobody has answered. */
       { label: 'Grades produced', value: '{{grades}}' },
       { label: 'Varieties', value: '{{varieties}}' },
+      /* From the society 2026-09-13. See `certificationRA` and `eudr` in
+         content/facts.ts for why the two are worded differently. */
+      { label: 'Certification', value: '{{certificationRA}} · {{eudr}}' },
       { label: 'Process', value: 'Fully washed, second soak, sun-dried on raised beds' },
       { label: 'Cherry intake this year', value: '{{cherryAnnual}} kg' },
       { label: 'Sample despatch', value: '250 g and 1 kg, by courier, from the society office' },
