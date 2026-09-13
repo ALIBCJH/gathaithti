@@ -4,7 +4,7 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
-import { StoryCard } from '@/components/home/StoryCard';
+import { SmartImage } from '@/components/media/SmartImage';
 import type { HomeContent } from '@content/types';
 
 export function StoryTeaser({
@@ -39,18 +39,14 @@ export function StoryTeaser({
             </Reveal>
           </div>
 
-          <div className="flex flex-col gap-12 lg:col-span-6 lg:col-start-7">
+          {/* A photograph again, from 2026-09-13 — the client's best-berry.jpeg.
+              It replaces the "Our story" statement card (#24), whose 2000 story
+              the paragraphs beside it already tell, and the pull quote under
+              it, which credited a "sample quotation, not yet collected" to a
+              member no one had asked. */}
+          <div className="lg:col-span-6 lg:col-start-7">
             <Reveal>
-              <StoryCard content={content.card} />
-            </Reveal>
-
-            <Reveal delay={60}>
-              <figure className="flex flex-col gap-6 border-l-2 border-ochre pl-8">
-                <blockquote className="pull-quote max-w-[24ch] text-ink">
-                  “{content.pullQuote}”
-                </blockquote>
-                <figcaption className="t-meta text-ink-soft">{content.attribution}</figcaption>
-              </figure>
+              <SmartImage slot="homeStory" />
             </Reveal>
           </div>
         </div>
