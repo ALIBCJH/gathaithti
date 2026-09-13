@@ -350,15 +350,32 @@ export const images = {
      process step, not a grade flat-lay. What is left is the crop itself at its
      best — which is the point of the section. */
   gemOne: {
-    file: 'gathaithi-ripening-cherry.jpg',
+    /* SUPPLIED 2026-09-11, replacing the stand-in moved here from the page
+       hero. It is what the direction asked for: tight clusters of uniformly
+       ripe red cherry, which is what "the cherry it started as" means on a
+       card about the best lot of the season.
+
+       Cropped 1256x832 -> 666x832 (exact 4/5) from the CENTRE, because the
+       other two cards in this row are 4/5 and a row of three that did not
+       share a shape would read as a mistake. The centre crop also leaves the
+       small bean watermark in the bottom-right corner outside the frame.
+
+       A NEW FILE NAME rather than the old one overwritten: images are cached
+       for a year by .htaccess and the variants carry no content hash.
+
+       Still under the 1400x1750 this slot asks for — 666px wide against a card
+       that can draw 486 CSS px on a wide desktop. Better than the frame it
+       replaces (617x771 after the same crop) and better composed, but a
+       larger original of this photograph would still be worth having. */
+    file: 'gathaithi-ripe-cherry.jpg',
     page: 'Our Coffee',
     section: 'The season',
     ratio: '4/5',
     minWidth: 1400,
     minHeight: 1750,
     direction:
-      'STAND-IN, moved here from the page hero. A daylight frame of cherry on the branch with red, yellow and green together — which is honest about a tree that does not ripen at once, but this card is called "the cherry it started as" and wants the ripest fruit of the season: tight, portrait, uniform deep red, soft light. It is also landscape at 1413x771 in a portrait box, so it is cropped hard.',
-    alt: 'Cherry on the branch at Gathaithi — red, yellow and green ripening together.',
+      'MET, supplied by the client. Tight clusters of ripe red cherry on the branch in soft daylight, a few still darkening, green leaves behind.',
+    alt: 'Clusters of ripe red coffee cherry on the branch at Gathaithi, green leaves behind.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   gemTwo: {
