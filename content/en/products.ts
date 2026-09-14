@@ -283,13 +283,12 @@ export const products: ProductsContent = {
   sample: {
     eyebrow: 'Get in touch',
     heading: 'Ask us about the coffee',
-    lead:
-      'The office answers WhatsApp fastest during working hours. If you would rather write, the form below reaches the same desk.',
+    lead: 'Prices, delivery, or a bigger order — ask the office. WhatsApp is usually the fastest reply.',
 
     channels: {
       whatsapp: {
         label: 'WhatsApp us',
-        note: 'Fastest — office hours',
+        note: 'Fastest reply',
         prefill: 'Hello Gathaithi — I saw the coffee packs on your website and would like to ask about them.',
       },
       phone: { label: 'Call the office', note: 'Mon\u2013Sat 8:00\u201316:00' },
@@ -297,23 +296,21 @@ export const products: ProductsContent = {
     },
 
     form: {
-      heading: 'Or write to us here',
+      heading: 'Or send a message',
       fields: {
-        pack: 'Which size are you interested in?',
+        pack: 'Which size?',
         email: 'Your email',
         message: 'Your message',
       },
       packAny: 'Not sure yet',
       placeholders: {
         email: 'you@example.com',
-        message: 'How much you are after, and where you are — anything that helps the office answer you properly.',
+        message: 'How many packs, where you are, or anything you would like to know.',
       },
       submit: 'Send message',
-      consent:
-        'We use what you send here to answer your enquiry and nothing else. We do not sell or share it.',
+      consent: 'We use what you send only to answer you. We never sell or share it.',
       /* Overrides common.form, whose success line promises "sample
-         availability and despatch details" — written for an importer, and the
-         wrong thing to tell somebody asking the price of a 250 g bag. */
+         availability and despatch details" — written for an importer. */
       success: {
         title: 'Message received',
         body: 'Thank you. The office will come back to you, usually within two working days. If it is urgent, WhatsApp is faster.',

@@ -8,90 +8,54 @@ export const contact: ContactContent = {
     ogLine: 'Buyers · Members · Suppliers — reach the society directly',
   },
 
+  /* REBUILT 2026-09-14 so that sending a message is the easiest thing on the
+     page. It used to open on a title, then "Talk to the society", then three
+     contact rows, then a Buyers / Members / Suppliers explainer, and only
+     then a seven-field form — about 1,500px down on a desktop and 2,900px on a
+     phone. Now the page is one screen: the ways to reach the office on the
+     left, the form beside them, and only four things to fill in. */
   hero: {
     eyebrow: 'Contact',
-    title: 'Talk to the society directly',
-    lead:
-      /* Short on purpose. This sentence used to explain the three routes in
-         full — the same three the section below states as three lines — and it
-         filled the whole first screen of a phone, which pushed the WhatsApp
-         button and the phone number under the fold on the one page whose job
-         is to get somebody in touch. */
-      'One office, next to the mill. WhatsApp is answered fastest.',
+    title: 'Get in touch',
+    lead: 'Send the society office a message and we will reply within two working days — or reach us straight away on WhatsApp or by phone.',
   },
 
-  /* The three ways in, stated once. Every number and address on this page
-     comes from content/site.ts — the page never writes one down itself, so
-     there is one place to change when the society's details are confirmed. */
+  /* Every number and address comes from content/site.ts; nothing here writes
+     one down, so there is one place to change them. */
   direct: {
-    heading: 'Talk to the society',
-    lead: 'WhatsApp is answered fastest during office hours. Anything that needs a paper trail is better by email.',
+    heading: 'Reach us now',
+    lead: 'Office hours are Monday to Saturday, 8:00 – 16:00.',
     whatsapp: {
       label: 'WhatsApp',
-      note: 'Fastest, office hours',
+      note: 'Usually the fastest reply',
       prefill: 'Hello Gathaithi — I found you through the website.',
     },
     phone: { label: 'Call the office', note: 'Mon–Sat 8:00–16:00' },
-    email: { label: 'Email the office', note: 'Answered within two working days' },
+    email: { label: 'Email', note: 'Replies within two working days' },
     memberLine: { label: 'Members’ line', note: 'Payments, statements and pre-finance' },
   },
 
-  routes: [
-    {
-      id: 'buyers',
-      label: 'Buyers',
-      heading: 'Roasters, importers and green buyers',
-      body: 'Samples, lot availability, cupping visits and direct-sale paperwork.',
-      channel: 'whatsapp',
-    },
-    {
-      id: 'members',
-      label: 'Members',
-      heading: 'Cherry payments and member services',
-      body: 'Payments, statements, pre-finance, input credit and register updates. Bring your member number.',
-      channel: 'phone',
-    },
-    {
-      id: 'suppliers',
-      label: 'Suppliers',
-      heading: 'Suppliers, agronomy and institutions',
-      body: 'Written proposals to the society office, addressed to the Society Manager.',
-      channel: 'email',
-    },
-  ],
-
   form: {
     eyebrow: 'Write to us',
-    heading: 'Send the society a message',
-    lead:
-      'For anything that does not need a phone call. Tell us who you are and what you need, and the message reaches the right desk in the office — buyers to marketing, members to member services, suppliers to administration.',
-    note:
-      'We answer during office hours, Monday to Saturday. Buyers asking for samples are usually better served by the sample request form, which collects the lot details we need up front.',
-    writeToUs: 'Write to us instead',
+    heading: 'Send a message',
+    lead: 'Choose what it is about, add your details, and the office will get it to the right person.',
+    topics: ['Buying coffee', 'Becoming a member', 'Member services', 'Something else'],
     fields: {
+      topic: 'What is it about?',
       name: 'Your name',
-      email: 'Email',
-      phone: 'Phone',
-      organisation: 'Company or organisation',
-      topic: 'What is this about?',
-      memberNumber: 'Member number',
+      email: 'Your email',
+      phone: 'Phone number (optional)',
       message: 'Your message',
     },
     placeholders: {
       name: 'Jane Wanjiku',
       email: 'you@example.com',
       phone: '+254 …',
-      organisation: 'Roastery, importer, supplier — if it applies',
-      message: 'Tell us what you need and we will get it to the right person.',
-      /* The four options this field used to offer, kept as guidance now that
-         it is typed rather than chosen. Without them the box gives no clue
-         what a useful answer looks like. */
-      topic: 'Buying coffee, membership, supplying us…',
+      message: 'How can we help?',
     },
-    memberHint: 'On your member card and your payment statement. It helps us find your record before we reply.',
+    phoneHint: 'Add it if you would like the office to call you back.',
     submit: 'Send message',
-    consent:
-      'We use what you send here to answer your enquiry and nothing else. We do not sell or share it.',
+    consent: 'We use what you send only to answer you. We never sell or share it.',
     successBody:
       'Thank you. Your message has reached the society office, and someone will reply during office hours — usually within two working days.',
     successAgain: 'Send another message',

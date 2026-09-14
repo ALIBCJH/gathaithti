@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { ChoiceChips } from '@/components/forms/ChoiceChips';
 import { Field, fieldClass } from '@/components/forms/Field';
 import { useEnquiryForm } from '@/components/forms/useEnquiryForm';
 import { SAMPLE_ENDPOINT } from '@/lib/endpoints';
@@ -67,18 +68,18 @@ export function PackEnquiryForm({
 
   if (enquiry.status === 'success') {
     return (
-      <div
-        ref={successRef}
-        tabIndex={-1}
-        className="flex flex-col gap-5 border border-moss/40 bg-moss/8 p-8 sm:p-10"
-      >
-        <span aria-hidden="true" className="inline-block h-px w-16 bg-moss" />
+      <div ref={successRef} tabIndex={-1} className="flex flex-col items-start gap-5 py-6 outline-none">
+        <span aria-hidden="true" className="grid size-12 place-items-center rounded-full bg-moss text-on-moss">
+          <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m5 12.5 4.5 4.5L19 7.5" />
+          </svg>
+        </span>
         <h3 className="t-section text-[clamp(1.25rem,2vw,1.625rem)]">{content.success.title}</h3>
         <p className="t-body text-ink-soft">{content.success.body}</p>
         <button
           type="button"
           onClick={enquiry.reset}
-          className="tap t-meta w-fit text-ochre-ink underline decoration-ochre/40 underline-offset-4 transition-[text-decoration-thickness,color] duration-200 [transition-timing-function:var(--ease)] hover:text-ink hover:decoration-2"
+          className="tap inline-flex items-center rounded-full border border-ink/25 px-5 py-2.5 text-[0.9375rem] font-medium text-ink transition-colors duration-200 hover:border-accent hover:bg-accent hover:text-on-accent"
         >
           {content.success.again}
         </button>
@@ -87,34 +88,28 @@ export function PackEnquiryForm({
   }
 
   return (
-    <form onSubmit={(event) => enquiry.submit(event)} noValidate className="flex flex-col gap-2">
+    <form onSubmit={(event) => enquiry.submit(event)} noValidate className="flex flex-col gap-4">
       {/* Honeypot. Real people never see it; bots fill it in. */}
       <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      {/* Size first, because the cards above set it — somebody arriving from
-          "Enquire about this pack" should see their answer already filled in
-          rather than have to find it. */}
-      <Field name="pack" label={content.fields.pack} error={enquiry.errors.pack}>
-        <select
-          id="pack"
-          name="pack"
-          value={pack}
-          onChange={(event) => setPack(event.target.value)}
-          className={fieldClass}
-        >
-          <option value="">{content.packAny}</option>
-          {packs.map((option) => (
-            <option key={option.id} value={option.id}>
-              {option.name}
-            </option>
-          ))}
-        </select>
-      </Field>
+      {/* The size as choices to tap, set already when somebody arrives from
+          "Ask about this pack" in the size picker above. */}
+      <ChoiceChips
+        name="pack"
+        legend={content.fields.pack}
+        options={[
+          { value: '', label: content.packAny },
+          ...packs.map((option) => ({ value: option.id, label: option.grade.replace(/(\d)\s*(g|kg)$/i, '$1\u00a0$2') })),
+        ]}
+        value={pack}
+        onChange={setPack}
+        error={enquiry.errors.pack}
+      />
 
-      <Field name="email" label={content.fields.email} error={enquiry.errors.email} required>
+      <Field name="email" label={content.fields.email} error={enquiry.errors.email}>
         <input
           id="email"
           name="email"
@@ -124,13 +119,14 @@ export function PackEnquiryForm({
           placeholder={content.placeholders.email}
           onBlur={enquiry.onBlur}
           onChange={() => enquiry.clearError('email')}
+          aria-required="true"
           aria-invalid={Boolean(enquiry.errors.email)}
           aria-describedby={enquiry.errors.email ? 'email-error' : undefined}
           className={fieldClass}
         />
       </Field>
 
-      <Field name="message" label={content.fields.message} error={enquiry.errors.message} required>
+      <Field name="message" label={content.fields.message} error={enquiry.errors.message}>
         <textarea
           id="message"
           name="message"
@@ -138,6 +134,7 @@ export function PackEnquiryForm({
           placeholder={content.placeholders.message}
           onBlur={enquiry.onBlur}
           onChange={() => enquiry.clearError('message')}
+          aria-required="true"
           aria-invalid={Boolean(enquiry.errors.message)}
           aria-describedby={enquiry.errors.message ? 'message-error' : undefined}
           className={`${fieldClass} resize-y`}
@@ -146,9 +143,8 @@ export function PackEnquiryForm({
 
       <div aria-live="polite" className="empty:hidden">
         {enquiry.status === 'error' && (
-          <p className="mb-4 border-l-2 border-cherry bg-cherry/5 py-3 pl-4 text-[0.9375rem] text-ink">
-            <strong className="font-medium">{form.errorTitle}.</strong>{' '}
-            {enquiry.serverError ?? form.errorBody}
+          <p className="rounded-xl border-l-4 border-cherry bg-cherry/5 px-4 py-3 text-[0.9375rem] text-ink">
+            <strong className="font-medium">{form.errorTitle}.</strong> {enquiry.serverError ?? form.errorBody}
           </p>
         )}
       </div>
@@ -156,22 +152,21 @@ export function PackEnquiryForm({
       <button
         type="submit"
         disabled={enquiry.status === 'sending'}
-        className="tap inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent px-8 py-4 text-[0.9375rem] font-medium text-on-accent transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-accent-hover active:scale-[0.985] disabled:pointer-events-none disabled:opacity-60"
+        className="tap inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent px-8 py-4 text-[1rem] font-medium text-on-accent transition-[background-color,transform] duration-200 [transition-timing-function:var(--ease)] hover:bg-accent-hover active:scale-[0.985] disabled:pointer-events-none disabled:opacity-60"
       >
         {enquiry.status === 'sending' ? (
           <>
-            <span
-              aria-hidden="true"
-              className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-on-accent/40 border-t-current"
-            />
+            <span aria-hidden="true" className="size-3.5 animate-spin rounded-full border-2 border-on-accent/40 border-t-current" />
             {form.sending}
           </>
         ) : (
-          content.submit
+          <>
+            {content.submit} <span aria-hidden="true">→</span>
+          </>
         )}
       </button>
 
-      <p className="t-body mt-4 text-[0.8125rem] text-ink-soft">{content.consent}</p>
+      <p className="text-[0.8125rem] text-ink-soft">{content.consent}</p>
     </form>
   );
 }

@@ -2,10 +2,9 @@ import type { Metadata } from 'next';
 
 import { ContactForm } from '@/components/contact/ContactForm';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { ChannelTile } from '@/components/ui/ChannelTile';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
-import { RichText } from '@/components/ui/Fact';
-import { PageHeader } from '@/components/ui/PageHeader';
 import { Section } from '@/components/ui/Section';
 import { dict } from '@/lib/i18n';
 import { site, whatsappHref } from '@content/site';
@@ -15,8 +14,23 @@ export function generateMetadata(): Metadata {
   return buildMetadata({ path: 'contact', meta: dict.contact.meta });
 }
 
+/**
+ * CONTACT — ONE SCREEN, rebuilt 2026-09-14 so that sending a message is the
+ * easiest thing on the page.
+ *
+ * Left: the heading, the three ways to reach the office straight away, and
+ * where and when it is open. Right: the message form, in view without
+ * scrolling on a desktop. On a phone the two stack, the tap-to-call buttons
+ * first, the form directly under them.
+ *
+ * What went: the Buyers / Members / Suppliers explainer (the form's "What is
+ * it about?" choices do that job), a second "Talk to the society" heading, the
+ * registration details (they are on About, under "The society on paper"), and
+ * the company and member-number fields.
+ */
 export default function ContactPage() {
-    const { contact, common } = dict;
+  const { contact, common } = dict;
+  const c = site.contact;
 
   return (
     <>
@@ -31,209 +45,85 @@ export default function ContactPage() {
         ]}
       />
 
-      <PageHeader eyebrow={contact.hero.eyebrow} title={contact.hero.title} lead={contact.hero.lead} />
-
-      {/* The three ways in, as three things you can actually press.
-
-          What was here before was three tall cards, each repeating the office
-          address, the email and the phone inside its own definition list — the
-          address appeared four times on this page, and the reader had to read a
-          card to find a number. Now the numbers are the interface: WhatsApp,
-          call, email, stated once at the top, and the routing underneath is
-          three lines saying which one to use. */}
-      <Section
-        tone="parchment"
-        size="tight"
-        ariaLabelledby="direct-heading"
-        /* Pulled up under the page title on a phone. The actions are the reason
-           this page exists, and at the section's normal top padding the
-           WhatsApp button started below the fold on a 664px viewport. */
-        className="pt-2 sm:pt-16"
-      >
+      <Section tone="parchment" size="opener" id="enquiry" ariaLabelledby="contact-title">
         <Container width="wide">
-          <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="flex flex-col gap-4 lg:col-span-4">
-              {/* "Talk to the society" under a page titled "Talk to the
-                  society directly" is the same sentence twice. On a phone,
-                  where the two would sit within one screen of each other and
-                  the space costs the WhatsApp button its place above the fold,
-                  the second one is read but not drawn. */}
-              <h2 id="direct-heading" className="t-section max-w-[12ch] sr-only sm:not-sr-only">
-                {contact.direct.heading}
-              </h2>
-              <p className="t-body measure text-ink-soft">{contact.direct.lead}</p>
-            </div>
-
-            <ul className="flex flex-col gap-3 lg:col-span-7 lg:col-start-6">
-              {([
-                site.contact.whatsapp.value && {
-                  key: 'whatsapp',
-                  href: whatsappHref(contact.direct.whatsapp.prefill),
-                  label: contact.direct.whatsapp.label,
-                  value: site.contact.whatsapp.display,
-                  note: contact.direct.whatsapp.note,
-                  primary: true,
-                },
-                site.contact.officePhone.value && {
-                  key: 'phone',
-                  href: `tel:${site.contact.officePhone.value}`,
-                  label: contact.direct.phone.label,
-                  value: site.contact.officePhone.display,
-                  note: contact.direct.phone.note,
-                },
-                site.contact.officeEmail.value && {
-                  key: 'email',
-                  href: `mailto:${site.contact.officeEmail.value}`,
-                  label: contact.direct.email.label,
-                  value: site.contact.officeEmail.display,
-                  note: contact.direct.email.note,
-                },
-                site.contact.memberLine.value && {
-                  key: 'member',
-                  href: `tel:${site.contact.memberLine.value}`,
-                  label: contact.direct.memberLine.label,
-                  value: site.contact.memberLine.display,
-                  note: contact.direct.memberLine.note,
-                },
-              ].filter(Boolean) as {
-                key: string;
-                href: string;
-                label: string;
-                value: string;
-                note: string;
-                primary?: boolean;
-              }[]).map((row) => (
-                <li key={row.key}>
-                  <a
-                    href={row.href}
-                    {...(row.key === 'whatsapp'
-                      ? { target: '_blank', rel: 'noopener noreferrer' }
-                      : {})}
-                    className={[
-                      'group/row flex min-h-[4.5rem] items-center justify-between gap-5 border px-5 py-4',
-                      'transition-[border-color,background-color] duration-200 [transition-timing-function:var(--ease)]',
-                      row.primary
-                        ? 'border-accent bg-accent/8 hover:bg-accent/14'
-                        : 'border-line hover:border-ink/35',
-                    ].join(' ')}
-                  >
-                    <span className="flex min-w-0 flex-col gap-0.5">
-                      <span className="t-meta text-ink-soft">{row.label}</span>
-                      <span className="t-body font-medium text-ink">{row.value}</span>
-                      <span className="text-[0.8125rem] text-ink-soft">{row.note}</span>
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="shrink-0 text-ochre-ink transition-transform duration-200 [transition-timing-function:var(--ease)] group-hover/row:translate-x-1"
-                    >
-                      →
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Which one to use, in three lines rather than three cards. */}
-      <Section tone="parchment-2" size="tight" ariaLabelledby="routes-heading">
-        <Container width="wide">
-          <h2 id="routes-heading" className="sr-only">
-            {contact.hero.eyebrow}
-          </h2>
-          <dl className="flex flex-col">
-            {contact.routes.map((route) => (
-              <div
-                key={route.id}
-                className="grid gap-2 border-t border-line py-6 last:border-b sm:grid-cols-[9rem_1fr] sm:gap-8"
-              >
-                <dt className="t-meta pt-1 text-ochre-ink">{route.label}</dt>
-                <dd className="flex flex-col gap-1">
-                  <p className="t-body font-medium">{route.heading}</p>
-                  <p className="t-body measure text-[0.9375rem] text-ink-soft">{route.body}</p>
-                </dd>
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-20">
+            <div className="flex flex-col gap-8 lg:col-span-5">
+              <div className="flex flex-col gap-4">
+                <Eyebrow>{contact.hero.eyebrow}</Eyebrow>
+                <h1 id="contact-title" className="t-page-title max-w-[12ch] text-balance">
+                  {contact.hero.title}
+                </h1>
+                <p className="t-lead max-w-[42ch] text-ink-soft">{contact.hero.lead}</p>
               </div>
-            ))}
-          </dl>
-        </Container>
-      </Section>
 
-      <Section tone="parchment" size="loose" id="enquiry" ariaLabelledby="enquiry-heading">
-        <Container width="wide">
-          <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
-            <div className="flex flex-col gap-8 lg:col-span-4">
-              <Eyebrow>{contact.form.eyebrow}</Eyebrow>
-              <h2 id="enquiry-heading" className="t-section max-w-[13ch]">
-                {contact.form.heading}
-              </h2>
-              <p className="t-lead measure text-ink-soft">{contact.form.lead}</p>
-              <p className="t-body border-t border-line pt-6 text-[0.9375rem] text-ink-soft">
-                {contact.form.note}
-              </p>
-              <a href={'/products#request-a-sample'} className="link t-meta w-fit">
-                {common.actions.requestSample}
-              </a>
+              <div className="flex flex-col gap-3">
+                <h2 className="t-meta text-ink-soft">{contact.direct.heading}</h2>
+                <ChannelTile
+                  kind="whatsapp"
+                  primary
+                  href={c.whatsapp.value ? whatsappHref(contact.direct.whatsapp.prefill) : ''}
+                  label={contact.direct.whatsapp.label}
+                  value={c.whatsapp.display}
+                  note={contact.direct.whatsapp.note}
+                />
+                <ChannelTile
+                  kind="phone"
+                  href={c.officePhone.value ? `tel:${c.officePhone.value}` : ''}
+                  label={contact.direct.phone.label}
+                  value={c.officePhone.display}
+                  note={contact.direct.phone.note}
+                />
+                <ChannelTile
+                  kind="email"
+                  href={c.officeEmail.value ? `mailto:${c.officeEmail.value}` : ''}
+                  label={contact.direct.email.label}
+                  value={c.officeEmail.display}
+                  note={contact.direct.email.note}
+                />
+                {c.memberLine.value ? (
+                  <ChannelTile
+                    kind="phone"
+                    href={`tel:${c.memberLine.value}`}
+                    label={contact.direct.memberLine.label}
+                    value={c.memberLine.display}
+                    note={contact.direct.memberLine.note}
+                  />
+                ) : null}
+              </div>
+
+              <div className="grid gap-5 rounded-2xl border border-line p-5 sm:grid-cols-2 sm:p-6 lg:grid-cols-1">
+                <div className="flex flex-col gap-2">
+                  <h2 className="t-meta text-ink-soft">{contact.office.heading}</h2>
+                  <address className="flex flex-col text-[0.9375rem] not-italic leading-relaxed">
+                    {contact.office.address.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </address>
+                </div>
+                <dl className="flex flex-col gap-2 text-[0.9375rem]">
+                  {contact.office.hours.map((row) => (
+                    <div key={row.day} className="flex flex-col">
+                      <dt className="text-ink-soft">{row.day}</dt>
+                      <dd className="tnum font-medium">{row.time}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
 
-            <div className="lg:col-span-7 lg:col-start-6">
-              <ContactForm content={contact.form} form={common.form}  />
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* The office, without the photograph and without the map block.
-
-          Removing the picture left the text in five columns of twelve with
-          seven empty beside it, so the three things this section actually holds
-          — where it is, when it is open, and what it is registered as — take a
-          column each instead. Nothing was cut but the images. */}
-      <Section tone="parchment-2" ariaLabelledby="office-heading">
-        <Container width="wide">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="flex flex-col gap-6 lg:col-span-4">
-              <h2 id="office-heading" className="t-section max-w-[14ch]">
-                {contact.office.heading}
-              </h2>
-
-              <address className="flex flex-col gap-1 text-[1.0625rem] not-italic leading-relaxed">
-                {contact.office.address.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </address>
-            </div>
-
-            <div className="lg:col-span-4 lg:col-start-6">
-              <dl className="flex flex-col">
-                {contact.office.hours.map((row) => (
-                  <div
-                    key={row.day}
-                    className="flex items-baseline justify-between gap-6 border-t border-line py-3 last:border-b"
-                  >
-                    <dt className="t-body text-ink-soft">{row.day}</dt>
-                    <dd className="t-body tnum">{row.time}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-
-            <div className="lg:col-span-3 lg:col-start-10">
-              <dl className="flex flex-col border-t-2 border-ochre pt-6">
-                {contact.office.registration.map((row) => (
-                  <div key={row.label} className="flex flex-col gap-1 py-3">
-                    <dt className="t-meta text-ink-soft">{row.label}</dt>
-                    <dd className="t-body tnum">
-                      <RichText text={row.value} />
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+            <div className="lg:col-span-7">
+              <div className="rounded-[1.5rem] border border-line bg-parchment-2 p-6 shadow-[0_40px_80px_-56px_rgb(36_22_17/0.5)] sm:p-10">
+                <div className="mb-7 flex flex-col gap-2">
+                  <h2 className="t-section text-[clamp(1.5rem,2.4vw,2rem)]">{contact.form.heading}</h2>
+                  <p className="t-body text-ink-soft">{contact.form.lead}</p>
+                </div>
+                <ContactForm content={contact.form} form={common.form} />
+              </div>
             </div>
           </div>
         </Container>
       </Section>
-
     </>
   );
 }

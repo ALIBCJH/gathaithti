@@ -43,9 +43,7 @@ export async function POST(request: Request) {
     name: asString(body.name),
     email: asString(body.email),
     phone: asString(body.phone),
-    organisation: asString(body.organisation),
     topic: asString(body.topic),
-    memberNumber: asString(body.memberNumber),
     message: asString(body.message),
   };
 
