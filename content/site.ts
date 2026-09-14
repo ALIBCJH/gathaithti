@@ -110,9 +110,11 @@ const contact: {
 } = {
   /* ALL REAL FROM 2026-09-08. Nothing in this block is sample data any more.
 
-     THE NUMBER: 0745194764 from 2026-09-11, replacing 0726680365, for BOTH
-     the phone and WhatsApp — the society confirmed WhatsApp moves with it,
-     so it is one line on one handset again.
+     THE PHONE: 0745194764 from 2026-09-11 — the office line people call.
+     WHATSAPP: 0726680365. The two moved together on 2026-09-11, but the office
+     line has NO WhatsApp account, so on 2026-09-14 every WhatsApp button went
+     back to 0726680365 while calls stay on 0745194764. Two numbers, on
+     purpose: do not "tidy" them into one.
      Written in international form because that is the only form `tel:` and
      wa.me both take from a phone abroad; the display keeps the spacing a
      Kenyan reader expects.
@@ -150,7 +152,7 @@ const contact: {
   /* `value` is digits only, no plus and no spaces — that is the form wa.me
      takes, and anything else silently 404s rather than erroring. Same number
      as the office line above; the society answers both on one handset. */
-  whatsapp: { value: '254745194764', display: '+254 745 194 764' },
+  whatsapp: { value: '254726680365', display: '+254 726 680 365' },
 };
 
 /** wa.me wants digits with no plus and no spaces; `text` is pre-filled for the
