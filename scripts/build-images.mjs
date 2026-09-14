@@ -53,8 +53,18 @@ const MANIFEST = join(process.cwd(), 'scripts', 'image-max.json');
    WebP is the fallback, taken by browsers that cannot read AVIF and by
    everyone if the .htaccess rewrite is ever missing — so it is set to a
    sensible 68 rather than trimmed hard. */
-const WEBP_Q = 68;
-const AVIF_Q = 45;
+/* RE-CALIBRATED 2026-09-14, when the client asked for the images to be
+   compressed further. AVIF — what every current browser is sent — went from
+   q45 at effort 4 to q38 at effort 6. Tested on the three most detailed
+   photographs at 100%: the gate's sign lettering, cherries among leaves, the
+   drying ground's fence posts and gravel. q36 was indistinguishable from q45
+   to the eye and about 35% lighter; q38 keeps a margin above that. Effort 6
+   is slower to build and costs visitors nothing.
+   WebP, the fallback, moved only from 68 to 64 at effort 6: on photographs
+   this detailed WebP barely shrinks with quality, so trimming it harder
+   bought 6% for visible loss. */
+const WEBP_Q = 64;
+const AVIF_Q = 38;
 
 const isImage = (f) => /\.(jpe?g|png|webp|avif)$/i.test(f);
 
@@ -87,8 +97,8 @@ export async function buildImages({ quiet = false } = {}) {
       const resized = sharp(input).resize({ width, withoutEnlargement: true });
 
       const [webp, avif] = await Promise.all([
-        resized.clone().webp({ quality: WEBP_Q, effort: 5, smartSubsample: true }).toBuffer(),
-        resized.clone().avif({ quality: AVIF_Q, effort: 4, chromaSubsampling: '4:2:0' }).toBuffer(),
+        resized.clone().webp({ quality: WEBP_Q, effort: 6, smartSubsample: true }).toBuffer(),
+        resized.clone().avif({ quality: AVIF_Q, effort: 6, chromaSubsampling: '4:2:0' }).toBuffer(),
       ]);
 
       writeFileSync(join(OUT, `${stem}-${width}.webp`), webp);

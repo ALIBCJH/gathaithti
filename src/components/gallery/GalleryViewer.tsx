@@ -28,6 +28,12 @@ export function GalleryViewer({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const [index, setIndex] = useState(0);
+  /* The large photograph is only put in the page once the viewer is OPEN. A
+     closed <dialog> is display:none, and a browser still downloads an <img>
+     inside one — so every visit to the gallery was fetching the first
+     photograph at its largest size (the gate, 270 KB) for a viewer nobody
+     had opened. */
+  const [open, setOpen] = useState(false);
 
   const move = useCallback((step: number) => {
     setIndex((i) => (i + step + items.length) % items.length);
@@ -43,6 +49,7 @@ export function GalleryViewer({
       openerRef.current = link;
       setIndex(Number(link.dataset.walkPhoto) || 0);
       document.documentElement.style.overflow = 'hidden';
+      setOpen(true);
       dialog.showModal();
     };
     document.addEventListener('click', onClick);
@@ -56,6 +63,7 @@ export function GalleryViewer({
       ref={dialogRef}
       aria-label={labels.label}
       onClose={() => {
+        setOpen(false);
         document.documentElement.style.overflow = '';
         openerRef.current?.focus();
       }}
@@ -83,7 +91,7 @@ export function GalleryViewer({
           <ViewerButton label={labels.previous} onClick={() => move(-1)} className="hidden sm:grid">
             <path d="M15 5l-7 7 7 7" />
           </ViewerButton>
-          {item ? (
+          {open && item ? (
             /* A plain <img>: the file is already the largest the ladder holds,
                chosen on the server, and next/image would only add a second
                resize decision to a picture that is meant to be seen whole. */

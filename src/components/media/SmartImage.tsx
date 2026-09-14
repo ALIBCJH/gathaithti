@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { BLUR_DATA_URL, getImage, isImageKey } from '@/lib/images';
+import { BLUR_DATA_URL, capPhoneDensity, getImage, isImageKey } from '@/lib/images';
 import { Placeholder } from './Placeholder';
 
 /**
@@ -72,7 +72,10 @@ export function SmartImage({
           src={image.src}
           alt={image.alt}
           fill
-          sizes={sizes ?? image.sizes ?? '100vw'}
+          /* A per-use `sizes` gets the same phone cap a slot's own `sizes` gets in
+             getImage. Without it the gallery walk and the Our Coffee size picker
+             asked a 3x phone for a 1080-1366px file — the gate alone was 288 KB. */
+          sizes={sizes && !image.fullDensity ? capPhoneDensity(sizes) : (sizes ?? image.sizes ?? '100vw')}
           priority={priority ?? image.priority}
           loading={(priority ?? image.priority) ? undefined : 'lazy'}
           placeholder="blur"
