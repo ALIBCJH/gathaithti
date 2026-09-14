@@ -775,6 +775,39 @@ a[href^='tel:'] {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   PACK SHOWCASE — one bag, pick a size (Our Coffee)
+   ═══════════════════════════════════════════════════════════════════════════
+
+   Every size is rendered, and a plain radio group chooses which one shows:
+   PackShowcase writes one `:has(#size-<id>:checked)` rule per pack. No
+   JavaScript, so it works on the static host with scripts off, and the arrow
+   keys move between sizes the way they do in any radio group.
+
+   A photograph crossfades; the text swaps outright, and `display: none` also
+   takes the hidden sizes out of what a screen reader announces. A browser
+   without :has shows the default size, and every price is still on the size
+   choices themselves. */
+.pack-photo {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 420ms var(--ease),
+    visibility 0s linear 420ms;
+}
+.pack-text {
+  display: none;
+}
+@supports not selector(:has(*)) {
+  .pack-photo[data-default] {
+    opacity: 1;
+    visibility: visible;
+  }
+  .pack-text[data-default] {
+    display: flex;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    GALLERY WALK
    ═══════════════════════════════════════════════════════════════════════════ */
 
