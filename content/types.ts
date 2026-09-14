@@ -472,41 +472,22 @@ export interface FarmersContent {
 
 /* ── Contact ────────────────────────────────────────────────────────────── */
 
-export interface ContactRoute {
-  id: string;
-  /** "For buyers" — who this row is for, not what it does. */
-  label: string;
-  heading: string;
-  body: string;
-  /** Which of the three direct actions this row should use. */
-  channel: 'whatsapp' | 'phone' | 'email';
-}
-
 export interface ContactForm {
   eyebrow: string;
   heading: string;
   lead: string;
-  note: string;
-  /** Shown on each contact route, jumping to the form with that topic chosen. */
-  writeToUs: string;
-  fields: {
-    name: string;
-    email: string;
-    phone: string;
-    organisation: string;
-    topic: string;
-    memberNumber: string;
-    message: string;
-  };
-  placeholders: {
-    name: string;
-    email: string;
-    phone: string;
-    organisation: string;
-    message: string;
-    topic: string;
-  };
-  memberHint: string;
+  /**
+   * The answers to "What is it about?", offered as choices to tap. The chosen
+   * one is sent as the enquiry's topic. It replaced a free-text box that gave
+   * no clue what a useful answer looked like.
+   */
+  topics: string[];
+  /* No company or member-number fields: removed 2026-09-14 at the client's
+     request — "totally unnecessary". */
+  fields: { topic: string; name: string; email: string; phone: string; message: string };
+  placeholders: { name: string; email: string; phone: string; message: string };
+  /** Under the phone field: why someone would give it. */
+  phoneHint: string;
   submit: string;
   consent: string;
   successBody: string;
@@ -525,7 +506,6 @@ export interface ContactContent {
     email: { label: string; note: string };
     memberLine: { label: string; note: string };
   };
-  routes: ContactRoute[];
   form: ContactForm;
   office: { heading: string; address: string[]; hours: { day: string; time: string }[]; registration: { label: string; value: string }[] };
 }

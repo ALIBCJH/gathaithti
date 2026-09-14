@@ -47,10 +47,8 @@ export interface ContactEnquiry {
   name: string;
   email: string;
   phone: string;
-  organisation: string;
-  /** Matches a contact route id: buyers | members | suppliers | other. */
+  /** The chosen answer to "What is it about?", e.g. "Buying coffee". */
   topic: string;
-  memberNumber: string;
   message: string;
   submittedAt: string;
 }
@@ -132,9 +130,7 @@ function formatEnquiry(enquiry: ContactEnquiry): EmailMessage {
     `Name:      ${enquiry.name}`,
     `Email:     ${enquiry.email}`,
     `Phone:     ${enquiry.phone || '—'}`,
-    enquiry.topic === 'members'
-      ? `Member no: ${enquiry.memberNumber || '—'}`
-      : `Company:   ${enquiry.organisation || '—'}`,
+    `Topic:     ${enquiry.topic || '—'}`,
     '',
     'Message:',
     enquiry.message,

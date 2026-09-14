@@ -32,7 +32,7 @@ declare(strict_types=1);
  * answer instead of an inference from which error code came back. That guess
  * cost a round trip once already.
  */
-const HANDLER_VERSION = '2026-09-10.10-replyline';
+const HANDLER_VERSION = '2026-09-14.11-short-contact';
 
 /* mbstring is normally present and is not guaranteed. Length checks are the
    only thing that needs it, and strlen over-counts multibyte characters,
@@ -403,9 +403,7 @@ const RULES = [
         'name' => [true, 0, 120, false],
         'email' => [true, 0, 200, true],
         'phone' => [false, 0, 40, false],
-        'organisation' => [false, 0, 160, false],
         'topic' => [true, 0, 60, false],
-        'memberNumber' => [false, 0, 40, false],
         'message' => [true, 12, 4000, false],
     ],
 ];
@@ -484,9 +482,7 @@ if ($form === 'sample') {
         'Name:      ' . $values['name'],
         'Email:     ' . $values['email'],
         'Phone:     ' . ($values['phone'] !== '' ? $values['phone'] : '—'),
-        'Org:       ' . ($values['organisation'] !== '' ? $values['organisation'] : '—'),
         'Topic:     ' . $values['topic'],
-        'Member no: ' . ($values['memberNumber'] !== '' ? $values['memberNumber'] : '—'),
     ]);
 }
 

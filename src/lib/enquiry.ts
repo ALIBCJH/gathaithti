@@ -79,10 +79,7 @@ export const contactRules = {
   name: { required: true, max: 120 },
   email: { required: true, max: 200, email: true },
   phone: { max: 40 },
-  organisation: { max: 160 },
   topic: { required: true, max: 60 },
-  /** Only asked of members, and only used to find their record. */
-  memberNumber: { max: 40 },
   message: { required: true, min: 12, max: 4000 },
 } satisfies Record<string, FieldRule>;
 
