@@ -51,42 +51,26 @@ export const products: ProductsContent = {
   catalogue: {
     eyebrow: 'Retail packs',
     heading: 'Buy it by the bag',
-    /* NO LEAD. There was one — "The society roasts and packs its own coffee in
-       four sizes. It is one coffee — the same washed Nyeri lots that go to the
-       dry mill — roasted medium and ground, packed under the society's own
-       name." The user asked for it removed. The band opens the page, and the
-       four cards say the sizes themselves; the sentence about one coffee in
-       four sizes was explaining what the row below it already shows. The
-       claim about the roast and the mill survives on each card, under Full
-       specification (Process: fully washed, medium roast, ground). */
-    legend: {
-      available: 'In stock',
-      allocated: 'Out of stock',
-      forward: 'To order',
-    },
-
-    /* ── Prices ──────────────────────────────────────────────────────────
-     * Set showPrices to false and every price on this page disappears — the
-     * cards, the sorting option and the Product structured data all follow.
-     * The figures live in content/facts.ts (pack100g … pack1kg) and were
-     * supplied by the client on 2026-09-07. They are still `verified: false`,
-     * which is what keeps them OUT of the structured data: printing a price on
-     * a page and publishing it to a search engine are different acts.
-     */
+    /* ONE COFFEE, FOUR SIZES — so the page shows one bag and lets the buyer
+       choose the size, rather than four identical photographs side by side.
+       Rebuilt 2026-09-14 ("One bag, pick a size", the client's choice). */
+    productName: 'Gathaithi Specialty Coffee',
+    productLine: 'Single origin · roasted and packed by the society in Tetu, Nyeri',
+    /* Set to false and every price on the page disappears — the size choices,
+       the price line and the WhatsApp message. The figures live in
+       content/facts.ts (pack100g … pack1kg), verified 2026-09-10. */
     showPrices: true,
-    priceCaption: 'per pack',
-    priceNote:
-      'Prices are in Kenyan shillings and were supplied by the society. Confirm the current list with the office before ordering — the figure that binds is the one the office quotes, not the one on this page.',
-    indicativeLabel: 'Retail',
-    moqLabel: 'Minimum',
-    /* NO FILTER AND NO SORT. This block used to carry filterLabel, filterAll,
-       sortLabel, three sortOptions, a result count in two forms, an empty
-       state and a clear-filters link — all of it for four packs of one coffee
-       that fit on one screen. Removed at the user's request, and removed from
-       the type as well as from here so none of it can be set and never read.
-       `moqLabel` and `indicativeLabel` stay: they label rows inside a card. */
-    detailsLabel: 'Full specification',
-    requestLotLabel: 'Enquire about this pack',
+    /* The everyday size. The page opens on it. */
+    defaultPack: 'pack-250g',
+    sizeLabel: 'Choose a size',
+    notesLabel: 'In the cup',
+    processLabel: 'Roast and process',
+    varietiesLabel: 'Varieties',
+    orderLabel: 'Order on WhatsApp',
+    orderMessage: 'Hello Gathaithi — I would like to order the {{pack}} pack ({{price}}). ',
+    askLabel: 'Ask about this pack',
+    orderNote:
+      'There is no checkout on this site: the office confirms every order and delivery on WhatsApp or by phone. Prices are in Kenyan shillings.',
   },
 
   /* FOUR RETAIL PACKS, replacing the AA and AB green-coffee lots.

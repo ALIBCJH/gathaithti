@@ -823,40 +823,64 @@ export const images = {
      in ALL FOUR — the evenness #82 went after, arrived at from the other
      direction. */
   pack100g: {
-    file: 'pack-100g.jpg',
+    /* REPLACED 2026-09-14: the client's 100g-coffee.jpeg — a portrait of the
+       cream resealable pack on a linen tabletop — shown whole in the size
+       picker on Our Coffee, not composed into a landscape frame any more.
+       CORRECTED BEFORE USE, at the client's request: the supplied label read
+       "CATHAITHI" (now GATHAITHI), "chocoiate" (now chocolate), carried a
+       line of garbled small print (removed) and said WHOLE BEAN (now GROUND —
+       the packs are ground). New file name, so no cached copy of the old
+       frame can be served in its place. */
+    file: 'pack-100g-bag.jpg',
     page: 'Our Coffee',
-    section: 'Retail packs',
-    ratio: '4/3',
-    minWidth: 1400,
-    minHeight: 1050,
-    direction: 'Supplied. The 100 g pack standing on a bench, beans and a burlap sack behind.',
-    alt: 'A 100 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
-    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
-    fullDensity: true,
+    section: 'Retail packs — 100 g',
+    ratio: '3/4',
+    minWidth: 864,
+    minHeight: 1220,
+    direction:
+      'Supplied by the client, label corrected: the 100 g Gathaithi Specialty Coffee pack, upright, soft daylight, a few roasted beans on the table.',
+    alt: 'A 100 g pack of Gathaithi Specialty Coffee, single origin, medium roast, ground, standing on a linen tabletop with a few roasted beans.',
+    sizes: '(min-width: 1024px) 46vw, 100vw',
   },
   pack250g: {
-    file: 'pack-250g.jpg',
+    /* REPLACED 2026-09-14: the client's 250g-coffee.jpeg — a portrait of the
+       cream resealable pack on a linen tabletop — shown whole in the size
+       picker on Our Coffee, not composed into a landscape frame any more.
+       CORRECTED BEFORE USE, at the client's request: the supplied label read
+       "CATHAITHI" (now GATHAITHI), "chocoiate" (now chocolate), carried a
+       line of garbled small print (removed) and said WHOLE BEAN (now GROUND —
+       the packs are ground). New file name, so no cached copy of the old
+       frame can be served in its place. */
+    file: 'pack-250g-bag.jpg',
     page: 'Our Coffee',
-    section: 'Retail packs',
-    ratio: '4/3',
-    minWidth: 850,
-    minHeight: 1530,
-    direction: 'Supplied. The 250 g pack standing on a bench, coffee plant behind.',
-    alt: 'A 250 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
-    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
-    fullDensity: true,
+    section: 'Retail packs — 250 g',
+    ratio: '3/4',
+    minWidth: 864,
+    minHeight: 1220,
+    direction:
+      'Supplied by the client, label corrected: the 250 g Gathaithi Specialty Coffee pack, upright, soft daylight, a few roasted beans on the table.',
+    alt: 'A 250 g pack of Gathaithi Specialty Coffee, single origin, medium roast, ground, standing on a linen tabletop with a few roasted beans.',
+    sizes: '(min-width: 1024px) 46vw, 100vw',
   },
   pack500g: {
-    file: 'pack-500g.jpg',
+    /* REPLACED 2026-09-14: the client's 500g-coffee.jpeg — a portrait of the
+       cream resealable pack on a linen tabletop — shown whole in the size
+       picker on Our Coffee, not composed into a landscape frame any more.
+       CORRECTED BEFORE USE, at the client's request: the supplied label read
+       "CATHAITHI" (now GATHAITHI), "chocoiate" (now chocolate), carried a
+       line of garbled small print (removed) and said WHOLE BEAN (now GROUND —
+       the packs are ground). New file name, so no cached copy of the old
+       frame can be served in its place. */
+    file: 'pack-500g-bag.jpg',
     page: 'Our Coffee',
-    section: 'Retail packs',
-    ratio: '4/3',
-    minWidth: 1400,
-    minHeight: 1050,
-    direction: 'Supplied. The 500 g pack standing on a bench.',
-    alt: 'A 500 g pack of Gathaithi Specialty Coffee standing on a wooden bench.',
-    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
-    fullDensity: true,
+    section: 'Retail packs — 500 g',
+    ratio: '3/4',
+    minWidth: 864,
+    minHeight: 1220,
+    direction:
+      'Supplied by the client, label corrected: the 500 g Gathaithi Specialty Coffee pack, upright, soft daylight, a few roasted beans on the table.',
+    alt: 'A 500 g pack of Gathaithi Specialty Coffee, single origin, medium roast, ground, standing on a linen tabletop with a few roasted beans.',
+    sizes: '(min-width: 1024px) 46vw, 100vw',
   },
   /* REPLACED 2026-09-08 at the user's request, on the second asking, and the
      two things that are wrong with the new frame are recorded here rather than
@@ -882,17 +906,24 @@ export const images = {
      A usable replacement is the same scene with the pack filling most of the
      frame, 1400px wide or more, and the printing legible. */
   pack1kg: {
-    file: 'pack-1kg.jpg',
+    /* REPLACED 2026-09-14: the client's 1kg-coffee.jpeg — a portrait of the
+       cream resealable pack on a linen tabletop — shown whole in the size
+       picker on Our Coffee, not composed into a landscape frame any more.
+       CORRECTED BEFORE USE, at the client's request: the supplied label read
+       "CATHAITHI" (now GATHAITHI), "chocoiate" (now chocolate), carried a
+       line of garbled small print (removed) and said WHOLE BEAN (now GROUND —
+       the packs are ground). New file name, so no cached copy of the old
+       frame can be served in its place. */
+    file: 'pack-1kg-bag.jpg',
     page: 'Our Coffee',
-    section: 'Retail packs',
-    ratio: '4/3',
-    minWidth: 1400,
-    minHeight: 1050,
+    section: 'Retail packs — 1 kg',
+    ratio: '3/4',
+    minWidth: 864,
+    minHeight: 1220,
     direction:
-      'Supplied. The 1 kg pack standing on a table, a bowl of roasted beans to one side and a brass grinder to the other.',
-    alt: 'A 1 kg pack of Gathaithi Specialty Coffee standing on a wooden table, a bowl of roasted beans beside it.',
-    sizes: '(min-width: 1024px) 23vw, (min-width: 640px) 45vw, 90vw',
-    fullDensity: true,
+      'Supplied by the client, label corrected: the 1 kg Gathaithi Specialty Coffee pack, upright, soft daylight, a few roasted beans on the table.',
+    alt: 'A 1 kg pack of Gathaithi Specialty Coffee, single origin, medium roast, ground, standing on a linen tabletop with a few roasted beans.',
+    sizes: '(min-width: 1024px) 46vw, 100vw',
   },
 
   /* THE GALLERY. Real photographs of the society, supplied by the society —

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
-import { LotCard } from '@/components/products/LotCard';
-import { PackGrid } from '@/components/products/PackGrid';
+import { PackShowcase } from '@/components/products/PackShowcase';
 import { ProcessWalkthrough } from '@/components/products/ProcessWalkthrough';
 import { SeasonGem } from '@/components/products/SeasonGem';
 import { ReachOut } from '@/components/products/ReachOut';
@@ -19,16 +18,6 @@ export function generateMetadata(): Metadata {
 export default function ProductsPage() {
     const { products, common } = dict;
   const requestHref = '#request-a-sample';
-
-  /* The cards read the filesystem to choose between a photograph and a
-     placeholder, so they are rendered here. They used to be handed to a client
-     component along with a price, a score and an availability rank so that it
-     could filter and sort them; that bar is gone, so all it needs is the card
-     and a key. */
-  const packCards = products.lots.map((lot) => ({
-    id: lot.id,
-    card: <LotCard lot={lot} copy={products.catalogue} requestHref={requestHref} />,
-  }));
 
   return (
     <>
@@ -64,19 +53,8 @@ export default function ProductsPage() {
           an ordinary h2 and ordinary padding. */}
       <Section tone="parchment-2" size="opener" id="lots" ariaLabelledby="catalogue-heading">
         <Container width="wide">
-          <SectionHead
-            as="h1"
-            id="catalogue-heading"
-            eyebrow={products.catalogue.eyebrow}
-            heading={products.catalogue.heading}
-          />
-
-          {/* Tighter than the mt-20/24 this band used mid-page. As the opener
-              the head is a page title rather than a section head, and the old
-              gap left a visible hole between the lead and the filter bar. */}
-          <div className="mt-12 lg:mt-16">
-            <PackGrid cards={packCards} />
-          </div>
+          {/* One bag, pick a size — the page's h1 is inside it. */}
+          <PackShowcase lots={products.lots} copy={products.catalogue} requestHref={requestHref} />
         </Container>
       </Section>
 

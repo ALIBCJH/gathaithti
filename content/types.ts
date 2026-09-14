@@ -305,16 +305,25 @@ export interface ProductsContent {
   marketNote: { eyebrow: string; heading: string; body: string[] };
   catalogue: {
     eyebrow: string;
+    /** The page's h1. */
     heading: string;
-    legend: Record<string, string>;
+    /** The product itself, under the heading: one coffee, sold in sizes. */
+    productName: string;
+    productLine: string;
     /** false hides every price on the page in one edit. */
     showPrices: boolean;
-    priceCaption: string;
-    priceNote: string;
-    indicativeLabel: string;
-    moqLabel: string;
-    detailsLabel: string;
-    requestLotLabel: string;
+    /** The size the page opens on — a Lot id. */
+    defaultPack: string;
+    sizeLabel: string;
+    notesLabel: string;
+    processLabel: string;
+    varietiesLabel: string;
+    orderLabel: string;
+    /** Pre-filled WhatsApp message. {{pack}} and {{price}} are filled per size. */
+    orderMessage: string;
+    askLabel: string;
+    /** One line under the buttons: how ordering actually works. */
+    orderNote: string;
   };
   lots: Lot[];
   gem: {
