@@ -175,13 +175,17 @@ export const farmers: FarmersContent = {
 
   profiles: {
     eyebrow: 'Members',
-    heading: 'The people behind the picking',
+    /* The society's own copy, 2026-09-18, with two corrections: the slopes
+       are the Aberdare range's (the client's standing choice over Mt. Kenya),
+       and "strip-mined" in the second caption reads "strip-picked", the
+       coffee term. 1,988 via {{members}}. */
+    heading: 'The People Behind the Harvest',
     /* Rewritten twice, both times because the cards below it changed. It said
        all six profiles were sample entries; then that the three named ones
        were; now there are no named ones at all, so it says what is actually
        true of the band — three photographs, and interviews still to come. */
     lead:
-      'Most members farm under a hectare, alongside food crops and a cow or two. The interviews and portraits are still to be collected, and no member is published here without their agreement.',
+      'Gathaithi is powered by {{members}} smallholder members farming small plots on the slopes of the Aberdare range. Every cherry is hand-harvested with care, ensuring only the highest quality fruit reaches the mill.',
     yearsLabel: 'Years farming',
     treesLabel: 'Trees',
     members: [
@@ -199,12 +203,12 @@ export const farmers: FarmersContent = {
       {
         id: 'm1',
         imageSlot: 'memberOne',
-        caption: 'Ripe taken, green left — the branch is worked again in a week.',
+        caption: 'Selective Harvest — Pickers selectively take ripe cherries, returning a week later for the rest.',
       },
       {
         id: 'm2',
         imageSlot: 'memberTwo',
-        caption: 'Selecting by colour, not by handful. Nothing is stripped.',
+        caption: 'Quality First — Sorted by color and ripeness, never strip-picked from the branch.',
       },
       {
         id: 'm3',
@@ -214,7 +218,7 @@ export const farmers: FarmersContent = {
            down a row, so the caption had to follow it. A caption that counts
            the people in the frame is a caption that has to be checked every
            time the frame changes. */
-        caption: 'A cluster of ripe cherry, ready for picking.',
+        caption: 'Peak Ripeness — Perfectly mature cherries ready for same-day delivery.',
       },
     ],
   },
