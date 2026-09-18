@@ -42,7 +42,7 @@ export const home: HomeContent = {
      on the hero, over the photographs, from 2026-09-11 until the client asked
      for it off on 2026-09-13. */
   statements: {
-    eyebrow: 'In their own words',
+    eyebrow: 'What drives us',
     items: [
       {
         label: 'Vision',
@@ -81,54 +81,104 @@ export const home: HomeContent = {
       nationalRank2024: '#2',
     },
     titles: {
-      nationalRank2024: 'Among Kenya’s best',
-      established: 'More than five decades of coffee',
-      members: 'Farmers. One society.',
+      /* The society's own wording, supplied 2026-09-18. */
+      nationalRank2024: 'Kenya’s #2 Farmer Payout',
+      established: 'Over 55 Years of Heritage',
+      members: 'Farmer-Owned',
     },
     captions: {
-      nationalRank2024: 'Ranked second in Kenya on cherry payment to farmers, 2024.',
-      established: 'Our story began under Tetu; the mill has been ours since {{independentSince}}.',
-      members: 'Each one holds a stake in what the society sells.',
+      nationalRank2024: 'Ranked among Kenya’s highest-paying coffee societies in 2024.',
+      /* 1967 and 1,988 come from the facts so they cannot drift from the big
+         figures above them. "2000" is written out because the
+         `independentSince` fact displays the full date, 21 January 2000. */
+      established: 'Established in {{established}}, with an independent legacy dating back to 2000.',
+      members: 'A collective of {{members}} smallholder farmers producing coffee with shared ownership.',
     },
   },
 
+  /* ORIGIN & CRAFT — the society's own copy, supplied 2026-09-18, with two
+     parts of it held back on the client's instruction:
+
+       - Grades and varieties stay as the facts say (Mbuni; Ruiru Grafted &
+         Batian). The supplied table listed AA, AB, PB and SL28, SL34 as well,
+         which contradicts what the society confirmed on 2026-09-11.
+       - "72h fermentation" is left out of the processing line. The
+         Fermentation step was removed from Our Coffee on 2026-09-13.
+
+     The rest is as written. */
   season: {
-    eyebrow: 'This season',
-    heading: 'What is on the beds now',
+    eyebrow: 'Varieties',
+    heading: 'Origin & Craft',
     lead:
-      'The main crop is picked {{mainCrop}} and the fly crop {{flyCrop}}. Availability moves week to week — this panel is updated by the marketing office as lots come off the drying beds and through milling.',
-    status: 'Main crop — samples available',
+      'Great coffee starts with the hands that nurture it. Our farmers harvest only the ripe cherry at peak maturity, passing each lot through traditional washing and meticulous raised-bed drying. The result is a clean, vibrant Kenyan profile delivered with total transparency.',
+    status: 'Active harvest — samples available',
     rows: [
-      /* Was "Grades offered: AA · AB", which was the two green-coffee lots
-         the catalogue used to carry. The society reports the grades its
-         parchment is actually separated into, so the label says produced —
-         what is FOR SALE in a given season is a different question and one
-         nobody has answered. */
-      { label: 'Grades produced', value: '{{grades}}' },
+      { label: 'Available grades', value: '{{grades}}' },
       { label: 'Varieties', value: '{{varieties}}' },
-      /* From the society 2026-09-13. See `certificationRA` and `eudr` in
-         content/facts.ts for why the two are worded differently. */
-      { label: 'Certification', value: '{{certificationRA}} · {{eudr}}' },
-      { label: 'Process', value: 'Fully washed, second soak, sun-dried on raised beds' },
-      { label: 'Cherry intake this year', value: '{{cherryAnnual}} kg' },
-      { label: 'Sample despatch', value: '250 g and 1 kg, by courier, from the society office' },
+      { label: 'Certifications', value: '{{certificationRA}} | {{eudr}}' },
+      { label: 'Processing method', value: 'Fully washed, sun-dried on raised beds' },
+      { label: 'Annual cherry intake', value: '{{cherryAnnual}} kg' },
+      { label: 'Sample dispatch', value: '250 g / 1 kg green samples, sold both locally and internationally' },
     ],
     cta: { label: 'See this season’s lots', href: 'products' },
   },
 
-  story: {
-    eyebrow: 'The society',
-    heading: 'Every kilo has a name attached',
-    body: [
-      'Gathaithi has grown coffee since {{established}}, first as part of the wider Tetu society. On {{independentSince}} the farmers of this village registered their own society, took over their own wet mill, and became responsible for their own returns.',
-      'That decision is the whole story. Cherry is picked selectively by the household that grew it, delivered the same evening, and processed within hours at a single mill on {{millSite}} hectares. Nothing is blended in from elsewhere, and the books record which household every delivery came from.',
-      'What the society sells is the work of {{members}} families on the eastern slopes above Nyeri — and what it returns to them is the reason the work stays good.',
+  /* The heading is the society's; the four step lines are ours, written to
+     the photographs they sit under. Retail coffee is roasted and packed by
+     the society (see Our Coffee), which is what step three says. */
+  journey: {
+    eyebrow: 'Farm to cup',
+    heading: 'From Our Farmers, To Your Cup',
+    lead: 'Four steps, one society: follow the coffee from the branch to your cup.',
+    steps: [
+      {
+        title: 'The cherry',
+        body: 'Our members hand-pick only ripe red cherry and deliver it to the mill the same day.',
+        imageSlot: 'journeyCherry',
+      },
+      {
+        title: 'Green coffee',
+        body: 'Washed and dried on raised beds, the parchment is hulled and graded into green coffee.',
+        imageSlot: 'journeyGreen',
+      },
+      {
+        title: 'The roast',
+        body: 'Our retail coffee is roasted and packed by the society, bringing out the sweetness of the Nyeri profile.',
+        imageSlot: 'journeyRoasted',
+      },
+      {
+        title: 'Your cup',
+        body: 'At home, in a café or at the office: coffee grown by our farmers, poured in your cup.',
+        imageSlot: 'journeyCup',
+      },
     ],
-    /* The right-hand column is a photograph (images.ts `homeStory`). The
-       "Our story" statement card and the Grace Wairimu pull quote — marked
-       "sample quotation, not yet collected" and published anyway — were both
-       removed 2026-09-13 at the client's request. */
-    cta: { label: 'Read our story', href: 'about' },
+    cta: { label: 'Order a pack', href: 'products' },
+  },
+
+  /* GLOBAL ROASTER ACCLAIM — replaced the "Every kilo has a name attached"
+     story section and its photograph on 2026-09-18. The three quotations were
+     supplied by the society and are published verbatim, attributed to the
+     roaster that wrote them. */
+  acclaim: {
+    eyebrow: 'What roasters say',
+    heading: 'Global Roaster Acclaim',
+    quotes: [
+      {
+        text: 'Gathaithi produces stunning coffees that exemplify the complexity, sweetness, and vibrancy of the Nyeri profile.',
+        source: 'Passenger Coffee',
+        country: 'USA',
+      },
+      {
+        text: 'A classic representation of a Kenyan profile—extremely bright, juicy mouthfeel, and rich fructose sweetness.',
+        source: 'Sample Coffee Roasters',
+        country: 'Australia',
+      },
+      {
+        text: 'Bright, sweet, and full of energy, but still polished enough to drink every day.',
+        source: 'Moustache Coffee Club',
+        country: 'USA',
+      },
+    ],
   },
 
   /* PARKED — nothing renders this. It previewed the members' noticeboard on

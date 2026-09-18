@@ -173,11 +173,22 @@ export interface HomeContent {
     rows: { label: string; value: string }[];
     cta: Cta;
   };
-  story: {
+  /** The four steps under the season panel, each a photograph and a line. */
+  journey: {
     eyebrow: string;
     heading: string;
-    body: string[];
+    lead: string;
+    steps: { title: string; body: string; imageSlot: string }[];
     cta: Cta;
+  };
+  /**
+   * Tasting notes from roasters who have bought the coffee, as the society
+   * supplied them. Quoted verbatim and attributed to the roaster by name.
+   */
+  acclaim: {
+    eyebrow: string;
+    heading: string;
+    quotes: { text: string; source: string; country: string }[];
   };
   noticeboard: { eyebrow: string; heading: string; lead: string; cta: Cta };
   /**

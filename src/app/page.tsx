@@ -4,7 +4,8 @@ import { Hero } from '@/components/home/Hero';
 import { ProofBand } from '@/components/home/ProofBand';
 import { Statements } from '@/components/home/Statements';
 import { SeasonPanel } from '@/components/home/SeasonPanel';
-import { StoryTeaser } from '@/components/home/StoryTeaser';
+import { Journey } from '@/components/home/Journey';
+import { Acclaim } from '@/components/home/Acclaim';
 import { Partners } from '@/components/home/Partners';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { dict } from '@/lib/i18n';
@@ -42,7 +43,10 @@ export default function HomePage() {
       <div className="hidden lg:block">
         <SeasonPanel  content={home.season} />
       </div>
-      <StoryTeaser  content={home.story} />
+      {/* Under the season panel, and on every width: the four steps from the
+          branch to the cup, then what roasters say about the result. */}
+      <Journey content={home.journey} />
+      <Acclaim content={home.acclaim} />
 
       {/* Last, and after the members' band on purpose: the society's own people
           come before the organisations it works with. */}
