@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { routes, site } from '@content/site';
 import type { Common } from '@content/types';
 import { Container } from '@/components/ui/Container';
-import { RichText } from '@/components/ui/Fact';
 
 export function Footer({ common }: { common: Common }) {
   const year = 2026; // stamped at build; update in this one place each January
@@ -10,23 +9,16 @@ export function Footer({ common }: { common: Common }) {
   return (
     <footer className="border-t border-line bg-inverse text-on-inverse on-ink" role="contentinfo">
       <Container width="wide">
-        {/* Was four tracks at 1.4/1/1/1. With the members' column gone, three
-            tracks at the old ratio left the row stopping ~130px short of the
-            right edge — a hole exactly where the fourth column used to be.
-            Widening the brand track pushes the other two out to meet it. */}
-        <div className="grid gap-16 py-24 lg:grid-cols-[2fr_1fr_1fr] lg:gap-12 lg:py-32">
-          <div className="flex max-w-[38ch] flex-col gap-6">
-            <p className="t-quiet text-[1.5rem] leading-tight">
-              {common.brand.name}
-            </p>
-            <p className="t-body text-[0.9375rem] text-on-inverse/70">
-              <RichText text={common.footer.blurb} />
-            </p>
-          </div>
+        {/* CONDENSED 2026-09-18 at the client's request: the blurb and the
+            wet mill / village / sub-county address lines are gone, and the
+            three tall columns became one compact band — the name, the pages
+            in a single row, and the county and postal box (Contact is already in the page row). */}
+        <div className="flex flex-col gap-8 py-12 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:py-14">
+          <p className="t-quiet text-[1.375rem] leading-tight">{common.brand.name}</p>
 
-          <nav aria-label="Footer" className="flex flex-col gap-5">
-            <h2 className="t-meta text-ochre-on-inverse">{common.footer.sections.explore}</h2>
-            <ul className="flex flex-col gap-3">
+          <nav aria-label="Footer">
+            <h2 className="sr-only">{common.footer.sections.explore}</h2>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
               {routes.map((route) => (
                 <li key={route.key}>
                   <Link
@@ -40,28 +32,16 @@ export function Footer({ common }: { common: Common }) {
             </ul>
           </nav>
 
-          <div className="flex flex-col gap-5">
-            <h2 className="t-meta text-ochre-on-inverse">{common.footer.sections.contact}</h2>
-            <address className="flex flex-col gap-2 text-[0.9375rem] not-italic text-on-inverse/80">
-              <span>{site.address.line1}</span>
-              <span>{site.address.village}</span>
-              <span>{site.address.subCounty}</span>
+          <div className="flex flex-col gap-1 text-[0.9375rem] text-on-inverse/80 lg:items-end lg:text-right">
+            <h2 className="sr-only">{common.footer.sections.contact}</h2>
+            <address className="flex flex-col gap-1 not-italic">
               <span>{site.address.county}, {site.address.country}</span>
-              {/* The postal address. It was in content/site.ts all along and
-                  nothing read it, so the box number the society actually uses
-                  appeared nowhere on its own website. */}
               <span>{site.address.postal}</span>
             </address>
-            <Link
-              href={'/contact'}
-              className="link text-[0.9375rem]"
-            >
-              {common.nav.contact}
-            </Link>
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-on-inverse/15 py-10 text-[0.8125rem] text-on-inverse/60 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-on-inverse/15 py-6 text-[0.8125rem] text-on-inverse/60 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.legalName}. {common.footer.rights}
           </p>
