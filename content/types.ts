@@ -312,7 +312,8 @@ export interface ProcessStep {
 export interface ProductsContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
-  marketNote: { eyebrow: string; heading: string; body: string[] };
+  /** How to buy: one card per way the coffee is sold. */
+  marketNote: { eyebrow: string; heading: string; options: { title: string; body: string }[] };
   catalogue: {
     eyebrow: string;
     /** The page's h1. */
