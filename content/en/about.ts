@@ -153,10 +153,11 @@ export const about: AboutContent = {
   },
 
   governance: {
-    eyebrow: 'Governance',
-    heading: 'How the society runs',
+    /* The society's own copy ("Option 1: Modern & Editorial"), 2026-09-18. */
+    eyebrow: 'Governance & Trust',
+    heading: 'Built on Accountability, Driven by Community',
     lead:
-      'Buyers audit this section, and members live by it. Gathaithi operates under the Co-operative Societies Act, with an elected management committee, an independent supervisory committee, and accounts presented to every member at the Annual General Meeting.',
+      'Great coffee requires complete integrity behind the scenes. Gathaithi operates as a fully democratic co-operative—governed by an elected farmer committee, reviewed by independent oversight, and committed to total financial transparency for every member and global trade partner.',
     /* The nine people who sit on the management committee, as cards.
        ═══════════════════════════════════════════════════════════════════════
        DRAFT, in the same sense as the member profiles on Our Farmers: the four
