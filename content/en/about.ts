@@ -251,20 +251,9 @@ export const about: AboutContent = {
     lead:
       'High up at 1,720 meters, there are no shortcuts. The mountain air slows the fruit’s growth, allowing natural sugars and rich acids to develop fully inside the seed. The result is a clean, vibrant cup loaded with dark fruit notes and a sweet, lingering finish.',
     factIds: ['altitude', 'rainfall', 'temperature', 'trees'],
-    varieties: {
-      heading: 'What grows here',
-      body:
-        'The catchment is planted to Ruiru 11, grown grafted, and Batian — both disease-resistant releases, which is what allows the society to keep quality high while managing coffee berry disease and leaf rust across {{trees}} trees.',
-      list: [
-        /* THE SOCIETY'S LIST, 2026-09-11: Ruiru Grafted & Batian, "remove all
-           the other varieties". SL28 and SL34 are gone from here and from
-           the `varieties` fact; Batian is back. The notes say only what is
-           generally true of each variety — nothing specific to this
-           catchment that the society has not supplied. */
-        { name: 'Ruiru Grafted', note: 'Ruiru 11, grown grafted. Compact and disease-resistant, it protects yield through bad seasons.' },
-        { name: 'Batian', note: 'A tall, disease-resistant Kenyan release, bred to stand up to coffee berry disease and leaf rust.' },
-      ],
-    },
+    /* "What grows here" (the two varieties and their notes) was removed
+       2026-09-18 at the client's request: the home page carries the same
+       grades and varieties in Origin & Craft. */
   },
 
 

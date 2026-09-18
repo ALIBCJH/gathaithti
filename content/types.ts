@@ -250,7 +250,7 @@ export interface AboutContent {
     };
     bodies: { name: string; role: string; composition: string }[];
   };
-  terroir: { eyebrow: string; heading: string; lead: string; factIds: string[]; varieties: { heading: string; body: string; list: { name: string; note: string }[] } };
+  terroir: { eyebrow: string; heading: string; lead: string; factIds: string[] };
 }
 
 /* ── Products ───────────────────────────────────────────────────────────── */
