@@ -214,7 +214,7 @@ export const farmers: FarmersContent = {
            down a row, so the caption had to follow it. A caption that counts
            the people in the frame is a caption that has to be checked every
            time the frame changes. */
-        caption: 'Picked down the row, tree by tree, over several passes.',
+        caption: 'A cluster of ripe cherry, ready for picking.',
       },
     ],
   },
