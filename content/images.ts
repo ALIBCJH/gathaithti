@@ -587,45 +587,45 @@ export const images = {
      village, no figures and no quote: see content/en/farmers.ts. The real
      thing on this page remains gathaithi-members-drying.jpg in the ownership
      band. */
+  /* 2026-09-18: all three replaced with the society's own close-ups of hands
+     at work (farmer1-3.jpeg). They are LANDSCAPE, so the cards went from 2/3
+     to 3/2 rather than cropping the hands out; each file was trimmed a few
+     pixels to an exact 3/2. New stems, not the old names, so no browser keeps
+     a year-cached copy of the previous photographs. */
   memberOne: {
-    file: 'member-01-picking.jpg',
+    file: 'member-01-hands-picking.jpg',
     page: 'Our Farmers',
     section: 'Members',
-    ratio: '2/3',
-    minWidth: 768,
-    minHeight: 1376,
+    ratio: '3/2',
+    minWidth: 1263,
+    minHeight: 842,
     direction:
-      'A picker working a branch by hand, basket at the waist, more pickers along the rows behind her.',
-    alt: 'A coffee picker in a red headscarf taking ripe cherry from a branch by hand, a basket at her waist and more pickers along the rows behind.',
+      'Close-up of a picker\u2019s hands taking ripe cherry from the branch, green cherry left behind.',
+    alt: 'A picker\u2019s hands taking ripe red cherry from a coffee branch, leaving the unripe green cherry behind.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   memberTwo: {
-    file: 'member-02-selecting.jpg',
+    file: 'member-02-hands-selecting.jpg',
     page: 'Our Farmers',
     section: 'Members',
-    ratio: '2/3',
-    minWidth: 768,
-    minHeight: 1376,
+    ratio: '3/2',
+    minWidth: 1224,
+    minHeight: 816,
     direction:
-      'A picker selecting cherry a berry at a time under shade netting, basket slung at the hip.',
-    alt: 'A coffee picker in a cap selecting ripe cherry a berry at a time, a woven basket slung at his hip, shade netting overhead.',
+      'Close-up of two hands selecting ripe cherry from a branch among the leaves.',
+    alt: 'Hands selecting ripe red cherry from a coffee branch, green leaves all around.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   memberThree: {
-    file: 'member-03-row.jpg',
+    file: 'member-03-hands-cluster.jpg',
     page: 'Our Farmers',
     section: 'Members',
-    /* THREE pickers, not two. The frame this replaced held two people at
-       opposite edges and carried a warning never to crop it narrower than 3/2
-       for that reason. This one has them along a row with the hills behind, so
-       the warning is gone and the caption in content/en/farmers.ts was
-       corrected to match — it used to say "Two members, one tree". */
-    ratio: '2/3',
-    minWidth: 768,
-    minHeight: 1376,
+    ratio: '3/2',
+    minWidth: 1248,
+    minHeight: 832,
     direction:
-      'Three pickers working down the same row, baskets in hand, the ridge behind them.',
-    alt: 'Three coffee pickers working down the same row with baskets in hand, the Nyeri hills behind them.',
+      'Close-up of hands cupping a cluster of ripe cherry on the branch.',
+    alt: 'Hands cupping a cluster of ripe red coffee cherry on the branch.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   /* PARKED — nothing renders these three. They held the three invented sample
