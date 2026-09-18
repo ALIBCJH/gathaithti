@@ -44,9 +44,6 @@ export const common: DeepPartial<Common> = {
   },
 
   footer: {
-    blurb: todo(
-      'Gathaithi Farmers’ Co-operative Society Ltd is owned by the {{members}} smallholder farmers who grow its coffee. One wet mill, one village, one crop taken seriously.',
-    ),
     sections: {
       explore: todo('Explore'),
       contact: todo('Contact'),
