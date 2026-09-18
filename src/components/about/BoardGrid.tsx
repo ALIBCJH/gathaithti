@@ -1,3 +1,4 @@
+import { RichText } from '@/components/ui/Fact';
 import { SmartImage } from '@/components/media/SmartImage';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Reveal } from '@/components/ui/Reveal';
@@ -28,7 +29,9 @@ export function BoardGrid({ content }: { content: AboutContent['governance']['bo
         <h3 className="t-section max-w-[20ch] text-balance text-[clamp(1.5rem,2.4vw,2.25rem)]">
           {content.heading}
         </h3>
-        <p className="t-body max-w-[56ch] text-ink-soft">{content.lead}</p>
+        <p className="t-body max-w-[56ch] text-ink-soft">
+          <RichText text={content.lead} />
+        </p>
 
         {/* Renders only while something is still a draft. Clear the `pending`
             flags in the content file and this disappears by itself, rather

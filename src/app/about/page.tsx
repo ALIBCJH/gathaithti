@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
+import { AboutIntro } from '@/components/about/AboutIntro';
 import { History } from '@/components/about/History';
+import { Values } from '@/components/about/Values';
 import { Governance } from '@/components/about/Governance';
 import { InformationPoint } from '@/components/about/InformationPoint';
 import { Terroir } from '@/components/about/Terroir';
@@ -28,11 +30,11 @@ export default function AboutPage() {
         ]}
       />
 
-      {/* The history opens the page now. The ownership band that used to —
-          "Owned by the farmers who grow the coffee" and its three cards —
-          moved to Our Farmers, where that claim is the subject rather than a
-          statement in passing. History carries the h1 in its place. */}
-      <History content={about.origin} />
+      {/* Heritage & Purpose opens the page and carries the h1 (2026-09-18),
+          then the history as a timeline, then the four core values. */}
+      <AboutIntro content={about.intro} />
+      <History content={about.history} />
+      <Values content={about.values} />
       <Governance content={about.governance} />
       <InformationPoint content={about.registration} />
       <Terroir content={about.terroir} />

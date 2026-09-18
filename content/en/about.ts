@@ -23,83 +23,118 @@ export const about: AboutContent = {
       'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
   },
 
-  origin: {
-    eyebrow: 'History',
-    heading: 'History of the society',
-    /* THREE PHOTOGRAPHS, and all three are real. The single frame here was
-       gathaithi-mill-and-ridge.jpg, from the bought-and-generated set — a
-       picture of a wet mill standing in for THIS wet mill, on the one band
-       that is entirely about this society taking over its own.
-
-       Each one carries a paragraph of the history: the gate is the society in
-       its own name, the drying ground is what it took over in 2000, and the
-       pulper is the running of it. The captions say so rather than describing
-       the picture twice. */
-    /* NO WRITTEN ACCOUNT. Three paragraphs sat here — the smallholder crop
-       around independence and the years under Tetu, the 2000 registration and
-       the mill on its own hectares, and a closing line about staying
-       deliberately small. The user asked for all three removed.
-
-       Nothing factual is lost with them. The timeline below carries 1967, the
-       2000 registration and the 93-point review as dated entries, and the
-       three photographs carry the same turns in their captions. What went was
-       the prose telling of it.
-
-       `body` is optional in the type, so the component renders no block at all
-       rather than an empty grid. */
-    frames: [
+  /* HERITAGE & PURPOSE — the society's own copy, supplied 2026-09-18. It
+     replaced the history band (three photographs and four timeline cards).
+     Three points held back on the client's instruction, as on the home page:
+     the mountain is the Aberdare range, not Mt. Kenya (Tetu sits in the
+     Aberdare foothills); grades and varieties come from the facts (Mbuni;
+     Ruiru Grafted & Batian), not AA, AB, PB and SL28, SL34; and there is no
+     72-hour fermentation step. "Farmers Co-operative" takes the society's
+     registered apostrophe. */
+  intro: {
+    eyebrow: 'About Gathaithi · Heritage & Purpose',
+    heading: 'High-Altitude Craft, Rooted in Community',
+    lead:
+      'Gathaithi Farmers’ Co-operative Society brings together {{members}} smallholders along the fertile eastern slopes of the Aberdare range. Guided by independence and generational expertise, we cultivate, wet-mill, and export exceptional Kenyan specialty coffee directly from our fields to global roasteries.',
+    pillars: [
       {
-        imageSlot: 'galleryGate',
-        caption:
-          'The gate. From 2000 the name on it has been the village’s own, not the society it used to deliver into.',
+        label: 'Location',
+        title: 'Nyeri County, Kenya',
+        body: 'Situated on the high-altitude, mineral-rich volcanic soils of the Aberdare mountain range (1,700–1,800 m above sea level).',
       },
       {
-        imageSlot: 'galleryDryingArea',
-        caption:
-          'The drying ground, between crops. Three hectares of it came under the society’s own management in that year.',
+        label: 'When it started',
+        title: 'Established {{established}} | Independent since 2000',
+        body: 'Rooted in decades of traditional farming, Gathaithi became a fully self-managed, independent society on {{independentSince}}.',
       },
       {
-        imageSlot: 'galleryPulper',
-        caption:
-          'The pulper. Taking over the mill meant taking over the machinery, the water and every decision about how the cherry is handled.',
-      },
-    ],
-
-    timeline: [
-      {
-        year: '{{established}}',
-        title: 'Organised under Tetu',
-        body: 'Gathaithi’s growers join the wider Tetu Farmers’ Co-operative Society as a coffee-growing catchment.',
+        label: 'What we do',
+        title: 'Precision Wet-Milling & Export',
+        body: 'We oversee selective hand-picking, immediate same-day pulping and raised-bed sun drying to ensure complete lot traceability and cup clarity.',
       },
       {
-        year: '{{independentSince}}',
-        title: 'Registered independently',
-        body: 'The village registers Gathaithi Farmers’ Co-operative Society Ltd and takes control of its own wet mill, marketing and payments.',
-      },
-      {
-        year: '{{cuppingYear}}',
-        title: 'Scored {{cuppingScore}} points',
-        /* Names the reviewer now that there is one. A score with no
-           publishing body is not a claim a buyer accepts, and for two years
-           this timeline entry made one without saying who scored it. */
-        body: 'A washed lot from the mill scores {{cuppingScore}} points in a review by {{cuppingReviewer}} — confirmation of what the catchment can do in a good year.',
-      },
-      {
-        year: '2024',
-        title: '{{nationalRank2024}} nationally on cherry payment',
-        body: 'The society pays members {{cherryPrice2024}} per kilo of cherry, placing it {{nationalRank2024}} in Kenya on farmgate return.',
+        label: 'What we produce',
+        title: 'Premier Specialty Coffee',
+        body: '{{grades}} grade coffee from {{varieties}} varieties, celebrated for deep blackcurrant acidity and vibrant fruit complexity.',
       },
     ],
   },
 
-  /* The registration table, lifted out of Governance into a section of its own.
-     Buyers arrive at this page looking for exactly these eight rows and should
-     not have to find them inside a wall of prose. */
-  registration: {
-    eyebrow: 'Information point',
-    heading: 'The society on paper',
+  /* The history as a run of dated turns, "then" to "now". Every line is a
+     fact already on the site; nothing here is new. */
+  history: {
+    eyebrow: 'Our history',
+    heading: 'From 1967 to today',
     lead:
-      'The details an importer, an auditor or a county officer is most often looking for, in one place. Everything here is checkable against the Co-operative Societies register.',
+      'We began in {{established}} as coffee growers within the wider Tetu society. Today we are an independent society of {{members}} active members, running our own wet mill and selling our own coffee.',
+    imageSlot: 'galleryGate',
+    caption: 'The society gate and values board at Gathaithi.',
+    milestones: [
+      {
+        year: '{{established}}',
+        title: 'Roots under Tetu',
+        body: 'Gathaithi’s growers organise as a coffee-growing area of the Tetu Farmers’ Co-operative Society, delivering their cherry to the wider society.',
+      },
+      {
+        year: '2000',
+        title: 'Our own society',
+        body: 'On {{independentSince}}, the farmers of Gathaithi register their own society and take over the wet mill, the marketing of their coffee and the payments to members.',
+      },
+      {
+        year: '{{cuppingYear}}',
+        title: '{{cuppingScore}} points',
+        body: 'A washed lot from our mill scores {{cuppingScore}} points in a review by {{cuppingReviewer}}.',
+      },
+      {
+        year: '2024',
+        title: 'Second in Kenya',
+        body: 'We pay our members {{cherryPrice2024}} per kilo of cherry, the second-highest cherry payment in the country that year.',
+      },
+      {
+        year: 'Today',
+        title: '{{members}} members, one mill',
+        body: '{{certificationRA}} and {{eudr}}, with every delivery recorded against the member who grew it.',
+        current: true,
+      },
+    ],
+  },
+
+  /* CORE VALUES — the society's four, as supplied. The proof line under each
+     points at something the site already states, so a value is never left as
+     an unsupported claim. */
+  values: {
+    eyebrow: 'Core values',
+    heading: 'What we stand for',
+    items: [
+      {
+        title: 'Farmer Equity',
+        body: 'Delivering top-tier national payout rates so that every harvest directly enriches the families behind the crop.',
+        proof: '{{cherryPrice2024}} per kilo of cherry in 2024',
+      },
+      {
+        title: 'Uncompromising Precision',
+        body: 'Strict lot separation and zero blending ensure absolute clarity, clean processing, and consistent cup quality year after year.',
+        proof: 'One wet mill · nothing blended in',
+      },
+      {
+        title: 'Environmental Stewardship',
+        body: 'Committed to sustainable land management, Rainforest Alliance guidelines, and EUDR compliance across all member farms.',
+        proof: '{{certificationRA}} · {{eudr}}',
+      },
+      {
+        title: 'Radical Transparency',
+        body: 'Direct traceability from household delivery logs to final export, building long-term, trusted relationships with global roasters.',
+        proof: 'Every delivery recorded against its member',
+      },
+    ],
+  },
+
+  registration: {
+    /* The society's own copy, 2026-09-18. */
+    eyebrow: 'Transparency',
+    heading: 'Verified & Traceable',
+    lead:
+      'Everything buyers and importers need to verify our operational standards, legal standing, and trade details—all in one place.',
     rows: [
       { label: 'Registered name', value: 'Gathaithi Farmers’ Co-operative Society Ltd' },
       { label: 'Registration number', value: '{{registrationNumber}}' },
@@ -119,10 +154,11 @@ export const about: AboutContent = {
   },
 
   governance: {
-    eyebrow: 'Governance',
-    heading: 'How the society runs',
+    /* The society's own copy ("Option 1: Modern & Editorial"), 2026-09-18. */
+    eyebrow: 'Governance & Trust',
+    heading: 'Built on Accountability, Driven by Community',
     lead:
-      'Buyers audit this section, and members live by it. Gathaithi operates under the Co-operative Societies Act, with an elected management committee, an independent supervisory committee, and accounts presented to every member at the Annual General Meeting.',
+      'Great coffee requires complete integrity behind the scenes. Gathaithi operates as a fully democratic co-operative—governed by an elected farmer committee, reviewed by independent oversight, and committed to total financial transparency for every member and global trade partner.',
     /* The nine people who sit on the management committee, as cards.
        ═══════════════════════════════════════════════════════════════════════
        DRAFT, in the same sense as the member profiles on Our Farmers: the four
@@ -134,8 +170,9 @@ export const about: AboutContent = {
        names, delete the `pending` flags, and the notice above the grid stops
        rendering on its own. */
     board: {
-      eyebrow: 'The committee',
-      heading: 'Who runs the society',
+      /* The society's own copy, 2026-09-18; 1,988 via {{members}}. */
+      eyebrow: 'Leadership',
+      heading: 'Who Runs the Society',
       /* Rewritten when the real names arrived. It said "Nine members … four
          hold office; five are elected to the committee without portfolio",
          which described the placeholder arrangement, not this one: the nine
@@ -144,7 +181,7 @@ export const about: AboutContent = {
          the first. Every card states its own role, so a reader can tell which
          is which without the grid being split in two. */
       lead:
-        'Nine people, elected by the membership at the Annual General Meeting. Six sit on the management committee, which runs the society day to day. Three sit on the supervisory committee, which is elected separately and inspects the books, the store and the mill records on the members’ behalf.',
+        'Gathaithi is led by a board elected directly by our members. They guide daily operations, oversee mill management, and make key decisions on behalf of our {{members}} growers.',
       pendingNote:
         'Names and photographs are being confirmed by the society. Entries marked below are drafts and are not yet a published statement of who holds office.',
       roleLabel: 'Management and supervisory committees',
@@ -208,25 +245,15 @@ export const about: AboutContent = {
   },
 
   terroir: {
-    eyebrow: 'Terroir',
-    heading: 'Why it tastes the way it does',
+    /* The society's own copy, 2026-09-18. */
+    eyebrow: 'Taste of Gathaithi',
+    heading: 'Patience You Can Taste',
     lead:
-      'Gathaithi sits on the eastern slopes below the Aberdare range, on deep red volcanic soil at around {{altitude}}. Cool nights slow the cherry down; the long ripening is what puts the acidity and the blackcurrant weight into the cup.',
+      'High up at 1,720 meters, there are no shortcuts. The mountain air slows the fruit’s growth, allowing natural sugars and rich acids to develop fully inside the seed. The result is a clean, vibrant cup loaded with dark fruit notes and a sweet, lingering finish.',
     factIds: ['altitude', 'rainfall', 'temperature', 'trees'],
-    varieties: {
-      heading: 'What grows here',
-      body:
-        'The catchment is planted to Ruiru 11, grown grafted, and Batian — both disease-resistant releases, which is what allows the society to keep quality high while managing coffee berry disease and leaf rust across {{trees}} trees.',
-      list: [
-        /* THE SOCIETY'S LIST, 2026-09-11: Ruiru Grafted & Batian, "remove all
-           the other varieties". SL28 and SL34 are gone from here and from
-           the `varieties` fact; Batian is back. The notes say only what is
-           generally true of each variety — nothing specific to this
-           catchment that the society has not supplied. */
-        { name: 'Ruiru Grafted', note: 'Ruiru 11, grown grafted. Compact and disease-resistant, it protects yield through bad seasons.' },
-        { name: 'Batian', note: 'A tall, disease-resistant Kenyan release, bred to stand up to coffee berry disease and leaf rust.' },
-      ],
-    },
+    /* "What grows here" (the two varieties and their notes) was removed
+       2026-09-18 at the client's request: the home page carries the same
+       grades and varieties in Origin & Craft. */
   },
 
 

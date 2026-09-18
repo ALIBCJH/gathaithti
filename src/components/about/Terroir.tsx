@@ -1,6 +1,5 @@
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
-import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { Stat } from '@/components/ui/Stat';
@@ -64,44 +63,6 @@ export function Terroir({ content }: { content: AboutContent['terroir'] }) {
           </dl>
         </div>
 
-        {/* What grows here. The heading sat in a five-column block beside the
-            list; it is a title, so it goes across the top and in the middle,
-            like every other title on this page, and the list runs underneath
-            at a width a definition list can actually be read at. */}
-        <div className="mt-20 flex flex-col items-center gap-5 text-center lg:mt-24">
-          <h3 className="t-section max-w-[20ch] text-balance text-[clamp(1.5rem,2.4vw,2.25rem)]">
-            {content.varieties.heading}
-          </h3>
-          <p className="t-body max-w-[56ch] text-ink-soft">
-            <RichText text={content.varieties.body} />
-          </p>
-        </div>
-
-        <div className="mt-12 lg:mt-16">
-          {/* Reveal renders each row itself: a dl may contain divs, but the dt
-              and dd pair must be a direct child of that div. */}
-          <dl className="mx-auto w-full max-w-[64rem]">
-            {content.varieties.list.map((variety, i) => (
-              <Reveal
-                key={variety.name}
-                delay={i * 60}
-                className={[
-                  'group/variety grid grid-cols-1 gap-1.5 border-t border-line py-6 last:border-b',
-                  'transition-colors duration-200 [transition-timing-function:var(--ease)]',
-                  'hover:border-ochre/45',
-                  'sm:grid-cols-[9rem_1fr] sm:gap-8',
-                ].join(' ')}
-              >
-                <dt className="t-body text-[1.0625rem] font-medium tracking-[0.01em] text-ink transition-colors duration-200 [transition-timing-function:var(--ease)] group-hover/variety:text-ochre-ink">
-                  {variety.name}
-                </dt>
-                <dd className="t-body text-[0.9375rem] leading-relaxed text-ink-soft">
-                  {variety.note}
-                </dd>
-              </Reveal>
-            ))}
-          </dl>
-        </div>
       </Container>
     </Section>
   );
