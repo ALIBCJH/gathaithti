@@ -131,7 +131,6 @@ export interface HomeContent {
   meta: Meta;
   hero: {
     title: string;
-    positioning: string;
     /** The label on the cue out of the hero. */
     scrollMore: string;
     /** Accessible name for the small arrow at the foot of the hero on a phone. */

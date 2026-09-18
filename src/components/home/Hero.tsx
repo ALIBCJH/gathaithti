@@ -1,5 +1,4 @@
 import { getImageProps } from 'next/image';
-import { RichText } from '@/components/ui/Fact';
 import { SmoothAnchor } from '@/components/ui/SmoothAnchor';
 import { Placeholder } from '@/components/media/Placeholder';
 import { HeroSlides, type HeroSlide } from '@/components/home/HeroSlides';
@@ -179,10 +178,6 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
           <h1 className="sr-only t-hero max-w-[13em] text-on-ink-fixed lg:not-sr-only">
             {content.title}
           </h1>
-
-          <p className="t-lead max-w-[44ch] text-on-ink-fixed/90">
-            <RichText text={content.positioning} />
-          </p>
 
         </div>
       </div>

@@ -10,16 +10,8 @@ export const home: HomeContent = {
 
   hero: {
     title: 'Gathaithi Farmers’ Co‑operative Society',
-    /* No {{fact}} tokens here on purpose. Every figure in content/facts.ts is
-       still `verified: false`, and the line this replaced put two of them —
-       the membership and the cupping score — in the first sentence a visitor
-       reads. Everything asserted below is structurally true of the society
-       whatever the numbers turn out to be. The figures still have their place
-       on the page: the proof band carries them directly under this. */
-    /* The society's own line, supplied by the user. It also settles a
-       standing snag: the line it replaced spelled "Flavors" the American way
-       on a site that is British throughout. */
-    positioning: 'Coffee that makes you glow.',
+    /* No line under the name: the society asked on 2026-09-18 for "Coffee
+       that makes you glow." to come off the hero, and nothing replaces it. */
     scrollMore: 'More',
     /* The button this replaced went to /about. A downward arrow at the foot of
        a hero means "there is more below", so it scrolls rather than navigates —
