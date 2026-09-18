@@ -233,7 +233,8 @@ export const products: ProductsContent = {
         /* "Soaking and washing" from 2026-09-11, at the client's request, with
            their own photograph of the soaking tank. The body already covered
            both — it was written when the second soak was folded in here. */
-        title: 'Soaking and washing',
+        /* The society's own copy, 2026-09-18; 18 hours via {{soakHours}}. */
+        title: 'Washing & Soaking',
         duration: 'After pulping',
         /* The second soak used to be a step of its own and was replaced by
            grading. Its substance is folded in here rather than dropped: it is
@@ -241,7 +242,7 @@ export const products: ProductsContent = {
            "the step most origins skip" is a real differentiator to a buyer —
            not something to lose in a reshuffle. */
         body:
-          'The parchment is washed through channels in clean water, then held under clean water a second time for {{soakHours}}. That second soak is the step most origins skip. It settles and stabilises the coffee before drying, and it is the signature of Kenyan washed processing — the reason for the clarity and the acidity that follows. Water is used deliberately and returned through soak pits rather than into the river.',
+          'After pulping, the coffee is washed thoroughly in fresh water and then soaked for {{soakHours}}. This extra soak is a traditional Kenyan technique that creates a clean, bright flavor in every cup. To protect our environment, all water is safely filtered back into the soil instead of rivers.',
         detail: 'Clean water, fully submerged',
         imageSlot: 'processWashing',
       },
