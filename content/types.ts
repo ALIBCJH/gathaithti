@@ -340,7 +340,8 @@ export interface ProductsContent {
     eyebrow: string;
     heading: string;
     lead: string;
-    cards: { title: string; body: string; imageSlot: string }[];
+    /** `label` is the small line over each card's title. */
+    cards: { label?: string; title: string; body: string; imageSlot: string }[];
     statement: string;
     cta: Cta;
   };
