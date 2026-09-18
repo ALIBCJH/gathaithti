@@ -130,10 +130,11 @@ export const about: AboutContent = {
   },
 
   registration: {
-    eyebrow: 'Information point',
-    heading: 'The society on paper',
+    /* The society's own copy, 2026-09-18. */
+    eyebrow: 'Transparency',
+    heading: 'Verified & Traceable',
     lead:
-      'The details an importer, an auditor or a county officer is most often looking for, in one place. Everything here is checkable against the Co-operative Societies register.',
+      'Everything buyers and importers need to verify our operational standards, legal standing, and trade details—all in one place.',
     rows: [
       { label: 'Registered name', value: 'Gathaithi Farmers’ Co-operative Society Ltd' },
       { label: 'Registration number', value: '{{registrationNumber}}' },
