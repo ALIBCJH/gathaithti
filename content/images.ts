@@ -102,25 +102,99 @@ export const images = {
     sizes: '(max-width: 1023px) 178vh, 100vw',
     fullDensity: true,
   },
-  /* RESTORED 2026-09-13. #24 took the wet-mill photograph out of this spot
-     and put an editorial quote card in its place; the client asked for a
-     photograph back, their best-berry.jpeg, and for the card to go.
-
-     1264x846 cropped to 1263x842 (exact 3/2, the shape this slot had before)
-     by trimming 2px top and bottom and 1px off the right. Well under the
-     2400px this slot once asked for; the column draws it at about 700 CSS px
-     on a wide desktop. */
-  homeStory: {
-    file: 'home-story-best-berry.jpg',
+  /* Added 2026-09-18 from the society's hero01, hero2 and hero04.jpeg. Landscape
+     only, about 1300px wide, with no portrait counterpart, so a phone takes an
+     upright slice of each; the crop is set per slide in Hero.tsx. */
+  homeHeroSix: {
+    file: 'hero-cherry-cluster.jpg',
     page: 'Home',
-    section: 'Story teaser',
-    ratio: '3/2',
-    minWidth: 2400,
-    minHeight: 1600,
+    section: 'Hero — cherry cluster',
+    ratio: '16/9',
+    minWidth: 1312,
+    minHeight: 809,
     direction:
-      'MET, supplied by the client: two hands cupping freshly picked ripe red cherry over a woven basket full of it, ground and green leaves around.',
-    alt: 'Hands holding freshly picked ripe red coffee cherry over a woven basket full of cherry.',
-    sizes: '(min-width: 1024px) 50vw, 100vw',
+      'Supplied by the society: a cluster of red, orange and green cherry among the leaves, left of centre.',
+    alt: 'A cluster of ripening coffee cherry, red, orange and green, among the leaves.',
+    sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
+  },
+  homeHeroSeven: {
+    file: 'hero-cherry-ripe-branch.jpg',
+    page: 'Home',
+    section: 'Hero — ripe cherry on the branch',
+    ratio: '16/9',
+    minWidth: 1277,
+    minHeight: 832,
+    direction:
+      'Supplied by the society: ripe red cherry along a branch under broad leaves, soft green behind.',
+    alt: 'Ripe red coffee cherry along a branch beneath broad green leaves.',
+    sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
+  },
+  homeHeroEight: {
+    file: 'hero-roasted-beans-close.jpg',
+    page: 'Home',
+    section: 'Hero — roasted beans',
+    ratio: '16/9',
+    minWidth: 1295,
+    minHeight: 832,
+    direction:
+      'Supplied by the society: roasted beans filling the frame edge to edge.',
+    alt: 'Roasted coffee beans filling the frame.',
+    sizes: '(max-width: 1023px) 178vh, 100vw',
+    fullDensity: true,
+  },
+  /* FROM OUR FARMERS, TO YOUR CUP — the four steps under the season panel,
+     from the society's product01-04.jpeg (2026-09-18; there was no product05).
+     Each cropped to an exact 4/3 so the four sit as one row; the cherry frame
+     is centred at 60% across to keep the cluster. */
+  journeyCherry: {
+    file: 'journey-01-cherry.jpg',
+    page: 'Home',
+    section: 'From our farmers, to your cup',
+    ratio: '4/3',
+    minWidth: 1044,
+    minHeight: 783,
+    direction:
+      'Ripe red cherry on the branch.',
+    alt: 'Ripe red coffee cherry on the branch.',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw',
+  },
+  journeyGreen: {
+    file: 'journey-02-green.jpg',
+    page: 'Home',
+    section: 'From our farmers, to your cup',
+    ratio: '4/3',
+    minWidth: 1072,
+    minHeight: 804,
+    direction:
+      'Green coffee beans filling the frame.',
+    alt: 'Green coffee beans, hulled and graded.',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw',
+  },
+  journeyRoasted: {
+    file: 'journey-03-roasted.jpg',
+    page: 'Home',
+    section: 'From our farmers, to your cup',
+    ratio: '4/3',
+    minWidth: 1148,
+    minHeight: 861,
+    direction:
+      'Roasted beans filling the frame.',
+    alt: 'Roasted coffee beans.',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw',
+  },
+  journeyCup: {
+    file: 'journey-04-cup.jpg',
+    page: 'Home',
+    section: 'From our farmers, to your cup',
+    ratio: '4/3',
+    minWidth: 1128,
+    minHeight: 846,
+    direction:
+      'A cup of coffee with latte art on a saucer.',
+    alt: 'A cup of coffee with a heart in the milk foam, on a white saucer.',
+    sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw',
   },
   homeSeason: {
     file: 'gathaithi-selective-picking.jpg',

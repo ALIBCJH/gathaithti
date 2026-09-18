@@ -76,9 +76,17 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
          green beans. hero-mobile-03 (cherry with sun through the leaves) is
          dropped as the nearest thing to the sunlit frame they rejected. The
          first slide gets the eager, high-priority load by its position. */
+      /* SIX since later on 2026-09-18: the society's three photographs
+         (Six, Seven, Eight) join the three above, alternating cherry and
+         beans so two similar frames never follow each other. The new three
+         have no portrait, so `null` and the fourth entry is the crop at every
+         width: the phone slice is held on the cherry. */
+      ['homeHeroSix', null, null, 'object-[32%_50%] lg:object-center'],
       ['homeHeroTwo', 'heroMobileOne', 'object-left', 'object-center'],
-      ['homeHeroThree', 'heroMobileTwo', 'object-center', 'object-[38%_50%] lg:object-[42%_50%]'],
+      ['homeHeroSeven', null, null, 'object-[42%_50%] lg:object-center'],
       ['homeHeroFour', 'heroMobileFour', 'object-center', 'object-center'],
+      ['homeHeroThree', 'heroMobileTwo', 'object-center', 'object-[38%_50%] lg:object-[42%_50%]'],
+      ['homeHeroEight', null, null, 'object-center'],
     ] as const
   )
     .map(([slot, mobileSlot, mobilePosition, position]) => ({
