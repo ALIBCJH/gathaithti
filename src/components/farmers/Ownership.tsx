@@ -1,6 +1,5 @@
 import { Container } from '@/components/ui/Container';
 import { SectionHead } from '@/components/ui/SectionHead';
-import { RichText } from '@/components/ui/Fact';
 import { Reveal } from '@/components/ui/Reveal';
 import { Section } from '@/components/ui/Section';
 import { SmartImage } from '@/components/media/SmartImage';
@@ -41,23 +40,30 @@ export function Ownership({ content }: { content: FarmersContent['ownership'] })
           lead={content.lead}
         />
 
-        <div className="mt-16 grid gap-10 lg:mt-24 lg:grid-cols-3 lg:gap-12">
-          {content.cards.map((card, i) => (
-            <Reveal key={card.title} delay={i * 60}>
-              <article className="flex h-full flex-col gap-4 border-t-2 border-ochre pt-8">
-                {/* `h3`: one under this band's own head, which is an h2 now. */}
-                <h3 className="t-quiet text-[clamp(1.25rem,1.8vw,1.5rem)] leading-snug">
-                  <RichText text={card.title} />
-                </h3>
-                <p className="t-body text-[0.9375rem] leading-relaxed text-ink-soft">
-                  <RichText text={card.body} />
-                </p>
-              </article>
-            </Reveal>
+        {/* Members in their own words (2026-09-18): one card each, the quote in
+            a <blockquote> and the member named in the <figcaption>, so the
+            words stay tied to the person who said them. */}
+        <ul className="mt-16 grid gap-6 lg:mt-20 lg:grid-cols-3 lg:gap-8">
+          {content.voices.map((voice, i) => (
+            <li key={voice.name} className="h-full">
+              <Reveal delay={i * 60} className="h-full">
+                <figure className="flex h-full flex-col gap-6 border border-line bg-parchment-2 px-7 py-8 sm:px-8">
+                  <span aria-hidden="true" className="font-display text-5xl leading-[0.6] text-ochre">
+                    “
+                  </span>
+                  <blockquote className="t-quiet flex-1 text-[clamp(1.0625rem,1.4vw,1.25rem)] leading-[1.5]">
+                    <p>{voice.quote}</p>
+                  </blockquote>
+                  <figcaption className="flex flex-col gap-1 border-t border-line pt-5">
+                    <span className="font-semibold">{voice.name}</span>
+                    <span className="t-meta text-ink-soft">{voice.role}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* The members, under the claim that the society is theirs. */}
         <figure className="mx-auto mt-16 w-full max-w-[64rem] lg:mt-20">
           <Reveal className="flex flex-col gap-4">
             <SmartImage slot={content.imageSlot} />

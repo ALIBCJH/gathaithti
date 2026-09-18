@@ -44,21 +44,26 @@ export const farmers: FarmersContent = {
      members had none. */
   ownership: {
     eyebrow: 'Our farmers',
-    title: 'Owned by the farmers who grow the coffee',
-    lead:
-      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
-    cards: [
+    /* VOICES FROM THE HILLSIDE — supplied by the society 2026-09-18. The
+       client confirmed these are real members who said or approved these
+       words and agreed to be named. The ownership cards and lead that were
+       here are replaced. */
+    title: 'Voices from the Hillside',
+    voices: [
       {
-        title: 'Owned by the people who grow it',
-        body: '{{members}} smallholder families hold the shares. The committee is elected from among them at the Annual General Meeting, and the accounts are put to the same room that elected it.',
+        name: 'Joseph Maina',
+        role: 'Member & Smallholder (250 Trees, Tetu)',
+        quote: 'We harvest in passes so every cherry reaches the mill at peak sweetness. Seeing our coffee served globally makes every early morning on the farm worth it.',
       },
       {
-        title: 'One mill, one catchment',
-        body: 'A single wet mill on {{millSite}} hectares, serving the farms around it. Cherry is delivered the evening it is picked and processed within hours. Nothing is blended in from anywhere else.',
+        name: 'Mary Wambui',
+        role: 'Second-Generation Farmer (Gathaithi Society)',
+        quote: 'Hand-picking only the deep red fruit is a discipline passed down in my family. High elevation and careful sorting are what make our cup score so exceptional.',
       },
       {
-        title: 'Independent since {{independentSince}}',
-        body: 'Gathaithi grew coffee under the wider Tetu society from {{established}}. Since {{independentSince}} it has run its own processing, its own marketing and its own payments.',
+        name: 'Peter Nderitu',
+        role: 'Smallholder & Cooperative Member',
+        quote: 'Because we own our mill, every farmer takes pride in strict quality control. From intake to drying, we handle our harvest like a reserve lot.',
       },
     ],
     imageSlot: 'farmersMembers',

@@ -446,8 +446,9 @@ export interface FarmersContent {
   ownership: {
     eyebrow: string;
     title: string;
-    lead: string;
-    cards: { title: string; body: string }[];
+    lead?: string;
+    /** Members in their own words: real members, quoted with their approval. */
+    voices: { name: string; role: string; quote: string }[];
     imageSlot: string;
     caption: string;
   };
