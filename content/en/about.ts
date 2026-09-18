@@ -169,8 +169,9 @@ export const about: AboutContent = {
        names, delete the `pending` flags, and the notice above the grid stops
        rendering on its own. */
     board: {
-      eyebrow: 'The committee',
-      heading: 'Who runs the society',
+      /* The society's own copy, 2026-09-18; 1,988 via {{members}}. */
+      eyebrow: 'Leadership',
+      heading: 'Who Runs the Society',
       /* Rewritten when the real names arrived. It said "Nine members … four
          hold office; five are elected to the committee without portfolio",
          which described the placeholder arrangement, not this one: the nine
@@ -179,7 +180,7 @@ export const about: AboutContent = {
          the first. Every card states its own role, so a reader can tell which
          is which without the grid being split in two. */
       lead:
-        'Nine people, elected by the membership at the Annual General Meeting. Six sit on the management committee, which runs the society day to day. Three sit on the supervisory committee, which is elected separately and inspects the books, the store and the mill records on the members’ behalf.',
+        'Gathaithi is led by a board elected directly by our members. They guide daily operations, oversee mill management, and make key decisions on behalf of our {{members}} growers.',
       pendingNote:
         'Names and photographs are being confirmed by the society. Entries marked below are drafts and are not yet a published statement of who holds office.',
       roleLabel: 'Management and supervisory committees',
