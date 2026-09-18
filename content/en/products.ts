@@ -264,10 +264,12 @@ export const products: ProductsContent = {
       },
       {
         n: '05',
-        title: 'Drying on raised beds',
+        /* The society's own copy, 2026-09-18; no sub-label was supplied, so
+           the drying time stays. */
+        title: 'Sun-Drying on Raised Beds',
         duration: '{{dryingDays}}',
         body:
-          'Parchment is skin-dried in shade, then moved onto raised beds in thin layers, turned by hand through the day and covered at midday and overnight. It comes off at 10–12 % moisture and rests in the conditioning store before milling.',
+          'Coffee is spread thinly across raised mesh beds to dry evenly in the open air. Workers turn the parchment by hand throughout the day and cover it to shield against harsh midday heat and cool night dampness. Once moisture reaches a stable 10–12%, the lot rests in storage before final milling.',
         detail: 'Turned by hand, covered at midday',
         imageSlot: 'processDrying',
       },
