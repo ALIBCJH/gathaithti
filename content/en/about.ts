@@ -245,10 +245,11 @@ export const about: AboutContent = {
   },
 
   terroir: {
-    eyebrow: 'Terroir',
-    heading: 'Why it tastes the way it does',
+    /* The society's own copy, 2026-09-18. */
+    eyebrow: 'Taste of Gathaithi',
+    heading: 'Patience You Can Taste',
     lead:
-      'Gathaithi sits on the eastern slopes below the Aberdare range, on deep red volcanic soil at around {{altitude}}. Cool nights slow the cherry down; the long ripening is what puts the acidity and the blackcurrant weight into the cup.',
+      'High up at 1,720 meters, there are no shortcuts. The mountain air slows the fruit’s growth, allowing natural sugars and rich acids to develop fully inside the seed. The result is a clean, vibrant cup loaded with dark fruit notes and a sweet, lingering finish.',
     factIds: ['altitude', 'rainfall', 'temperature', 'trees'],
     varieties: {
       heading: 'What grows here',
