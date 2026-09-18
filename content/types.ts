@@ -207,27 +207,27 @@ export interface HomeContent {
 export interface AboutContent {
   meta: Meta;
   hero: { eyebrow: string; title: string; lead: string };
-  origin: {
+  /** The opener: the society's own overview and its four pillars. Carries the h1. */
+  intro: {
     eyebrow: string;
     heading: string;
-    /**
-     * Three photographs under the account, each with a line saying what it
-     * shows and why it belongs to this history.
-     *
-     * They reuse the GALLERY slots rather than declaring their own: the file
-     * is the same and a second slot for the same file would fetch it at two
-     * different sizes on one page. The shape is forced to a common ratio at
-     * the call site instead — see `SmartImage`'s `ratio`.
-     */
-    frames: { imageSlot: string; caption: string }[];
-    /**
-     * The written account. OPTIONAL: it was three paragraphs and the user
-     * asked for all three removed, so the band is its head, three captioned
-     * photographs and the timeline. History renders nothing here when it is
-     * absent, rather than an empty grid with its own top margin.
-     */
-    body?: string[];
-    timeline: { year: string; title: string; body: string }[];
+    lead: string;
+    pillars: { label: string; title: string; body: string }[];
+  };
+  /** Milestones from 1967 to today, beside one photograph. */
+  history: {
+    eyebrow: string;
+    heading: string;
+    lead: string;
+    imageSlot: string;
+    caption: string;
+    milestones: { year: string; title: string; body: string; current?: boolean }[];
+  };
+  /** Four values, each with a line of proof drawn from elsewhere on the site. */
+  values: {
+    eyebrow: string;
+    heading: string;
+    items: { title: string; body: string; proof: string }[];
   };
   registration: {
     eyebrow: string;
