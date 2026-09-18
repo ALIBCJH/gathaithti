@@ -2,10 +2,10 @@ import type { ContactContent } from '../types';
 
 export const contact: ContactContent = {
   meta: {
-    title: 'Contact Gathaithi Farmers’ Co-operative Society — Tetu, Nyeri',
+    title: 'Contact Gathaithi Farmers’ Co-operative Society | Tetu, Nyeri',
     description:
-      'Talk to Gathaithi Farmers’ Co-operative Society in Tetu, Nyeri — by WhatsApp, phone or email. Buyer enquiries, samples and member services.',
-    ogLine: 'Buyers · Members · Suppliers — reach the society directly',
+      'Contact Gathaithi Farmers’ Co-operative Society in Tetu, Nyeri, by WhatsApp, phone or email, for buyer enquiries, samples and member services.',
+    ogLine: 'Buyers · Members · Suppliers: contact the society directly',
   },
 
   /* REBUILT 2026-09-14 so that sending a message is the easiest thing on the
@@ -17,18 +17,18 @@ export const contact: ContactContent = {
   hero: {
     eyebrow: 'Contact',
     title: 'Get in touch',
-    lead: 'Send the society office a message and we will reply within two working days — or reach us straight away on WhatsApp or by phone.',
+    lead: 'Send a message to the society office and we will reply within two working days, or contact us directly on WhatsApp or by phone.',
   },
 
   /* Every number and address comes from content/site.ts; nothing here writes
      one down, so there is one place to change them. */
   direct: {
-    heading: 'Reach us now',
+    heading: 'Contact us directly',
     lead: 'Office hours are Monday to Saturday, 8:00 – 16:00.',
     whatsapp: {
       label: 'WhatsApp',
-      note: 'Usually the fastest reply',
-      prefill: 'Hello Gathaithi — I found you through the website.',
+      note: 'Usually the quickest response',
+      prefill: 'Hello Gathaithi, I am getting in touch through your website.',
     },
     phone: { label: 'Call the office', note: 'Mon–Sat 8:00–16:00' },
     email: { label: 'Email', note: 'Replies within two working days' },
@@ -38,10 +38,10 @@ export const contact: ContactContent = {
   form: {
     eyebrow: 'Write to us',
     heading: 'Send a message',
-    lead: 'Choose what it is about, add your details, and the office will get it to the right person.',
+    lead: 'Choose a topic and add your details, and our office will pass your message to the right person.',
     topics: ['Buying coffee', 'Becoming a member', 'Member services', 'Something else'],
     fields: {
-      topic: 'What is it about?',
+      topic: 'What is your message about?',
       name: 'Your name',
       email: 'Your email',
       phone: 'Phone number (optional)',
@@ -53,11 +53,11 @@ export const contact: ContactContent = {
       phone: '+254 …',
       message: 'How can we help?',
     },
-    phoneHint: 'Add it if you would like the office to call you back.',
+    phoneHint: 'Include your number if you would like us to call you back.',
     submit: 'Send message',
-    consent: 'We use what you send only to answer you. We never sell or share it.',
+    consent: 'We use your details only to respond to your enquiry. We never sell or share them.',
     successBody:
-      'Thank you. Your message has reached the society office, and someone will reply during office hours — usually within two working days.',
+      'Thank you. Your message has been received by the society office, and we will reply during office hours, usually within two working days.',
     successAgain: 'Send another message',
   },
 

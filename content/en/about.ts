@@ -2,9 +2,9 @@ import type { AboutContent } from '../types';
 
 export const about: AboutContent = {
   meta: {
-    title: 'About Gathaithi Co-operative Society — history & governance',
+    title: 'About Gathaithi Farmers’ Co-operative Society | History and governance',
     description:
-      'Organised in {{established}} under North Tetu and independent since 2000. The society’s history, its governance, and the {{members}} families who own it.',
+      'Established in {{established}} under North Tetu and independent since 2000. Our history, our governance and the {{members}} members who own the society.',
     ogLine: 'Founded 1967 · Independent since June 2000 · Tetu, Nyeri',
   },
 
@@ -20,7 +20,7 @@ export const about: AboutContent = {
     eyebrow: 'About the society',
     title: 'Owned by the farmers who grow the coffee',
     lead:
-      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
+      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Our members are our shareholders, our committee is elected from among them, and our wet mill exists to turn their cherry into the finest coffee our hillside can produce.',
   },
 
   origin: {
@@ -51,17 +51,17 @@ export const about: AboutContent = {
       {
         imageSlot: 'galleryGate',
         caption:
-          'The gate. From 2000 the name on it has been the village’s own, not the society it used to deliver into.',
+          'The society gate. Since 2000, it has carried our own name as an independent society.',
       },
       {
         imageSlot: 'galleryDryingArea',
         caption:
-          'The drying ground, between crops. Three hectares of it came under the society’s own management in that year.',
+          'The drying ground between harvests. The society took over the management of these three hectares in 2000.',
       },
       {
         imageSlot: 'galleryPulper',
         caption:
-          'The pulper. Taking over the mill meant taking over the machinery, the water and every decision about how the cherry is handled.',
+          'The pulper. Independence gave the society full control of its machinery, its water and the way its cherry is processed.',
       },
     ],
 
@@ -69,12 +69,12 @@ export const about: AboutContent = {
       {
         year: '{{established}}',
         title: 'Organised under Tetu',
-        body: 'Gathaithi’s growers join the wider Tetu Farmers’ Co-operative Society as a coffee-growing catchment.',
+        body: 'Gathaithi’s growers join the Tetu Farmers’ Co-operative Society as one of its coffee-growing areas.',
       },
       {
         year: '{{independentSince}}',
         title: 'Registered independently',
-        body: 'The village registers Gathaithi Farmers’ Co-operative Society Ltd and takes control of its own wet mill, marketing and payments.',
+        body: 'Gathaithi Farmers’ Co-operative Society Ltd is registered and takes control of its own wet mill, marketing and payments.',
       },
       {
         year: '{{cuppingYear}}',
@@ -82,12 +82,12 @@ export const about: AboutContent = {
         /* Names the reviewer now that there is one. A score with no
            publishing body is not a claim a buyer accepts, and for two years
            this timeline entry made one without saying who scored it. */
-        body: 'A washed lot from the mill scores {{cuppingScore}} points in a review by {{cuppingReviewer}} — confirmation of what the catchment can do in a good year.',
+        body: 'A washed lot from our mill scores {{cuppingScore}} points in a review by {{cuppingReviewer}}.',
       },
       {
         year: '2024',
         title: '{{nationalRank2024}} nationally on cherry payment',
-        body: 'The society pays members {{cherryPrice2024}} per kilo of cherry, placing it {{nationalRank2024}} in Kenya on farmgate return.',
+        body: 'The society pays members {{cherryPrice2024}} per kilo of cherry, one of the highest farm-gate rates in Kenya.',
       },
     ],
   },
@@ -96,10 +96,10 @@ export const about: AboutContent = {
      Buyers arrive at this page looking for exactly these eight rows and should
      not have to find them inside a wall of prose. */
   registration: {
-    eyebrow: 'Information point',
-    heading: 'The society on paper',
+    eyebrow: 'Registration',
+    heading: 'Registration details',
     lead:
-      'The details an importer, an auditor or a county officer is most often looking for, in one place. Everything here is checkable against the Co-operative Societies register.',
+      'Key details for buyers, auditors and county officials. All of them can be verified against the register of co-operative societies.',
     rows: [
       { label: 'Registered name', value: 'Gathaithi Farmers’ Co-operative Society Ltd' },
       { label: 'Registration number', value: '{{registrationNumber}}' },
@@ -109,7 +109,7 @@ export const about: AboutContent = {
       { label: 'Sub-county', value: 'Tetu' },
       { label: 'Wet mills operated', value: '{{wetMills}}' },
       { label: 'Certification', value: '{{certificationRA}}' },
-      { label: 'EU market', value: '{{eudr}}' },
+      { label: 'EU compliance', value: '{{eudr}}' },
       /* The society's own breakdown, as it gave it on 2026-09-11. The three
          come from content/facts.ts and must keep adding up. */
       { label: 'Active members', value: '{{members}}' },
@@ -122,7 +122,7 @@ export const about: AboutContent = {
     eyebrow: 'Governance',
     heading: 'How the society runs',
     lead:
-      'Buyers audit this section, and members live by it. Gathaithi operates under the Co-operative Societies Act, with an elected management committee, an independent supervisory committee, and accounts presented to every member at the Annual General Meeting.',
+      'Gathaithi operates under the Co-operative Societies Act, with an elected management committee, an independent supervisory committee and accounts presented to members at every Annual General Meeting.',
     /* The nine people who sit on the management committee, as cards.
        ═══════════════════════════════════════════════════════════════════════
        DRAFT, in the same sense as the member profiles on Our Farmers: the four
@@ -134,8 +134,8 @@ export const about: AboutContent = {
        names, delete the `pending` flags, and the notice above the grid stops
        rendering on its own. */
     board: {
-      eyebrow: 'The committee',
-      heading: 'Who runs the society',
+      eyebrow: 'Leadership',
+      heading: 'Our committees',
       /* Rewritten when the real names arrived. It said "Nine members … four
          hold office; five are elected to the committee without portfolio",
          which described the placeholder arrangement, not this one: the nine
@@ -144,9 +144,9 @@ export const about: AboutContent = {
          the first. Every card states its own role, so a reader can tell which
          is which without the grid being split in two. */
       lead:
-        'Nine people, elected by the membership at the Annual General Meeting. Six sit on the management committee, which runs the society day to day. Three sit on the supervisory committee, which is elected separately and inspects the books, the store and the mill records on the members’ behalf.',
+        'Our nine committee members are elected by the membership at the Annual General Meeting. The six members of the management committee run the society day to day. The three members of the supervisory committee are elected separately and inspect the books, the store and the mill records on behalf of the members.',
       pendingNote:
-        'Names and photographs are being confirmed by the society. Entries marked below are drafts and are not yet a published statement of who holds office.',
+        'Names and photographs are awaiting final confirmation by the society.',
       roleLabel: 'Management and supervisory committees',
       /* REAL PEOPLE, supplied by the client on 2026-09-07 with a photograph
          each. `pending` is cleared, so the Draft markers and the notice above
@@ -186,12 +186,12 @@ export const about: AboutContent = {
     bodies: [
       {
         name: 'Management Committee',
-        role: 'Elected by the members at the AGM. Responsible for the running of the society, the mill, marketing decisions and the payment schedule.',
+        role: 'Elected by the members at the AGM and responsible for running the society and the mill, making marketing decisions and setting the payment schedule.',
         composition: 'Samuel Gachonge (Chairman), Eugene Wachira (Vice-Chairman), Edward Ngure (Treasurer), Ephraim Njogu (Secretary), with German Wambiru and Charles Wambugu',
       },
       {
         name: 'Supervisory Committee',
-        role: 'Elected separately and independent of the management committee. Inspects the books, the store and the mill records, and reports its findings directly to the members.',
+        role: 'Elected separately and independent of the management committee. It inspects the books, the store and the mill records, and reports its findings directly to the members.',
         /* These three were INVENTED placeholders — James Ndung'u, Margaret
            Nyokabi and Daniel Gitonga — published against a real office. They
            are the real three now. */
@@ -199,32 +199,32 @@ export const about: AboutContent = {
       },
       {
         name: 'Society Office',
-        role: 'Day-to-day administration: the member register, cherry records, payments, pre-finance applications and buyer correspondence.',
+        role: 'Handles day-to-day administration, including the member register, cherry records, payments, pre-finance applications and correspondence with buyers.',
         /* STILL INVENTED. No name was supplied for the society manager, so this
            one placeholder outlives the others — flagged to the client. */
-        composition: 'The Society Manager, with office and mill staff',
+        composition: 'The Society Manager, supported by office and mill staff',
       },
     ],
   },
 
   terroir: {
     eyebrow: 'Terroir',
-    heading: 'Why it tastes the way it does',
+    heading: 'Our growing conditions',
     lead:
-      'Gathaithi sits on the eastern slopes below the Aberdare range, on deep red volcanic soil at around {{altitude}}. Cool nights slow the cherry down; the long ripening is what puts the acidity and the blackcurrant weight into the cup.',
+      'Gathaithi lies on the eastern slopes below the Aberdare range, on deep red volcanic soil at around {{altitude}}. Cool nights slow the ripening of the cherry, which develops the bright acidity and blackcurrant notes found in the cup.',
     factIds: ['altitude', 'rainfall', 'temperature', 'trees'],
     varieties: {
-      heading: 'What grows here',
+      heading: 'Our varieties',
       body:
-        'The catchment is planted to Ruiru 11, grown grafted, and Batian — both disease-resistant releases, which is what allows the society to keep quality high while managing coffee berry disease and leaf rust across {{trees}} trees.',
+        'Our members grow grafted Ruiru 11 and Batian. Both varieties are disease-resistant, which allows the society to maintain quality while managing coffee berry disease and leaf rust across {{trees}} trees.',
       list: [
         /* THE SOCIETY'S LIST, 2026-09-11: Ruiru Grafted & Batian, "remove all
            the other varieties". SL28 and SL34 are gone from here and from
            the `varieties` fact; Batian is back. The notes say only what is
            generally true of each variety — nothing specific to this
            catchment that the society has not supplied. */
-        { name: 'Ruiru Grafted', note: 'Ruiru 11, grown grafted. Compact and disease-resistant, it protects yield through bad seasons.' },
-        { name: 'Batian', note: 'A tall, disease-resistant Kenyan release, bred to stand up to coffee berry disease and leaf rust.' },
+        { name: 'Ruiru Grafted', note: 'Ruiru 11, grafted. A compact, disease-resistant variety that helps protect yields in difficult seasons.' },
+        { name: 'Batian', note: 'A tall, disease-resistant Kenyan variety, bred to withstand coffee berry disease and leaf rust.' },
       ],
     },
   },

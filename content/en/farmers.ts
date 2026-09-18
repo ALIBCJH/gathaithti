@@ -16,14 +16,14 @@ import type { FarmersContent } from '../types';
 
 export const farmers: FarmersContent = {
   meta: {
-    title: 'Our Farmers — members, training & pre-finance | Gathaithi',
+    title: 'Our Farmers | Members and training | Gathaithi',
     /* NO LONGER PROMISES THE NOTICEBOARD. It offered "current cherry price,
        payment dates and collection times" — the members' noticeboard, removed
        in #70. The page carries none of the three, and a description that
        advertises what is not there is why somebody leaves in two seconds. Cut
        under 160 characters as well, which is all a search result shows. */
     description:
-      'The {{members}} smallholder members who own Gathaithi: how the society is theirs, the agronomy training it runs, and the people who pick the cherry.',
+      'Meet the {{members}} smallholder members who own Gathaithi, learn how the society works for them, and see the agronomy training we provide.',
     ogLine: 'The members who own the society',
   },
 
@@ -46,24 +46,24 @@ export const farmers: FarmersContent = {
     eyebrow: 'Our farmers',
     title: 'Owned by the farmers who grow the coffee',
     lead:
-      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
+      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Our members are our shareholders, our committee is elected from among them, and our wet mill exists to turn their cherry into the finest coffee our hillside can produce.',
     cards: [
       {
-        title: 'Owned by the people who grow it',
-        body: '{{members}} smallholder families hold the shares. The committee is elected from among them at the Annual General Meeting, and the accounts are put to the same room that elected it.',
+        title: 'Shareholder-owned',
+        body: '{{members}} smallholder farmers hold the shares. They elect the committee at the Annual General Meeting, where the accounts are also presented to them.',
       },
       {
         title: 'One mill, one catchment',
-        body: 'A single wet mill on {{millSite}} hectares, serving the farms around it. Cherry is delivered the evening it is picked and processed within hours. Nothing is blended in from anywhere else.',
+        body: 'A single wet mill on {{millSite}} hectares serves the surrounding farms. Cherry is delivered on the evening it is picked and processed within hours. Nothing is blended in from elsewhere.',
       },
       {
         title: 'Independent since {{independentSince}}',
-        body: 'Gathaithi grew coffee under the wider Tetu society from {{established}}. Since {{independentSince}} it has run its own processing, its own marketing and its own payments.',
+        body: 'Gathaithi farmers grew coffee under the wider Tetu society from {{established}}. Since {{independentSince}}, we have managed our own processing, marketing and payments.',
       },
     ],
     imageSlot: 'farmersMembers',
     caption:
-      'Members at the drying beds. The society is theirs: they hold the shares, they elect the committee, and they are the room the accounts are put to.',
+      'Members at the drying beds. As shareholders, they elect the committee and approve the accounts.',
   },
 
   hero: {
@@ -163,8 +163,8 @@ export const farmers: FarmersContent = {
     ],
     /* One line per slide, in slide order. */
     captions: [
-      'Ripe taken, green left — the branch is worked again in a week.',
-      'Selecting by colour, not by handful. Nothing is stripped.',
+      'Only ripe cherry is picked; green cherry is left for a later pass.',
+      'Cherry is picked by hand and selected by colour.',
       'Two members, one tree. Most of the crop is family work.',
     ],
     slideLabel: 'Slide {{n}} of {{total}}',
@@ -175,13 +175,13 @@ export const farmers: FarmersContent = {
 
   profiles: {
     eyebrow: 'Members',
-    heading: 'The people behind the picking',
+    heading: 'Our members',
     /* Rewritten twice, both times because the cards below it changed. It said
        all six profiles were sample entries; then that the three named ones
        were; now there are no named ones at all, so it says what is actually
        true of the band — three photographs, and interviews still to come. */
     lead:
-      'Most members farm under a hectare, alongside food crops and a cow or two. The interviews and portraits are still to be collected, and no member is published here without their agreement.',
+      'Most of our members farm less than one hectare, alongside food crops and livestock. Member profiles will be added over time, and no member is featured without their consent.',
     yearsLabel: 'Years farming',
     treesLabel: 'Trees',
     members: [
@@ -199,12 +199,12 @@ export const farmers: FarmersContent = {
       {
         id: 'm1',
         imageSlot: 'memberOne',
-        caption: 'Ripe taken, green left — the branch is worked again in a week.',
+        caption: 'Only ripe cherry is picked; green cherry is left for a later pass.',
       },
       {
         id: 'm2',
         imageSlot: 'memberTwo',
-        caption: 'Selecting by colour, not by handful. Nothing is stripped.',
+        caption: 'Cherry is picked by hand and selected by colour.',
       },
       {
         id: 'm3',
@@ -214,7 +214,7 @@ export const farmers: FarmersContent = {
            down a row, so the caption had to follow it. A caption that counts
            the people in the frame is a caption that has to be checked every
            time the frame changes. */
-        caption: 'Picked down the row, tree by tree, over several passes.',
+        caption: 'Pickers work along each row over several passes.',
       },
     ],
   },
@@ -223,21 +223,21 @@ export const farmers: FarmersContent = {
     eyebrow: 'Agronomy',
     heading: 'Training and good agricultural practice',
     lead:
-      'Quality is decided on the farm long before it reaches the mill. The society runs field training through the year so that {{trees}} trees across the catchment are pruned, fed and picked to one standard.',
+      'Coffee quality begins on the farm, long before the cherry reaches the mill. The society runs field training throughout the year so that the {{trees}} trees in our catchment are pruned, fertilised and picked to the same standard.',
     body: [
-      'Field days are held on members’ own farms rather than in a hall, because pruning is taught with secateurs in hand on a real tree. Sessions follow the season: pruning and stumping after harvest, nutrition before flowering, pest and disease scouting through the wet months, picking discipline as the crop ripens.',
-      'The society also demonstrates the practices buyers ask about — mulching and cover to hold the soil on these slopes, correct handling and disposal of chemicals, and record-keeping on each farm.',
+      'Field days are held on members’ farms rather than in a hall, so that practices such as pruning can be demonstrated on real trees. Training follows the season: pruning and stumping after harvest, nutrition before flowering, pest and disease scouting during the rains, and selective picking as the crop ripens.',
+      'We also demonstrate the sustainable practices that buyers ask about, including mulching and ground cover to protect the soil on our slopes, the safe handling and disposal of chemicals, and record-keeping on every farm.',
     ],
     programmes: [
       {
         name: 'Pruning and canopy management',
         cadence: 'After harvest, annually',
-        body: 'Cycle pruning, stumping of exhausted blocks and canopy management to keep bearing wood productive and disease pressure down.',
+        body: 'Cycle pruning, stumping of exhausted trees and canopy management to keep trees productive and reduce disease.',
       },
       {
         name: 'Soil and nutrition',
         cadence: 'Before flowering and after fruit set',
-        body: 'Soil sampling, correct fertiliser rates and timing, mulching and organic matter — matched to the red volcanic soils of the catchment.',
+        body: 'Soil sampling, correct fertiliser rates and timing, mulching and organic matter, suited to the red volcanic soils of our area.',
       },
       {
         name: 'Pest and disease scouting',
@@ -247,7 +247,7 @@ export const farmers: FarmersContent = {
       {
         name: 'Picking and delivery discipline',
         cadence: 'Through harvest',
-        body: 'Selective picking of ripe red cherry only, multiple passes, and same-day delivery — the practices that decide the cup and therefore the price.',
+        body: 'Selective picking of ripe red cherry only, multiple passes and same-day delivery: the practices that determine cup quality and, therefore, the price.',
       },
     ],
   },

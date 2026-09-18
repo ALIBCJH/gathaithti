@@ -2,9 +2,9 @@ import type { HomeContent } from '../types';
 
 export const home: HomeContent = {
   meta: {
-    title: 'Gathaithi Coffee — farmer-owned washed Kenya coffee, Tetu, Nyeri',
+    title: 'Gathaithi Coffee | Farmer-owned washed coffee from Tetu, Nyeri',
     description:
-      'Farmer-owned washed Kenya coffee from Tetu, Nyeri. {{members}} smallholder members, one wet mill, {{varieties}}, sold direct by the society.',
+      'Farmer-owned washed Kenyan coffee from Tetu, Nyeri, grown by {{members}} smallholder members, processed at one wet mill and sold directly by the society.',
     ogLine: 'Farmer-owned washed coffee from Tetu, Nyeri County, Kenya',
   },
 
@@ -42,7 +42,7 @@ export const home: HomeContent = {
      on the hero, over the photographs, from 2026-09-11 until the client asked
      for it off on 2026-09-13. */
   statements: {
-    eyebrow: 'In their own words',
+    eyebrow: 'Our purpose',
     items: [
       {
         label: 'Vision',
@@ -82,22 +82,22 @@ export const home: HomeContent = {
     },
     titles: {
       nationalRank2024: 'Among Kenya’s best',
-      established: 'More than five decades of coffee',
-      members: 'Farmers. One society.',
+      established: 'Over five decades of coffee farming',
+      members: 'Active members',
     },
     captions: {
-      nationalRank2024: 'Ranked second in Kenya on cherry payment to farmers, 2024.',
-      established: 'Our story began under Tetu; the mill has been ours since {{independentSince}}.',
-      members: 'Each one holds a stake in what the society sells.',
+      nationalRank2024: 'Ranked second in Kenya for cherry payments to farmers in 2024.',
+      established: 'Founded under the Tetu society, we have run our own mill since {{independentSince}}.',
+      members: 'Every member is a shareholder in the society.',
     },
   },
 
   season: {
     eyebrow: 'This season',
-    heading: 'What is on the beds now',
+    heading: 'This season at a glance',
     lead:
-      'The main crop is picked {{mainCrop}} and the fly crop {{flyCrop}}. Availability moves week to week — this panel is updated by the marketing office as lots come off the drying beds and through milling.',
-    status: 'Main crop — samples available',
+      'Main crop: {{mainCrop}}. Fly crop: {{flyCrop}}. Availability changes from week to week, and our marketing office updates these details as each lot is dried and milled.',
+    status: 'Main crop: samples available',
     rows: [
       /* Was "Grades offered: AA · AB", which was the two green-coffee lots
          the catalogue used to carry. The society reports the grades its
@@ -109,20 +109,20 @@ export const home: HomeContent = {
       /* From the society 2026-09-13. See `certificationRA` and `eudr` in
          content/facts.ts for why the two are worded differently. */
       { label: 'Certification', value: '{{certificationRA}} · {{eudr}}' },
-      { label: 'Process', value: 'Fully washed, second soak, sun-dried on raised beds' },
+      { label: 'Process', value: 'Fully washed, soaked, and sun-dried on raised beds' },
       { label: 'Cherry intake this year', value: '{{cherryAnnual}} kg' },
-      { label: 'Sample despatch', value: '250 g and 1 kg, by courier, from the society office' },
+      { label: 'Samples', value: '250 g and 1 kg, sent by courier from our office' },
     ],
-    cta: { label: 'See this season’s lots', href: 'products' },
+    cta: { label: 'View our coffee', href: 'products' },
   },
 
   story: {
     eyebrow: 'The society',
-    heading: 'Every kilo has a name attached',
+    heading: 'A society owned by its farmers',
     body: [
-      'Gathaithi has grown coffee since {{established}}, first as part of the wider Tetu society. On {{independentSince}} the farmers of this village registered their own society, took over their own wet mill, and became responsible for their own returns.',
-      'That decision is the whole story. Cherry is picked selectively by the household that grew it, delivered the same evening, and processed within hours at a single mill on {{millSite}} hectares. Nothing is blended in from elsewhere, and the books record which household every delivery came from.',
-      'What the society sells is the work of {{members}} families on the eastern slopes above Nyeri — and what it returns to them is the reason the work stays good.',
+      'Gathaithi has grown coffee since {{established}}, first as part of the wider Tetu society. On {{independentSince}}, our farmers registered their own society, took over the wet mill and assumed responsibility for their own returns.',
+      'Today, members pick their cherry selectively, deliver it the same evening, and have it processed within hours at our mill on {{millSite}} hectares. Nothing is blended in from elsewhere, and every delivery is recorded against the member who grew it.',
+      'Every bag we sell represents the work of {{members}} farming families on the eastern slopes above Nyeri, and the returns go back to them.',
     ],
     /* The right-hand column is a photograph (images.ts `homeStory`). The
        "Our story" statement card and the Grace Wairimu pull quote — marked

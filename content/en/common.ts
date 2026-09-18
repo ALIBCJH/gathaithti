@@ -32,10 +32,10 @@ export const common: Common = {
   actions: {
     requestSample: 'Request a sample',
     whatsappLabel: 'WhatsApp us',
-    whatsappPrefill: 'Hello Gathaithi — I found you through your website.',
+    whatsappPrefill: 'Hello Gathaithi, I am getting in touch through your website.',
     forMembers: 'For our members',
     readStory: 'Read our story',
-    seeLots: 'See this season’s lots',
+    seeLots: 'View our coffee',
     menu: 'Menu',
     close: 'Close',
     skipToContent: 'Skip to content',
@@ -51,7 +51,7 @@ export const common: Common = {
 
   footer: {
     blurb:
-      'Gathaithi Farmers’ Co‑operative Society Ltd is owned by the {{members}} smallholder farmers who grow its coffee. One wet mill, one village, one crop taken seriously.',
+      'Gathaithi Farmers’ Co‑operative Society Ltd is owned by the {{members}} smallholder farmers who grow its coffee. Every delivery is processed at our own wet mill in Tetu, Nyeri.',
     sections: { explore: 'Explore', contact: 'Contact' },
     registration: 'Registered co-operative society, Nyeri County, Kenya',
     rights: 'All rights reserved.',
@@ -63,14 +63,14 @@ export const common: Common = {
     required: 'Required',
     optional: 'Optional',
     sending: 'Sending…',
-    errorTitle: 'That didn’t send',
-    errorBody: 'Something went wrong at our end. Please try again, or email us directly.',
+    errorTitle: 'Your message was not sent',
+    errorBody: 'Something went wrong on our side. Please try again, or email us directly.',
     successTitle: 'Request received',
     successBody:
       'Thank you. Our marketing office will be in touch, usually within two working days, with sample availability and despatch details.',
     successAgain: 'Send another request',
-    invalidEmail: 'Enter an email address we can reply to.',
-    tooShort: 'Please tell us a little more.',
+    invalidEmail: 'Please enter a valid email address.',
+    tooShort: 'Please add a little more detail.',
     selectOne: 'Please choose one.',
   },
 };

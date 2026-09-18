@@ -7,11 +7,11 @@ export const products: ProductsContent = {
        never revisited. A search result promising a roaster two green grades,
        landing them on 100 g bags at KSh 100, is a mismatch Google notices and
        a visitor resents. The same fault it already had once, with PB and C. */
-    title: 'Buy Gathaithi coffee — 100 g to 1 kg packs from the society',
+    title: 'Buy Gathaithi Coffee | 100 g to 1 kg packs from the society',
     /* Under 160 characters, because that is what a search result shows.
        Everything longer is cut mid-sentence. */
     description:
-      'The society\u2019s own roasted coffee in 100\u00a0g, 250\u00a0g, 500\u00a0g and 1\u00a0kg packs, from KSh\u00a0100. Washed Nyeri arabica, roasted and packed at the mill.',
+      'Our own roasted coffee in 100\u00a0g, 250\u00a0g, 500\u00a0g and 1\u00a0kg packs, from KSh\u00a0100. Washed Nyeri Arabica, roasted and packed by the society.',
     ogLine: 'Roasted and packed by the society — 100 g to 1 kg',
   },
 
@@ -29,13 +29,13 @@ export const products: ProductsContent = {
      a second title directly above the first. */
   hero: {
     eyebrow: 'Our coffee',
-    title: 'This season’s lots',
+    title: 'Coffee from our own mill',
     lead:
-      'Every lot on this page comes from one wet mill and one catchment of {{members}} smallholders. Grades are separated after milling; nothing is bought in, blended in, or bulked up.',
+      'All our coffee comes from a single wet mill, supplied by {{members}} smallholder farmers. Grades are separated after milling, and nothing is bought in or blended.',
   },
 
   marketNote: {
-    eyebrow: 'How it is sold',
+    eyebrow: 'Buying options',
     heading: 'How to buy Gathaithi',
     /* Rewritten when the catalogue changed from green-coffee lots to retail
        packs. It used to say "there are no prices and no checkout here", which
@@ -43,14 +43,14 @@ export const products: ProductsContent = {
        There is still no checkout — that part stands — and everything about
        how the GREEN coffee moves is unchanged, because that has not. */
     body: [
-      'Two different things are sold here, and they do not move the same way. The roasted packs above are the society\u2019s own retail line, priced in shillings and ordered from the office — there is no checkout on this page.',
-      'Green coffee is another matter. It is sold either through the Nairobi Coffee Exchange auction or under a direct-sales licence, so if you are a roaster or importer, request a sample: the marketing office will send it with the lot details, current availability and the route we can sell it to you by.',
+      'We sell roasted coffee and green coffee, and each is bought differently. Our roasted packs are priced in Kenyan shillings and ordered directly from our office; there is no online checkout.',
+      'Green coffee is sold through the Nairobi Coffee Exchange auction or under a direct-sales licence. Roasters and importers are welcome to request a sample, which our marketing office will send with the lot details, current availability and purchasing options.',
     ],
   },
 
   catalogue: {
     eyebrow: 'Retail packs',
-    heading: 'Buy it by the bag',
+    heading: 'Order a pack',
     /* ONE COFFEE, FOUR SIZES — so the page shows one bag and lets the buyer
        choose the size, rather than four identical photographs side by side.
        Rebuilt 2026-09-14 ("One bag, pick a size", the client's choice). */
@@ -67,10 +67,10 @@ export const products: ProductsContent = {
     processLabel: 'Roast and process',
     varietiesLabel: 'Varieties',
     orderLabel: 'Order on WhatsApp',
-    orderMessage: 'Hello Gathaithi — I would like to order the {{pack}} pack ({{price}}). ',
+    orderMessage: 'Hello Gathaithi, I would like to order the {{pack}} pack ({{price}}). ',
     askLabel: 'Ask about this pack',
     orderNote:
-      'There is no checkout on this site: the office confirms every order and delivery on WhatsApp or by phone. Prices are in Kenyan shillings.',
+      'Orders are not paid online. Our office confirms each order and delivery by WhatsApp or phone. Prices are in Kenyan shillings.',
   },
 
   /* FOUR RETAIL PACKS, replacing the AA and AB green-coffee lots.
@@ -98,7 +98,7 @@ export const products: ProductsContent = {
       availability: 'available',
       availabilityLabel: 'In stock',
       description:
-        'The smallest pack — a week of mornings, or a way to try the society\u2019s own roast before committing to a larger bag.',
+        'Our smallest pack, ideal for trying our coffee before choosing a larger size.',
       imageSlot: 'pack100g',
     },
     {
@@ -113,7 +113,7 @@ export const products: ProductsContent = {
       availability: 'available',
       availabilityLabel: 'In stock',
       description:
-        'The everyday size. Enough for a fortnight of a two-cup morning, and small enough to finish while it is still fresh.',
+        'A convenient everyday size, small enough to enjoy while the coffee is at its freshest.',
       imageSlot: 'pack250g',
     },
     {
@@ -128,7 +128,7 @@ export const products: ProductsContent = {
       availability: 'available',
       availabilityLabel: 'In stock',
       description:
-        'For a household that drinks it daily, or an office that goes through a bag a month.',
+        'Suited to households that drink coffee daily, and to small offices.',
       imageSlot: 'pack500g',
     },
     {
@@ -143,7 +143,7 @@ export const products: ProductsContent = {
       availability: 'available',
       availabilityLabel: 'In stock',
       description:
-        'The largest pack. For a café, a shop, or anyone buying for more than one kitchen.',
+        'Our largest pack, suited to cafés, shops and larger households.',
       imageSlot: 'pack1kg',
     },
   ],
@@ -158,15 +158,15 @@ export const products: ProductsContent = {
      it is written the way the society would say it and needs their sign-off
      before the page is shown to a buyer. */
   gem: {
-    eyebrow: 'Rare gem',
-    heading: 'The best of this season',
+    eyebrow: 'This season',
+    heading: 'This season’s highlights',
     lead:
-      'One catchment does not produce the same coffee twice. This is what came off the beds this year, and why the marketing office is putting it forward.',
+      'Every harvest is different. These are the qualities of this year’s coffee, and the reasons our marketing office recommends it.',
     cards: [
       {
-        title: 'The cherry it started as',
+        title: 'From the cherry',
         body:
-          'A long, cool ripening at {{altitude}} and several passes through each tree. Only fully red fruit went into the buckets, which is what a density grading at the pulper can actually work with.',
+          'Slow ripening at {{altitude}} and several picking passes through each tree. Only fully ripe cherry is picked, which allows accurate density grading at the pulper.',
         imageSlot: 'gemOne',
       },
       {
@@ -175,24 +175,24 @@ export const products: ProductsContent = {
            card cannot keep a parchment title over a picture of the finished
            product. The substance about even drying survives, because that is
            what made a clean grade possible. */
-        title: 'The coffee it became',
+        title: 'To green coffee',
         body:
-          'Turned by hand on the beds and taken off at even moisture, then hulled and sorted at the dry mill. Uniform drying is what lets a mill pull a clean grade out of a lot, and this is what came back: green coffee, screened and bagged, ready to ship from Mombasa.',
+          'Turned by hand on the drying beds and taken off at an even moisture level, then hulled and sorted at the dry mill. Even drying produces clean, consistent grades: green coffee, screened and bagged, ready for export through Mombasa.',
         imageSlot: 'gemTwo',
       },
       {
-        title: 'The cup it scored',
+        title: 'In the cup',
         body:
           /* The tasting note is the REVIEWER'S now, not ours. This card used to say
            "blackcurrant, a dense structured acidity, and a finish that holds as
            it cools", which was written for the layout before anybody knew who
            had scored the coffee or what they said about it. */
-          'A washed lot from this mill scored {{cuppingScore}} points in a {{cuppingYear}} review by {{cuppingReviewer}}: a balanced, floral-toned Kenyan cup with distinct black currant, a pleasing savoury fruit attribute, and the classic Kenyan characteristics.',
+          'A washed lot from our mill scored {{cuppingScore}} points in a {{cuppingYear}} review by {{cuppingReviewer}}, which described a balanced, floral-toned cup with distinct blackcurrant, a pleasing savoury fruit character and classic Kenyan characteristics.',
         imageSlot: 'gemThree',
       },
     ],
     statement:
-      'We believe this year’s produce is the strongest the catchment has given us in several seasons — and we would rather you judged that from a sample than from this page.',
+      'We believe this is one of the strongest harvests our members have produced in several seasons, and we invite you to judge it for yourself by requesting a sample.',
     cta: { label: 'Request a sample', href: '#request-a-sample' },
   },
 
@@ -212,8 +212,8 @@ export const products: ProductsContent = {
         title: 'Selective picking and delivery',
         duration: 'Same day',
         body:
-          'Members pick only ripe red cherry, by hand, over several passes through the season. It is delivered to the mill or a collection point the same evening, weighed, recorded against the member’s account and floated to remove floaters and underripes.',
-        detail: 'Recorded to the member',
+          'Members hand-pick only ripe red cherry, making several passes through the season. The cherry is delivered to the mill or a collection point the same evening, where it is weighed, recorded against the member’s account and floated to remove light and unripe cherry.',
+        detail: 'Recorded per member',
         imageSlot: 'processPicking',
       },
       {
@@ -221,7 +221,7 @@ export const products: ProductsContent = {
         title: 'Pulping',
         duration: 'Within hours of delivery',
         body:
-          'The disc pulper removes the skin and most of the fruit the same night, and the parchment is separated by density as it leaves the machine. Heavier, denser beans go forward as the top grade from the start.',
+          'A disc pulper removes the skin and most of the fruit on the night of delivery. As the parchment leaves the machine, it is separated by density, and the heaviest beans go forward as the top grade.',
         detail: 'Density-graded at the pulper',
         imageSlot: 'processPulping',
       },
@@ -238,7 +238,7 @@ export const products: ProductsContent = {
            "the step most origins skip" is a real differentiator to a buyer —
            not something to lose in a reshuffle. */
         body:
-          'The parchment is washed through channels in clean water, then held under clean water a second time for {{soakHours}}. That second soak is the step most origins skip. It settles and stabilises the coffee before drying, and it is the signature of Kenyan washed processing — the reason for the clarity and the acidity that follows. Water is used deliberately and returned through soak pits rather than into the river.',
+          'The parchment is washed through channels of clean water, then soaked under clean water a second time for {{soakHours}}. This second soak, a hallmark of Kenyan washed processing, stabilises the coffee before drying and contributes to its clarity and bright acidity. Waste water is returned through soak pits rather than released into the river.',
         detail: 'Clean water, fully submerged',
         imageSlot: 'processWashing',
       },
@@ -252,7 +252,7 @@ export const products: ProductsContent = {
            and photographs as water. */
         duration: 'In the channels, then by hand',
         body:
-          'The parchment is graded by density in the washing channels — the heavier, denser beans travel differently from the light ones, and the lights are separated out and kept apart. That is the second density grading of the process; the first happened at the pulper. Then, as the parchment dries on the beds, it is gone through by hand: defects, discoloured beans and anything broken are picked out and set aside. Grading by screen size and bean form comes later still, at the dry mill, after the parchment has left us.',
+          'The parchment is graded by density in the washing channels, where the heavier beans separate from the lighter ones. This is the second density grading, after the first at the pulper. As the parchment dries on the beds, it is sorted by hand to remove defective, discoloured and broken beans. Grading by screen size and bean shape follows later, at the dry mill.',
         detail: 'By density, then by hand',
         imageSlot: 'processGrading',
       },
@@ -261,7 +261,7 @@ export const products: ProductsContent = {
         title: 'Drying on raised beds',
         duration: '{{dryingDays}}',
         body:
-          'Parchment is skin-dried in shade, then moved onto raised beds in thin layers, turned by hand through the day and covered at midday and overnight. It comes off at 10–12 % moisture and rests in the conditioning store before milling.',
+          'The parchment is first skin-dried in the shade, then spread in thin layers on raised beds. It is turned by hand throughout the day and covered at midday and overnight. Once it reaches 10–12% moisture, it rests in the conditioning store before milling.',
         detail: 'Turned by hand, covered at midday',
         imageSlot: 'processDrying',
       },
@@ -283,13 +283,13 @@ export const products: ProductsContent = {
   sample: {
     eyebrow: 'Get in touch',
     heading: 'Ask us about the coffee',
-    lead: 'Prices, delivery, or a bigger order — ask the office. WhatsApp is usually the fastest reply.',
+    lead: 'For prices, delivery or larger orders, please contact our office. WhatsApp is usually the quickest way to reach us.',
 
     channels: {
       whatsapp: {
         label: 'WhatsApp us',
-        note: 'Fastest reply',
-        prefill: 'Hello Gathaithi — I saw the coffee packs on your website and would like to ask about them.',
+        note: 'Quickest response',
+        prefill: 'Hello Gathaithi, I saw your coffee packs on your website and would like to ask about them.',
       },
       phone: { label: 'Call the office', note: 'Mon\u2013Sat 8:00\u201316:00' },
       missing: 'Number to be confirmed by the society',
@@ -298,22 +298,22 @@ export const products: ProductsContent = {
     form: {
       heading: 'Or send a message',
       fields: {
-        pack: 'Which size?',
+        pack: 'Pack size',
         email: 'Your email',
         message: 'Your message',
       },
       packAny: 'Not sure yet',
       placeholders: {
         email: 'you@example.com',
-        message: 'How many packs, where you are, or anything you would like to know.',
+        message: 'For example, the number of packs, your location or any questions you have.',
       },
       submit: 'Send message',
-      consent: 'We use what you send only to answer you. We never sell or share it.',
+      consent: 'We use your details only to respond to your enquiry. We never sell or share them.',
       /* Overrides common.form, whose success line promises "sample
          availability and despatch details" — written for an importer. */
       success: {
         title: 'Message received',
-        body: 'Thank you. The office will come back to you, usually within two working days. If it is urgent, WhatsApp is faster.',
+        body: 'Thank you. Our office will reply, usually within two working days. For urgent enquiries, please contact us on WhatsApp.',
         again: 'Send another message',
       },
     },

@@ -26,17 +26,17 @@ import type { GalleryContent } from '../types';
  */
 export const gallery: GalleryContent = {
   meta: {
-    title: 'Gallery — a walk through the society | Gathaithi',
+    title: 'Gallery | A walk through Gathaithi',
     description:
-      'Twelve stops through the Gathaithi co-operative: the gate, the wet mill, the drying beds, the greenhouse and the people who run it.',
-    ogLine: 'Twelve stops, from the gate to the people who run it',
+      'Twelve stops around Gathaithi Farmers’ Co-operative Society: the gate, the wet mill, the drying beds, the greenhouse and the people who run the society.',
+    ogLine: 'Twelve stops, from the gate to the people who run the society',
   },
 
   hero: {
     mark: 'Gathaithi FCS · Gallery',
     title: 'A walk through',
     titleEmphasis: 'the society',
-    lede: 'Twelve stops, from the gate to the people who run it. Every photograph on this page was taken at Gathaithi.',
+    lede: 'Twelve stops, from the gate to the people who run the society. All photographs were taken at Gathaithi.',
     start: 'Walk in',
   },
 
@@ -48,7 +48,7 @@ export const gallery: GalleryContent = {
       id: 'gate',
       short: 'The gate',
       title: 'The gate',
-      text: 'The values board beside the entrance: unity, self help, democracy, equality, development.',
+      text: 'Our values board at the entrance: unity, self-help, democracy, equality and development.',
       layout: 'opening',
       photos: [
         {
@@ -56,7 +56,7 @@ export const gallery: GalleryContent = {
           ratio: '1024/1536',
           title: 'The gate',
           caption:
-            'The board beside the entrance carries the co-operative values — unity, self help, democracy, equality, development — and the society’s motto: quality coffee, better livelihoods, a sustainable future.',
+            'The board at our entrance sets out the co-operative values of unity, self-help, democracy, equality and development, together with our motto: quality coffee, better livelihoods, a sustainable future.',
         },
       ],
     },
@@ -65,7 +65,7 @@ export const gallery: GalleryContent = {
       id: 'notice-board',
       short: 'Notice board',
       title: 'The notice board',
-      text: 'Where members read the payment dates and the meeting notices. Glass, a small roof of its own, and a fire extinguisher on the wall beside it.',
+      text: 'Members check payment dates and meeting notices on the society notice board.',
       layout: 'split',
       photos: [
         {
@@ -73,7 +73,7 @@ export const gallery: GalleryContent = {
           ratio: '1308/816',
           title: 'The notice board',
           caption:
-            'Where members read the payment dates and the meeting notices. Glass, a small roof of its own, and a fire extinguisher on the wall beside it.',
+            'Members check payment dates and meeting notices on the society notice board.',
         },
       ],
     },
@@ -82,16 +82,16 @@ export const gallery: GalleryContent = {
       id: 'pulper',
       short: 'Pulper',
       title: 'The pulper',
-      text: 'Cherry delivered in the evening goes in whole and comes out as parchment the same night. The skin and pulp go one way, the beans the other.',
+      text: 'Cherry delivered in the evening is pulped the same night. The pulper separates the skin and pulp from the beans.',
       layout: 'split-flip',
-      act: { name: 'The mill', note: 'Stops 03 – 06 · cherry in, parchment out' },
+      act: { name: 'The mill', note: 'Stops 03–06 · from cherry to parchment' },
       photos: [
         {
           imageSlot: 'galleryPulper',
           ratio: '1309/800',
           title: 'The pulper',
           caption:
-            'Cherry delivered in the evening goes in whole and comes out as parchment the same night. The skin and pulp go one way, the beans the other.',
+            'Cherry delivered in the evening is pulped the same night. The pulper separates the skin and pulp from the beans.',
         },
       ],
     },
@@ -100,14 +100,14 @@ export const gallery: GalleryContent = {
       id: 'washing-tank',
       short: 'Washing tank',
       title: 'The washing tank',
-      text: 'Freshly pulped parchment comes off the drum screen into the tiled tank.',
+      text: 'Freshly pulped parchment flows from the drum screen into the tiled washing tank.',
       layout: 'split',
       photos: [
         {
           imageSlot: 'processWashing',
           ratio: '1191/794',
           title: 'The washing tank',
-          caption: 'Freshly pulped parchment comes off the drum screen into the tiled tank.',
+          caption: 'Freshly pulped parchment flows from the drum screen into the tiled washing tank.',
         },
       ],
     },
@@ -116,7 +116,7 @@ export const gallery: GalleryContent = {
       id: 'soaking-tank',
       short: 'Soaking tank',
       title: 'The soaking tank',
-      text: 'Parchment held under clean water for the second soak — the step that gives Kenyan coffee much of its clarity. Look at the wall: the society stencils its name on the tank itself.',
+      text: 'After washing, the parchment is soaked under clean water, a step that gives Kenyan washed coffee much of its clarity.',
       layout: 'full',
       photos: [
         {
@@ -124,7 +124,7 @@ export const gallery: GalleryContent = {
           ratio: '1282/816',
           title: 'The soaking tank',
           caption:
-            'Parchment held under clean water for the second soak — the step that gives Kenyan coffee much of its clarity. The wall is stencilled KCSAP/CGN/GATHAITHI FCS – SOAKING.',
+            'After washing, the parchment is soaked under clean water, a step that gives Kenyan washed coffee much of its clarity. The tank is marked KCSAP/CGN/GATHAITHI FCS – SOAKING.',
         },
       ],
     },
@@ -133,7 +133,7 @@ export const gallery: GalleryContent = {
       id: 'pump',
       short: 'The pump',
       title: 'The re-circulation pump',
-      text: 'Not a stop the coffee makes, but what keeps the channels running: it sends water back through them instead of drawing it fresh each time.',
+      text: 'The re-circulation pump returns water through the channels, reducing the amount of fresh water the mill uses.',
       layout: 'split-flip',
       photoSize: 'narrow',
       photos: [
@@ -142,7 +142,7 @@ export const gallery: GalleryContent = {
           ratio: '1233/848',
           title: 'The re-circulation pump',
           caption:
-            'Not a stop the coffee makes, but what keeps the channels running: it sends water back through them instead of drawing it fresh each time.',
+            'The re-circulation pump returns water through the channels, reducing the amount of fresh water the mill uses.',
         },
       ],
     },
@@ -151,17 +151,17 @@ export const gallery: GalleryContent = {
       id: 'drying-beds',
       short: 'Drying beds',
       title: 'The drying beds',
-      text: 'Parchment spread the length of a raised bed and turned by hand through the day, so it dries evenly and slowly rather than baking on one side.',
+      text: 'Parchment is spread along the raised beds and turned by hand throughout the day, so that it dries slowly and evenly.',
       layout: 'split',
       photoSize: 'tall',
-      act: { name: 'The beds', note: 'Stops 07 – 09 · spread thin, turned by hand' },
+      act: { name: 'The beds', note: 'Stops 07–09 · drying the parchment' },
       photos: [
         {
           imageSlot: 'galleryDryingBeds',
           ratio: '960/1096',
           title: 'The drying beds',
           caption:
-            'Parchment spread the length of a raised bed and turned by hand through the day, so it dries evenly and slowly rather than baking on one side.',
+            'Parchment is spread along the raised beds and turned by hand throughout the day, so that it dries slowly and evenly.',
         },
       ],
     },
@@ -170,7 +170,7 @@ export const gallery: GalleryContent = {
       id: 'solar-drier',
       short: 'Solar drier',
       title: 'The solar drier',
-      text: 'Beds under polythene for the wet months, each covered with jute sacking. The frame carries the same stencil as the tanks.',
+      text: 'During the rainy season, parchment dries under polythene in the solar drier, with each bed covered in jute sacking.',
       layout: 'full',
       tag: 'KCSAP/CON/Gathaithi FCS',
       photos: [
@@ -179,7 +179,7 @@ export const gallery: GalleryContent = {
           ratio: '1264/846',
           title: 'The solar drier',
           caption:
-            'Beds under polythene for the wet months, each covered with jute sacking. The frame is stencilled KCSAP/CON/GATHAITHI FCS.',
+            'During the rainy season, parchment dries under polythene in the solar drier, with each bed covered in jute sacking. The frame is marked KCSAP/CON/GATHAITHI FCS.',
         },
       ],
     },
@@ -188,7 +188,7 @@ export const gallery: GalleryContent = {
       id: 'between-crops',
       short: 'Between crops',
       title: 'Between crops',
-      text: 'When the harvest is in, the mill goes quiet.',
+      text: 'Once the harvest is complete, the mill is cleaned and prepared for the next season.',
       layout: 'pair',
       quiet: true,
       photos: [
@@ -196,13 +196,13 @@ export const gallery: GalleryContent = {
           imageSlot: 'galleryDryingArea',
           ratio: '1216/879',
           title: 'The drying ground',
-          caption: 'The beds empty, waiting for the next harvest. The tower carries the water and the lights.',
+          caption: 'The drying beds between harvests. The tower supplies water and lighting.',
         },
         {
           imageSlot: 'gallerySoakingTank',
           ratio: '1312/812',
           title: 'The soaking tank, empty',
-          caption: 'The same tank as stop 05, scrubbed and waiting.',
+          caption: 'The soaking tank from stop 05, cleaned and ready for the next harvest.',
         },
       ],
     },
@@ -211,17 +211,17 @@ export const gallery: GalleryContent = {
       id: 'greenhouse',
       short: 'Greenhouse',
       title: 'The greenhouse',
-      text: 'Seedlings for replanting are raised here, long before any cherry reaches the mill.',
+      text: 'Seedlings for replanting are raised in the society greenhouse.',
       layout: 'full',
       tag: 'Gathaithi FCS – Green house',
-      act: { name: 'Before the harvest', note: 'Stops 10 – 11 · the work that comes first' },
+      act: { name: 'Before the harvest', note: 'Stops 10–11 · before the harvest' },
       photos: [
         {
           imageSlot: 'galleryGreenhouse',
           ratio: '1278/816',
           title: 'The greenhouse',
           caption:
-            'Seedlings for replanting are raised here. Its polythene is stencilled KCSAP/CON/GATHAITHI FCS-GREEN HOUSE.',
+            'Seedlings for replanting are raised here. The greenhouse is marked KCSAP/CON/GATHAITHI FCS – GREEN HOUSE.',
         },
       ],
     },
@@ -230,7 +230,7 @@ export const gallery: GalleryContent = {
       id: 'members-farm',
       short: 'A member’s farm',
       title: 'A member’s farm',
-      text: 'Up the hill from the mill: an agronomist scouting a tree, sample jar in one hand and clipboard in the other.',
+      text: 'An agronomist inspects a coffee tree on a member’s farm as part of the society’s field support.',
       layout: 'split',
       photoSize: 'tall',
       photos: [
@@ -239,7 +239,7 @@ export const gallery: GalleryContent = {
           ratio: '768/1406',
           title: 'A member’s farm',
           caption:
-            'An agronomist scouting a coffee tree on a member’s farm, sample jar in one hand and clipboard in the other.',
+            'An agronomist inspects a coffee tree on a member’s farm, collecting samples and recording observations.',
         },
       ],
     },
@@ -248,22 +248,22 @@ export const gallery: GalleryContent = {
       id: 'people',
       short: 'The people',
       title: 'The people',
-      text: 'The committees the members elect, and the members themselves.',
+      text: 'The elected committees and the members they serve.',
       layout: 'pair',
-      act: { name: 'The people', note: 'Stop 12 · the ones who own it' },
+      act: { name: 'The people', note: 'Stop 12 · the members who own the society' },
       photos: [
         {
           imageSlot: 'galleryCommittee',
           ratio: '1257/832',
           title: 'The committees',
           caption:
-            'The management and supervisory committees, elected by the membership, standing on the drying beds they are responsible for.',
+            'The management and supervisory committees, elected by the members, at the drying beds.',
         },
         {
           imageSlot: 'farmersMembers',
           ratio: '1331/784',
           title: 'At the drying bed',
-          caption: 'Members along a bed, hands in the parchment, the drying ground and the greenhouse behind them.',
+          caption: 'Members working the parchment at a drying bed, with the drying ground and greenhouse behind them.',
         },
       ],
     },
