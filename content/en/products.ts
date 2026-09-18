@@ -160,10 +160,11 @@ export const products: ProductsContent = {
      it is written the way the society would say it and needs their sign-off
      before the page is shown to a buyer. */
   gem: {
-    eyebrow: 'Rare gem',
-    heading: 'The best of this season',
+    /* The society's own copy, 2026-09-18. */
+    eyebrow: 'Harvest highlights',
+    heading: 'The Standout Lots',
     lead:
-      'One catchment does not produce the same coffee twice. This is what came off the beds this year, and why the marketing office is putting it forward.',
+      'Every harvest yields distinct micro-lots. Here are our top-scoring selections from the current season, chosen for exceptional cup clarity and balance.',
     cards: [
       {
         title: 'The cherry it started as',
