@@ -35,16 +35,18 @@ export const products: ProductsContent = {
   },
 
   marketNote: {
-    eyebrow: 'How it is sold',
-    heading: 'How to buy Gathaithi',
-    /* Rewritten when the catalogue changed from green-coffee lots to retail
-       packs. It used to say "there are no prices and no checkout here", which
-       stopped being true the moment the packs went up with a price on each.
-       There is still no checkout — that part stands — and everything about
-       how the GREEN coffee moves is unchanged, because that has not. */
-    body: [
-      'Two different things are sold here, and they do not move the same way. The roasted packs above are the society\u2019s own retail line, priced in shillings and ordered from the office — there is no checkout on this page.',
-      'Green coffee is another matter. It is sold either through the Nairobi Coffee Exchange auction or under a direct-sales licence, so if you are a roaster or importer, request a sample: the marketing office will send it with the lot details, current availability and the route we can sell it to you by.',
+    /* The society's own copy, 2026-09-18. */
+    eyebrow: 'How to buy',
+    heading: 'Purchasing Our Coffee',
+    options: [
+      {
+        title: 'Roasted Coffee (Local Sales)',
+        body: 'Ready-to-brew roasted bags are sold directly at our society office. Contact us to place a local order.',
+      },
+      {
+        title: 'Green Coffee (International Export)',
+        body: 'Sun-dried green lots are exported directly to international roasters and importers. Contact our team to request samples, lot specs, and current harvest availability.',
+      },
     ],
   },
 
@@ -198,7 +200,7 @@ export const products: ProductsContent = {
 
   process: {
     eyebrow: 'Processing',
-    heading: 'From cherry to parchment',
+    heading: 'The Craft Behind the Quality',
     /* FIVE STEPS from 2026-09-13. Fermentation (was 03) removed at the
        client's request — "we do not need it" — and the steps after it
        renumbered. Two lines pointed at it as a step of its own and were
@@ -209,19 +211,20 @@ export const products: ProductsContent = {
     steps: [
       {
         n: '01',
-        title: 'Selective picking and delivery',
-        duration: 'Same day',
+        /* Steps 01 and 02: the society's own copy, 2026-09-18. */
+        title: 'Harvesting & Intake Quality',
+        duration: 'Same-day intake',
         body:
-          'Members pick only ripe red cherry, by hand, over several passes through the season. It is delivered to the mill or a collection point the same evening, weighed, recorded against the member’s account and floated to remove floaters and underripes.',
+          'Quality begins on the tree. Smallholders hand-pick cherries at peak ripeness and deliver them to the wet mill before nightfall. Each delivery undergoes density sorting in water channels to remove low-grade fruit before being officially weighed and logged.',
         detail: 'Recorded to the member',
         imageSlot: 'processPicking',
       },
       {
         n: '02',
-        title: 'Pulping',
-        duration: 'Within hours of delivery',
+        title: 'Pulping & Density Grading',
+        duration: 'Timely processing',
         body:
-          'The disc pulper removes the skin and most of the fruit the same night, and the parchment is separated by density as it leaves the machine. Heavier, denser beans go forward as the top grade from the start.',
+          'To protect cherry freshness and natural fruit sweetness, pulping begins within hours of arrival. The outer skin is removed, and the coffee is immediately separated into density grades. Only the densest, highest-quality parchment moves forward into our top lot.',
         detail: 'Density-graded at the pulper',
         imageSlot: 'processPulping',
       },

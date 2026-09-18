@@ -69,13 +69,15 @@ export default function ProductsPage() {
 
           {/* Two columns of prose under the head, rather than one column of
               prose beside it. */}
-          <div className="mt-12 grid gap-8 lg:mt-16 lg:grid-cols-2 lg:gap-16">
-            {products.marketNote.body.map((paragraph, i) => (
-              <p key={i} className="t-body text-ink-soft">
-                {paragraph}
-              </p>
+          <ul className="mx-auto mt-12 grid max-w-[64rem] gap-6 lg:mt-16 lg:grid-cols-2 lg:gap-8">
+            {products.marketNote.options.map((option) => (
+              <li key={option.title} className="flex flex-col gap-3 border border-line bg-parchment-2 px-7 py-8 sm:px-9">
+                <span aria-hidden="true" className="h-0.5 w-10 bg-ochre" />
+                <h3 className="font-display text-xl font-semibold leading-snug">{option.title}</h3>
+                <p className="t-body text-ink-soft">{option.body}</p>
+              </li>
             ))}
-          </div>
+          </ul>
         </Container>
       </Section>
 
