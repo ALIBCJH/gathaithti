@@ -23,7 +23,7 @@ import type { HomeContent } from '@content/types';
  * screen.
  */
 export function Hero({ content }: { content: HomeContent['hero'] }) {
-  const image = getImage('homeHero');
+  const image = getImage('homeHeroTwo');
 
   /* Three frames, three crops — and all three are landscape now, where the
      first used to be portrait. That changes what the phone sees: a portrait
@@ -69,13 +69,16 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
          wordmark burned into hero-mobile-01 sits hard against its left edge —
          centred, it was sliced in half. `object-left` keeps it. The other
          three are close enough to a phone's own ratio that centre is right. */
-      ['homeHero', 'heroMobileOne', 'object-left', 'object-[58%_46%] sm:object-[54%_46%] lg:object-[46%_44%]'],
-      ['homeHeroTwo', 'heroMobileTwo', 'object-center', 'object-center'],
-      ['homeHeroThree', 'heroMobileThree', 'object-center', 'object-[38%_50%] lg:object-[42%_50%]'],
+      /* THREE slides since 2026-09-18. The society asked for the sunrise over
+         the ridge (homeHero) and the sunlit cherry cluster (homeHeroFive) to
+         come out. The phone portraits are re-paired so the phone keeps three
+         of its four: roasted beans with the scoop, cherry on the branch and
+         green beans. hero-mobile-03 (cherry with sun through the leaves) is
+         dropped as the nearest thing to the sunlit frame they rejected. The
+         first slide gets the eager, high-priority load by its position. */
+      ['homeHeroTwo', 'heroMobileOne', 'object-left', 'object-center'],
+      ['homeHeroThree', 'heroMobileTwo', 'object-center', 'object-[38%_50%] lg:object-[42%_50%]'],
       ['homeHeroFour', 'heroMobileFour', 'object-center', 'object-center'],
-      /* Sun flare top-left, cluster right. The type is bottom-left, so the
-         crop keeps the cluster in and the flare out of the words. */
-      ['homeHeroFive', 'heroMobileFive', 'object-center', 'object-[64%_55%] lg:object-[58%_50%]'],
     ] as const
   )
     .map(([slot, mobileSlot, mobilePosition, position]) => ({
