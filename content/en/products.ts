@@ -165,11 +165,14 @@ export const products: ProductsContent = {
     heading: 'The Standout Lots',
     lead:
       'Every harvest yields distinct micro-lots. Here are our top-scoring selections from the current season, chosen for exceptional cup clarity and balance.',
+    /* The three cards: the society's own copy, 2026-09-18 (a full stop added
+       at the end of the third). */
     cards: [
       {
-        title: 'The cherry it started as',
+        label: 'Ripe Harvest',
+        title: 'Peak Red Cherries',
         body:
-          'A long, cool ripening at {{altitude}} and several passes through each tree. Only fully red fruit went into the buckets, which is what a density grading at the pulper can actually work with.',
+          'Grown at 1,720 meters, our cherries mature slowly in cool mountain air. Hand-picked across multiple passes, only perfectly ripe fruit enters processing.',
         imageSlot: 'gemOne',
       },
       {
@@ -178,19 +181,17 @@ export const products: ProductsContent = {
            card cannot keep a parchment title over a picture of the finished
            product. The substance about even drying survives, because that is
            what made a clean grade possible. */
-        title: 'The coffee it became',
+        label: 'Parchment & Export',
+        title: 'Export-Ready Green',
         body:
-          'Turned by hand on the beds and taken off at even moisture, then hulled and sorted at the dry mill. Uniform drying is what lets a mill pull a clean grade out of a lot, and this is what came back: green coffee, screened and bagged, ready to ship from Mombasa.',
+          'Sun-dried on raised beds and milled with care, our green coffee is sorted for size, density, and screen purity—bagged and ready for export.',
         imageSlot: 'gemTwo',
       },
       {
-        title: 'The cup it scored',
+        label: 'Cup Quality',
+        title: 'Award-Winning Cup',
         body:
-          /* The tasting note is the REVIEWER'S now, not ours. This card used to say
-           "blackcurrant, a dense structured acidity, and a finish that holds as
-           it cools", which was written for the layout before anybody knew who
-           had scored the coffee or what they said about it. */
-          'A washed lot from this mill scored {{cuppingScore}} points in a {{cuppingYear}} review by {{cuppingReviewer}}: a balanced, floral-toned Kenyan cup with distinct black currant, a pleasing savoury fruit attribute, and the classic Kenyan characteristics.',
+          'Recognized internationally for its distinct character, featuring bright acidity, floral aromas, vibrant black currant notes, and a clean, lingering finish.',
         imageSlot: 'gemThree',
       },
     ],

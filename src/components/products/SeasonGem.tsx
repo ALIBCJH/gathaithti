@@ -40,6 +40,7 @@ export function SeasonGem({ content }: { content: ProductsContent['gem'] }) {
               <Reveal delay={(i % 3) * 60}>
                 <article className="group/card flex h-full flex-col gap-5">
                   <SmartImage slot={card.imageSlot} zoom />
+                  {card.label && <p className="t-meta -mb-3 text-ochre-ink">{card.label}</p>}
                   <h3 className="t-quiet text-[clamp(1.125rem,1.6vw,1.375rem)] leading-snug">
                     {card.title}
                   </h3>
