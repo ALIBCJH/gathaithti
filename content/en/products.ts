@@ -223,10 +223,10 @@ export const products: ProductsContent = {
       },
       {
         n: '02',
-        title: 'Pulping & Density Grading',
-        duration: 'Timely processing',
+        title: 'Eco-Pulping & Density Grading',
+        duration: 'Same-day processing',
         body:
-          'To protect cherry freshness and natural fruit sweetness, pulping begins within hours of arrival. The outer skin is removed, and the coffee is immediately separated into density grades. Only the densest, highest-quality parchment moves forward into our top lot.',
+          'To preserve cellular integrity and complex fruit sugars, pulping commences immediately on the evening of delivery. Using eco-pulpers, the outer skin is mechanically removed, and parchment is instantly channel-graded by density—channeling only the heaviest, highest-density lots into our premier specialty grades.',
         detail: 'Density-graded at the pulper',
         imageSlot: 'processPulping',
       },
