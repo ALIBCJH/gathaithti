@@ -37,26 +37,25 @@ export const about: AboutContent = {
     heading: 'High-Altitude Craft, Rooted in Community',
     lead:
       'Gathaithi Farmers’ Co-operative Society unites {{members}} smallholders across the fertile highlands of Nyeri. Guided by independent ownership and generational expertise, we cultivate, wet-mill, and supply exceptional Kenyan specialty coffee directly to global roasteries.',
+    /* THREE pillars since 2026-09-20, the society's own copy. "When it
+       started" (Established 1967 | Independent since 2000) was dropped at the
+       client's request: the timeline below and the home page both carry those
+       dates. */
     pillars: [
       {
-        label: 'Location',
-        title: 'Nyeri County, Kenya',
-        body: 'Situated on the high-altitude, mineral-rich volcanic soils of the Aberdare mountain range (1,700–1,800 m above sea level).',
+        label: 'Location & terroir',
+        title: 'Nyeri Highlands, Kenya',
+        body: 'Situated in mineral-rich volcanic soils at 1,700–1,800 m above sea level—creating ideal high-altitude conditions for slow cherry ripening and complex flavor development.',
       },
       {
-        label: 'When it started',
-        title: 'Established {{established}} | Independent since 2000',
-        body: 'Rooted in decades of traditional farming, Gathaithi became a fully self-managed, independent society on {{independentSince}}.',
+        label: 'Processing & quality',
+        title: 'Precision Wet-Milling',
+        body: 'Our farmers selectively hand-pick ripe cherries, which the society then processes through immediate same-day pulping, channel washing, and raised-bed drying to guarantee complete lot traceability and cup clarity.',
       },
       {
-        label: 'What we do',
-        title: 'Precision Wet-Milling & Export',
-        body: 'We oversee selective hand-picking, immediate same-day pulping and raised-bed sun drying to ensure complete lot traceability and cup clarity.',
-      },
-      {
-        label: 'What we produce',
+        label: 'Cup profile & varietals',
         title: 'Premier Specialty Coffee',
-        body: '{{grades}} grade coffee from {{varieties}} varieties, celebrated for deep blackcurrant acidity and vibrant fruit complexity.',
+        body: 'Cultivating prized {{varieties}} varieties—renowned for brilliant blackcurrant acidity, rich sweetness, and vibrant fruit complexity.',
       },
     ],
   },

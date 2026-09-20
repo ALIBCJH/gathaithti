@@ -9,10 +9,11 @@ import type { AboutContent } from '@content/types';
  * HERITAGE & PURPOSE — the opener of About, and its h1.
  *
  * Type only, no photograph: the society's overview on the left and, under it,
- * the four pillars as a strip — Location, When it started, What we do, What
- * we produce — each a label, a short title and one sentence. A reader who
- * stops here has the whole society in four cells; the history and the values
- * below are for the one who keeps going.
+ * the pillars as a strip — Location & terroir, Processing & quality, Cup
+ * profile & varietals — each a label, a short title and one sentence. A reader
+ * who stops here has the whole society in three cells; the history and the
+ * values below are for the one who keeps going. The column count follows the
+ * content: three since 2026-09-20, when the society dropped a fourth.
  */
 export function AboutIntro({ content }: { content: AboutContent['intro'] }) {
   return (
@@ -32,7 +33,7 @@ export function AboutIntro({ content }: { content: AboutContent['intro'] }) {
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-4 lg:gap-8">
+        <ul className="mt-16 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-12">
           {content.pillars.map((pillar, i) => (
             <li key={pillar.label}>
               <Reveal delay={i * 70} className="flex h-full flex-col gap-3 border-t-2 border-ochre pt-6">
