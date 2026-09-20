@@ -83,7 +83,7 @@ export const home: HomeContent = {
     titles: {
       /* The society's own wording, supplied 2026-09-18. */
       nationalRank2024: 'Kenya’s #2 Farmer Payout',
-      established: 'Over 55 Years of Heritage',
+      established: 'Heritage & Independence',
       members: 'Farmer-Owned',
     },
     captions: {
@@ -91,7 +91,9 @@ export const home: HomeContent = {
       /* 1967 and 1,988 come from the facts so they cannot drift from the big
          figures above them. "2000" is written out because the
          `independentSince` fact displays the full date, 21 January 2000. */
-      established: 'Established in {{established}}, with an independent legacy dating back to 2000.',
+      /* The society's own copy, 2026-09-20; "Tetu Farmers Cooperative" set in
+         the site's spelling, Tetu Farmers’ Co-operative Society. */
+      established: 'Originally founded in {{established}} under the larger Tetu Farmers’ Co-operative Society, Gathaithi officially branched off in 2000 to operate as a fully independent, member-owned society.',
       members: 'A collective of {{members}} smallholder farmers producing coffee with shared ownership.',
     },
   },
