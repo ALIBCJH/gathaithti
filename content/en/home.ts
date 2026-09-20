@@ -112,7 +112,8 @@ export const home: HomeContent = {
     eyebrow: 'Varieties',
     heading: 'Origin & Craft',
     lead:
-      'Great coffee starts with the hands that nurture it. Our farmers harvest only the ripe cherry at peak maturity, passing each lot through traditional washing and meticulous raised-bed drying. The result is a clean, vibrant Kenyan profile delivered with total transparency.',
+      /* Second version of this lead, from the society 2026-09-20. */
+      'Exceptional coffee starts with dedicated stewardship. Our smallholders selectively harvest cherries at peak ripeness, processing every lot through precise channel-washing and meticulous raised-bed drying. The result is a clean, vibrant Kenyan cup profile delivered with full supply-chain transparency.',
     status: 'Active harvest — samples available',
     rows: [
       { label: 'Available grades', value: '{{grades}}' },
