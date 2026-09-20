@@ -97,7 +97,7 @@ export function organizationLd() {
     areaServed: 'Worldwide',
     /* Kept in step with the `varieties` fact by hand — structured data cannot
        take a {{token}}. Ruiru 11 and Batian, per the society 2026-09-11. */
-    knowsAbout: ['Washed Kenya coffee', 'Ruiru 11', 'Batian', 'Nyeri coffee'],
+    knowsAbout: ['Washed Kenya coffee', 'SL28', 'SL34', 'Ruiru 11', 'Batian', 'Nyeri coffee'],
     memberOf: { '@type': 'Organization', name: 'Kenyan co-operative coffee sector' },
     numberOfEmployees: undefined,
   };

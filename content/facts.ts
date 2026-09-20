@@ -306,15 +306,21 @@ export const facts = {
      Ruiru 11 (2026-09-08), and it brings Batian BACK — it had been removed on
      the 2026-09-08 answers as a brief-only variety. The society's latest word
      wins; "Ruiru Grafted" is their name for it and is kept as written. */
+  /* FOUR VARIETIES since 2026-09-20. The society supplied "Ruiru Grafted &
+     Batian" on 2026-09-11 and then wrote SL28, SL34, Ruiru 11 and Batian into
+     three drafts of the site copy; asked which stood, the client chose the
+     longer list for the whole site. It also matches what the roasters selling
+     Gathaithi publish (Sucafina, Klatch, Roastmasters). This one entry feeds
+     About, the home Origin & Craft table and every retail pack. */
   varieties: {
     id: 'varieties',
     label: 'Varieties',
-    value: 'Ruiru Grafted, Batian',
-    display: 'Ruiru Grafted & Batian',
+    value: 'SL28, SL34, Ruiru 11, Batian',
+    display: 'SL28, SL34, Ruiru 11 & Batian',
     verified: true,
-    source: VARIETIES_SOURCE,
+    source: 'Supplied by Gathaithi Farmers Co-op Society Ltd, 2026-09-20.',
     note: 'The approximate share of each across member farms is still not supplied — buyers ask.',
-    updated: GRADES_VARIETIES_UPDATED,
+    updated: '2026-09-20',
   },
   /* "Grades: Mbuni", from the society 2026-09-11, replacing AA, AB, C, PB, T,
      TT & UG. ⚠ Mbuni is the natural grade — cherry dried whole — while the
