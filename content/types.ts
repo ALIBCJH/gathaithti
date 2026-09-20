@@ -177,7 +177,8 @@ export interface HomeContent {
     eyebrow: string;
     heading: string;
     lead: string;
-    steps: { title: string; body: string; imageSlot: string }[];
+    /** `label` is the small line over each step's title. */
+    steps: { label?: string; title: string; body: string; imageSlot: string }[];
     cta: Cta;
   };
   /**
