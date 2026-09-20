@@ -32,10 +32,11 @@ export const about: AboutContent = {
      72-hour fermentation step. "Farmers Co-operative" takes the society's
      registered apostrophe. */
   intro: {
-    eyebrow: 'About Gathaithi · Heritage & Purpose',
+    /* Second version from the society, 2026-09-20. */
+    eyebrow: 'Community ownership · Uncompromised quality',
     heading: 'High-Altitude Craft, Rooted in Community',
     lead:
-      'Gathaithi Farmers’ Co-operative Society brings together {{members}} smallholders along the fertile eastern slopes of the Aberdare range. Guided by independence and generational expertise, we cultivate, wet-mill, and export exceptional Kenyan specialty coffee directly from our fields to global roasteries.',
+      'Gathaithi Farmers’ Co-operative Society unites {{members}} smallholders across the fertile highlands of Nyeri. Guided by independent ownership and generational expertise, we cultivate, wet-mill, and supply exceptional Kenyan specialty coffee directly to global roasteries.',
     pillars: [
       {
         label: 'Location',
