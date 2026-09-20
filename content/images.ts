@@ -1170,8 +1170,11 @@ export const images = {
     ratio: '16/9',
     minWidth: 1330,
     minHeight: 780,
-    direction: 'Supplied. Members along a drying bed, some reaching into the parchment, the drying ground and greenhouse behind.',
-    alt: 'Gathaithi members standing along a raised drying bed, hands in the parchment, the drying ground and greenhouse behind them.',
+    /* THE COMMITTEES, not members at large — the client identified them on
+       2026-09-20. Both this alt text and every caption on the photograph say
+       so now. */
+    direction: 'Supplied. The society\u2019s committees along a drying bed, some reaching into the parchment, the drying ground and greenhouse behind.',
+    alt: 'Members of the Gathaithi management and supervisory committees standing along a raised drying bed, checking the parchment by hand.',
     sizes: '(min-width: 1024px) 70vw, 92vw',
   },
 
