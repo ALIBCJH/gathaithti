@@ -478,7 +478,8 @@ export interface FarmersContent {
     regionLabel: string;
   };
   profiles: { eyebrow: string; heading: string; lead: string; members: MemberProfile[]; yearsLabel: string; treesLabel: string };
-  training: { eyebrow: string; heading: string; lead: string; body: string[]; programmes: { name: string; cadence: string; body: string }[] };
+  /** `points` are the titled paragraphs beside the photograph. */
+  training: { eyebrow: string; heading: string; lead: string; points: { title: string; body: string }[]; programmes: { name: string; cadence: string; body: string }[] };
   prefinance: { eyebrow: string; heading: string; lead: string; body: string[]; steps: { n: string; title: string; body: string }[]; terms: { label: string; value: string }[] };
 }
 

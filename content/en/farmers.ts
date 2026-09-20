@@ -232,13 +232,21 @@ export const farmers: FarmersContent = {
   },
 
   training: {
+    /* The society's own copy, 2026-09-18; {{trees}} carries the 330,000. The
+       four programme cards below were not part of it and are unchanged. */
     eyebrow: 'Agronomy',
-    heading: 'Training and good agricultural practice',
+    heading: 'Sustainable Agronomy & Farmer Support',
     lead:
-      'Quality is decided on the farm long before it reaches the mill. The society runs field training through the year so that {{trees}} trees across the catchment are pruned, fed and picked to one standard.',
-    body: [
-      'Field days are held on members’ own farms rather than in a hall, because pruning is taught with secateurs in hand on a real tree. Sessions follow the season: pruning and stumping after harvest, nutrition before flowering, pest and disease scouting through the wet months, picking discipline as the crop ripens.',
-      'The society also demonstrates the practices buyers ask about — mulching and cover to hold the soil on these slopes, correct handling and disposal of chemicals, and record-keeping on each farm.',
+      'Superior cup quality begins long before harvest. Through year-round field training, our society supports members across {{trees}} coffee trees—ensuring unified standards in tree nutrition, soil health, and selective picking.',
+    points: [
+      {
+        title: 'Hands-on Field Training',
+        body: 'Training takes place directly on member farms. Sessions follow the seasonal calendar—focusing on pruning, soil nutrition, pest management, and harvest discipline.',
+      },
+      {
+        title: 'Sustainable Practices',
+        body: 'Demonstrations emphasize soil conservation, organic mulching, responsible input management, and detailed farm record-keeping.',
+      },
     ],
     programmes: [
       {
