@@ -23,10 +23,11 @@ export function Training({ content }: { content: FarmersContent['training'] }) {
             height, and the band reads as a picture with a caption attached. */}
         <div className="mt-16 grid gap-16 lg:mt-20 lg:grid-cols-12 lg:gap-20">
           <div className="flex flex-col gap-6 lg:col-span-6 lg:self-center">
-            {content.body.map((paragraph, i) => (
-              <p key={i} className="t-body measure text-ink-soft">
-                {paragraph}
-              </p>
+            {content.points.map((point) => (
+              <div key={point.title} className="flex flex-col gap-2">
+                <h3 className="font-display text-xl font-semibold leading-snug">{point.title}</h3>
+                <p className="t-body measure text-ink-soft">{point.body}</p>
+              </div>
             ))}
           </div>
 
