@@ -235,16 +235,19 @@ export const products: ProductsContent = {
         /* "Soaking and washing" from 2026-09-11, at the client's request, with
            their own photograph of the soaking tank. The body already covered
            both — it was written when the second soak was folded in here. */
-        /* The society's own copy, 2026-09-18; 18 hours via {{soakHours}}. */
-        title: 'Washing & Soaking',
-        duration: 'After pulping',
+        /* The society's own copy, 2026-09-20 (their second version). It names
+           controlled fermentation, which the client confirmed should stand;
+           the home page's processing line still leaves fermentation out, and
+           the soak no longer quotes {{soakHours}}. */
+        title: 'Washing Precision & Quality Refining',
+        duration: 'Channel washing & soaking',
         /* The second soak used to be a step of its own and was replaced by
            grading. Its substance is folded in here rather than dropped: it is
            the same parchment in the same water, it happens at this point, and
            "the step most origins skip" is a real differentiator to a buyer —
            not something to lose in a reshuffle. */
         body:
-          'After pulping, the coffee is washed thoroughly in fresh water and then soaked for {{soakHours}}. This extra soak is a traditional Kenyan technique that creates a clean, bright flavor in every cup. To protect our environment, all water is safely filtered back into the soil instead of rivers.',
+          'Following eco-pulping, parchment undergoes controlled fermentation to break down remaining mucilage. It is then thoroughly channel-washed with fresh water and subjected to a clean-water soak—a signature technique that purifies the parchment to unlock exceptional cup clarity, structural acidity, and prolonged shelf-life stability. To protect our ecosystem, all process water is channeled into biological filtration pits for safe soil absorption.',
         detail: 'Clean water, fully submerged',
         imageSlot: 'processWashing',
       },
