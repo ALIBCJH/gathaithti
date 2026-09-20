@@ -214,10 +214,10 @@ export const products: ProductsContent = {
       {
         n: '01',
         /* Steps 01 and 02: the society's own copy, 2026-09-18. */
-        title: 'Harvesting & Intake Quality',
-        duration: 'Same-day intake',
+        title: 'Selective Harvest & Factory Intake',
+        duration: 'Same-day delivery',
         body:
-          'Quality begins on the tree. Smallholders hand-pick cherries at peak ripeness and deliver them to the wet mill before nightfall. Each delivery undergoes density sorting in water channels to remove low-grade fruit before being officially weighed and logged.',
+          'Quality is established on the branch. Smallholders hand-pick only fully mature red cherries, delivering their harvest to the factory the same day. At intake, cherries undergo visual inspection and flotation sorting to remove defectives before being officially weighed and logged to the member’s account.',
         detail: 'Recorded to the member',
         imageSlot: 'processPicking',
       },
