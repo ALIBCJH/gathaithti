@@ -200,6 +200,10 @@ export const products: ProductsContent = {
     cta: { label: 'Request a sample', href: '#request-a-sample' },
   },
 
+  /* FOUR STEPS since 2026-09-20: the client removed step 05, sun-drying on
+     raised beds ("we do not need it now"). Drying is still shown in the
+     gallery, at the drying beds and the solar drier. The photograph slot
+     processDrying is left in content/images.ts, unused. */
   process: {
     eyebrow: 'Processing',
     heading: 'The Craft Behind the Quality',
@@ -266,17 +270,6 @@ export const products: ProductsContent = {
           'Quality control happens in two quick steps. First, water channels separate heavy, flavor-dense beans from lighter ones. Next, as the beans dry, trained workers carefully hand-pick out any defective or broken pieces to protect lot purity.',
         detail: 'By density, then by hand',
         imageSlot: 'processGrading',
-      },
-      {
-        n: '05',
-        /* The society's own copy, 2026-09-18; no sub-label was supplied, so
-           the drying time stays. */
-        title: 'Sun-Drying on Raised Beds',
-        duration: '{{dryingDays}}',
-        body:
-          'Coffee is spread thinly across raised mesh beds to dry evenly in the open air. Workers turn the parchment by hand throughout the day and cover it to shield against harsh midday heat and cool night dampness. Once moisture reaches a stable 10–12%, the lot rests in storage before final milling.',
-        detail: 'Turned by hand, covered at midday',
-        imageSlot: 'processDrying',
       },
     ],
   },
