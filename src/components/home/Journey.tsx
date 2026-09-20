@@ -52,6 +52,7 @@ export function Journey({ content }: { content: HomeContent['journey'] }) {
                   )}
                 </div>
                 <div className="flex flex-col gap-2">
+                  {step.label && <p className="t-meta text-ochre-ink">{step.label}</p>}
                   <h3 className="font-display text-xl font-semibold leading-tight">
                     <span className="sr-only">Step {i + 1}: </span>
                     {step.title}

@@ -130,28 +130,34 @@ export const home: HomeContent = {
      the photographs they sit under. Retail coffee is roasted and packed by
      the society (see Our Coffee), which is what step three says. */
   journey: {
+    /* The society's own copy, 2026-09-20, replacing the headings and step
+       lines written for the photographs on 2026-09-18. */
     eyebrow: 'Farm to cup',
-    heading: 'From Our Farmers, To Your Cup',
-    lead: 'Four steps, one society: follow the coffee from the branch to your cup.',
+    heading: 'From the Highlands of Nyeri to the Global Cup',
+    lead: 'Trace our harvest from high-altitude farms across Nyeri to exceptional coffees enjoyed worldwide.',
     steps: [
       {
-        title: 'The cherry',
-        body: 'Our members hand-pick only ripe red cherry and deliver it to the mill the same day.',
+        label: 'Selective Picking',
+        title: 'Ripe Cherry',
+        body: 'Smallholders hand-select only fully mature, crimson cherries and deliver them to our wet mill the same day.',
         imageSlot: 'journeyCherry',
       },
       {
-        title: 'Green coffee',
-        body: 'Washed and dried on raised beds, the parchment is hulled and graded into green coffee.',
+        label: 'Wet Milling & Grading',
+        title: 'Green Coffee',
+        body: 'Channel-washed and sun-dried on raised beds, our parchment is hulled and graded into uniform green lots.',
         imageSlot: 'journeyGreen',
       },
       {
-        title: 'The roast',
-        body: 'Our retail coffee is roasted and packed by the society, bringing out the sweetness of the Nyeri profile.',
+        label: 'Craft Roasting',
+        title: 'Local Roast',
+        body: 'Roasted and packed at our society headquarters to unlock the vibrant fruit sweetness of the classic Nyeri origin.',
         imageSlot: 'journeyRoasted',
       },
       {
-        title: 'Your cup',
-        body: 'At home, in a café or at the office: coffee grown by our farmers, poured in your cup.',
+        label: 'The Final Brew',
+        title: 'The Experience',
+        body: 'Exceptional coffee grown with care in Nyeri, enjoyed at home, in cafes, or across global markets.',
         imageSlot: 'journeyCup',
       },
     ],
