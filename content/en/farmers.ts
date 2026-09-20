@@ -67,8 +67,11 @@ export const farmers: FarmersContent = {
       },
     ],
     imageSlot: 'farmersMembers',
+    /* The people in this photograph are the committees, not members at large
+       (the client, 2026-09-20). The same photograph is captioned the same way
+       at stop 12 of the gallery. */
     caption:
-      'Members at the drying beds. The society is theirs: they hold the shares, they elect the committee, and they are the room the accounts are put to.',
+      'The management and supervisory committees at the drying beds, checking the parchment by hand.',
   },
 
   hero: {
