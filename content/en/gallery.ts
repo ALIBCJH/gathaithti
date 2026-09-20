@@ -45,6 +45,10 @@ export const gallery: GalleryContent = {
   /* Stop descriptions and captions rewritten 2026-09-18 at the client's
      request ("make them descriptive"): what each photograph shows and what
      that part of the mill does, in plain terms. */
+  /* No act dividers ("The mill", "The beds", "Before the harvest", "The
+     people") since 2026-09-20: the client asked for those titles and their
+     "Stops 03-06 ..." notes to come off. `act` is optional on a stop, so the
+     walk simply runs stop to stop; adding one back is a single line. */
   stops: [
     {
       n: '01',
@@ -85,7 +89,6 @@ export const gallery: GalleryContent = {
       title: 'The pulper',
       text: 'The pulping machine is the first stage of wet processing. It removes the skin and pulp from freshly delivered cherry, releasing the beans in their parchment layer on the evening of delivery.',
       layout: 'split-flip',
-      act: { name: 'The mill', note: 'Stops 03–06 · wet processing' },
       photos: [
         {
           imageSlot: 'galleryPulper',
@@ -152,7 +155,6 @@ export const gallery: GalleryContent = {
       text: 'Parchment is spread in a thin layer along the raised drying beds and turned by hand throughout the day, so that it dries slowly and evenly in the sun.',
       layout: 'split',
       photoSize: 'tall',
-      act: { name: 'The beds', note: 'Stops 07–09 · drying the parchment' },
       photos: [
         {
           imageSlot: 'galleryDryingBeds',
@@ -210,7 +212,6 @@ export const gallery: GalleryContent = {
       text: 'The society greenhouse, where coffee seedlings are raised for members replanting their farms.',
       layout: 'full',
       tag: 'Gathaithi FCS – Green house',
-      act: { name: 'Before the harvest', note: 'Stops 10–11 · on the farm' },
       photos: [
         {
           imageSlot: 'galleryGreenhouse',
@@ -244,7 +245,6 @@ export const gallery: GalleryContent = {
       title: 'The people',
       text: 'The management and supervisory committees, elected by our members to run and oversee the society.',
       layout: 'pair',
-      act: { name: 'The people', note: 'Stop 12 · the society’s leadership' },
       photos: [
         {
           imageSlot: 'galleryCommittee',
