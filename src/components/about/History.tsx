@@ -36,8 +36,9 @@ export function History({ content }: { content: AboutContent['history'] }) {
                 </p>
               </Reveal>
               <Reveal delay={80} className="hidden flex-col gap-3 lg:flex">
+                {/* No caption since 2026-09-21, at the client's request; the
+                    alt text still describes the gate for screen readers. */}
                 <SmartImage slot={content.imageSlot} ratio="4/5" sizes="(min-width: 1024px) 34vw, 100vw" />
-                <p className="t-meta text-ink-soft">{content.caption}</p>
               </Reveal>
             </div>
           </div>
