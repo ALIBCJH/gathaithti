@@ -130,6 +130,9 @@ export interface HomeContent {
   meta: Meta;
   hero: {
     title: string;
+    /** The name split for the phone lockup: the word, then the rest of it. */
+    titleLead: string;
+    titleRest: string;
     /** The label on the cue out of the hero. */
     scrollMore: string;
     /** Accessible name for the small arrow at the foot of the hero on a phone. */

@@ -10,6 +10,11 @@ export const home: HomeContent = {
 
   hero: {
     title: 'Gathaithi Farmers’ Co‑operative Society',
+    /* The same name, split for the phone: one word at display size and the
+       rest under it in small capitals. Kept here rather than split in the
+       component, where an apostrophe or a hyphen would decide where it broke. */
+    titleLead: 'Gathaithi',
+    titleRest: 'Farmers’ Co‑operative Society',
     /* No line under the name: the society asked on 2026-09-18 for "Coffee
        that makes you glow." to come off the hero, and nothing replaces it. */
     scrollMore: 'More',

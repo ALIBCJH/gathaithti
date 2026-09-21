@@ -178,16 +178,34 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
           site rather than looking like a stock photo with a filter on it. */}
       <div aria-hidden="true" className="hero-scrim absolute inset-0" />
 
-      <div className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-end px-6 pb-2 pt-[calc(var(--header-h)+2rem)] sm:px-10 lg:px-16 lg:pb-6">
+      <div /* pb-20 on a phone clears the "More" pill, which is centred at the very
+             bottom of the frame; the desktop keeps its own padding. */
+        className="hero-body relative mx-auto flex w-full max-w-[100rem] flex-1 flex-col justify-end px-6 pb-20 pt-[calc(var(--header-h)+2rem)] sm:px-10 lg:px-16 lg:pb-6">
         <div className="flex max-w-[46rem] flex-col gap-4 sm:gap-5">
-          {/* `sr-only` below lg, not `hidden`. The name is off the small screen
-              as asked, but it is still the page's only <h1> — and Google indexes
-              the MOBILE rendering of a page, so a heading actually removed there
-              is a heading removed from the index, on the one page whose title is
-              the society's name. Screen readers and crawlers still get it; the
-              phone simply does not draw it. */}
-          <h1 className="sr-only t-hero max-w-[13em] text-on-ink-fixed lg:not-sr-only">
-            {content.title}
+          {/* THE NAME, drawn at both sizes since 2026-09-21. It used to be
+              `sr-only` on a phone — the motto sat here instead — and once the
+              motto went the frame read as a photograph with nothing on it.
+
+              The phone gets a LOCKUP rather than the desktop headline shrunk:
+              a copper rule, the first word at display size, and the rest of
+              the name under it in small capitals. Three short lines sit inside
+              the dark band the scrim already lays along the bottom of the
+              frame (see .hero-scrim below 40rem), so the words never cross the
+              cherries or the beans above them — which is the whole reason for
+              splitting the name rather than wrapping it across the picture.
+
+              One <h1>, two spellings of the same name: whichever is drawn, a
+              crawler and a screen reader get the society in full. */}
+          <h1 className="max-w-[13em] text-on-ink-fixed">
+            <span className="t-hero hidden lg:block">{content.title}</span>
+
+            <span className="flex flex-col gap-2.5 lg:hidden">
+              <span aria-hidden="true" className="h-px w-10 bg-ochre-on-ink-fixed" />
+              <span className="font-display text-[clamp(1.75rem,8.5vw,2.5rem)] font-semibold leading-none">
+                {content.titleLead}
+              </span>
+              <span className="t-meta text-on-ink-fixed/80">{content.titleRest}</span>
+            </span>
           </h1>
 
         </div>
