@@ -169,17 +169,22 @@ export const gallery: GalleryContent = {
     {
       n: '08',
       id: 'solar-drier',
-      short: 'Solar drier',
-      title: 'The solar drier',
-      text: 'During the rainy season, parchment dries on raised beds inside the solar drier, where the polythene cover keeps off the rain while letting in the heat of the sun.',
+      /* The society's own copy, 2026-09-21. The structure dries and airs the
+         jute sacks, not the parchment: it was described as a solar drier from
+         the photograph, and the client corrected it, so the route label, the
+         photo title, the caption and the alt text all follow. The id stays so
+         existing links to #solar-drier keep working. */
+      short: 'Sack drying',
+      title: 'Hygiene & Moisture Control',
+      text: 'A dedicated, covered structure designed to dry and aerate jute sacks off the ground. By keeping sacks raised away from soil and moisture, this facility prevents dirt contamination and mold risk, ensuring the parchment remains clean, dry, and protected from unexpected rainfall during peak harvest.',
       layout: 'full',
       tag: 'KCSAP/CON/Gathaithi FCS',
       photos: [
         {
           imageSlot: 'gallerySolarDrier',
           ratio: '1264/846',
-          title: 'The solar drier',
-          caption: 'Inside the solar drier: rows of raised beds under polythene, covered with jute coffee sacks.',
+          title: 'The sack drying structure',
+          caption: 'Jute coffee sacks drying on raised racks under a covered structure, off the ground.',
         },
       ],
     },

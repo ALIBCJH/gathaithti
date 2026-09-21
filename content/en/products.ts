@@ -202,7 +202,7 @@ export const products: ProductsContent = {
 
   /* FOUR STEPS since 2026-09-20: the client removed step 05, sun-drying on
      raised beds ("we do not need it now"). Drying is still shown in the
-     gallery, at the drying beds and the solar drier. The photograph slot
+     gallery, at the drying beds. The photograph slot
      processDrying is left in content/images.ts, unused. */
   process: {
     eyebrow: 'Processing',
