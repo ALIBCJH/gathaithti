@@ -1038,8 +1038,10 @@ export const images = {
     ratio: '3/2',
     minWidth: 1250,
     minHeight: 840,
-    direction: 'Supplied. Inside the solar drier: rows of raised beds under polythene, each covered with jute sacking, one stencilled PRODUCE OF KENYA.',
-    alt: 'Inside the solar drier at Gathaithi — rows of raised beds under polythene, covered with jute coffee sacking.',
+    /* NOT a solar drier — the client identified it on 2026-09-21 as the
+       structure where jute sacks are dried and aired off the ground. */
+    direction: 'Supplied. The covered sack drying structure: jute sacks laid over raised racks under polythene, one stencilled PRODUCE OF KENYA.',
+    alt: 'Jute coffee sacks drying on raised racks inside a covered structure at Gathaithi, off the ground.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
   galleryGreenhouse: {
