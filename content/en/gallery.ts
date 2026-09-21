@@ -55,7 +55,8 @@ export const gallery: GalleryContent = {
       id: 'gate',
       short: 'The gate',
       title: 'The gate',
-      text: 'The main entrance to the society. The signboards set out our co-operative values of unity, self-help, democracy, equality and development, and our motto: quality coffee, better livelihoods, a sustainable future.',
+      /* The society's own welcome, 2026-09-21; 1,988 via {{members}}. */
+      text: 'Welcome to Gathaithi Farmers’ Co-operative Society. Our main entrance stands as a testament to collective ownership, displaying the core values that drive our {{members}} members: unity, self-help, democracy, equality, and continuous development. Guided by our founding motto—Quality Coffee, Better Livelihoods, a Sustainable Future—this gateway marks the start of every harvest journey from farm to market.',
       layout: 'opening',
       photos: [
         {

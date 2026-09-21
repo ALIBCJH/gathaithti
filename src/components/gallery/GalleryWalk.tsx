@@ -1,3 +1,4 @@
+import { RichText } from '@/components/ui/Fact';
 import { getImageProps } from 'next/image';
 
 import { Container } from '@/components/ui/Container';
@@ -89,9 +90,11 @@ export function GalleryWalk({ content }: { content: GalleryContent }) {
                   </div>
                   <div className="grid gap-3.5 md:max-w-[28rem] md:justify-self-end">
                     {opening.photos[0] ? photo(opening.photos[0], '(min-width: 768px) 28rem, 100vw', { tag: `Stop ${opening.n}`, priority: true }) : null}
-                    <p className="grid gap-1">
-                      <span className="font-display text-[1.0625rem] font-semibold">{opening.title}</span>
-                      <span className="text-[0.9375rem] text-ink-soft">{opening.text}</span>
+                    {/* The opening card carries the society's welcome and no title
+                        (the client, 2026-09-21): "The gate" still names the stop
+                        in the route and in the photo viewer. */}
+                    <p className="text-[0.9375rem] leading-relaxed text-ink-soft">
+                      <RichText text={opening.text} />
                     </p>
                   </div>
                 </div>
