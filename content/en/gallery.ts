@@ -6,7 +6,8 @@ import type { GalleryContent } from '../types';
  * Approved by the client 2026-09-13 from the "Gathaithi Gallery Walk" proposal,
  * replacing ten numbered circles. The ten were numbered as if they were one
  * sequence, but the gate, the greenhouse and the committees are not steps the
- * coffee takes. As a WALK they are: twelve stops in the order a visitor would
+ * coffee takes. As a WALK they are: eleven stops (twelve until the greenhouse
+ * came off on 2026-09-21, at the client's request) in the order a visitor would
  * come to them, and the route map beside the photographs says so.
  *
  * EVERY PHOTOGRAPH HERE WAS TAKEN AT GATHAITHI. Every other photograph on the
@@ -28,15 +29,15 @@ export const gallery: GalleryContent = {
   meta: {
     title: 'Gallery | A walk through Gathaithi',
     description:
-      'Photographs of Gathaithi Farmers’ Co-operative Society: the wet mill, the drying beds, the greenhouse and the committees who run the society.',
-    ogLine: 'Twelve stops, from the entrance to the people who run the society',
+      'Photographs of Gathaithi Farmers’ Co-operative Society: the wet mill, the drying beds, a member’s farm and the committees who run the society.',
+    ogLine: 'Eleven stops, from the entrance to the people who run the society',
   },
 
   hero: {
     mark: 'Gathaithi FCS · Gallery',
     title: 'A walk through',
     titleEmphasis: 'the society',
-    lede: 'Twelve stops around the society, from the entrance to the people who run it. All photographs were taken at Gathaithi.',
+    lede: 'Eleven stops around the society, from the entrance to the people who run it. All photographs were taken at Gathaithi.',
     start: 'Walk in',
   },
 
@@ -207,23 +208,6 @@ export const gallery: GalleryContent = {
     },
     {
       n: '10',
-      id: 'greenhouse',
-      short: 'Greenhouse',
-      title: 'The greenhouse',
-      text: 'The society greenhouse, where coffee seedlings are raised for members replanting their farms.',
-      layout: 'full',
-      tag: 'Gathaithi FCS – Green house',
-      photos: [
-        {
-          imageSlot: 'galleryGreenhouse',
-          ratio: '1278/816',
-          title: 'The greenhouse',
-          caption: 'The society greenhouse, marked KCSAP/CON/GATHAITHI FCS – GREEN HOUSE.',
-        },
-      ],
-    },
-    {
-      n: '11',
       id: 'members-farm',
       short: 'A member’s farm',
       title: 'A member’s farm',
@@ -240,7 +224,7 @@ export const gallery: GalleryContent = {
       ],
     },
     {
-      n: '12',
+      n: '11',
       id: 'people',
       short: 'The people',
       title: 'The people',
