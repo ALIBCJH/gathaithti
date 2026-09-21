@@ -223,7 +223,6 @@ export interface AboutContent {
     heading: string;
     lead: string;
     imageSlot: string;
-    caption: string;
     milestones: { year: string; title: string; body: string; current?: boolean }[];
   };
   /** Four values, each with a line of proof drawn from elsewhere on the site. */

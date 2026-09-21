@@ -68,7 +68,6 @@ export const about: AboutContent = {
     lead:
       'We began in {{established}} as coffee growers within the wider Tetu society. Today we are an independent society of {{members}} active members, running our own wet mill and selling our own coffee.',
     imageSlot: 'galleryGate',
-    caption: 'The society gate and values board at Gathaithi.',
     milestones: [
       {
         year: '{{established}}',
