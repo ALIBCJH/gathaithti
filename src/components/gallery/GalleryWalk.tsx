@@ -10,7 +10,7 @@ import { getImage, isImageKey } from '@/lib/images';
 import type { GalleryContent, GalleryPhoto, GalleryStop } from '@content/types';
 
 /**
- * THE GALLERY WALK — eleven stops, from the gate to the people who run it.
+ * THE GALLERY WALK — ten stops, from the gate to the people who run it.
  *
  * Approved by the client 2026-09-13 from the "Gathaithi Gallery Walk"
  * proposal, in place of ten numbered circles. Three decisions carry it:

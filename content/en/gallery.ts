@@ -6,8 +6,8 @@ import type { GalleryContent } from '../types';
  * Approved by the client 2026-09-13 from the "Gathaithi Gallery Walk" proposal,
  * replacing ten numbered circles. The ten were numbered as if they were one
  * sequence, but the gate, the greenhouse and the committees are not steps the
- * coffee takes. As a WALK they are: eleven stops (twelve until the greenhouse
- * came off on 2026-09-21, at the client's request) in the order a visitor would
+ * coffee takes. As a WALK they are: ten stops (twelve until the greenhouse and
+ * "Between crops" came off on 2026-09-21, at the client's request) in the order a visitor would
  * come to them, and the route map beside the photographs says so.
  *
  * EVERY PHOTOGRAPH HERE WAS TAKEN AT GATHAITHI. Every other photograph on the
@@ -30,14 +30,14 @@ export const gallery: GalleryContent = {
     title: 'Gallery | A walk through Gathaithi',
     description:
       'Photographs of Gathaithi Farmers’ Co-operative Society: the wet mill, the drying beds, a member’s farm and the committees who run the society.',
-    ogLine: 'Eleven stops, from the entrance to the people who run the society',
+    ogLine: 'Ten stops, from the entrance to the people who run the society',
   },
 
   hero: {
     mark: 'Gathaithi FCS · Gallery',
     title: 'A walk through',
     titleEmphasis: 'the society',
-    lede: 'Eleven stops around the society, from the entrance to the people who run it. All photographs were taken at Gathaithi.',
+    lede: 'Ten stops around the society, from the entrance to the people who run it. All photographs were taken at Gathaithi.',
     start: 'Walk in',
   },
 
@@ -190,29 +190,6 @@ export const gallery: GalleryContent = {
     },
     {
       n: '09',
-      id: 'between-crops',
-      short: 'Between crops',
-      title: 'Between crops',
-      text: 'Between harvests, the drying ground and the tanks are cleaned and prepared for the next season.',
-      layout: 'pair',
-      quiet: true,
-      photos: [
-        {
-          imageSlot: 'galleryDryingArea',
-          ratio: '1216/879',
-          title: 'The drying ground',
-          caption: 'The drying ground between harvests, with rows of empty bed frames below the water tower.',
-        },
-        {
-          imageSlot: 'gallerySoakingTank',
-          ratio: '1312/812',
-          title: 'The soaking tank, between harvests',
-          caption: 'The soaking tank, emptied and cleaned between harvests.',
-        },
-      ],
-    },
-    {
-      n: '10',
       id: 'members-farm',
       short: 'A member’s farm',
       title: 'A member’s farm',
@@ -229,7 +206,7 @@ export const gallery: GalleryContent = {
       ],
     },
     {
-      n: '11',
+      n: '10',
       id: 'people',
       short: 'The people',
       title: 'The people',
