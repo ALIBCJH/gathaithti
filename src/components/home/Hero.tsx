@@ -196,8 +196,11 @@ export function Hero({ content }: { content: HomeContent['hero'] }) {
 
               One <h1>, two spellings of the same name: whichever is drawn, a
               crawler and a screen reader get the society in full. */}
-          <h1 className="max-w-[13em] text-on-ink-fixed">
-            <span className="t-hero hidden lg:block">{content.title}</span>
+          {/* The 13em measure belongs on the desktop span, where `t-hero` sets
+              the size: on the <h1> itself it was 13em of the 16px body size,
+              and #167 squeezed the desktop headline into a 208px column. */}
+          <h1 className="text-on-ink-fixed">
+            <span className="t-hero hidden max-w-[13em] lg:block">{content.title}</span>
 
             <span className="flex flex-col gap-2.5 lg:hidden">
               <span aria-hidden="true" className="h-px w-10 bg-ochre-on-ink-fixed" />
