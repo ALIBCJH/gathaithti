@@ -20,7 +20,7 @@ export const about: AboutContent = {
     eyebrow: 'About the society',
     title: 'Owned by the farmers who grow the coffee',
     lead:
-      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
+      'Gathaithi Farmers’ Co-operative Society Ltd is a registered co-operative in Tetu East Sub-County, Nyeri County. Its members are its shareholders, its committee is elected from among them, and its single wet mill exists to turn their cherry into the best coffee the hillside can produce.',
   },
 
   /* HERITAGE & PURPOSE — the society's own copy, supplied 2026-09-18. It
@@ -86,13 +86,15 @@ export const about: AboutContent = {
       },
       {
         year: '2024',
-        title: 'Top 5 in Kenya',
-        body: 'We paid our members {{cherryPrice2024}} per kilo of cherry, among the top five cherry payments in the country that year.',
+        title: 'Second in Kenya',
+        /* No KSh figure: the society has quoted two and Climate Smart Coffee a
+           third, so the price is withheld until one is confirmed. */
+        body: 'From 2024 to date we are recognised for the second-highest cherry payment to farmers in the country.',
       },
       {
         year: 'Today',
         title: '{{members}} members, one mill',
-        body: '{{certificationRA}} and {{eudr}}, with every delivery recorded against the member who grew it.',
+        body: '{{certificationRA}} and {{eudr}}.',
         current: true,
       },
     ],
@@ -108,12 +110,11 @@ export const about: AboutContent = {
       {
         title: 'Farmer Equity',
         body: 'Delivering top-tier national payout rates so that every harvest directly enriches the families behind the crop.',
-        proof: '{{cherryPrice2024}} per kilo of cherry in 2024',
       },
       {
         title: 'Uncompromising Precision',
         body: 'Strict lot separation and zero blending ensure absolute clarity, clean processing, and consistent cup quality year after year.',
-        proof: 'One wet mill · nothing blended in',
+        proof: 'One wet mill',
       },
       {
         title: 'Environmental Stewardship',
@@ -160,13 +161,11 @@ export const about: AboutContent = {
       { label: 'Registered', value: '{{independentSince}}' },
       { label: 'Jurisdiction', value: 'Co-operative Societies Act, Republic of Kenya' },
       { label: 'County', value: 'Nyeri County' },
-      { label: 'Sub-county', value: 'Tetu' },
+      { label: 'Sub-county', value: 'Tetu East' },
       { label: 'Wet mills operated', value: '{{wetMills}}' },
       /* The society's own breakdown, as it gave it on 2026-09-11. The three
          come from content/facts.ts and must keep adding up. */
       { label: 'Active members', value: '{{members}}' },
-      { label: 'Dormant members', value: '{{membersDormant}}' },
-      { label: 'Total membership', value: '{{membersTotal}}' },
     ],
   },
 
@@ -219,11 +218,11 @@ export const about: AboutContent = {
         { id: 'b2', name: 'Eugene Wachira', role: 'Vice-Chairman', imageSlot: 'boardTwo' },
         { id: 'b3', name: 'Edward Ngure', role: 'Treasurer', imageSlot: 'boardThree' },
         { id: 'b4', name: 'Ephraim Njogu', role: 'Secretary', imageSlot: 'boardFour' },
-        { id: 'b5', name: 'German Wambiru', role: 'Committee member', imageSlot: 'boardFive' },
+        { id: 'b5', name: 'Germano Wambiro', role: 'Committee member', imageSlot: 'boardFive' },
         { id: 'b6', name: 'Charles Wambugu', role: 'Committee member', imageSlot: 'boardSix' },
         { id: 'b7', name: 'Paul Gaita', role: 'Supervisory Chairman', imageSlot: 'boardSeven' },
         { id: 'b8', name: 'Daniel Ngatia', role: 'Supervisory Secretary', imageSlot: 'boardEight' },
-        { id: 'b9', name: 'Mary Kingory', role: 'Supervisory committee member', imageSlot: 'boardNine' },
+        { id: 'b9', name: 'Mary Kingori', role: 'Supervisory committee member', imageSlot: 'boardNine' },
       ],
     },
 
@@ -241,7 +240,7 @@ export const about: AboutContent = {
       {
         name: 'Management Committee',
         role: 'Elected by the members at the AGM. Responsible for the running of the society, the mill, marketing decisions and the payment schedule.',
-        composition: 'Samuel Gachonge (Chairman), Eugene Wachira (Vice-Chairman), Edward Ngure (Treasurer), Ephraim Njogu (Secretary), with German Wambiru and Charles Wambugu',
+        composition: 'Samuel Gachonge (Chairman), Eugene Wachira (Vice-Chairman), Edward Ngure (Treasurer), Ephraim Njogu (Secretary), with Germano Wambiro and Charles Wambugu',
       },
       {
         name: 'Supervisory Committee',
@@ -249,7 +248,7 @@ export const about: AboutContent = {
         /* These three were INVENTED placeholders — James Ndung'u, Margaret
            Nyokabi and Daniel Gitonga — published against a real office. They
            are the real three now. */
-        composition: 'Paul Gaita (Chairman), Daniel Ngatia (Secretary) and Mary Kingory, elected at the AGM',
+        composition: 'Paul Gaita (Chairman), Daniel Ngatia (Secretary) and Mary Kingori, elected at the AGM',
       },
       {
         name: 'Society Office',

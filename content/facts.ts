@@ -106,8 +106,9 @@ export const facts = {
   registrationNumber: {
     id: 'registrationNumber',
     label: 'Registration number',
-    value: '9176',
-    display: '9176',
+    /* The society's own form, CS/9176 (client, 2026-09-30). */
+    value: 'CS/9176',
+    display: 'CS/9176',
     verified: true,
     source: SOURCE,
     note: 'Registered autonomously under this number on 21 January 2000. Replaces a placeholder of CS/2891 that was invented for layout.',
@@ -414,7 +415,7 @@ export const facts = {
     display: 'Second',
     unit: 'nationally',
     verified: false,
-    note: 'The site says TOP 5 on cherry payment to farmers, 2024 (client, 2026-09-30), not second — Climate Smart Coffee publishes second nationally at KSh 126 against the KSh 138.50 here. Confirm the publishing body and the figure.',
+    note: 'The site says SECOND-HIGHEST cherry payment, recognised from 2024 (client, 2026-09-30, reversing their earlier "top 5"). No KSh figure is published any more: the society quoted KSh 130 and KSh 138.50 while Climate Smart Coffee publishes KSh 126, so the price is withheld until one figure is confirmed. Confirm the publishing body too.',
     updated: TODAY,
   },
   /* The brief's "KSh 126 in 2024" was never right: the society's own schedule

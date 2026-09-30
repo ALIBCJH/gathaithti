@@ -373,7 +373,7 @@ export const images = {
     minWidth: 800,
     minHeight: 1200,
     direction: 'As boardOne — same height, same crop, same light. Elected committee member.',
-    alt: 'German Wambiru, a member of the Gathaithi management committee.',
+    alt: 'Germano Wambiro, a member of the Gathaithi management committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
   boardSix: {
@@ -417,7 +417,7 @@ export const images = {
     minWidth: 800,
     minHeight: 1200,
     direction: 'As boardOne — same height, same crop, same light. Elected committee member.',
-    alt: 'Mary Kingory, a member of the Gathaithi supervisory committee.',
+    alt: 'Mary Kingori, a member of the Gathaithi supervisory committee.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw',
   },
 

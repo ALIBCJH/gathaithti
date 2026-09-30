@@ -66,7 +66,7 @@ export const contact: ContactContent = {
     address: [
       'Gathaithi Farmers’ Co-operative Society Ltd',
       'Gathaithi Wet Mill',
-      'Gathaithi Village, Tetu Sub-County',
+      'Gathaithi Village, Tetu East Sub-County',
       'Nyeri County, Kenya',
     ],
     hours: [

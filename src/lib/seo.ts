@@ -91,7 +91,7 @@ export function organizationLd() {
     url: urlFor(),
     foundingDate: String(facts.established.value),
     description: resolve(
-      'Farmer-owned coffee co-operative in Gathaithi village, Tetu Sub-County, Nyeri County, Kenya. {{members}} smallholder members, one wet mill, washed {{varieties}}.',
+      'Farmer-owned coffee co-operative in Gathaithi village, Tetu East Sub-County, Nyeri County, Kenya. {{members}} smallholder members, one wet mill, washed {{varieties}}.',
     ),
     address: postalAddress,
     areaServed: 'Worldwide',
