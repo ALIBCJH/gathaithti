@@ -73,14 +73,14 @@ export const gallery: GalleryContent = {
       id: 'notice-board',
       short: 'Notice board',
       title: 'The notice board',
-      text: 'The members’ notice board at the mill. Cherry payment dates, meeting notices and society announcements are posted here, behind glass, for every member to read.',
+      text: 'The members’ notice board at the mill. Cherry payment dates, meeting notices and society announcements are posted here for every member to read.',
       layout: 'split',
       photos: [
         {
           imageSlot: 'galleryNoticeBoard',
           ratio: '1308/816',
           title: 'The notice board',
-          caption: 'The members’ notice board, a glazed case mounted on the timber store building.',
+          caption: 'The members’ notice board, mounted on the timber store building at the mill.',
         },
       ],
     },
@@ -89,7 +89,7 @@ export const gallery: GalleryContent = {
       id: 'pulper',
       short: 'Pulper',
       title: 'The pulper',
-      text: 'The pulping machine is the first stage of wet processing. It removes the skin and pulp from freshly delivered cherry, releasing the beans in their parchment layer on the evening of delivery.',
+      text: 'Our pulper is the first stage of wet processing. It removes the skin and pulp from freshly delivered cherry on the evening of delivery, releasing the beans in their parchment layer, and grades them by density as they leave the machine.',
       layout: 'split-flip',
       photos: [
         {
