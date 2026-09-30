@@ -173,7 +173,8 @@ export const site = {
   address: {
     line1: 'Gathaithi Wet Mill',
     village: 'Gathaithi Village',
-    subCounty: 'Tetu Sub-County',
+    /* Tetu East since 2026-09-30, the society's own answer. */
+    subCounty: 'Tetu East Sub-County',
     county: 'Nyeri County',
     /* From the society's own letterhead, 2026-09-08. Was 'P.O. Box 217,
        Nyeri 10100', which came from the brief and was never confirmed —

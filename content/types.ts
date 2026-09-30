@@ -229,7 +229,7 @@ export interface AboutContent {
   values: {
     eyebrow: string;
     heading: string;
-    items: { title: string; body: string; proof: string }[];
+    items: { title: string; body: string; proof?: string }[];
   };
   registration: {
     eyebrow: string;

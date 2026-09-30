@@ -83,16 +83,16 @@ export const home: HomeContent = {
        a glyph would not read. On a poster the glyph is the point. Same fact,
        same audit trail; only the setting differs. */
     figures: {
-      nationalRank2024: 'Top 5',
+      nationalRank2024: '#2',
     },
     titles: {
       /* The society's own wording, supplied 2026-09-18. */
-      nationalRank2024: 'Kenya’s Top 5 Farmer Payout',
+      nationalRank2024: 'Kenya’s #2 Farmer Payout',
       established: 'Heritage & Independence',
       members: 'Farmer-Owned',
     },
     captions: {
-      nationalRank2024: 'Ranked among the top 5 highest-paying coffee societies in Kenya in 2024.',
+      nationalRank2024: 'Recognised from 2024 to date for the second-highest cherry payment to farmers in Kenya.',
       /* 1967 and 1,988 come from the facts so they cannot drift from the big
          figures above them. "2000" is written out because the
          `independentSince` fact displays the full date, 21 January 2000. */

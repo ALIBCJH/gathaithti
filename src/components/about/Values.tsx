@@ -26,14 +26,19 @@ export function Values({ content }: { content: AboutContent['values'] }) {
                   <span aria-hidden="true" className="h-0.5 w-10 bg-ochre" />
                   <h3 className="font-display text-2xl font-semibold leading-tight">{item.title}</h3>
                   <p className="t-body flex-1 text-ink-soft">{item.body}</p>
-                  <p className="flex items-start gap-2 border-t border-line pt-4 text-sm font-medium">
-                    <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" className="mt-0.5 shrink-0 text-ochre" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M3 8.5 6.5 12 13 4.5" />
-                    </svg>
-                    <span>
-                      <RichText text={item.proof} />
-                    </span>
-                  </p>
+                  {/* The proof line is optional: Farmer Equity lost its one on
+                      2026-09-30 when the client withdrew the KSh figure, and a
+                      card with an empty rule under it reads as a mistake. */}
+                  {item.proof ? (
+                    <p className="flex items-start gap-2 border-t border-line pt-4 text-sm font-medium">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" className="mt-0.5 shrink-0 text-ochre" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M3 8.5 6.5 12 13 4.5" />
+                      </svg>
+                      <span>
+                        <RichText text={item.proof} />
+                      </span>
+                    </p>
+                  ) : null}
                 </article>
               </Reveal>
             </li>
