@@ -1156,8 +1156,10 @@ export const images = {
     ratio: '3/2',
     minWidth: 1300,
     minHeight: 815,
-    direction: 'Supplied. The members\u2019 notice board on the timber mill building, notices behind glass under its own little roof.',
-    alt: 'The members’ notice board at Gathaithi, a green glazed case on the timber mill building with notices pinned inside.',
+    direction: 'Supplied. The members\u2019 notice board on the timber mill building, under its own little roof.',
+    /* No glass here either: the client took it out of the visible copy on
+       2026-09-30, and the alt text should say what the page says. */
+    alt: 'The members’ notice board at Gathaithi, a green case on the timber mill building with notices pinned inside.',
     sizes: '(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw',
   },
 
