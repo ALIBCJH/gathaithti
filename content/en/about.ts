@@ -134,6 +134,24 @@ export const about: AboutContent = {
     heading: 'Verified & Traceable',
     lead:
       'Everything buyers and importers need to verify our operational standards, legal standing, and trade details—all in one place.',
+    /* CERTIFICATION, on its own card each (client, 2026-09-30). Worded to
+       what is actually established: Rainforest Alliance certifies, and its
+       certificates are publicly searchable; EUDR is a regulation a buyer
+       complies with, not a certificate anyone holds. The certificate number,
+       issuing body and expiry are still not supplied — add them as rows in
+       the table below the moment they are. */
+    certifications: [
+      {
+        label: 'Certification',
+        name: 'Rainforest Alliance Certified',
+        body: 'Gathaithi is Rainforest Alliance certified for land stewardship. Every Rainforest Alliance certificate is listed in the Alliance’s public register, so a buyer can verify ours independently.',
+      },
+      {
+        label: 'EU market',
+        name: 'EUDR compliant',
+        body: 'Our coffee is prepared for the EU Deforestation Regulation. The regulation is met by the importer rather than certified to the farmer, so we supply the farm and lot information an importer needs for its due-diligence statement.',
+      },
+    ],
     rows: [
       { label: 'Registered name', value: 'Gathaithi Farmers’ Co-operative Society Ltd' },
       { label: 'Registration number', value: '{{registrationNumber}}' },

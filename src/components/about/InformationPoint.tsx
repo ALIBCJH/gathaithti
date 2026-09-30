@@ -25,7 +25,25 @@ export function InformationPoint({ content }: { content: AboutContent['registrat
           lead={content.lead}
         />
 
-        <div className="mt-14 lg:mt-16">
+        {/* The certifications first, a card each: they are what an importer
+            looks for, and a row in a register table is the wrong weight for
+            them. The table under them carries the paperwork. */}
+        <ul className="mx-auto mt-14 grid w-full max-w-[64rem] gap-6 sm:grid-cols-2 lg:mt-16 lg:gap-8">
+          {content.certifications.map((cert, i) => (
+            <li key={cert.name} className="h-full">
+              <Reveal delay={i * 70} className="h-full">
+                <article className="flex h-full flex-col gap-3 border border-line bg-parchment px-7 py-8 sm:px-8">
+                  <span aria-hidden="true" className="h-0.5 w-10 bg-ochre" />
+                  <p className="t-meta text-ochre-ink">{cert.label}</p>
+                  <h3 className="font-display text-xl font-semibold leading-snug">{cert.name}</h3>
+                  <p className="t-body text-[0.9375rem] text-ink-soft">{cert.body}</p>
+                </article>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-12 lg:mt-14">
           <Reveal className="mx-auto w-full max-w-[64rem]">
             <dl className="border-t border-ochre/45">
               {content.rows.map((row) => (

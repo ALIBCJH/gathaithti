@@ -235,6 +235,8 @@ export interface AboutContent {
     eyebrow: string;
     heading: string;
     lead: string;
+    /** The certifications, each on its own card above the register table. */
+    certifications: { label: string; name: string; body: string }[];
     rows: { label: string; value: string }[];
   };
   governance: {
