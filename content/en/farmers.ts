@@ -184,7 +184,8 @@ export const farmers: FarmersContent = {
   profiles: {
     eyebrow: 'Members',
     /* The society's own copy, 2026-09-18, with two corrections: the slopes
-       are the Aberdare range's (the client's standing choice over Mt. Kenya),
+       are Mount Kenya's (the client's choice of 2026-09-30, replacing the
+       Aberdare range),
        and "strip-mined" in the second caption reads "strip-picked", the
        coffee term. 1,988 via {{members}}. */
     heading: 'The People Behind the Harvest',
@@ -193,7 +194,7 @@ export const farmers: FarmersContent = {
        were; now there are no named ones at all, so it says what is actually
        true of the band — three photographs, and interviews still to come. */
     lead:
-      'Gathaithi is powered by {{members}} smallholder members farming small plots on the slopes of the Aberdare range. Every cherry is hand-harvested with care, ensuring only the highest quality fruit reaches the mill.',
+      'Gathaithi is powered by {{members}} smallholder members farming small plots on the slopes of Mount Kenya. Every cherry is hand-harvested with care, ensuring only the highest quality fruit reaches the mill.',
     yearsLabel: 'Years farming',
     treesLabel: 'Trees',
     members: [

@@ -30,7 +30,16 @@ export function Terroir({ content }: { content: AboutContent['terroir'] }) {
           eyebrow={content.eyebrow}
           heading={content.heading}
           lead={content.lead}
-        />
+        >
+          {/* Any paragraph after the lead, at the same measure and centred
+              with it: the society's terroir copy runs to two since
+              2026-09-30. */}
+          {content.body?.map((paragraph) => (
+            <p key={paragraph} className="t-body mx-auto max-w-[62ch] text-ink-soft">
+              {paragraph}
+            </p>
+          ))}
+        </SectionHead>
 
         {/* The four figures as one row.
 

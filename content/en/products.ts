@@ -11,7 +11,7 @@ export const products: ProductsContent = {
     /* Under 160 characters, because that is what a search result shows.
        Everything longer is cut mid-sentence. */
     description:
-      'The society\u2019s own roasted coffee in 100\u00a0g, 250\u00a0g, 500\u00a0g and 1\u00a0kg packs, from KSh\u00a0100. Washed Nyeri arabica, roasted and packed at the mill.',
+      'The society\u2019s own roasted coffee in 100\u00a0g, 250\u00a0g, 500\u00a0g and 1\u00a0kg packs. Washed Nyeri arabica, roasted and packed at the mill. Prices on request.',
     ogLine: 'Roasted and packed by the society — 100 g to 1 kg',
   },
 
@@ -45,7 +45,7 @@ export const products: ProductsContent = {
       },
       {
         title: 'Green Coffee (International Export)',
-        body: 'Sun-dried green lots are exported directly to international roasters and importers. Contact our team to request samples, lot specs, and current harvest availability.',
+        body: 'Sun-dried green lots are exported directly to international roasters and importers. Contact our team to request samples, lots specification, and current harvest availability.',
       },
     ],
   },
@@ -61,7 +61,11 @@ export const products: ProductsContent = {
     /* Set to false and every price on the page disappears — the size choices,
        the price line and the WhatsApp message. The figures live in
        content/facts.ts (pack100g … pack1kg), verified 2026-09-10. */
-    showPrices: true,
+    /* PRICES OFF since 2026-09-30 at the client's request: a buyer asks on
+       WhatsApp or by phone. This one switch takes the figures off the size
+       choices, the price line and the WhatsApp message; the amounts are still
+       in content/facts.ts for the day they come back. */
+    showPrices: false,
     /* The everyday size. The page opens on it. */
     defaultPack: 'pack-250g',
     sizeLabel: 'Choose a size',
@@ -72,7 +76,7 @@ export const products: ProductsContent = {
     orderMessage: 'Hello Gathaithi — I would like to order the {{pack}} pack ({{price}}). ',
     askLabel: 'Ask about this pack',
     orderNote:
-      'There is no checkout on this site: the office confirms every order and delivery on WhatsApp or by phone. Prices are in Kenyan shillings.',
+      'Prices are given on request. Message us on WhatsApp or call the office, and we will confirm the price, your order and delivery.',
   },
 
   /* FOUR RETAIL PACKS, replacing the AA and AB green-coffee lots.

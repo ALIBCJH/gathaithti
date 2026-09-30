@@ -254,7 +254,8 @@ export interface AboutContent {
     };
     bodies: { name: string; role: string; composition: string }[];
   };
-  terroir: { eyebrow: string; heading: string; lead: string; factIds: string[] };
+  /** `body` holds any paragraphs after the lead. */
+  terroir: { eyebrow: string; heading: string; lead: string; body?: string[]; factIds: string[] };
 }
 
 /* ── Products ───────────────────────────────────────────────────────────── */
