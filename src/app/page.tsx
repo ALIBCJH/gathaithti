@@ -23,26 +23,18 @@ export default function HomePage() {
       <JsonLd data={[organizationLd(), localBusinessLd()]} />
       <Hero content={home.hero} />
 
-      {/* The record and the season panel are desktop-only now.
-
-          `hidden` rather than dropped: the figures they carry — the national
-          rank, the year, the membership — are the whole of this site's
-          credibility, and Google indexes the mobile rendering. Kept
-          in the markup they stay indexed and stay available to a screen reader;
-          they are simply not drawn on a phone, where the ask was for a shorter
-          first scroll. Delete the wrappers and the sections come back. */}
-      <div className="hidden lg:block">
-        <ProofBand content={home.proof} />
-      </div>
-      {/* The society's Vision and Mission, directly under the figures. Not
-          wrapped in `hidden lg:block` like the bands either side of it: those
-          two are data a visitor can take or leave, and this is the society
-          saying what it is for. */}
+      {/* ON EVERY WIDTH since 2026-09-30. Both bands were `hidden lg:block`
+          from the days when the ask was a shorter first scroll on a phone —
+          kept in the markup so Google, which indexes the MOBILE rendering,
+          and screen readers still had them, but never drawn. The motto moved
+          into the first of them on 2026-09-30, and a motto only desktop
+          visitors can see is not a motto; the client asked for both back. */}
+      <ProofBand content={home.proof} />
+      {/* The society's Vision and Mission, directly under the figures. */}
       <Statements content={home.statements} />
 
-      <div className="hidden lg:block">
-        <SeasonPanel  content={home.season} />
-      </div>
+      <SeasonPanel content={home.season} />
+
       {/* Under the season panel, and on every width: the four steps from the
           branch to the cup, then what roasters say about the result. */}
       <Journey content={home.journey} />
