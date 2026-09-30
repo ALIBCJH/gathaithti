@@ -231,10 +231,10 @@ export const products: ProductsContent = {
       },
       {
         n: '02',
-        title: 'Eco-Pulping & Density Grading',
+        title: 'Pulping & Density Grading',
         duration: 'Same-day processing',
         body:
-          'To preserve cellular integrity and complex fruit sugars, pulping commences immediately on the evening of delivery. Using eco-pulpers, the outer skin is mechanically removed, and parchment is instantly channel-graded by density—channeling only the heaviest, highest-density lots into our premier specialty grades.',
+          'To preserve cellular integrity and complex fruit sugars, pulping commences immediately on the evening of delivery. Using a coffee pulper machine, the outer skin is mechanically removed, and parchment is instantly channel-graded by density—channeling only the heaviest, highest-density lots into our premier specialty grades.',
         detail: 'Density-graded at the pulper',
         imageSlot: 'processPulping',
       },
@@ -255,7 +255,7 @@ export const products: ProductsContent = {
            "the step most origins skip" is a real differentiator to a buyer —
            not something to lose in a reshuffle. */
         body:
-          'Following eco-pulping, parchment undergoes controlled fermentation to break down remaining mucilage. It is then thoroughly channel-washed with fresh water and subjected to a clean-water soak—a signature technique that purifies the parchment to unlock exceptional cup clarity, structural acidity, and prolonged shelf-life stability. To protect our ecosystem, all process water is channeled into biological filtration pits for safe soil absorption.',
+          'Following pulping, parchment undergoes controlled fermentation to break down remaining mucilage. It is then thoroughly channel-washed with fresh water and subjected to a clean-water soak—a signature technique that purifies the parchment to unlock exceptional cup clarity, structural acidity, and prolonged shelf-life stability. To protect our ecosystem, all process water is channeled into biological filtration pits for safe soil absorption.',
         detail: 'Clean water, fully submerged',
         imageSlot: 'processWashing',
       },
