@@ -263,9 +263,12 @@ export const about: AboutContent = {
   terroir: {
     /* The society's own copy, 2026-09-18. */
     eyebrow: 'Taste of Gathaithi',
-    heading: 'Patience You Can Taste',
+    heading: 'Nature Takes Its Time',
     lead:
-      'High up at 1,720 meters, there are no shortcuts. The mountain air slows the fruit’s growth, allowing natural sugars and rich acids to develop fully inside the seed. The result is a clean, vibrant cup loaded with dark fruit notes and a sweet, lingering finish.',
+      'At 1,720 meters above sea level, on the slopes of Mount Kenya, Gathaithi’s coffee grows slowly beneath the cool mountain air of Tetu. There are no shortcuts here. The longer journey gives each cherry time to develop its natural sugars, acidity, and character.',
+    body: [
+      'The result is a clean, vibrant cup layered with dark fruit, gentle acidity, and a naturally sweet finish that lingers long after the last sip.',
+    ],
     factIds: ['altitude', 'rainfall', 'temperature', 'trees'],
     /* "What grows here" (the two varieties and their notes) was removed
        2026-09-18 at the client's request: the home page carries the same
