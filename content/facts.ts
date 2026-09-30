@@ -84,8 +84,10 @@ export const facts = {
   unionFrom1967: {
     id: 'unionFrom1967',
     label: 'Founding union',
-    value: 'North Tetu Coffee Growers Union',
-    display: 'North Tetu Coffee Growers Union',
+    /* Renamed 2026-09-30 at the client's instruction: the site says Tetu
+       North Co-operative Union throughout. */
+    value: 'Tetu North Co-operative Union',
+    display: 'Tetu North Co-operative Union',
     verified: true,
     source: SOURCE,
     note: 'The body Gathaithi\u2019s growers organised under in 1967, before registering separately in 2000.',
@@ -95,7 +97,7 @@ export const facts = {
     id: 'independentSince',
     label: 'Independent since',
     value: '2000-01-21',
-    display: '21 January 2000',
+    display: '21st January 2000',
     verified: true,
     source: SOURCE,
     note: 'The society’s own answer to "year formed". The registration certificate number is still not supplied.',
@@ -329,8 +331,8 @@ export const facts = {
   grades: {
     id: 'grades',
     label: 'Grades produced',
-    value: 'Mbuni',
-    display: 'Mbuni',
+    value: 'Mbuni and parchment',
+    display: 'Mbuni and parchment',
     verified: true,
     source: VARIETIES_SOURCE,
     updated: GRADES_VARIETIES_UPDATED,
@@ -412,7 +414,7 @@ export const facts = {
     display: 'Second',
     unit: 'nationally',
     verified: false,
-    note: 'Second in Kenya on cherry payment to farmers, 2024. Confirm the publishing body.',
+    note: 'The site says TOP 5 on cherry payment to farmers, 2024 (client, 2026-09-30), not second — Climate Smart Coffee publishes second nationally at KSh 126 against the KSh 138.50 here. Confirm the publishing body and the figure.',
     updated: TODAY,
   },
   /* The brief's "KSh 126 in 2024" was never right: the society's own schedule
