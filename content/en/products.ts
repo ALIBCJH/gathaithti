@@ -191,12 +191,12 @@ export const products: ProductsContent = {
         label: 'Parchment & Export',
         title: 'Export-Ready Green',
         body:
-          'Sun-dried on raised beds and milled with care, our green coffee is sorted for size, density, and screen purity—bagged and ready for export.',
+          'Sun-dried on raised beds and packed into bags, our parchment is sent to the miller for dry milling. The green coffee is then sorted for size, density, and screen purity—bagged and ready for export.',
         imageSlot: 'gemTwo',
       },
     ],
     statement:
-      'We believe this year’s produce is the strongest the catchment has given us in several seasons — and we would rather you judged that from a sample than from this page.',
+      'Quality starts in the field and carries through every stage of processing. This season’s produce is a true expression of our catchment — clean, distinctive, and ready to speak for itself in the cup.',
     cta: { label: 'Request a sample', href: '#request-a-sample' },
   },
 
