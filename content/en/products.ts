@@ -171,6 +171,9 @@ export const products: ProductsContent = {
       'Every harvest yields distinct micro-lots. Here are our top-scoring selections from the current season, chosen for exceptional cup clarity and balance.',
     /* The three cards: the society's own copy, 2026-09-18 (a full stop added
        at the end of the third). */
+    /* TWO cards since 2026-09-30: the client removed "Cup Quality /
+       Award-Winning Cup" and its brewed-cup photograph (the gemThree slot is
+       left in content/images.ts, unused). */
     cards: [
       {
         label: 'Ripe Harvest',
@@ -190,13 +193,6 @@ export const products: ProductsContent = {
         body:
           'Sun-dried on raised beds and milled with care, our green coffee is sorted for size, density, and screen purity—bagged and ready for export.',
         imageSlot: 'gemTwo',
-      },
-      {
-        label: 'Cup Quality',
-        title: 'Award-Winning Cup',
-        body:
-          'Recognized internationally for its distinct character, featuring bright acidity, floral aromas, vibrant black currant notes, and a clean, lingering finish.',
-        imageSlot: 'gemThree',
       },
     ],
     statement:
@@ -271,7 +267,7 @@ export const products: ProductsContent = {
            and photographs as water. */
         duration: 'Two-stage sorting',
         body:
-          'Quality control happens in two quick steps. First, water channels separate heavy, flavor-dense beans from lighter ones. Next, as the beans dry, trained workers carefully hand-pick out any defective or broken pieces to protect lot purity.',
+          'Quality control happens through careful hand sorting. As the beans dry, trained workers inspect them closely, removing defective, damaged, or broken pieces to protect the purity and consistency of every lot.',
         detail: 'By density, then by hand',
         imageSlot: 'processGrading',
       },

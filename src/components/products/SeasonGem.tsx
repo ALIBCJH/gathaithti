@@ -34,7 +34,8 @@ export function SeasonGem({ content }: { content: ProductsContent['gem'] }) {
           lead={content.lead}
         />
 
-        <ul className="mt-16 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-12">
+        {/* The column count follows the content: two cards since 2026-09-30. */}
+        <ul className="mx-auto mt-16 grid max-w-[68rem] gap-10 sm:grid-cols-2 lg:mt-20 lg:gap-14">
           {content.cards.map((card, i) => (
             <li key={card.title}>
               <Reveal delay={(i % 3) * 60}>
