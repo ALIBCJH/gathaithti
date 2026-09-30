@@ -4,7 +4,7 @@ export const about: AboutContent = {
   meta: {
     title: 'About Gathaithi Co-operative Society — history & governance',
     description:
-      'Organised in {{established}} under North Tetu and independent since 2000. The society’s history, its governance, and the {{members}} families who own it.',
+      'Organised in {{established}} under Tetu North and independent since 2000. The society’s history, its governance, and the {{members}} families who own it.',
     ogLine: 'Founded 1967 · Independent since June 2000 · Tetu, Nyeri',
   },
 
@@ -36,7 +36,7 @@ export const about: AboutContent = {
     eyebrow: 'Community ownership · Uncompromised quality',
     heading: 'High-Altitude Craft, Rooted in Community',
     lead:
-      'Gathaithi Farmers’ Co-operative Society unites {{members}} smallholders across the fertile highlands of Nyeri. Guided by independent ownership and generational expertise, we cultivate, wet-mill, and supply exceptional Kenyan specialty coffee directly to global roasteries.',
+      'Gathaithi Farmers’ Co-operative Society comprises {{members}} smallholders across the fertile highlands of Nyeri. Guided by independent ownership and generational expertise, we cultivate, wet-mill, and supply exceptional Kenyan speciality coffee directly to global roasters.',
     /* THREE pillars since 2026-09-20, the society's own copy. "When it
        started" (Established 1967 | Independent since 2000) was dropped at the
        client's request: the timeline below and the home page both carry those
@@ -50,11 +50,11 @@ export const about: AboutContent = {
       {
         label: 'Processing & quality',
         title: 'Precision Wet-Milling',
-        body: 'Our farmers selectively hand-pick ripe cherries, which the society then processes through immediate same-day pulping, channel washing, and raised-bed drying to guarantee complete lot traceability and cup clarity.',
+        body: 'Our farmers selectively hand-pick ripe cherries, which the society then processes through immediate same-day pulping and channel washing with clean water, before the parchment is taken to raised beds for drying and conditioning.',
       },
       {
         label: 'Cup profile & varietals',
-        title: 'Premier Specialty Coffee',
+        title: 'Premier Speciality Coffee',
         body: 'Cultivating prized {{varieties}} varieties—renowned for brilliant blackcurrant acidity, rich sweetness, and vibrant fruit complexity.',
       },
     ],
@@ -64,20 +64,20 @@ export const about: AboutContent = {
      fact already on the site; nothing here is new. */
   history: {
     eyebrow: 'Our history',
-    heading: 'From 1967 to today',
+    heading: 'From 1967 to date',
     lead:
-      'We began in {{established}} as coffee growers within the wider Tetu society. Today we are an independent society of {{members}} active members, running our own wet mill and selling our own coffee.',
+      'We began in {{established}} as coffee growers within the wider Tetu North Co-operative Union. Today we are an independent society of {{members}} active members, running our own wet mill and selling our own coffee.',
     imageSlot: 'galleryGate',
     milestones: [
       {
         year: '{{established}}',
-        title: 'Roots under Tetu',
-        body: 'Gathaithi’s growers organise as a coffee-growing area of the Tetu Farmers’ Co-operative Society, delivering their cherry to the wider society.',
+        title: 'Roots under Tetu North',
+        body: 'Gathaithi’s growers organised as a coffee-growing area of the Tetu North Co-operative Union, delivering their cherry to the union.',
       },
       {
         year: '2000',
         title: 'Our own society',
-        body: 'On {{independentSince}}, the farmers of Gathaithi register their own society and take over the wet mill, the marketing of their coffee and the payments to members.',
+        body: 'On {{independentSince}}, the farmers of Gathaithi registered their own society, took over the wet mill, and started marketing their coffee and paying their members directly.',
       },
       {
         year: '{{cuppingYear}}',
@@ -86,8 +86,8 @@ export const about: AboutContent = {
       },
       {
         year: '2024',
-        title: 'Second in Kenya',
-        body: 'We pay our members {{cherryPrice2024}} per kilo of cherry, the second-highest cherry payment in the country that year.',
+        title: 'Top 5 in Kenya',
+        body: 'We paid our members {{cherryPrice2024}} per kilo of cherry, among the top five cherry payments in the country that year.',
       },
       {
         year: 'Today',

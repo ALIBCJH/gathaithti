@@ -61,7 +61,7 @@ export const home: HomeContent = {
   },
 
   proof: {
-    eyebrow: 'By the numbers',
+    eyebrow: 'Our motto',
     /* The society's motto, asked for here 2026-09-11 in place of "A coffee
        society built on quality, ownership and time." Kiswahili, so the
        heading is marked `lang="sw"` for screen readers. */
@@ -83,22 +83,22 @@ export const home: HomeContent = {
        a glyph would not read. On a poster the glyph is the point. Same fact,
        same audit trail; only the setting differs. */
     figures: {
-      nationalRank2024: '#2',
+      nationalRank2024: 'Top 5',
     },
     titles: {
       /* The society's own wording, supplied 2026-09-18. */
-      nationalRank2024: 'Kenya’s #2 Farmer Payout',
+      nationalRank2024: 'Kenya’s Top 5 Farmer Payout',
       established: 'Heritage & Independence',
       members: 'Farmer-Owned',
     },
     captions: {
-      nationalRank2024: 'Ranked among Kenya’s highest-paying coffee societies in 2024.',
+      nationalRank2024: 'Ranked among the top 5 highest-paying coffee societies in Kenya in 2024.',
       /* 1967 and 1,988 come from the facts so they cannot drift from the big
          figures above them. "2000" is written out because the
          `independentSince` fact displays the full date, 21 January 2000. */
-      /* The society's own copy, 2026-09-20; "Tetu Farmers Cooperative" set in
-         the site's spelling, Tetu Farmers’ Co-operative Society. */
-      established: 'Originally founded in {{established}} under the larger Tetu Farmers’ Co-operative Society, Gathaithi officially branched off in 2000 to operate as a fully independent, member-owned society.',
+      /* The society's own copy, 2026-09-20. The parent body is named Tetu
+         North Co-operative Union throughout the site (client, 2026-09-30). */
+      established: 'Originally founded in {{established}} under the larger Tetu North Co-operative Union, Gathaithi officially branched off in 2000 to operate as a fully independent, member-owned society.',
       members: 'A collective of {{members}} smallholder farmers producing coffee with shared ownership.',
     },
   },
@@ -124,9 +124,8 @@ export const home: HomeContent = {
       { label: 'Available grades', value: '{{grades}}' },
       { label: 'Varieties', value: '{{varieties}}' },
       { label: 'Certifications', value: '{{certificationRA}} | {{eudr}}' },
-      { label: 'Processing method', value: 'Fully washed, sun-dried on raised beds' },
+      { label: 'Processing method', value: 'Fully washed, soaked, sun-dried on raised beds' },
       { label: 'Annual cherry intake', value: '{{cherryAnnual}} kg' },
-      { label: 'Sample dispatch', value: '250 g / 1 kg green samples, sold both locally and internationally' },
     ],
     cta: { label: 'See this season’s lots', href: 'products' },
   },
@@ -139,7 +138,7 @@ export const home: HomeContent = {
        lines written for the photographs on 2026-09-18. */
     eyebrow: 'Farm to cup',
     heading: 'From the Highlands of Nyeri to the Global Cup',
-    lead: 'Trace our harvest from high-altitude farms across Nyeri to exceptional coffees enjoyed worldwide.',
+    lead: 'Trace our harvest from high-altitude farms across Nyeri to exceptional coffee enjoyed worldwide.',
     steps: [
       {
         label: 'Selective Picking',
@@ -150,7 +149,7 @@ export const home: HomeContent = {
       {
         label: 'Wet Milling & Grading',
         title: 'Green Coffee',
-        body: 'Channel-washed and sun-dried on raised beds, our parchment is hulled and graded into uniform green lots.',
+        body: 'Channel-washed and sun-dried on raised beds, our parchment is pulped and graded into uniform green lots.',
         imageSlot: 'journeyGreen',
       },
       {
@@ -220,7 +219,9 @@ export const home: HomeContent = {
       { id: 'cms', name: 'Coffee Management Services', imageSlot: 'partnerCms' },
       { id: 'dormans', name: 'Dormans', imageSlot: 'partnerDormans' },
       { id: 'ea-bean', name: 'EA Bean Co.', imageSlot: 'partnerEaBean' },
-      { id: 'e4impact', name: 'E4Impact Foundation', imageSlot: 'partnerE4impact' },
+      /* Renamed to Arabica on 2026-09-30 at the client's instruction; the
+         E4Impact mark is still the image until they send the new one. */
+      { id: 'e4impact', name: 'Arabica', imageSlot: 'partnerE4impact' },
     ],
   },
 };

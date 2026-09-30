@@ -1244,7 +1244,9 @@ export const images = {
     minWidth: 1200,
     minHeight: 675,
     direction: 'Supplied mark. The organisation\u2019s own logo, centred, on its own ground.',
-    alt: 'E4Impact Foundation',
+    /* The partner is named Arabica on the site since 2026-09-30; the mark is
+       still E4Impact's until the client sends the new one. */
+    alt: 'Arabica',
     sizes: '(min-width: 1024px) 22vw, (min-width: 640px) 44vw, 90vw',
   },
   farmersPrefinance: {

@@ -180,7 +180,8 @@ export const site = {
        and which nothing rendered, so a wrong address sat unread for months.
        It is in the footer and the structured data now. */
     poBox: '12504',
-    postal: 'P.O. Box 12504, Nyeri',
+    /* Postal code added 2026-09-30 at the client's instruction. */
+    postal: 'P.O. Box 12504-10100, Nyeri',
     country: 'Kenya',
     countryCode: 'KE',
   },
