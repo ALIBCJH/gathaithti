@@ -152,6 +152,8 @@ export const about: AboutContent = {
         body: 'Our coffee is prepared for the EU Deforestation Regulation. The regulation is met by the importer rather than certified to the farmer, so we supply the farm and lot information an importer needs for its due-diligence statement.',
       },
     ],
+    /* No Certification or EU market rows: the two cards above the table
+       carry them since #175. */
     rows: [
       { label: 'Registered name', value: 'Gathaithi Farmers’ Co-operative Society Ltd' },
       { label: 'Registration number', value: '{{registrationNumber}}' },
@@ -160,8 +162,6 @@ export const about: AboutContent = {
       { label: 'County', value: 'Nyeri County' },
       { label: 'Sub-county', value: 'Tetu' },
       { label: 'Wet mills operated', value: '{{wetMills}}' },
-      { label: 'Certification', value: '{{certificationRA}}' },
-      { label: 'EU market', value: '{{eudr}}' },
       /* The society's own breakdown, as it gave it on 2026-09-11. The three
          come from content/facts.ts and must keep adding up. */
       { label: 'Active members', value: '{{members}}' },
