@@ -14,7 +14,7 @@ import { ogLocale } from './i18n';
  *
  * WITH A TRAILING SLASH, because the site is built with `trailingSlash` and
  * every page is a directory holding an index.html. Without it this returned
- * https://gathaithi.cloud/about, which 301s to /about/ — so the sitemap listed
+ * https://gathaithi.co.ke/about, which 301s to /about/ — so the sitemap listed
  * six URLs that all redirected, and Search Console would have filed every one
  * of them as "Page with redirect" on the day the site was submitted. Google
  * follows the redirect and indexes the right page either way; the point is not

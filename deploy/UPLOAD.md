@@ -23,12 +23,12 @@ spamming from the whole server. Calling it is a fatal error, which is why the
 first live enquiry came back as a bare 500.
 
 So the site sends the way a phone does — authenticated SMTP over TLS as
-`website@gathaithi.cloud`, which is also the better route: the message is
+`website@gathaithi.co.ke`, which is also the better route: the message is
 signed by the domain's own server, which is what its DKIM and its strict DMARC
 policy expect.
 
 It needs one file. In File Manager, inside `public_html`, create
-**`.mail-password.php`** containing the password for `website@gathaithi.cloud`.
+**`.mail-password.php`** containing the password for `website@gathaithi.co.ke`.
 Any of these work:
 
 ```php
@@ -53,14 +53,14 @@ directory listings too.
 The addresses themselves are already set in `enquiry.php` and need no editing:
 
 ```php
-'sample_to'  => 'marketing@gathaithi.cloud',   // Our Coffee enquiries
-'contact_to' => 'office@gathaithi.cloud',      // contact page enquiries
-'from'       => 'Gathaithi website <website@gathaithi.cloud>',
+'sample_to'  => 'marketing@gathaithi.co.ke',   // Our Coffee enquiries
+'contact_to' => 'office@gathaithi.co.ke',      // contact page enquiries
+'from'       => 'Gathaithi website <website@gathaithi.co.ke>',
 ```
 
 ## 2b. Check it before testing
 
-Open **https://gathaithi.cloud/enquiry.php** in a browser. It answers:
+Open **https://gathaithi.co.ke/enquiry.php** in a browser. It answers:
 
 ```json
 {"error":"Method not allowed.","handler":"…","transport":"smtp",

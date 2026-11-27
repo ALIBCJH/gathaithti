@@ -42,15 +42,17 @@ if (!function_exists('mb_strlen')) {
 }
 
 $CONFIG = [
-    /* Where enquiries are delivered. Real mailboxes, created in cPanel on
-       the society's own account 2026-09-08. */
-    'sample_to' => 'marketing@gathaithi.cloud',
-    'contact_to' => 'office@gathaithi.cloud',
+    /* Where enquiries are delivered. Mailboxes on the society's own domain,
+       gathaithi.co.ke from 2026-11-27 (gathaithi.cloud before that). They
+       must exist in cPanel before this file goes live. */
+    'sample_to' => 'marketing@gathaithi.co.ke',
+    'contact_to' => 'office@gathaithi.co.ke',
 
-    /* MUST stay on gathaithi.cloud. The domain publishes DMARC p=quarantine
-       with aspf=s, so a From: anywhere else is silently filed as spam rather
-       than bounced — the form would look broken while working perfectly. */
-    'from' => 'Gathaithi website <website@gathaithi.cloud>',
+    /* MUST stay on gathaithi.co.ke, the domain this file is served from. A
+       From: on any other domain fails the host's DMARC/SPF alignment and is
+       silently filed as spam rather than bounced — the form would look broken
+       while working perfectly. */
+    'from' => 'Gathaithi website <website@gathaithi.co.ke>',
 
     /* ── SMTP ────────────────────────────────────────────────────────────
      * This host DISABLES PHP's mail(). Confirmed on 2026-09-08: a GET to this
@@ -60,13 +62,13 @@ $CONFIG = [
      * spamming from the whole server.
      *
      * So the mail is handed to the mail server the same way a phone does it:
-     * authenticated SMTP over TLS, as website@gathaithi.cloud. It is also the
+     * authenticated SMTP over TLS, as website@gathaithi.co.ke. It is also the
      * better route — the message is signed by the domain's own server, which
      * is what DKIM and that strict DMARC policy expect.
      */
-    'smtp_host' => 'mail.gathaithi.cloud',
+    'smtp_host' => 'mail.gathaithi.co.ke',
     'smtp_port' => 465,
-    'smtp_user' => 'website@gathaithi.cloud',
+    'smtp_user' => 'website@gathaithi.co.ke',
 
     /* Requests per IP per hour, matching src/lib/rate-limit.ts.
        Counted per INTERNET CONNECTION, not per person: an office, a college
@@ -540,7 +542,7 @@ $record('RECEIVED');
    absence directly (MISSING_MID) — which is how the first live enquiries came
    to sit in Junk marked ***SPAM*** while the send itself had succeeded.
    The domain is taken from the From: address so the two cannot drift apart. */
-$fromDomain = 'gathaithi.cloud';
+$fromDomain = 'gathaithi.co.ke';
 if (preg_match('/@([A-Za-z0-9.\-]+)/', $CONFIG['from'], $m)) {
     $fromDomain = rtrim($m[1], '>');
 }
