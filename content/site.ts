@@ -36,12 +36,11 @@ export const localeOgTags: Record<string, string> = { en: 'en_KE', sw: 'sw_KE' }
  * link, OpenGraph URL, JSON-LD @id and sitemap entry in that build comes from
  * here. It carried gathaithicoffee.co.ke, a domain with no DNS record, which
  * would have shipped a site telling search engines it lived somewhere that
- * does not exist. It was gathaithi.cloud until 2026-11-27, when the society
- * moved to gathaithi.co.ke.
+ * does not exist.
  *
  * Set NEXT_PUBLIC_SITE_URL if the site ever moves; it wins over this.
  */
-const FALLBACK_SITE_URL = 'https://gathaithi.co.ke';
+const FALLBACK_SITE_URL = 'https://gathaithi.cloud';
 
 /**
  * The canonical origin, used for <link rel="canonical">, OpenGraph URLs,
@@ -120,22 +119,20 @@ const contact: {
      wa.me both take from a phone abroad; the display keeps the spacing a
      Kenyan reader expects.
 
-     THE ADDRESSES: three mailboxes on gathaithi.co.ke, the society's own
-     domain from 2026-11-27. Until then they were on gathaithi.cloud (created
-     in cPanel 2026-09-08 on the society's Truehost account). The site, the
-     forms and the mailboxes all moved together; the mailboxes have to exist on
-     the new domain before this build is uploaded, or the forms cannot send.
+     THE ADDRESSES: three mailboxes on gathaithi.cloud, created in cPanel on
+     the society's own Truehost account. They replace addresses on
+     gathaithicoffee.co.ke, a domain with no DNS record, chosen deliberately so
+     that mail to them bounced at the sender rather than reaching a stranger.
 
        office@      general enquiries, read daily
        marketing@   sample and buyer enquiries
        website@     what the forms send FROM. Nobody reads it.
 
-     THAT THIRD ONE IS NOT DECORATION. Anything the site sends must be From:
-     an address on the site's own domain, sent through that domain's own mail
-     server. gathaithi.cloud published DMARC `p=quarantine` with `aspf=s`, and
-     a host sets the same kind of policy on a new domain: send as gmail.com
-     and the mail is not bounced, it is silently filed as spam, and the form
-     looks broken when it is not.
+     THAT THIRD ONE IS NOT DECORATION. gathaithi.cloud publishes DMARC
+     `p=quarantine` with `aspf=s` — strict alignment — so anything the site
+     sends must be From: an address on this domain. Send as gmail.com and the
+     mail is not bounced, it is silently filed as spam, and the form looks
+     broken when it is not.
 
      The members' line is BLANK rather than invented. It carried
      +254 700 000 111 from the old sample block, and a fake number standing
@@ -143,8 +140,8 @@ const contact: {
      Both the contact page and the footer drop a channel whose `value` is
      empty, so the row simply is not drawn. Fill it in and it comes back. */
   officePhone: { value: '+254745194764', display: '+254 745 194 764' },
-  officeEmail: { value: 'office@gathaithi.co.ke', display: 'office@gathaithi.co.ke' },
-  buyerEmail: { value: 'marketing@gathaithi.co.ke', display: 'marketing@gathaithi.co.ke' },
+  officeEmail: { value: 'office@gathaithi.cloud', display: 'office@gathaithi.cloud' },
+  buyerEmail: { value: 'marketing@gathaithi.cloud', display: 'marketing@gathaithi.cloud' },
   /* BLANK, not invented. This was "Grace Wanjiru, Marketing & Sales" — a
      person who does not exist, carried since the first build. Nothing renders
      it (it is exposed as a {{buyerContact}} token that no content file uses),
@@ -201,7 +198,7 @@ export const site = {
   /** Where the sample-request form delivers. Override with SAMPLE_REQUEST_TO
    *  in .env; the fallback is a real mailbox now, so a deployment that forgets
    *  the variable still delivers instead of posting into a void. */
-  sampleRequestTo: process.env.SAMPLE_REQUEST_TO ?? 'marketing@gathaithi.co.ke',
+  sampleRequestTo: process.env.SAMPLE_REQUEST_TO ?? 'marketing@gathaithi.cloud',
 
   /* From the society 2026-09-11. Also written into the LocalBusiness data in
      src/lib/seo.ts — a search engine reads that copy, not this one. */
