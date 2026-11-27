@@ -36,11 +36,12 @@ export const localeOgTags: Record<string, string> = { en: 'en_KE', sw: 'sw_KE' }
  * link, OpenGraph URL, JSON-LD @id and sitemap entry in that build comes from
  * here. It carried gathaithicoffee.co.ke, a domain with no DNS record, which
  * would have shipped a site telling search engines it lived somewhere that
- * does not exist.
+ * does not exist. It was gathaithi.cloud until 2026-11-27, when the society
+ * bought gathaithi.co.ke.
  *
  * Set NEXT_PUBLIC_SITE_URL if the site ever moves; it wins over this.
  */
-const FALLBACK_SITE_URL = 'https://gathaithi.cloud';
+const FALLBACK_SITE_URL = 'https://gathaithi.co.ke';
 
 /**
  * The canonical origin, used for <link rel="canonical">, OpenGraph URLs,
@@ -119,10 +120,16 @@ const contact: {
      wa.me both take from a phone abroad; the display keeps the spacing a
      Kenyan reader expects.
 
-     THE ADDRESSES: three mailboxes on gathaithi.cloud, created in cPanel on
-     the society's own Truehost account. They replace addresses on
-     gathaithicoffee.co.ke, a domain with no DNS record, chosen deliberately so
-     that mail to them bounced at the sender rather than reaching a stranger.
+     THE ADDRESSES: shown as @gathaithi.co.ke from 2026-11-27, but the three
+     MAILBOXES still live on gathaithi.cloud, where they were created in cPanel
+     on 2026-09-08. gathaithi.co.ke is an alias of gathaithi.cloud on the same
+     hosting account (shared document root), with a domain forwarder that
+     delivers anything@gathaithi.co.ke into the same-named mailbox on
+     gathaithi.cloud. So the society's PC and phone, set up on the .cloud
+     mailbox, receive mail sent to either address. deploy/enquiry.php is
+     deliberately untouched: it still sends as website@gathaithi.cloud through
+     mail.gathaithi.cloud to the .cloud mailboxes, which is the route that is
+     proven to work.
 
        office@      general enquiries, read daily
        marketing@   sample and buyer enquiries
@@ -140,8 +147,8 @@ const contact: {
      Both the contact page and the footer drop a channel whose `value` is
      empty, so the row simply is not drawn. Fill it in and it comes back. */
   officePhone: { value: '+254745194764', display: '+254 745 194 764' },
-  officeEmail: { value: 'office@gathaithi.cloud', display: 'office@gathaithi.cloud' },
-  buyerEmail: { value: 'marketing@gathaithi.cloud', display: 'marketing@gathaithi.cloud' },
+  officeEmail: { value: 'office@gathaithi.co.ke', display: 'office@gathaithi.co.ke' },
+  buyerEmail: { value: 'marketing@gathaithi.co.ke', display: 'marketing@gathaithi.co.ke' },
   /* BLANK, not invented. This was "Grace Wanjiru, Marketing & Sales" — a
      person who does not exist, carried since the first build. Nothing renders
      it (it is exposed as a {{buyerContact}} token that no content file uses),
